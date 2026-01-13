@@ -1771,10 +1771,10 @@ function getCourseRecommendation(score) {
   
   if (score >= 14 && score <= 18) {
     recommendation = "Cours accéléré du centre d'examen";
-    details = "Il est conseillé de s'inscrire au cours accéléré du centre d'examen. 正确率 14-18 题：建议报名全能讲解课程，以帮助考生顺利且高效地通过公民考试";
+    details = "Il est conseillé de s'inscrire au cours accéléré du centre d'examen. 正确率 14-18 题：建议报名考点速通课程";
   } else if (score < 14 ) {
     recommendation = "Cours complet avec explications détaillées";
-    details = "Il est conseillé de suivre le cours complet avec explications détaillées, afin d'aider les candidats à réussir l'examen civique de manière efficace et sereine.  正确率少于 14 题：建议报名考点速通课程";
+    details = "Il est conseillé de suivre le cours complet avec explications détaillées, afin d'aider les candidats à réussir l'examen civique de manière efficace et sereine.  正确率少于 14 题：建议报名全能讲解课程，以帮助考生顺利且高效地通过公民考试";
   } else {
     recommendation = "Prêt pour l'examen officiel";
     details = "Votre niveau est excellent! Vous êtes prêt pour l'examen officiel de la carte de séjour pluriannuelle. 正确率超过 18 题：您的水平非常优秀，已准备好参加正式考试！";
