@@ -1299,128 +1299,202 @@ let studentInfo = {
 // Questions avec réponses et explications
 const questions = [
   {
-    question: "À quoi correspond la date du 14 juillet ?",
-    options: ["La fête du travail", "La fête nationale française", "La prise des femmes", "Festival de musique"],
+    question: "De quelle année date la Constitution française ?",
+    options: ["1798", "1958", "1962", "1944"],
     answer: 1,
-    explanation: "Le 14 juillet célèbre la fête nationale française en mémoire de la prise de la Bastille en 1789."
+    explanation: "La Constitution actuelle de la France date de 1958 et fonde la Ve République."
   },
   {
-    question: "Quel est l'un des symboles de la République française ?",
-    options: ["La tour Eiffel", "Le coq gaulois", "Marianne", "La Joconde"],
-    answer: 2,
-    explanation: "Marianne est le symbole officiel de la République, représentant la liberté et la raison."
-  },
-  {
-    question: "Le principe d'égalité signifie que :",
-    options: ["Tous les citoyens ont les mêmes droits", "Tous les citoyens doivent avoir le même revenu", "Les hommes ont plus de droits que les femmes", "Les riches ont plus de droits que les pauvres"],
+    question: "Quelles sont les couleurs du drapeau français ?",
+    options: ["rouge, blanc et bleu", "rouge, vert et bleu", "blanc, noir et rouge", "rouge, blanc et vert"],
     answer: 0,
-    explanation: "L'égalité signifie que tous les citoyens ont les mêmes droits devant la loi, indépendamment de leur sexe, origine ou richesse."
+    explanation: "Le drapeau français est composé de trois couleurs : bleu, blanc et rouge."
   },
   {
-    question: "\"Liberté, égalité, fraternité\", c'est :",
-    options: ["Une chanson populaire", "La devise de la République française", "Un poème de Victor Hugo", "Une citation d'un roi"],
+    question: "Qu'est-ce que la laïcité ?",
+    options: [
+      "une religion officielle de la France",
+      "la séparation de l’État et des religions",
+      "une fête nationale française",
+      "une loi sur la langue française"
+    ],
     answer: 1,
-    explanation: "C'est la devise officielle de la République française, inscrite dans la Constitution."
+    explanation: "La laïcité garantit la séparation de l’État et des religions ainsi que la liberté de conscience."
   },
   {
-    question: "A-t-on le droit d'insulter publiquement quelqu'un parce qu'il est différent ?",
-    options: ["Oui, dans certaines situations", "Non, dans aucun cas", "Oui, avec le consentement des autres", "Non, en métropole française"],
-    answer: 1,
-    explanation: "La loi interdit toute insulte ou discrimination basée sur le handicap, l'apparence, le sexe ou l'origine."
-  },
-  {
-    question: "Certains métiers peuvent-ils être réservés aux hommes ?",
-    options: ["Oui", "Non", "Selon le revenu", "Selon l'âge"],
-    answer: 1,
-    explanation: "La loi française interdit toute discrimination liée au sexe dans l'accès aux professions."
-  },
-  {
-    question: "De quand date la Constitution de la Ve République ?",
-    options: ["1789", "1958", "1946", "1871"],
-    answer: 1,
-    explanation: "La Constitution actuelle de la Ve République a été adoptée en 1958."
-  },
-  {
-    question: "Le régime de la France est :",
-    options: ["Une monarchie", "Une république", "Une dictature", "Une confédération"],
-    answer: 1,
-    explanation: "La France est une République démocratique où le pouvoir appartient au peuple."
-  },
-  {
-    question: "Quel animal est un symbole de la France ?",
-    options: ["Le lion", "Le coq", "L'aigle", "L'ours"],
-    answer: 1,
-    explanation: "Le coq gaulois est un symbole traditionnel de la France, représentant vigilance et courage."
-  },
-  {
-    question: "La liberté religieuse inclut aussi :",
-    options: ["L'obligation de croire", "Le droit de ne pas croire", "L'imposition d'une foi", "L'interdiction de changer"],
-    answer: 1,
-    explanation: "Chaque citoyen peut choisir de croire ou de ne pas croire, selon le principe de liberté de conscience."
-  },
-  {
-    question: "Qui est le chef de l'État en France ?",
-    options: ["Le Premier ministre", "Le président de la République", "Le président du Sénat", "Le maire de Paris"],
-    answer: 1,
-    explanation: "Le président de la République est le chef de l'État en France."
-  },
-  {
-    question: "Combien de couleurs compose le drapeau français ?",
-    options: ["2", "3", "4", "5"],
-    answer: 1,
-    explanation: "Le drapeau français est composé de trois couleurs : bleu, blanc, rouge (de gauche à droite)."
-  },
-  {
-    question: "Quelle est la langue officielle de la France ?",
-    options: ["Le français", "Le latin", "L'anglais", "Plusieurs langues régionales"],
-    answer: 0,
-    explanation: "Le français est la langue officielle de la République française selon la Constitution."
-  },
-  {
-    question: "À partir de quel âge l'instruction est-elle obligatoire en France ?",
-    options: ["3 ans", "6 ans", "10 ans", "16 ans"],
-    answer: 0,
-    explanation: "L'instruction est obligatoire pour tous les enfants à partir de 3 ans en France."
-  },
-  {
-    question: "Quelle institution représente les citoyens français au niveau européen ?",
-    options: ["Le Sénat", "L'Assemblée nationale", "Le Parlement européen", "Le Conseil constitutionnel"],
+    question: "En France, avoir plusieurs femmes est :",
+    options: ["obligatoire", "autorisé", "interdit", "normal"],
     answer: 2,
-    explanation: "Le Parlement européen représente les citoyens de l'Union européenne, dont les Français."
+    explanation: "La polygamie est interdite par la loi en France."
   },
   {
-    question: "Quel est le jour de la fête nationale française ?",
-    options: ["1er mai", "8 mai", "14 juillet", "11 novembre"],
-    answer: 2,
-    explanation: "Le 14 juillet est la fête nationale française, commémorant la prise de la Bastille en 1789."
+    question: "Madame X et Monsieur Y font le même travail dans une entreprise. En France, leur salaire est :",
+    options: [
+      "le même",
+      "différent parce qu’ils n’ont pas le même âge",
+      "différent parce qu’ils n’ont pas le même sexe",
+      "différent sans raison"
+    ],
+    answer: 0,
+    explanation: "En France, l’égalité salariale entre les femmes et les hommes est un principe légal."
   },
   {
-    question: "Qui élit le président de la République française ?",
-    options: ["Le Parlement", "Le peuple français", "Le Conseil constitutionnel", "Les maires"],
-    answer: 1,
-    explanation: "Le président de la République est élu au suffrage universel direct par le peuple français."
+    question: "Le Parlement est composé :",
+    options: [
+      "de députés et de sénateurs",
+      "de juges et de policiers",
+      "de professeurs et d’élèves",
+      "du président et du Premier ministre"
+    ],
+    answer: 0,
+    explanation: "Le Parlement français est composé de l’Assemblée nationale (députés) et du Sénat (sénateurs)."
   },
   {
-    question: "Que garantit la laïcité en France ?",
-    options: ["La liberté de culte", "La neutralité de l'État", "La séparation des Églises et de l'État", "Toutes ces réponses"],
+    question: "Un ministre ne respecte pas la loi. En France :",
+    options: [
+      "il ne reçoit pas de punition",
+      "il reçoit une punition seulement dans certains cas",
+      "il peut décider de ne pas recevoir de punition",
+      "il reçoit la même punition que les citoyens"
+    ],
     answer: 3,
-    explanation: "La laïcité garantit la liberté de culte, la neutralité de l'État et la séparation des Églises et de l'État."
+    explanation: "En France, tous les citoyens sont égaux devant la loi, y compris les ministres."
   },
   {
-    question: "Quel est le rôle principal des députés à l'Assemblée nationale ?",
-    options: ["Représenter le gouvernement", "Représenter les citoyens", "Représenter les entreprises", "Représenter les régions"],
+    question: "Quel traité a permis la création officielle de l’Union européenne ?",
+    options: [
+      "le traité de Rome",
+      "le traité de Maastricht",
+      "le traité de Lisbonne",
+      "le traité de Paris"
+    ],
     answer: 1,
-    explanation: "Les députés représentent les citoyens français à l'Assemblée nationale."
+    explanation: "Le traité de Maastricht (1992) a officiellement créé l’Union européenne."
   },
   {
-    question: "Quelle est la durée du mandat présidentiel en France ?",
-    options: ["4 ans", "5 ans", "6 ans", "7 ans"],
+    question: "De quelle année date la Déclaration des droits de l’homme et du citoyen ?",
+    options: ["1789", "1905", "1944", "1952"],
+    answer: 0,
+    explanation: "La Déclaration des droits de l’homme et du citoyen date de 1789, pendant la Révolution française."
+  },
+  {
+    question: "Que doit faire une personne en cas d’accident ?",
+    options: [
+      "partir sans aider",
+      "demander de l’aide à des amis",
+      "prendre une photo et poster sur les réseaux sociaux",
+      "appeler les secours (le 15, le 17 ou le 18)"
+    ],
+    answer: 3,
+    explanation: "En cas d’accident, il faut appeler les secours : 15 (SAMU), 17 (police) ou 18 (pompiers)."
+  },
+  {
+    question: "Une femme peut avorter :",
+    options: [
+      "seulement si elle est mariée",
+      "quand elle veut, sans limite",
+      "seulement si elle a un enfant",
+      "légalement en France jusqu’à 14 semaines de grossesse"
+    ],
+    answer: 3,
+    explanation: "En France, l’IVG est autorisée jusqu’à 14 semaines de grossesse."
+  },
+  {
+    question: "Madame X a insulté Madame Y. Que peut faire Madame Y ?",
+    options: [
+      "Porter plainte auprès de la police.",
+      "Demander à son mari d’intervenir.",
+      "Insulter Madame X en retour.",
+      "Demander à son père d’intervenir."
+    ],
+    answer: 0,
+    explanation: "En cas d’insulte, une personne peut porter plainte auprès de la police."
+  },
+  {
+    question: "Jeter des déchets dans la rue :",
+    options: [
+      "est interdit",
+      "est permis dans le parc",
+      "est permis quand il n’y a personne",
+      "est permis à certaines heures"
+    ],
+    answer: 0,
+    explanation: "Jeter des déchets dans la rue est interdit et puni par la loi."
+  },
+  {
+    question: "Madame X refuse de payer sa facture d’impôts. En France :",
+    options: [
+      "c’est illégal et elle peut être punie",
+      "c’est possible si son père est d’accord",
+      "c’est possible si son mari est d’accord",
+      "c’est possible si son entreprise est d’accord"
+    ],
+    answer: 0,
+    explanation: "Le paiement des impôts est obligatoire en France. Refuser de payer est illégal."
+  },
+  {
+    question: "Le 11 novembre est un jour férié. À quoi correspond cette date ?",
+    options: [
+      "le jour de Noël",
+      "l’anniversaire de la Révolution française",
+      "la fête des mères",
+      "la fin de la Première Guerre mondiale"
+    ],
+    answer: 3,
+    explanation: "Le 11 novembre commémore l’armistice de 1918, marquant la fin de la Première Guerre mondiale."
+  },
+  {
+    question: "Quelle île française se trouve dans l'océan Indien ?",
+    options: ["Guadeloupe", "La Corse", "La Réunion", "Guyane"],
+    answer: 2,
+    explanation: "La Réunion est une île française située dans l’océan Indien."
+  },
+  {
+    question: "Qui était Molière ?",
+    options: [
+      "un écrivain et dramaturge français",
+      "un peintre",
+      "un écrivain",
+      "un scientifique"
+    ],
+    answer: 0,
+    explanation: "Molière était un célèbre écrivain et dramaturge français du XVIIe siècle."
+  },
+  {
+    question: "Qu’est-ce que le Louvre ?",
+    options: [
+      "un musée à Paris",
+      "un château où vit le président",
+      "un stade de football",
+      "une grande école"
+    ],
+    answer: 0,
+    explanation: "Le Louvre est un grand musée situé à Paris."
+  },
+  {
+    question: "Ne pas envoyer un enfant de 8 ans à l’école en France :",
+    options: [
+      "est possible si l’enfant ne veut pas y aller",
+      "est possible si les parents peuvent l’enseigner à la maison",
+      "est interdit",
+      "est possible si l’enfant ne parle pas français"
+    ],
+    answer: 2,
+    explanation: "L’instruction est obligatoire en France pour les enfants de 3 à 16 ans."
+  },
+  {
+    question: "En France, pour le travail, quelle phrase est correcte ?",
+    options: [
+      "On peut travailler sans dire à l’administration",
+      "Tout salarié doit être déclaré par son employeur",
+      "On peut travailler sans contrat si on est adulte",
+      "Les heures supplémentaires ne doivent jamais être déclarées"
+    ],
     answer: 1,
-    explanation: "Le mandat du président de la République française dure 5 ans (quinquennat)."
+    explanation: "Tout salarié doit être déclaré légalement par son employeur."
   }
 ];
 
-// Variables d'état
 let currentQuestionIndex = 0;
 let userAnswers = new Array(questions.length).fill(null);
 
