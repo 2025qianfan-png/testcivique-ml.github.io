@@ -114,6 +114,7 @@ h1, h2, h3, h4 {
   justify-content: center;
   align-items: center;
   padding: 20px;
+  overflow-y: auto;
 }
 
 .disclaimer-content {
@@ -122,7 +123,7 @@ h1, h2, h3, h4 {
   border-radius: var(--border-radius);
   max-width: 800px;
   width: 100%;
-  max-height: 80vh;
+  max-height: 90vh;
   overflow-y: auto;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   animation: modalFade 0.4s ease-out;
@@ -269,7 +270,7 @@ h1, h2, h3, h4 {
   min-width: 180px;
 }
 
-/* Name Collection Modal */
+/* Name Collection Modal - FIXED */
 .name-overlay {
   position: fixed;
   top: 0;
@@ -280,31 +281,33 @@ h1, h2, h3, h4 {
   z-index: 2500;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* Changed from center to flex-start */
   padding: 20px;
+  overflow-y: auto; /* Added for scrolling */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
 .name-content {
   background-color: var(--white);
-  padding: 50px;
+  padding: 30px; /* Reduced padding */
   border-radius: var(--border-radius);
   max-width: 500px;
   width: 100%;
-  text-align: center;
+  margin: 40px auto; /* Added margin for mobile */
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   animation: modalFade 0.4s ease-out;
 }
 
 .name-content h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+  font-size: 1.8rem; /* Reduced size */
+  margin-bottom: 15px;
   color: var(--primary-blue);
 }
 
 .name-content p {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   color: var(--medium-gray);
-  font-size: 1.1rem;
+  font-size: 1rem; /* Reduced size */
 }
 
 .name-form {
@@ -312,7 +315,7 @@ h1, h2, h3, h4 {
 }
 
 .form-group {
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .form-group label {
@@ -328,7 +331,7 @@ h1, h2, h3, h4 {
   border: 2px solid #ddd;
   border-radius: 8px;
   font-family: 'Open Sans', sans-serif;
-  font-size: 1rem;
+  font-size: 16px; /* Fixed for iOS */
   transition: var(--transition);
 }
 
@@ -341,15 +344,20 @@ h1, h2, h3, h4 {
 .email-info {
   background-color: rgba(52, 152, 219, 0.1);
   border-left: 4px solid #3498db;
-  padding: 15px;
+  padding: 12px;
   border-radius: 0 8px 8px 0;
   margin: 20px 0;
+  font-size: 0.9rem; /* Reduced size */
 }
 
 .email-info p {
-  margin: 0;
+  margin: 0 0 8px 0;
   color: #2c3e50;
-  font-size: 0.95rem;
+  font-size: 0.9rem; /* Reduced size */
+}
+
+.email-info p:last-child {
+  margin-bottom: 0;
 }
 
 .form-error {
@@ -364,7 +372,7 @@ h1, h2, h3, h4 {
   display: flex;
   gap: 15px;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 25px;
 }
 
 /* Password Modal */
@@ -380,29 +388,31 @@ h1, h2, h3, h4 {
   justify-content: center;
   align-items: center;
   padding: 20px;
+  overflow-y: auto;
 }
 
 .password-content {
   background-color: var(--white);
-  padding: 50px;
+  padding: 40px;
   border-radius: var(--border-radius);
   max-width: 500px;
   width: 100%;
+  margin: auto;
   text-align: center;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   animation: modalFade 0.4s ease-out;
 }
 
 .password-content h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
   color: var(--primary-blue);
 }
 
 .password-content p {
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   color: var(--medium-gray);
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .password-input {
@@ -457,14 +467,16 @@ h1, h2, h3, h4 {
   justify-content: center;
   align-items: center;
   padding: 20px;
+  overflow-y: auto;
 }
 
 .email-status-content {
   background-color: var(--white);
-  padding: 50px;
+  padding: 40px;
   border-radius: var(--border-radius);
   max-width: 500px;
   width: 100%;
+  margin: auto;
   text-align: center;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   animation: modalFade 0.4s ease-out;
@@ -817,8 +829,9 @@ h1, h2, h3, h4 {
   font-weight: 600;
 }
 
-/* Responsive */
+/* Responsive - UPDATED */
 @media (max-width: 768px) {
+  /* General responsive */
   .test-header h1 {
     font-size: 2.2rem;
   }
@@ -851,36 +864,155 @@ h1, h2, h3, h4 {
     width: 100%;
   }
   
+  /* Modal fixes for mobile */
+  .disclaimer-overlay,
+  .name-overlay,
+  .password-overlay,
+  .email-status-overlay {
+    padding: 10px;
+    align-items: flex-start;
+  }
+  
   .disclaimer-content {
     padding: 25px 20px;
+    margin: 20px auto;
+    max-height: 85vh;
   }
   
   .disclaimer-header h2 {
     font-size: 1.8rem;
   }
   
-  .name-content, .password-content, .email-status-content {
-    padding: 30px 20px;
+  .name-content,
+  .password-content,
+  .email-status-content {
+    padding: 25px 20px;
+    margin: 30px auto;
+    width: calc(100% - 20px);
   }
   
-  .name-btns, .password-btns {
+  .name-content h2,
+  .password-content h2,
+  .email-status-content h3 {
+    font-size: 1.5rem;
+  }
+  
+  /* Form improvements for mobile */
+  .form-group input {
+    padding: 16px;
+    font-size: 16px;
+    min-height: 50px;
+  }
+  
+  .email-info {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+  
+  /* Button improvements for mobile */
+  .name-btns,
+  .password-btns,
+  .disclaimer-btns {
     flex-direction: column;
+    gap: 10px;
   }
   
-  .btn-modal {
+  .btn-modal,
+  .btn-disclaimer {
     width: 100%;
+    padding: 16px;
   }
   
   .timer-display {
     font-size: 2rem;
   }
   
-  .disclaimer-btns {
+  /* Fix for small screens */
+  .disclaimer-agreement {
+    padding: 20px 15px;
+  }
+  
+  .agreement-checkbox {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .agreement-checkbox label {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .name-content,
+  .password-content {
+    padding: 20px 15px;
+  }
+  
+  .name-content h2 {
+    font-size: 1.3rem;
+  }
+  
+  .name-content p {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+  }
+  
+  .email-info {
+    font-size: 0.8rem;
+    padding: 8px 10px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group input {
+    padding: 14px;
+  }
+  
+  .results-actions {
     flex-direction: column;
   }
   
-  .btn-disclaimer {
+  .results-actions .btn {
     width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .score-display {
+    font-size: 2.5rem;
+  }
+  
+  .score-text {
+    font-size: 1.3rem;
+  }
+}
+
+/* Landscape mode */
+@media (max-height: 600px) and (orientation: landscape) {
+  .name-overlay {
+    align-items: flex-start;
+    padding-top: 10px;
+  }
+  
+  .name-content {
+    margin: 10px auto;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+}
+
+/* Fix for iOS input zoom */
+@media screen and (max-width: 768px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  select,
+  textarea {
+    font-size: 16px !important;
   }
 }
 </style>
@@ -1311,6 +1443,31 @@ document.getElementById('agreeCheckbox').addEventListener('change', function() {
   document.getElementById('agreeBtn').disabled = !this.checked;
 });
 
+// 添加移动端优化函数
+function optimizeForMobile() {
+  // 检测是否是移动设备
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  
+  if (isMobile) {
+    // 为所有模态框添加触摸优化
+    const modals = document.querySelectorAll('.disclaimer-overlay, .name-overlay, .password-overlay');
+    modals.forEach(modal => {
+      modal.style.webkitOverflowScrolling = 'touch';
+    });
+    
+    // 确保输入框在iOS上不被缩放
+    const inputs = document.querySelectorAll('input[type="text"], input[type="email"], input[type="password"]');
+    inputs.forEach(input => {
+      input.style.fontSize = '16px';
+    });
+  }
+}
+
+// 页面加载完成后运行优化
+window.addEventListener('DOMContentLoaded', function() {
+  optimizeForMobile();
+});
+
 function acceptDisclaimer() {
   if (!document.getElementById('agreeCheckbox').checked) {
     alert("Veuillez cocher la case pour accepter les conditions.");
@@ -1322,7 +1479,12 @@ function acceptDisclaimer() {
   
   // Afficher le modal de collecte de nom
   document.getElementById('nameModal').style.display = 'flex';
-  document.getElementById('firstName').focus();
+  
+  // 滚动到顶部
+  setTimeout(() => {
+    document.querySelector('.name-overlay').scrollTop = 0;
+    document.getElementById('firstName').focus();
+  }, 100);
 }
 
 function rejectDisclaimer() {
@@ -1339,6 +1501,11 @@ function goBackToDisclaimer() {
 function goBackToName() {
   document.getElementById('passwordModal').style.display = 'none';
   document.getElementById('nameModal').style.display = 'flex';
+  
+  // 滚动到顶部
+  setTimeout(() => {
+    document.querySelector('.name-overlay').scrollTop = 0;
+  }, 100);
 }
 
 function saveStudentInfo() {
@@ -1369,7 +1536,12 @@ function saveStudentInfo() {
   // Masquer le modal de nom et afficher le modal de mot de passe
   document.getElementById('nameModal').style.display = 'none';
   document.getElementById('passwordModal').style.display = 'flex';
-  document.getElementById('passwordInput').focus();
+  
+  // 滚动到顶部并聚焦
+  setTimeout(() => {
+    document.querySelector('.password-overlay').scrollTop = 0;
+    document.getElementById('passwordInput').focus();
+  }, 100);
 }
 
 function isValidEmail(email) {
@@ -1389,6 +1561,11 @@ function validatePassword() {
     // Afficher l'en-tête et le pied de page
     document.querySelector('.test-header').style.display = 'block';
     document.querySelector('.test-footer').style.display = 'block';
+    
+    // 滚动到顶部
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
     
     initializeTest();
   } else {
@@ -1860,6 +2037,11 @@ function restartTest() {
     document.getElementById('testContainer').style.display = 'block';
     document.getElementById('testContainer').classList.add('show');
     
+    // 滚动到顶部
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
+    
     initializeTest();
   }
 }
@@ -1877,6 +2059,19 @@ document.getElementById('passwordInput').addEventListener('keypress', function(e
   if (e.key === 'Enter') {
     validatePassword();
   }
+});
+
+// 为输入框添加Enter键支持
+document.addEventListener('DOMContentLoaded', function() {
+  const inputs = document.querySelectorAll('#firstName, #lastName, #studentEmail');
+  inputs.forEach(input => {
+    input.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        saveStudentInfo();
+      }
+    });
+  });
 });
 </script>
 
