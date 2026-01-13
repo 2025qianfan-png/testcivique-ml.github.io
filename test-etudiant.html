@@ -1,0 +1,2714 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Étudiant Civique - Association Mille Voiles</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* Variables et reset */
+:root {
+  --primary-blue: #004080;
+  --primary-light-blue: #0066cc;
+  --primary-yellow: #ffd633;
+  --primary-light-yellow: #ffe066;
+  --dark-gray: #333333;
+  --medium-gray: #666666;
+  --light-gray: #f5f7fa;
+  --white: #ffffff;
+  --green: #27ae60;
+  --red: #e74c3c;
+  --orange: #f39c12;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.12);
+  --border-radius: 12px;
+  --transition: all 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: var(--dark-gray);
+  background-color: var(--light-gray);
+  line-height: 1.7;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--primary-blue);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 16px 36px;
+  background-color: var(--primary-yellow);
+  color: var(--primary-blue);
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: var(--shadow);
+}
+
+.btn:hover {
+  background-color: var(--primary-light-yellow);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.btn-primary {
+  background-color: var(--primary-blue);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-light-blue);
+}
+
+.btn-success {
+  background-color: var(--green);
+  color: var(--white);
+}
+
+.btn-success:hover {
+  background-color: #229954;
+}
+
+/* Login Modal */
+.login-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 3000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.login-content {
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: var(--border-radius);
+  max-width: 500px;
+  width: 100%;
+  margin: 40px auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: modalFade 0.4s ease-out;
+}
+
+@keyframes modalFade {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.login-content h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: var(--primary-blue);
+  text-align: center;
+}
+
+.login-content p {
+  margin-bottom: 20px;
+  color: var(--medium-gray);
+  font-size: 1rem;
+  text-align: center;
+}
+
+.login-form {
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--primary-blue);
+}
+
+.form-group input {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  transition: var(--transition);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(0, 64, 128, 0.1);
+}
+
+.form-error {
+  color: var(--red);
+  margin-top: 10px;
+  font-weight: 600;
+  display: none;
+  font-size: 0.9rem;
+}
+
+.login-btns {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.btn-modal {
+  padding: 14px 30px;
+  min-width: 140px;
+}
+
+/* Test Container */
+.test-container {
+  display: none;
+}
+
+.test-container.show {
+  display: block;
+}
+
+/* Timer */
+.timer-container {
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  margin-bottom: 30px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.timer-display {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-blue);
+  margin-bottom: 10px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.timer-label {
+  font-size: 1.1rem;
+  color: var(--medium-gray);
+  margin-bottom: 15px;
+}
+
+.timer-progress {
+  height: 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 15px;
+}
+
+.timer-progress-fill {
+  height: 100%;
+  background-color: var(--primary-blue);
+  width: 100%;
+  transition: width 1s linear;
+}
+
+.timer-warning {
+  color: var(--orange);
+  font-weight: 600;
+  margin-top: 10px;
+  display: none;
+}
+
+.timer-critical {
+  color: var(--red);
+  font-weight: 600;
+  margin-top: 10px;
+  display: none;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+/* Questions */
+.question-counter {
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  margin-bottom: 30px;
+  box-shadow: var(--shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.counter-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.progress-container {
+  flex-grow: 1;
+  max-width: 400px;
+}
+
+.progress-bar {
+  height: 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--primary-blue);
+  width: 0%;
+  transition: width 0.5s ease;
+}
+
+.question-card {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  padding: 40px;
+  margin-bottom: 30px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.question-text {
+  font-size: 1.4rem;
+  margin-bottom: 30px;
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  padding: 18px 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: var(--transition);
+  background-color: #f9f9f9;
+}
+
+.option:hover {
+  background-color: #f0f7ff;
+  border-color: var(--primary-light-blue);
+}
+
+.option.selected {
+  background-color: #e6f2ff;
+  border-color: var(--primary-blue);
+}
+
+.option input {
+  margin-right: 15px;
+  transform: scale(1.3);
+}
+
+.option label {
+  cursor: pointer;
+  font-size: 1.1rem;
+  flex-grow: 1;
+}
+
+/* Navigation */
+.navigation-btns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  gap: 20px;
+}
+
+.nav-btn {
+  padding: 14px 30px;
+  min-width: 150px;
+}
+
+.nav-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Results */
+.results-container {
+  display: none;
+}
+
+.results-container.show {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.results-content {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  padding: 50px;
+  margin-top: 40px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.results-header {
+  margin-bottom: 40px;
+}
+
+.score-display {
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--primary-blue);
+  margin-bottom: 10px;
+}
+
+.score-text {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+}
+
+.recommendation-result {
+  background-color: rgba(52, 152, 219, 0.1);
+  border-radius: var(--border-radius);
+  padding: 20px;
+  margin: 25px 0;
+  text-align: left;
+}
+
+.recommendation-result h4 {
+  color: var(--primary-blue);
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+}
+
+.recommendation-result p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.score-bar {
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 30px 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.score-fill {
+  height: 100%;
+  background-color: var(--green);
+  width: 0%;
+  transition: width 1.5s ease;
+}
+
+.results-details {
+  text-align: left;
+  max-width: 800px;
+  margin: 40px auto 0;
+}
+
+.result-item {
+  padding: 25px;
+  border-radius: var(--border-radius);
+  margin-bottom: 20px;
+  background-color: var(--light-gray);
+}
+
+.result-item.correct {
+  border-left: 5px solid var(--green);
+}
+
+.result-item.incorrect {
+  border-left: 5px solid var(--red);
+}
+
+.result-question {
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.result-answer {
+  margin-bottom: 8px;
+  padding-left: 20px;
+}
+
+.result-explanation {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-style: italic;
+  border-left: 3px solid var(--primary-yellow);
+}
+
+.results-actions {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+
+/* Footer */
+.test-footer {
+  background-color: var(--primary-blue);
+  color: var(--white);
+  padding: 40px 0;
+  margin-top: 80px;
+  text-align: center;
+  display: none;
+}
+
+.test-footer a {
+  color: var(--primary-yellow);
+  font-weight: 600;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+  display: none;
+  text-align: center;
+  padding: 30px;
+}
+
+.spinner {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid var(--primary-blue);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .login-content {
+    padding: 25px 20px;
+    margin: 30px auto;
+  }
+  
+  .login-content h2 {
+    font-size: 1.5rem;
+  }
+  
+  .question-card {
+    padding: 25px;
+  }
+  
+  .question-text {
+    font-size: 1.2rem;
+  }
+  
+  .option {
+    padding: 15px;
+  }
+  
+  .results-content {
+    padding: 30px 20px;
+  }
+  
+  .score-display {
+    font-size: 3rem;
+  }
+  
+  .navigation-btns {
+    flex-direction: column;
+  }
+  
+  .nav-btn {
+    width: 100%;
+  }
+  
+  .login-btns {
+    flex-direction: column;
+  }
+  
+  .btn-modal {
+    width: 100%;
+  }
+  
+  .timer-display {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-content {
+    padding: 20px 15px;
+  }
+  
+  .login-content h2 {
+    font-size: 1.3rem;
+  }
+  
+  .form-group input {
+    padding: 14px;
+  }
+  
+  .results-actions {
+    flex-direction: column;
+  }
+  
+  .results-actions .btn {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  
+  .score-display {
+    font-size: 2.5rem;
+  }
+  
+  .score-text {
+    font-size: 1.3rem;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Login Modal -->
+<div id="loginModal" class="login-overlay">
+  <div class="login-content">
+    <h2>Accès Test Étudiant</h2>
+    <p>Veuillez entrer vos informations d'étudiant pour accéder au test complet</p>
+    
+    <form id="loginForm" class="login-form">
+      <div class="form-group">
+        <label for="studentName">Nom de l'étudiant *</label>
+        <input type="text" id="studentName" placeholder="Votre nom complet" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="studentPassword">Mot de passe *</label>
+        <input type="password" id="studentPassword" placeholder="Mot de passe fourni" required>
+        <div class="form-error" id="loginError">Nom ou mot de passe incorrect</div>
+      </div>
+      
+      <div style="background-color: rgba(243,156,18,0.1); border-left: 4px solid var(--orange); padding: 12px; border-radius: 0 8px 8px 0; margin: 20px 0; font-size: 0.9rem;">
+        <p><strong>Test étudiant :</strong> 40 questions - Durée: 45 minutes</p>
+        <p><strong>Seuil de réussite :</strong> 32/40 (80%)</p>
+        
+      </div>
+    </form>
+    
+    <div class="loading-spinner" id="loadingSpinner" style="display: none;">
+      <div class="spinner"></div>
+      <p>Initialisation du test...</p>
+    </div>
+    
+    <div class="login-btns" id="loginButtons">
+      <button class="btn btn-primary btn-modal" onclick="validateLogin()">
+        <i class="fas fa-sign-in-alt"></i> Accéder au test
+      </button>
+      <button class="btn btn-modal" onclick="goBackToHome()">
+        <i class="fas fa-home"></i> Retour à l'accueil
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Test Header -->
+<header class="test-header" style="display: none;">
+  <div class="container">
+    <h1>Test Civique Étudiant</h1>
+    <p>Examen complet - Simulation officielle 40 questions</p>
+    <div class="header-actions">
+      <button class="btn" onclick="showInstructions()">
+        <i class="fas fa-info-circle"></i> Instructions
+      </button>
+      <button class="btn" onclick="restartTest()">
+        <i class="fas fa-redo"></i> Recommencer
+      </button>
+      <button class="btn btn-primary" onclick="goBackToHome()">
+        <i class="fas fa-home"></i> Retour
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Test Container -->
+<main class="container">
+  <div id="testContainer" class="test-container">
+    <!-- Timer -->
+    <div class="timer-container">
+      <div class="timer-display" id="timerDisplay">45:00</div>
+      <div class="timer-label">Temps restant</div>
+      <div class="timer-progress">
+        <div class="timer-progress-fill" id="timerProgress"></div>
+      </div>
+      <div class="timer-warning" id="timerWarning">
+        <i class="fas fa-exclamation-triangle"></i> Plus que 10 minutes!
+      </div>
+      <div class="timer-critical" id="timerCritical">
+        <i class="fas fa-skull-crossbones"></i> Dernières 5 minutes!
+      </div>
+    </div>
+    
+    <!-- Question Counter -->
+    <div class="question-counter">
+      <div class="counter-info">
+        <div>
+          <h3>Question <span id="currentQuestion">1</span> sur <span id="totalQuestions">40</span></h3>
+          <p>Examen civique officiel - Simulation complète</p>
+        </div>
+        <div class="progress-container">
+          <div>Progression: <span id="progressPercent">0%</span></div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Question -->
+    <div class="question-card">
+      <div class="question-text" id="questionText">Chargement de la question...</div>
+      
+      <div class="options-container" id="optionsContainer">
+        <!-- Options will be inserted here by JavaScript -->
+      </div>
+      
+      <div class="navigation-btns">
+        <button class="btn nav-btn" id="prevBtn" onclick="previousQuestion()" disabled>
+          <i class="fas fa-arrow-left"></i> Précédente
+        </button>
+        <button class="btn btn-primary nav-btn" id="nextBtn" onclick="nextQuestion()">
+          Suivante <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Submit Button -->
+    <div style="text-align: center; margin-top: 40px;">
+      <button class="btn btn-primary" id="submitBtn" onclick="submitTest()" style="padding: 18px 50px; font-size: 1.2rem; display: none;">
+        <i class="fas fa-paper-plane"></i> Soumettre le test
+      </button>
+    </div>
+  </div>
+  
+  <!-- Results Container -->
+  <div id="resultsContainer" class="results-container">
+    <div class="results-content">
+      <div class="results-header">
+        <div class="score-display" id="scoreDisplay">0/40</div>
+        <div class="score-text" id="scoreText">Chargement de votre résultat...</div>
+        
+        <div class="recommendation-result" id="courseRecommendation">
+          <h4><i class="fas fa-graduation-cap"></i> Résultat de votre test</h4>
+          <p id="recommendationText">Calcul en cours...</p>
+          <p id="recommendationDetails"></p>
+        </div>
+        
+        <div class="score-bar">
+          <div class="score-fill" id="scoreFill"></div>
+        </div>
+      </div>
+      
+      <div id="resultsDetails" class="results-details">
+        <!-- Results will be inserted here by JavaScript -->
+      </div>
+      
+      <div class="results-actions">
+        <button class="btn" onclick="restartTest()">
+          <i class="fas fa-redo"></i> Refaire le test
+        </button>
+        <button class="btn btn-primary" onclick="goBackToHome()">
+          <i class="fas fa-home"></i> Retour à l'accueil
+        </button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="test-footer">
+  <div class="container">
+    <p>© 2026 Association Mille Voiles - Test étudiant civique</p>
+    <p>Test complet de simulation - 40 questions - Durée: 45 minutes</p>
+    <p><a href="index.html">Retour au site principal</a></p>
+  </div>
+</footer>
+
+<script>
+// ==================== 学生数据 ====================
+const students = [
+  { name: "张明", password: "zhang123" },
+  { name: "李伟", password: "li456" },
+  { name: "王芳", password: "wang789" },
+  { name: "刘洋", password: "liu321" },
+  { name: "陈静", password: "chen654" },
+  { name: "赵强", password: "zhao987" },
+  { name: "孙丽", password: "sun012" },
+  { name: "周涛", password: "zhou345" },
+  { name: "吴娜", password: "wu678" },
+  { name: "郑军", password: "zheng901" },
+  { name: "shangyang.qi", password: "shangyang2026" }
+];
+
+// ==================== 题库数据 ====================
+// 这里留空，您可以在这里添加题目
+const fullQuestionBank = [
+  // ==================== 考点1: Principes et valeurs (500题) ====================
+  // 概念题 (250题)
+  {
+    category: "Principes et valeurs",
+    type: "concept",
+    question: "Quelle est la devise de la République française ?",
+    options: [
+      "Liberté, Égalité, Fraternité",
+      "Liberté, Justice, Paix",
+      "Unité, Égalité, Fraternité",
+      "Liberté, Prospérité, Fraternité"
+    ],
+    answer: 0,
+    explanation: "La devise officielle de la République française est 'Liberté, Égalité, Fraternité' depuis la Révolution française."
+  },
+  {
+    category: "Principes et valeurs",
+    type: "concept",
+    question: "Quelles sont les couleurs du drapeau français, dans l'ordre ?",
+    options: [
+      "Bleu, blanc, rouge",
+      "Rouge, blanc, bleu",
+      "Blanc, bleu, rouge",
+      "Rouge, bleu, blanc"
+    ],
+    answer: 0,
+    explanation: "Le drapeau tricolore français est bleu (côté mât), blanc, rouge."
+  },
+  {
+    category: "Principes et valeurs",
+    type: "concept",
+    question: "Qu'est-ce que la laïcité en France ?",
+    options: [
+      "Une religion d'État",
+      "La séparation des Églises et de l'État",
+      "La préférence pour une religion",
+      "L'interdiction de toutes les religions"
+    ],
+    answer: 1,
+    explanation: "La laïcité garantit la séparation des Églises et de l'État et la liberté de conscience pour tous."
+  },
+  {
+    category: "Principes et valeurs",
+    type: "concept",
+    question: "En quelle année a été adoptée la loi sur la laïcité ?",
+    options: ["1881", "1905", "1945", "1958"],
+    answer: 1,
+    explanation: "La loi de séparation des Églises et de l'État a été adoptée le 9 décembre 1905."
+  },
+  {
+    category: "Principes et valeurs",
+    type: "concept",
+    question: "Quel est l'hymne national de la France ?",
+    options: ["Le Chant des partisans", "La Marseillaise", "L'Internationale", "Aux armes citoyens"],
+    answer: 1,
+    explanation: "La Marseillaise, composée par Rouget de Lisle en 1792, est l'hymne national français."
+  },
+  {
+    category: "Principes et valeurs",
+    type: "concept",
+    question: "Quelle fête nationale célèbre-t-on le 14 juillet en France ?",
+    options: [
+      "La fin de la Seconde Guerre mondiale",
+      "La prise de la Bastille",
+      "L'armistice de 1918",
+      "La Déclaration des droits de l'homme"
+    ],
+    answer: 1,
+    explanation: "Le 14 juillet commémore la prise de la Bastille en 1789, symbole de la Révolution française."
+  },
+  {
+    category: "Principes et valeurs",
+    type: "concept",
+    question: "Quel symbole représente la République française ?",
+    options: ["Le coq", "Marianne", "Le bonnet phrygien", "Toutes ces réponses"],
+    answer: 3,
+    explanation: "La République française est représentée par plusieurs symboles : le coq, Marianne, le bonnet phrygien."
+  },
+  {
+    category: "Principes et valeurs",
+    type: "concept",
+    question: "Que signifie le bleu sur le drapeau français ?",
+    options: ["La liberté", "La royauté", "Paris", "La République"],
+    answer: 2,
+    explanation: "Le bleu représente la ville de Paris, le blanc la monarchie, et le rouge le peuple."
+  },
+  {
+    category: "Principes et valeurs",
+    type: "concept",
+    question: "Quel principe interdit la discrimination en France ?",
+    options: [
+      "Principe d'égalité",
+      "Principe de liberté",
+      "Principe de fraternité",
+      "Principe de laïcité"
+    ],
+    answer: 0,
+    explanation: "Le principe d'égalité interdit toute discrimination basée sur l'origine, la religion, le sexe, etc."
+  },
+  {
+    category: "Principes et valeurs",
+    type: "concept",
+    question: "Quelle est la capitale de la France ?",
+    options: ["Lyon", "Marseille", "Paris", "Toulouse"],
+    answer: 2,
+    explanation: "Paris est la capitale de la France depuis le Moyen Âge."
+  },
+  
+  // 情境题 (250题) - 这里先提供10个例子，您可以根据需要扩展
+  {
+    category: "Principes et valeurs",
+    type: "situation",
+    question: "Madame X porte un voile religieux. Dans un hôpital public français, que doit-elle faire ?",
+    options: [
+      "Le porter sans problème",
+      "L'enlever car c'est interdit",
+      "Le porter seulement dans certaines zones",
+      "L'enlever si elle travaille en contact avec le public"
+    ],
+    answer: 3,
+    explanation: "Dans les services publics, les agents en contact avec le public doivent respecter le principe de neutralité religieuse."
+  },
+  {
+    category: "Principes et valeurs",
+    type: "situation",
+    question: "Un groupe veut organiser une manifestation dans la rue pour défendre ses idées. En France :",
+    options: [
+      "C'est interdit",
+      "C'est autorisé après déclaration préalable",
+      "C'est autorisé sans formalité",
+      "C'est autorisé seulement pour les partis politiques"
+    ],
+    answer: 1,
+    explanation: "Le droit de manifestation est garanti par la liberté d'expression, mais une déclaration préalable est nécessaire."
+  },
+  {
+    category: "Principes et valeurs",
+    type: "situation",
+    question: "Monsieur Y refuse de serrer la main à une femme pour des raisons religieuses lors d'un entretien d'embauche. En France :",
+    options: [
+      "C'est son droit religieux",
+      "C'est une discrimination",
+      "C'est autorisé dans le privé",
+      "C'est interdit seulement dans le public"
+    ],
+    answer: 1,
+    explanation: "Refuser un contact professionnel pour des raisons religieuse peut être considéré comme une discrimination."
+  },
+  {
+    category: "Principes et valeurs",
+    type: "situation",
+    question: "Dans une école publique, une élève veut porter un signe religieux visible. En France :",
+    options: [
+      "C'est interdit par la loi",
+      "C'est autorisé",
+      "C'est autorisé seulement à l'extérieur",
+      "C'est interdit seulement pour les enseignants"
+    ],
+    answer: 0,
+    explanation: "La loi de 2004 interdit le port de signes religieux ostensibles dans les écoles publiques."
+  },
+  {
+    category: "Principes et valeurs",
+    type: "situation",
+    question: "Une entreprise refuse d'embaucher une personne en raison de sa religion. En France :",
+    options: [
+      "C'est normal car c'est une entreprise privée",
+      "C'est interdit et puni par la loi",
+      "C'est autorisé pour les petites entreprises",
+      "C'est interdit seulement dans le public"
+    ],
+    answer: 1,
+    explanation: "La discrimination à l'embauche pour motif religieux est interdite et punie par la loi."
+  },
+  {
+    category: "Principes et valeurs",
+    type: "situation",
+    question: "Un restaurant refuse de servir un client en raison de son origine. En France :",
+    options: [
+      "C'est son droit en tant que propriétaire",
+      "C'est interdit, c'est une discrimination",
+      "C'est autorisé le week-end",
+      "C'est interdit seulement pour les grands restaurants"
+    ],
+    answer: 1,
+    explanation: "Refuser un service pour motif discriminatoire est interdit par la loi."
+  },
+  {
+    category: "Principes et valeurs",
+    type: "situation",
+    question: "Madame Z veut ouvrir un lieu de culte dans son quartier. En France :",
+    options: [
+      "C'est interdit",
+      "C'est autorisé avec autorisation municipale",
+      "C'est autorisé sans formalité",
+      "C'est interdit dans certains quartiers"
+    ],
+    answer: 1,
+    explanation: "La liberté de culte est garantie, mais l'ouverture d'un lieu de culte nécessite des autorisations."
+  },
+  {
+    category: "Principes et valeurs",
+    type: "situation",
+    question: "Un journal publie des propos insultants contre une religion. En France :",
+    options: [
+      "C'est autorisé, c'est la liberté de la presse",
+      "C'est interdit, c'est de la diffamation",
+      "C'est autorisé seulement pour les journaux satiriques",
+      "C'est interdit seulement si c'est violent"
+    ],
+    answer: 1,
+    explanation: "Les propos diffamatoires ou injurieux envers une religion sont interdits par la loi."
+  },
+  {
+    category: "Principes et valeurs",
+    type: "situation",
+    question: "Une école privée confessionnelle refuse des élèves d'une autre religion. En France :",
+    options: [
+      "C'est autorisé pour les écoles privées",
+      "C'est interdit, c'est une discrimination",
+      "C'est autorisé avec autorisation",
+      "C'est interdit seulement pour les écoles catholiques"
+    ],
+    answer: 0,
+    explanation: "Les écoles privées sous contrat peuvent avoir un caractère propre, y compris religieux."
+  },
+  {
+    category: "Principes et valeurs",
+    type: "situation",
+    question: "Un employé veut faire la prière sur son lieu de travail. En France :",
+    options: [
+      "C'est interdit",
+      "C'est autorisé dans un lieu discret",
+      "C'est autorisé seulement pendant la pause",
+      "C'est interdit dans le secteur public"
+    ],
+    answer: 1,
+    explanation: "La pratique religieuse discrète est autorisée sur le lieu de travail si elle ne perturbe pas le service."
+  },
+
+  // ==================== 考点2: Institutions (500题) ====================
+  // 概念题 (250题)
+  {
+    category: "Institutions",
+    type: "concept",
+    question: "Qui est le chef de l'État français ?",
+    options: [
+      "Le Premier ministre",
+      "Le Président de la République",
+      "Le Président du Sénat",
+      "Le Ministre de l'Intérieur"
+    ],
+    answer: 1,
+    explanation: "Le Président de la République est le chef de l'État en France."
+  },
+  {
+    category: "Institutions",
+    type: "concept",
+    question: "Quelle est la durée d'un mandat présidentiel en France ?",
+    options: ["4 ans", "5 ans", "6 ans", "7 ans"],
+    answer: 1,
+    explanation: "Le mandat présidentiel est de 5 ans (quinquennat) depuis 2002."
+  },
+  {
+    category: "Institutions",
+    type: "concept",
+    question: "Qui nomme le Premier ministre en France ?",
+    options: [
+      "Le Président de la République",
+      "Le Parlement",
+      "Le peuple par référendum",
+      "Le Conseil constitutionnel"
+    ],
+    answer: 0,
+    explanation: "Le Président de la République nomme le Premier ministre."
+  },
+  {
+    category: "Institutions",
+    type: "concept",
+    question: "Combien de députés compte l'Assemblée nationale ?",
+    options: ["500", "577", "600", "625"],
+    answer: 1,
+    explanation: "L'Assemblée nationale compte 577 députés élus pour 5 ans."
+  },
+  {
+    category: "Institutions",
+    type: "concept",
+    question: "Combien de sénateurs compte le Sénat français ?",
+    options: ["300", "348", "400", "450"],
+    answer: 1,
+    explanation: "Le Sénat compte 348 sénateurs élus pour 6 ans."
+  },
+  {
+    category: "Institutions",
+    type: "concept",
+    question: "Quelle institution française contrôle la constitutionnalité des lois ?",
+    options: [
+      "Le Conseil constitutionnel",
+      "La Cour de cassation",
+      "Le Conseil d'État",
+      "La Cour des comptes"
+    ],
+    answer: 0,
+    explanation: "Le Conseil constitutionnel vérifie la conformité des lois à la Constitution."
+  },
+  {
+    category: "Institutions",
+    type: "concept",
+    question: "Quelle est la plus haute juridiction judiciaire en France ?",
+    options: [
+      "La Cour de cassation",
+      "Le Tribunal de grande instance",
+      "La Cour d'appel",
+      "Le Tribunal correctionnel"
+    ],
+    answer: 0,
+    explanation: "La Cour de cassation est la plus haute juridiction de l'ordre judiciaire."
+  },
+  {
+    category: "Institutions",
+    type: "concept",
+    question: "Quelle est la plus haute juridiction administrative en France ?",
+    options: [
+      "Le Conseil d'État",
+      "Le Tribunal administratif",
+      "La Cour administrative d'appel",
+      "La Cour des comptes"
+    ],
+    answer: 0,
+    explanation: "Le Conseil d'État est la plus haute juridiction de l'ordre administratif."
+  },
+  {
+    category: "Institutions",
+    type: "concept",
+    question: "Qui est chargé de défendre les droits des citoyens français ?",
+    options: [
+      "Le Défenseur des droits",
+      "Le Médiateur de la République",
+      "Le Procureur de la République",
+      "Le Préfet"
+    ],
+    answer: 0,
+    explanation: "Le Défenseur des droits est une institution indépendante qui défend les droits des citoyens."
+  },
+  {
+    category: "Institutions",
+    type: "concept",
+    question: "Combien de régions compte la France métropolitaine ?",
+    options: ["12", "13", "14", "15"],
+    answer: 1,
+    explanation: "La France métropolitaine compte 13 régions depuis la réforme de 2015."
+  },
+  {
+    category: "Institutions",
+    type: "concept",
+    question: "Quel traité a créé l'Union européenne ?",
+    options: [
+      "Traité de Rome (1957)",
+      "Traité de Maastricht (1992)",
+      "Traité de Lisbonne (2007)",
+      "Traité de Paris (1951)"
+    ],
+    answer: 1,
+    explanation: "Le traité de Maastricht, signé en 1992, a officiellement créé l'Union européenne."
+  },
+  {
+    category: "Institutions",
+    type: "concept",
+    question: "Combien d'États membres compte l'Union européenne en 2024 ?",
+    options: ["25", "27", "28", "30"],
+    answer: 1,
+    explanation: "L'Union européenne compte 27 États membres après le Brexit."
+  },
+  {
+    category: "Institutions",
+    type: "concept",
+    question: "Quelle institution européenne propose les lois ?",
+    options: [
+      "Commission européenne",
+      "Parlement européen",
+      "Conseil de l'UE",
+      "Conseil européen"
+    ],
+    answer: 0,
+    explanation: "La Commission européenne a le monopole de l'initiative législative dans l'UE."
+  },
+  {
+    category: "Institutions",
+    type: "concept",
+    question: "Quelle institution européenne représente les citoyens ?",
+    options: [
+      "Parlement européen",
+      "Commission européenne",
+      "Conseil européen",
+      "Cour de justice"
+    ],
+    answer: 0,
+    explanation: "Le Parlement européen représente les citoyens de l'UE, élus au suffrage universel."
+  },
+  {
+    category: "Institutions",
+    type: "concept",
+    question: "Quelle institution européenne définit les orientations politiques générales ?",
+    options: [
+      "Conseil européen",
+      "Commission européenne",
+      "Parlement européen",
+      "Conseil de l'UE"
+    ],
+    answer: 0,
+    explanation: "Le Conseil européen (chefs d'État et de gouvernement) définit les orientations politiques."
+  },
+  {
+    category: "Institutions",
+    type: "concept",
+    question: "Où siège le Parlement européen pour ses sessions plénières ?",
+    options: ["Bruxelles", "Strasbourg", "Luxembourg", "Paris"],
+    answer: 1,
+    explanation: "Le Parlement européen siège à Strasbourg pour les sessions plénières mensuelles."
+  },
+  {
+    category: "Institutions",
+    type: "concept",
+    question: "Quelle est la capitale de l'Union européenne ?",
+    options: ["Paris", "Berlin", "Bruxelles", "Strasbourg"],
+    answer: 2,
+    explanation: "Bruxelles est considérée comme la capitale de l'Union européenne."
+  },
+  {
+    category: "Institutions",
+    type: "concept",
+    question: "Quel pays a quitté l'UE en 2020 ?",
+    options: ["Suisse", "Royaume-Uni", "Norvège", "Islande"],
+    answer: 1,
+    explanation: "Le Royaume-Uni a quitté l'UE le 31 janvier 2020 (Brexit)."
+  },
+  {
+    category: "Institutions",
+    type: "concept",
+    question: "Combien de pays utilisent l'euro ?",
+    options: ["17", "19", "20", "22"],
+    answer: 2,
+    explanation: "20 pays de l'UE utilisent l'euro comme monnaie officielle (zone euro)."
+  },
+  {
+    category: "Institutions",
+    type: "concept",
+    question: "Quelle est la devise de l'Union européenne ?",
+    options: [
+      "Unie dans la diversité",
+      "Liberté, Égalité, Fraternité",
+      "Paix et prospérité",
+      "Solidarité européenne"
+    ],
+    answer: 0,
+    explanation: "La devise de l'UE est 'Unie dans la diversité'."
+  },
+  
+  // 情境题 (250题) - 例子
+  {
+    category: "Institutions",
+    type: "situation",
+    question: "Monsieur X veut contester une décision administrative. À quelle juridiction doit-il s'adresser ?",
+    options: [
+      "Tribunal judiciaire",
+      "Tribunal administratif",
+      "Conseil des prud'hommes",
+      "Tribunal de commerce"
+    ],
+    answer: 1,
+    explanation: "Les litiges avec l'administration relèvent des tribunaux administratifs."
+  },
+  {
+    category: "Institutions",
+    type: "situation",
+    question: "Madame Y est victime de discrimination au travail. Quelle institution peut l'aider ?",
+    options: [
+      "Le Défenseur des droits",
+      "La Police nationale",
+      "La Mairie",
+      "Le Conseil régional"
+    ],
+    answer: 0,
+    explanation: "Le Défenseur des droits peut aider les victimes de discrimination."
+  },
+  {
+    category: "Institutions",
+    type: "situation",
+    question: "Un citoyen français veut voter pour les élections européennes. Quel âge doit-il avoir ?",
+    options: ["16 ans", "18 ans", "21 ans", "25 ans"],
+    answer: 1,
+    explanation: "Pour voter aux élections européennes, il faut être majeur (18 ans) et citoyen de l'UE."
+  },
+  {
+    category: "Institutions",
+    type: "situation",
+    question: "Un projet de loi est adopté par l'Assemblée nationale mais rejeté par le Sénat. Que se passe-t-il ?",
+    options: [
+      "Le texte est abandonné",
+      "Une commission mixte paritaire est créée",
+      "Le Président décide seul",
+      "Le peuple vote par référendum"
+    ],
+    answer: 1,
+    explanation: "En cas de désaccord, une commission mixte paritaire tente de trouver un texte commun."
+  },
+  {
+    category: "Institutions",
+    type: "situation",
+    question: "Une loi votée par le Parlement semble contraire à la Constitution. Qui peut la contrôler ?",
+    options: [
+      "Le Conseil constitutionnel",
+      "Le Président de la République",
+      "La Cour de cassation",
+      "Le Premier ministre"
+    ],
+    answer: 0,
+    explanation: "Le Conseil constitutionnel contrôle la conformité des lois à la Constitution."
+  },
+  {
+    category: "Institutions",
+    type: "situation",
+    question: "Un citoyen français réside dans un autre pays de l'UE. Peut-il voter aux élections municipales de sa ville de résidence ?",
+    options: [
+      "Non, seulement dans son pays d'origine",
+      "Oui, après 5 ans de résidence",
+      "Oui, immédiatement",
+      "Non, jamais"
+    ],
+    answer: 1,
+    explanation: "Les citoyens de l'UE résidant dans un autre État membre peuvent voter aux élections municipales après 5 ans de résidence."
+  },
+  {
+    category: "Institutions",
+    type: "situation",
+    question: "Une entreprise française veut exporter vers l'Allemagne. Quels avantages a-t-elle grâce à l'UE ?",
+    options: [
+      "Pas de droits de douane",
+      "Normes communes",
+      "Libre circulation",
+      "Toutes ces réponses"
+    ],
+    answer: 3,
+    explanation: "L'UE garantit la libre circulation des marchandises sans droits de douane et avec des normes harmonisées."
+  },
+  {
+    category: "Institutions",
+    type: "situation",
+    question: "Un étudiant français veut étudier en Italie. Quel programme européen peut l'aider ?",
+    options: ["Erasmus+", "Leonardo", "Socrates", "Erasmus"],
+    answer: 0,
+    explanation: "Le programme Erasmus+ permet les échanges d'étudiants entre pays de l'UE."
+  },
+  {
+    category: "Institutions",
+    type: "situation",
+    question: "Un travailleur français veut travailler en Belgique. A-t-il besoin d'un permis de travail ?",
+    options: [
+      "Oui, toujours",
+      "Non, grâce à la libre circulation",
+      "Oui, pour plus de 3 mois",
+      "Non, seulement pour les diplômés"
+    ],
+    answer: 1,
+    explanation: "La libre circulation des travailleurs dans l'UE permet de travailler sans permis."
+  },
+  {
+    category: "Institutions",
+    type: "situation",
+    question: "Un produit acheté en Espagne par un Français est défectueux. Où peut-il se plaindre ?",
+    options: [
+      "Seulement en Espagne",
+      "En France ou en Espagne",
+      "À la Commission européenne",
+      "Au Parlement européen"
+    ],
+    answer: 1,
+    explanation: "Grâce aux règles européennes de protection des consommateurs, on peut se plaindre dans son pays de résidence."
+  },
+
+  // ==================== 考点3: Droits et devoirs (500题) ====================
+  // 概念题 (250题)
+  {
+    category: "Droits et devoirs",
+    type: "concept",
+    question: "En quelle année a été adoptée la Déclaration des droits de l'homme et du citoyen ?",
+    options: ["1689", "1789", "1889", "1948"],
+    answer: 1,
+    explanation: "La Déclaration des droits de l'homme et du citoyen a été adoptée le 26 août 1789."
+  },
+  {
+    category: "Droits et devoirs",
+    type: "concept",
+    question: "Quel droit fondamental garantit la liberté d'expression ?",
+    options: [
+      "Droit à la vie",
+      "Droit à la propriété",
+      "Droit à la liberté d'opinion",
+      "Droit au travail"
+    ],
+    answer: 2,
+    explanation: "La liberté d'expression est garantie par la Déclaration des droits de l'homme de 1789."
+  },
+  {
+    category: "Droits et devoirs",
+    type: "concept",
+    question: "Quel âge faut-il avoir pour voter en France ?",
+    options: ["16 ans", "18 ans", "21 ans", "25 ans"],
+    answer: 1,
+    explanation: "L'âge légal pour voter est de 18 ans en France."
+  },
+  {
+    category: "Droits et devoirs",
+    type: "concept",
+    question: "Quelle liberté permet de pratiquer sa religion ?",
+    options: [
+      "Liberté de conscience",
+      "Liberté d'association",
+      "Liberté de réunion",
+      "Liberté de la presse"
+    ],
+    answer: 0,
+    explanation: "La liberté de conscience garantit la liberté religieuse."
+  },
+  {
+    category: "Droits et devoirs",
+    type: "concept",
+    question: "Quel devoir concerne le paiement des impôts ?",
+    options: [
+      "Devoir de solidarité",
+      "Devoir fiscal",
+      "Devoir civique",
+      "Devoir national"
+    ],
+    answer: 1,
+    explanation: "Le paiement des impôts est un devoir fiscal pour financer les services publics."
+  },
+  {
+    category: "Droits et devoirs",
+    type: "concept",
+    question: "Quel droit permet de se marier avec la personne de son choix ?",
+    options: [
+      "Droit au mariage",
+      "Droit à la vie privée",
+      "Droit à l'égalité",
+      "Droit à la famille"
+    ],
+    answer: 0,
+    explanation: "Le droit au mariage est garanti pour tous, sans discrimination."
+  },
+  {
+    category: "Droits et devoirs",
+    type: "concept",
+    question: "Quel devoir oblige à participer à la défense nationale ?",
+    options: [
+      "Devoir de défense",
+      "Devoir militaire",
+      "Journée Défense et Citoyenneté",
+      "Service national"
+    ],
+    answer: 0,
+    explanation: "Le devoir de défense est un devoir constitutionnel pour tous les citoyens."
+  },
+  {
+    category: "Droits et devoirs",
+    type: "concept",
+    question: "Quel droit protège la vie privée des personnes ?",
+    options: [
+      "Droit à l'intimité",
+      "Droit au respect de la vie privée",
+      "Droit au secret",
+      "Droit à la confidentialité"
+    ],
+    answer: 1,
+    explanation: "Le droit au respect de la vie privée est garanti par la loi."
+  },
+  {
+    category: "Droits et devoirs",
+    type: "concept",
+    question: "Quel devoir concerne l'éducation des enfants ?",
+    options: [
+      "Devoir parental",
+      "Devoir d'instruction",
+      "Devoir éducatif",
+      "Devoir familial"
+    ],
+    answer: 1,
+    explanation: "Les parents ont le devoir d'assurer l'instruction de leurs enfants."
+  },
+  {
+    category: "Droits et devoirs",
+    type: "concept",
+    question: "Quel droit permet de créer une association ?",
+    options: [
+      "Liberté d'association",
+      "Droit de réunion",
+      "Liberté syndicale",
+      "Droit d'entreprise"
+    ],
+    answer: 0,
+    explanation: "La liberté d'association est garantie par la loi de 1901."
+  },
+  {
+    category: "Droits et devoirs",
+    type: "concept",
+    question: "Quel devoir impose de respecter les biens publics ?",
+    options: [
+      "Devoir de respect",
+      "Devoir civique",
+      "Devoir de protection",
+      "Devoir de conservation"
+    ],
+    answer: 1,
+    explanation: "Le respect des biens publics fait partie des devoirs civiques."
+  },
+  {
+    category: "Droits et devoirs",
+    type: "concept",
+    question: "Quel droit garantit l'accès à la justice ?",
+    options: [
+      "Droit à un procès équitable",
+      "Droit à la défense",
+      "Droit d'accès au juge",
+      "Toutes ces réponses"
+    ],
+    answer: 3,
+    explanation: "Ces droits garantissent tous l'accès à la justice."
+  },
+  {
+    category: "Droits et devoirs",
+    type: "concept",
+    question: "Quel devoir concerne le respect de l'environnement ?",
+    options: [
+      "Devoir écologique",
+      "Devoir environnemental",
+      "Devoir de protection",
+      "Devoir de préservation"
+    ],
+    answer: 1,
+    explanation: "Le devoir environnemental impose de protéger l'environnement."
+  },
+  {
+    category: "Droits et devoirs",
+    type: "concept",
+    question: "Quel droit permet de grève ?",
+    options: [
+      "Droit de grève",
+      "Liberté syndicale",
+      "Droit de protestation",
+      "Droit de manifestation"
+    ],
+    answer: 0,
+    explanation: "Le droit de grève est un droit constitutionnel reconnu aux salariés."
+  },
+  {
+    category: "Droits et devoirs",
+    type: "concept",
+    question: "Quel devoir impose de respecter les autres ?",
+    options: [
+      "Devoir de respect",
+      "Devoir de civilité",
+      "Devoir de courtoisie",
+      "Devoir social"
+    ],
+    answer: 0,
+    explanation: "Le respect d'autrui est un devoir fondamental dans la société."
+  },
+  
+  // 情境题 (250题) - 例子
+  {
+    category: "Droits et devoirs",
+    type: "situation",
+    question: "Madame X est licenciée car elle est enceinte. Que peut-elle faire ?",
+    options: [
+      "Rien, c'est légal",
+      "Porter plainte pour discrimination",
+      "Demander une indemnité",
+      "Attendre et chercher un autre travail"
+    ],
+    answer: 1,
+    explanation: "Un licenciement pour grossesse est une discrimination interdite par la loi."
+  },
+  {
+    category: "Droits et devoirs",
+    type: "situation",
+    question: "Monsieur Y refuse de payer ses impôts. En France :",
+    options: [
+      "C'est son droit",
+      "C'est un délit pénal",
+      "C'est autorisé une fois",
+      "C'est interdit seulement pour les riches"
+    ],
+    answer: 1,
+    explanation: "La fraude fiscale est un délit pénal sévèrement puni."
+  },
+  {
+    category: "Droits et devoirs",
+    type: "situation",
+    question: "Un propriétaire refuse de louer à une personne en fauteuil roulant. En France :",
+    options: [
+      "C'est son droit",
+      "C'est une discrimination handicap",
+      "C'est autorisé pour les petits logements",
+      "C'est interdit seulement dans le public"
+    ],
+    answer: 1,
+    explanation: "Refuser une location pour motif de handicap est une discrimination interdite."
+  },
+  {
+    category: "Droits et devoirs",
+    type: "situation",
+    question: "Un salarié veut faire grève. Que doit-il faire ?",
+    options: [
+      "Prévenir 48h à l'avance",
+      "Prévenir 5 jours à l'avance",
+      "Suivre un préavis syndical",
+      "Aucune formalité n'est nécessaire"
+    ],
+    answer: 2,
+    explanation: "La grève doit respecter un préavis déposé par une organisation syndicale."
+  },
+  {
+    category: "Droits et devoirs",
+    type: "situation",
+    question: "Une personne est arrêtée par la police. Quels sont ses droits ?",
+    options: [
+      "Droit à un avocat",
+      "Droit de prévenir un proche",
+      "Droit à un interprète si besoin",
+      "Toutes ces réponses"
+    ],
+    answer: 3,
+    explanation: "Ces droits sont garantis lors d'une garde à vue."
+  },
+  {
+    category: "Droits et devoirs",
+    type: "situation",
+    question: "Un employeur surveille secrètement ses employés. En France :",
+    options: [
+      "C'est interdit sans information",
+      "C'est autorisé pour la sécurité",
+      "C'est interdit seulement dans les bureaux",
+      "C'est autorisé avec caméra visible"
+    ],
+    answer: 0,
+    explanation: "La surveillance des salariés doit être licite, légitime et proportionnée."
+  },
+  {
+    category: "Droits et devoirs",
+    type: "situation",
+    question: "Un locataire ne paie pas son loyer depuis 3 mois. Que peut faire le propriétaire ?",
+    options: [
+      "Le mettre à la porte immédiatement",
+      "Saisir la justice",
+      "Changer les serrures",
+      "Couper l'eau et l'électricité"
+    ],
+    answer: 1,
+    explanation: "Le propriétaire doit obtenir une décision de justice avant d'expulser."
+  },
+  {
+    category: "Droits et devoirs",
+    type: "situation",
+    question: "Un commerçant refuse une carte bancaire. En France :",
+    options: [
+      "C'est interdit",
+      "C'est autorisé pour les petits montants",
+      "C'est autorisé le dimanche",
+      "C'est interdit seulement pour les grandes surfaces"
+    ],
+    answer: 1,
+    explanation: "Un commerçant peut refuser les cartes bancaires pour les petits paiements (moins de 10€)."
+  },
+  {
+    category: "Droits et devoirs",
+    type: "situation",
+    question: "Un employé est malade. Combien de temps a-t-il pour envoyer son arrêt de travail ?",
+    options: ["24h", "48h", "3 jours", "1 semaine"],
+    answer: 1,
+    explanation: "L'arrêt de travail doit être envoyé sous 48 heures."
+  },
+  {
+    category: "Droits et devoirs",
+    type: "situation",
+    question: "Une personne fait du bruit la nuit. Que peuvent faire les voisins ?",
+    options: [
+      "Appeler la police",
+      "Porter plainte pour tapage",
+      "Demander au syndic",
+      "Toutes ces réponses"
+    ],
+    answer: 3,
+    explanation: "Le tapage nocturne est interdit et peut être sanctionné."
+  },
+
+  // ==================== 考点4: Culture (500题) ====================
+  // 概念题 (250题)
+  {
+    category: "Culture",
+    type: "concept",
+    question: "Qui était le roi de France lors de la Révolution française ?",
+    options: ["Louis XIV", "Louis XV", "Louis XVI", "Louis XVIII"],
+    answer: 2,
+    explanation: "Louis XVI était roi de France lors de la Révolution française (1789-1792)."
+  },
+  {
+    category: "Culture",
+    type: "concept",
+    question: "Quelle bataille a été gagnée par Napoléon en 1805 ?",
+    options: ["Waterloo", "Austerlitz", "Iéna", "Wagram"],
+    answer: 1,
+    explanation: "La bataille d'Austerlitz, le 2 décembre 1805, est une victoire célèbre de Napoléon."
+  },
+  {
+    category: "Culture",
+    type: "concept",
+    question: "Qui était le général français pendant la Seconde Guerre mondiale ?",
+    options: ["Philippe Pétain", "Charles de Gaulle", "Georges Clemenceau", "Ferdinand Foch"],
+    answer: 1,
+    explanation: "Charles de Gaulle était le chef de la France libre pendant la Seconde Guerre mondiale."
+  },
+  {
+    category: "Culture",
+    type: "concept",
+    question: "Quel fleuve traverse Paris ?",
+    options: ["Le Rhône", "La Loire", "La Seine", "La Garonne"],
+    answer: 2,
+    explanation: "La Seine traverse Paris et divise la ville en Rive droite et Rive gauche."
+  },
+  {
+    category: "Culture",
+    type: "concept",
+    question: "Quelle est la plus haute montagne de France ?",
+    options: ["Le Mont Blanc", "La Barre des Écrins", "Le Mont Ventoux", "Le Puy de Dôme"],
+    answer: 0,
+    explanation: "Le Mont Blanc, dans les Alpes, est le plus haut sommet de France (4.808 m)."
+  },
+  {
+    category: "Culture",
+    type: "concept",
+    question: "Quel est le plus long fleuve de France ?",
+    options: ["La Seine", "Le Rhône", "La Garonne", "La Loire"],
+    answer: 3,
+    explanation: "La Loire est le plus long fleuve de France (1.013 km)."
+  },
+  {
+    category: "Culture",
+    type: "concept",
+    question: "Quelle mer borde le sud de la France ?",
+    options: ["Mer du Nord", "Mer Baltique", "Mer Méditerranée", "Mer Noire"],
+    answer: 2,
+    explanation: "La Méditerranée borde le sud de la France (Côte d'Azur)."
+  },
+  {
+    category: "Culture",
+    type: "concept",
+    question: "Quel océan borde l'ouest de la France ?",
+    options: ["Océan Atlantique", "Océan Pacifique", "Océan Indien", "Océan Arctique"],
+    answer: 0,
+    explanation: "L'océan Atlantique borde la côte ouest de la France."
+  },
+  {
+    category: "Culture",
+    type: "concept",
+    question: "Quelle chaîne de montagnes sépare la France de l'Espagne ?",
+    options: ["Les Alpes", "Les Pyrénées", "Le Jura", "Les Vosges"],
+    answer: 1,
+    explanation: "Les Pyrénées forment la frontière naturelle entre la France et l'Espagne."
+  },
+  {
+    category: "Culture",
+    type: "concept",
+    question: "Quel est le département français d'outre-mer en Amérique du Sud ?",
+    options: ["La Guadeloupe", "La Martinique", "La Guyane", "La Réunion"],
+    answer: 2,
+    explanation: "La Guyane française est située en Amérique du Sud."
+  },
+  {
+    category: "Culture",
+    type: "concept",
+    question: "Qui a écrit 'Les Misérables' ?",
+    options: ["Victor Hugo", "Émile Zola", "Gustave Flaubert", "Honoré de Balzac"],
+    answer: 0,
+    explanation: "Victor Hugo a écrit 'Les Misérables' en 1862."
+  },
+  {
+    category: "Culture",
+    type: "concept",
+    question: "Qui était Molière ?",
+    options: [
+      "Un écrivain et dramaturge",
+      "Un peintre",
+      "Un musicien",
+      "Un scientifique"
+    ],
+    answer: 0,
+    explanation: "Molière (1622-1673) était un célèbre dramaturge français."
+  },
+  {
+    category: "Culture",
+    type: "concept",
+    question: "Qui a peint 'La Joconde' ?",
+    options: ["Michel-Ange", "Léonard de Vinci", "Raphaël", "Rembrandt"],
+    answer: 1,
+    explanation: "Léonard de Vinci a peint 'La Joconde' (Mona Lisa) au XVIe siècle."
+  },
+  {
+    category: "Culture",
+    type: "concept",
+    question: "Où se trouve le tableau 'La Joconde' ?",
+    options: [
+      "Musée d'Orsay",
+      "Louvre",
+      "Centre Pompidou",
+      "Château de Versailles"
+    ],
+    answer: 1,
+    explanation: "'La Joconde' est exposée au musée du Louvre à Paris."
+  },
+  {
+    category: "Culture",
+    type: "concept",
+    question: "Quel est le plus grand musée de Paris ?",
+    options: ["Musée d'Orsay", "Louvre", "Centre Pompidou", "Grand Palais"],
+    answer: 1,
+    explanation: "Le Louvre est le plus grand musée de Paris et l'un des plus grands du monde."
+  },
+  {
+    category: "Culture",
+    type: "concept",
+    question: "Qui a composé 'La Marseillaise' ?",
+    options: ["Rouget de Lisle", "Claude Debussy", "Georges Bizet", "Maurice Ravel"],
+    answer: 0,
+    explanation: "Claude Joseph Rouget de Lisle a composé 'La Marseillaise' en 1792."
+  },
+  {
+    category: "Culture",
+    type: "concept",
+    question: "Quel fromage français est originaire de Normandie ?",
+    options: ["Roquefort", "Camembert", "Comté", "Brie"],
+    answer: 1,
+    explanation: "Le camembert est un fromage normand créé au XVIIIe siècle."
+  },
+  {
+    category: "Culture",
+    type: "concept",
+    question: "Quelle fête célèbre-t-on le 1er mai en France ?",
+    options: [
+      "Fête du travail",
+      "Fête nationale",
+      "Armistice 1918",
+      "Noël"
+    ],
+    answer: 0,
+    explanation: "Le 1er mai est la fête du Travail, jour férié en France."
+  },
+  {
+    category: "Culture",
+    type: "concept",
+    question: "Quelle période historique a duré de 1914 à 1918 ?",
+    options: [
+      "Seconde Guerre mondiale",
+      "Première Guerre mondiale",
+      "Guerre de Cent Ans",
+      "Révolution française"
+    ],
+    answer: 1,
+    explanation: "La Première Guerre mondiale a duré de 1914 à 1918."
+  },
+  {
+    category: "Culture",
+    type: "concept",
+    question: "Quand a eu lieu la Révolution française ?",
+    options: ["1689", "1789", "1889", "1989"],
+    answer: 1,
+    explanation: "La Révolution française a commencé en 1789 avec la prise de la Bastille."
+  },
+  
+  // 情境题 (250题) - 例子
+  {
+    category: "Culture",
+    type: "situation",
+    question: "Un touriste veut visiter le château de Versailles. Dans quelle région se trouve-t-il ?",
+    options: ["Île-de-France", "Normandie", "Provence", "Bretagne"],
+    answer: 0,
+    explanation: "Le château de Versailles est situé en Île-de-France, à 20 km de Paris."
+  },
+  {
+    category: "Culture",
+    type: "situation",
+    question: "Un couple veut se marier dans un vignoble célèbre. Quelle région visiter ?",
+    options: ["Bordeaux", "Lille", "Marseille", "Lyon"],
+    answer: 0,
+    explanation: "La région de Bordeaux est célèbre pour ses vignobles et ses vins."
+  },
+  {
+    category: "Culture",
+    type: "situation",
+    question: "Un étudiant veut voir des peintures impressionnistes. Quel musée parisien visiter ?",
+    options: ["Louvre", "Musée d'Orsay", "Centre Pompidou", "Petit Palais"],
+    answer: 1,
+    explanation: "Le musée d'Orsay abrite la plus grande collection de peintures impressionnistes."
+  },
+  {
+    category: "Culture",
+    type: "situation",
+    question: "Une famille veut skier en hiver. Quelle région française choisir ?",
+    options: ["Les Alpes", "Le Massif central", "La Camargue", "La Corse"],
+    answer: 0,
+    explanation: "Les Alpes françaises offrent les meilleures stations de ski."
+  },
+  {
+    category: "Culture",
+    type: "situation",
+    question: "Un gourmet veut déguster la bouillabaisse. Dans quelle ville doit-il aller ?",
+    options: ["Paris", "Marseille", "Lyon", "Toulouse"],
+    answer: 1,
+    explanation: "La bouillabaisse est la spécialité culinaire de Marseille."
+  },
+  {
+    category: "Culture",
+    type: "situation",
+    question: "Un amateur d'histoire veut voir les plages du Débarquement. Quelle région visiter ?",
+    options: ["Bretagne", "Normandie", "Provence", "Côte d'Azur"],
+    answer: 1,
+    explanation: "Les plages du Débarquement du 6 juin 1944 sont en Normandie."
+  },
+  {
+    category: "Culture",
+    type: "situation",
+    question: "Un touriste veut voir le Mont-Saint-Michel. À quelle marée doit-il y aller ?",
+    options: [
+      "Marée basse",
+      "Marée haute",
+      "Peu importe",
+      "Seulement à marée montante"
+    ],
+    answer: 1,
+    explanation: "Le Mont-Saint-Michel est particulièrement impressionnant à marée haute."
+  },
+  {
+    category: "Culture",
+    type: "situation",
+    question: "Un visiteur veut voir la Tour Eiffel illuminée. À quelle heure en été ?",
+    options: ["18h", "20h", "22h", "Minuit"],
+    answer: 2,
+    explanation: "La Tour Eiffel s'illumine chaque soir à la tombée de la nuit, avec un scintillement à 22h."
+  },
+  {
+    category: "Culture",
+    type: "situation",
+    question: "Un couple veut fêter leur anniversaire de mariage dans un restaurant étoilé. Quelle ville choisir ?",
+    options: ["Lyon", "Paris", "Strasbourg", "Toutes ces réponses"],
+    answer: 3,
+    explanation: "Ces villes ont toutes des restaurants étoilés au Guide Michelin."
+  },
+  {
+    category: "Culture",
+    type: "situation",
+    question: "Un étudiant étranger veut apprendre le français dans une ville historique. Où aller ?",
+    options: ["Tours", "Nice", "Bordeaux", "Toutes ces réponses"],
+    answer: 3,
+    explanation: "Ces villes ont toutes des écoles de français pour étrangers et un riche patrimoine."
+  },
+
+  // ==================== 考点5: Vie sociale (500题) ====================
+  // 概念题 (250题)
+  {
+    category: "Vie sociale",
+    type: "concept",
+    question: "À quel âge l'instruction est-elle obligatoire en France ?",
+    options: ["De 3 à 16 ans", "De 6 à 16 ans", "De 3 à 18 ans", "De 6 à 18 ans"],
+    answer: 0,
+    explanation: "L'instruction est obligatoire de 3 à 16 ans depuis 2019."
+  },
+  {
+    category: "Vie sociale",
+    type: "concept",
+    question: "Quel est l'âge minimum légal pour travailler en France ?",
+    options: ["14 ans", "15 ans", "16 ans", "18 ans"],
+    answer: 2,
+    explanation: "L'âge minimum légal pour travailler est généralement de 16 ans."
+  },
+  {
+    category: "Vie sociale",
+    type: "concept",
+    question: "Combien d'heures maximum par semaine peut-on travailler en France ?",
+    options: ["35h", "39h", "44h", "48h"],
+    answer: 3,
+    explanation: "La durée maximale de travail est de 48 heures par semaine (sur 12 semaines)."
+  },
+  {
+    category: "Vie sociale",
+    type: "concept",
+    question: "Quelle est la durée légale du travail en France ?",
+    options: ["35h", "39h", "40h", "42h"],
+    answer: 0,
+    explanation: "La durée légale du travail est de 35 heures par semaine depuis 2000."
+  },
+  {
+    category: "Vie sociale",
+    type: "concept",
+    question: "Quel est le salaire minimum en France (SMIC) ?",
+    options: ["1.500€", "1.600€", "1.700€", "1.800€"],
+    answer: 1,
+    explanation: "Le SMIC brut mensuel est d'environ 1.600€ (valeur indicative pour 2024)."
+  },
+  {
+    category: "Vie sociale",
+    type: "concept",
+    question: "Combien de semaines de congés payés par an ?",
+    options: ["4 semaines", "5 semaines", "6 semaines", "7 semaines"],
+    answer: 1,
+    explanation: "Les salariés ont droit à 5 semaines de congés payés par an."
+  },
+  {
+    category: "Vie sociale",
+    type: "concept",
+    question: "Quel est l'âge de la retraite à taux plein en France ?",
+    options: ["60 ans", "62 ans", "64 ans", "67 ans"],
+    answer: 2,
+    explanation: "L'âge légal de départ à la retraite à taux plein est de 64 ans (réforme 2023)."
+  },
+  {
+    category: "Vie sociale",
+    type: "concept",
+    question: "Quelle allocation aide les familles avec enfants ?",
+    options: [
+      "Allocations familiales",
+      "RSA",
+      "Prime d'activité",
+      "Allocation logement"
+    ],
+    answer: 0,
+    explanation: "Les allocations familiales aident les familles avec au moins deux enfants."
+  },
+  {
+    category: "Vie sociale",
+    type: "concept",
+    question: "Quel est le pourcentage de TVA standard en France ?",
+    options: ["10%", "15%", "20%", "25%"],
+    answer: 2,
+    explanation: "Le taux normal de TVA en France est de 20%."
+  },
+  {
+    category: "Vie sociale",
+    type: "concept",
+    question: "Quelle assurance est obligatoire pour tous en France ?",
+    options: [
+      "Assurance maladie",
+      "Assurance habitation",
+      "Assurance auto",
+      "Assurance vie"
+    ],
+    answer: 0,
+    explanation: "L'assurance maladie (Sécurité sociale) est obligatoire."
+  },
+  {
+    category: "Vie sociale",
+    type: "concept",
+    question: "Quel document prouve le droit de travailler en France ?",
+    options: [
+      "Carte de séjour",
+      "Carte vitale",
+      "Carte d'identité",
+      "Titre de séjour avec autorisation de travail"
+    ],
+    answer: 3,
+    explanation: "Le titre de séjour avec autorisation de travail est nécessaire pour les étrangers."
+  },
+  {
+    category: "Vie sociale",
+    type: "concept",
+    question: "Quelle institution aide à trouver un emploi ?",
+    options: ["Pôle emploi", "La CAF", "La CPAM", "Les impôts"],
+    answer: 0,
+    explanation: "Pôle emploi est le service public de l'emploi."
+  },
+  {
+    category: "Vie sociale",
+    type: "concept",
+    question: "Quel est le délai de préavis minimum pour un logement ?",
+    options: ["1 mois", "2 mois", "3 mois", "6 mois"],
+    answer: 0,
+    explanation: "Le délai de préavis est généralement d'1 mois pour le locataire."
+  },
+  {
+    category: "Vie sociale",
+    type: "concept",
+    question: "Quelle aide financière pour les étudiants ?",
+    options: [
+      "Bourse sur critères sociaux",
+      "Prime d'activité",
+      "RSA",
+      "Allocation adulte handicapé"
+    ],
+    answer: 0,
+    explanation: "Les bourses sur critères sociaux aident les étudiants selon les ressources familiales."
+  },
+  {
+    category: "Vie sociale",
+    type: "concept",
+    question: "Quel est le nombre minimum de jours de congés maternité ?",
+    options: ["10 semaines", "14 semaines", "16 semaines", "20 semaines"],
+    answer: 2,
+    explanation: "Le congé maternité dure au minimum 16 semaines (6 avant, 10 après)."
+  },
+  
+  // 情境题 (250题) - 例子
+  {
+    category: "Vie sociale",
+    type: "situation",
+    question: "Madame X travaille 39 heures par semaine. Combien d'heures supplémentaires a-t-elle fait ?",
+    options: ["0h", "4h", "8h", "12h"],
+    answer: 1,
+    explanation: "Au-delà de 35 heures, ce sont des heures supplémentaires (39-35=4h)."
+  },
+  {
+    category: "Vie sociale",
+    type: "situation",
+    question: "Monsieur Y gagne 1.550€ brut par mois. Est-ce légal ?",
+    options: [
+      "Oui, c'est plus que le SMIC",
+      "Non, c'est moins que le SMIC",
+      "Oui si c'est un apprenti",
+      "Non sauf pour les étudiants"
+    ],
+    answer: 1,
+    explanation: "Le SMIC étant d'environ 1.600€, 1.550€ est en dessous du minimum légal."
+  },
+  {
+    category: "Vie sociale",
+    type: "situation",
+    question: "Un salarié travaille depuis 3 ans dans une entreprise. Combien de jours de congés a-t-il accumulés ?",
+    options: ["15 jours", "30 jours", "45 jours", "60 jours"],
+    answer: 1,
+    explanation: "5 semaines = 25 jours ouvrables, soit environ 30 jours calendaires."
+  },
+  {
+    category: "Vie sociale",
+    type: "situation",
+    question: "Une femme enceinte travaille dans une usine. Que doit faire l'employeur ?",
+    options: [
+      "La licencier",
+      "Lui trouver un poste adapté",
+      "Rien, elle continue",
+      "La mettre en congé sans solde"
+    ],
+    answer: 1,
+    explanation: "L'employeur doit adapter le poste de travail ou proposer un reclassement."
+  },
+  {
+    category: "Vie sociale",
+    type: "situation",
+    question: "Un employé est malade depuis 15 jours. Qui paie son salaire ?",
+    options: [
+      "L'employeur",
+      "La Sécurité sociale",
+      "L'assurance complémentaire",
+      "Toutes ces réponses"
+    ],
+    answer: 3,
+    explanation: "Pendant un arrêt maladie, plusieurs organismes interviennent pour le paiement."
+  },
+  {
+    category: "Vie sociale",
+    type: "situation",
+    question: "Un couple a 3 enfants. Quelle aide peut-il recevoir ?",
+    options: [
+      "Allocations familiales",
+      "Prime de naissance",
+      "Complément familial",
+      "Toutes ces réponses"
+    ],
+    answer: 3,
+    explanation: "Plusieurs aides sont possibles pour les familles nombreuses."
+  },
+  {
+    category: "Vie sociale",
+    type: "situation",
+    question: "Un étudiant de 20 ans veut travailler l'été. A-t-il besoin d'une autorisation ?",
+    options: [
+      "Oui, toujours",
+      "Non, s'il a plus de 18 ans",
+      "Oui, s'il est étranger",
+      "Non, seulement pour les mineurs"
+    ],
+    answer: 1,
+    explanation: "À partir de 18 ans, aucun autorisation parentale n'est nécessaire pour travailler."
+  },
+  {
+    category: "Vie sociale",
+    type: "situation",
+    question: "Un salarié veut démissionner. Quel préavis doit-il respecter ?",
+    options: ["24h", "48h", "1 mois", "2 mois"],
+    answer: 2,
+    explanation: "Le préavis de démission est généralement d'1 mois pour les cadres, 2 semaines pour les employés."
+  },
+  {
+    category: "Vie sociale",
+    type: "situation",
+    question: "Un produit acheté en magasin est défectueux. Combien de temps pour le retourner ?",
+    options: ["24h", "48h", "14 jours", "30 jours"],
+    answer: 2,
+    explanation: "Le droit de rétractation est de 14 jours pour les achats à distance, mais pas en magasin."
+  },
+  {
+    category: "Vie sociale",
+    type: "situation",
+    question: "Un locataire ne paie pas son loyer. Après combien de mois peut-on l'expulser ?",
+    options: ["1 mois", "2 mois", "3 mois", "6 mois"],
+    answer: 1,
+    explanation: "L'expulsion pour impayés peut être demandée après 2 mois de loyers impayés."
+  }
+];
+
+// ==================== 全局变量 ====================
+let studentInfo = { name: "", testDate: "" };
+let selectedQuestions = [];
+let currentQuestionIndex = 0;
+let userAnswers = [];
+
+let totalTime = 45 * 60;
+let timeLeft = totalTime;
+let timerInterval = null;
+
+let currentScore = 0;
+let currentPercentage = 0;
+let currentScoreText = "";
+
+// ==================== 登录验证 ====================
+function validateLogin() {
+  const name = document.getElementById('studentName').value.trim();
+  const password = document.getElementById('studentPassword').value.trim();
+  const loginError = document.getElementById('loginError');
+  const loadingSpinner = document.getElementById('loadingSpinner');
+  const loginButtons = document.getElementById('loginButtons');
+  
+  if (!name || !password) {
+    alert("Veuillez remplir tous les champs obligatoires.");
+    return;
+  }
+  
+  const isValidStudent = students.some(student => 
+    student.name.toLowerCase() === name.toLowerCase() && 
+    student.password === password
+  );
+  
+  if (!isValidStudent) {
+    loginError.style.display = 'block';
+    return;
+  }
+  
+  loginError.style.display = 'none';
+  loginButtons.style.display = 'none';
+  loadingSpinner.style.display = 'block';
+  
+  setTimeout(() => {
+    try {
+      studentInfo.name = name;
+      studentInfo.testDate = new Date().toLocaleString('fr-FR');
+      
+      if (fullQuestionBank.length === 0) {
+        throw new Error("题库为空，请添加题目");
+      }
+      
+      document.getElementById('loginModal').style.display = 'none';
+      document.querySelector('.test-header').style.display = 'block';
+      document.getElementById('testContainer').classList.add('show');
+      document.querySelector('.test-footer').style.display = 'block';
+      
+      initializeTest();
+      
+    } catch (error) {
+      console.error("初始化测试失败:", error);
+      alert(error.message || "Erreur lors de l'initialisation du test.");
+    } finally {
+      loadingSpinner.style.display = 'none';
+      loginButtons.style.display = 'flex';
+    }
+  }, 500);
+}
+
+// ==================== 修复的题目选择逻辑 ====================
+function selectQuestionsByCategory() {
+  console.log("开始选择题目...");
+  
+  // 1. 按主题分组
+  const questionsByCategory = {};
+  
+  fullQuestionBank.forEach(question => {
+    const category = question.category || "Général";
+    if (!questionsByCategory[category]) {
+      questionsByCategory[category] = [];
+    }
+    questionsByCategory[category].push(question);
+  });
+  
+  const categories = Object.keys(questionsByCategory);
+  console.log("发现主题:", categories);
+  
+  // 2. 计算每个主题应该选择的题目数
+  // 目标：5个主题 × 8题 = 40题
+  // 如果有更多或更少主题，自动调整
+  const targetTotalQuestions = 40;
+  const categoriesCount = categories.length;
+  const baseQuestionsPerCategory = Math.floor(targetTotalQuestions / categoriesCount);
+  const extraQuestions = targetTotalQuestions % categoriesCount;
+  
+  console.log(`基础：每个主题 ${baseQuestionsPerCategory} 题，额外 ${extraQuestions} 题`);
+  
+  // 3. 从每个主题随机选择题目
+  selectedQuestions = [];
+  
+  categories.forEach((category, index) => {
+    let questionsToSelect = baseQuestionsPerCategory;
+    if (index < extraQuestions) {
+      questionsToSelect++; // 前几个主题多选一题
+    }
+    
+    const categoryQuestions = questionsByCategory[category];
+    console.log(`主题 "${category}" 有 ${categoryQuestions.length} 题，需要选择 ${questionsToSelect} 题`);
+    
+    if (categoryQuestions.length <= questionsToSelect) {
+      // 如果该主题题目不够，使用所有题目
+      selectedQuestions.push(...categoryQuestions);
+    } else {
+      // 随机选择题目 - 正确使用 Fisher-Yates 洗牌算法
+      const shuffled = shuffleArray([...categoryQuestions]);
+      selectedQuestions.push(...shuffled.slice(0, questionsToSelect));
+    }
+  });
+  
+  // 4. 确保总共40题
+  // 如果题目不够，从所有题目中补充
+  if (selectedQuestions.length < targetTotalQuestions) {
+    const needed = targetTotalQuestions - selectedQuestions.length;
+    console.log(`需要补充 ${needed} 题`);
+    
+    // 获取所有未选中的题目
+    const allQuestions = [...fullQuestionBank];
+    const selectedSet = new Set(selectedQuestions);
+    const availableQuestions = allQuestions.filter(q => !selectedSet.has(q));
+    
+    if (availableQuestions.length > 0) {
+      const shuffled = shuffleArray([...availableQuestions]);
+      selectedQuestions.push(...shuffled.slice(0, Math.min(needed, availableQuestions.length)));
+    }
+  }
+  
+  // 如果题目太多，截取前40题
+  if (selectedQuestions.length > targetTotalQuestions) {
+    selectedQuestions = selectedQuestions.slice(0, targetTotalQuestions);
+  }
+  
+  // 5. 最终随机打乱所有题目顺序
+  selectedQuestions = shuffleArray(selectedQuestions);
+  
+  console.log(`最终选择 ${selectedQuestions.length} 题`);
+  
+  // 显示分布统计
+  const stats = {};
+  selectedQuestions.forEach(q => {
+    const cat = q.category || "Général";
+    stats[cat] = (stats[cat] || 0) + 1;
+  });
+  
+  console.log("题目分布:");
+  for (const [category, count] of Object.entries(stats)) {
+    console.log(`  ${category}: ${count} 题`);
+  }
+}
+
+// Fisher-Yates 洗牌算法
+function shuffleArray(array) {
+  const newArray = [...array];
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+}
+
+// ==================== 初始化测试 ====================
+function initializeTest() {
+  // 重置所有状态
+  currentQuestionIndex = 0;
+  userAnswers = [];
+  timeLeft = totalTime;
+  if (timerInterval) {
+    clearInterval(timerInterval);
+    timerInterval = null;
+  }
+  
+  // 选择题目
+  selectQuestionsByCategory();
+  
+  // 初始化用户答案数组
+  userAnswers = new Array(selectedQuestions.length).fill(null);
+  
+  // 更新界面
+  document.getElementById('totalQuestions').textContent = selectedQuestions.length;
+  document.getElementById('timerDisplay').textContent = "45:00";
+  document.getElementById('timerProgress').style.width = "100%";
+  document.getElementById('timerWarning').style.display = 'none';
+  document.getElementById('timerCritical').style.display = 'none';
+  
+  showQuestion(currentQuestionIndex);
+  updateQuestionCounter();
+  
+  startTimer();
+  
+  window.scrollTo(0, 0);
+}
+
+// ==================== 显示题目 ====================
+function showQuestion(index) {
+  const question = selectedQuestions[index];
+  
+  document.getElementById('questionText').textContent = `${index + 1}. ${question.question}`;
+  
+  const optionsContainer = document.getElementById('optionsContainer');
+  optionsContainer.innerHTML = '';
+  
+  question.options.forEach((option, optionIndex) => {
+    const optionDiv = document.createElement('div');
+    optionDiv.className = 'option';
+    if (userAnswers[index] === optionIndex) {
+      optionDiv.classList.add('selected');
+    }
+    
+    const input = document.createElement('input');
+    input.type = 'radio';
+    input.name = 'question';
+    input.id = `option${index}_${optionIndex}`;
+    input.value = optionIndex;
+    if (userAnswers[index] === optionIndex) {
+      input.checked = true;
+    }
+    
+    const label = document.createElement('label');
+    label.htmlFor = `option${index}_${optionIndex}`;
+    label.textContent = option;
+    
+    optionDiv.appendChild(input);
+    optionDiv.appendChild(label);
+    
+    optionDiv.addEventListener('click', () => {
+      userAnswers[index] = optionIndex;
+      showQuestion(index);
+      updateQuestionCounter();
+    });
+    
+    optionsContainer.appendChild(optionDiv);
+  });
+  
+  document.getElementById('prevBtn').disabled = index === 0;
+  document.getElementById('nextBtn').disabled = index === selectedQuestions.length - 1;
+  
+  document.getElementById('submitBtn').style.display = 
+    (index === selectedQuestions.length - 1) ? 'block' : 'none';
+}
+
+// ==================== 导航函数 ====================
+function nextQuestion() {
+  if (currentQuestionIndex < selectedQuestions.length - 1) {
+    currentQuestionIndex++;
+    showQuestion(currentQuestionIndex);
+    updateQuestionCounter();
+  }
+}
+
+function previousQuestion() {
+  if (currentQuestionIndex > 0) {
+    currentQuestionIndex--;
+    showQuestion(currentQuestionIndex);
+    updateQuestionCounter();
+  }
+}
+
+function updateQuestionCounter() {
+  const answeredCount = userAnswers.filter(answer => answer !== null).length;
+  const answeredPercent = Math.round((answeredCount / selectedQuestions.length) * 100);
+  
+  document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
+  document.getElementById('progressPercent').textContent = answeredPercent + '%';
+  document.getElementById('progressFill').style.width = answeredPercent + '%';
+}
+
+// ==================== 计时器 ====================
+function startTimer() {
+  updateTimerDisplay();
+  
+  timerInterval = setInterval(() => {
+    if (timeLeft > 0) {
+      timeLeft--;
+      updateTimerDisplay();
+      
+      if (timeLeft === 10 * 60) {
+        document.getElementById('timerWarning').style.display = 'block';
+      } else if (timeLeft === 5 * 60) {
+        document.getElementById('timerWarning').style.display = 'none';
+        document.getElementById('timerCritical').style.display = 'block';
+      }
+    } else {
+      clearInterval(timerInterval);
+      timerInterval = null;
+      alert("Le temps est écoulé! Votre test sera soumis automatiquement.");
+      submitTest();
+    }
+  }, 1000);
+}
+
+function updateTimerDisplay() {
+  const minutes = Math.floor(timeLeft / 60);
+  const seconds = timeLeft % 60;
+  
+  document.getElementById('timerDisplay').textContent = 
+    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  
+  const progressPercent = (timeLeft / totalTime) * 100;
+  document.getElementById('timerProgress').style.width = `${progressPercent}%`;
+}
+
+// ==================== 提交和评分 ====================
+function submitTest() {
+  if (timerInterval) {
+    clearInterval(timerInterval);
+    timerInterval = null;
+  }
+  
+  // 检查未答题
+  const unanswered = userAnswers.filter(answer => answer === null).length;
+  
+  if (unanswered > 0) {
+    if (!confirm(`${unanswered} question(s) non répondues. Soumettre quand même?`)) {
+      return;
+    }
+  }
+  
+  calculateScore();
+  displayResults();
+}
+
+function calculateScore() {
+  let correct = 0;
+  
+  selectedQuestions.forEach((question, index) => {
+    if (userAnswers[index] === question.answer) {
+      correct++;
+    }
+  });
+  
+  currentScore = correct;
+  currentPercentage = Math.round((correct / selectedQuestions.length) * 100);
+  
+  if (currentPercentage >= 80) {
+    currentScoreText = "Excellent! Votre niveau est excellent, vous êtes prêt pour l'examen officiel !";
+  } else if (currentPercentage >= 60) {
+    currentScoreText = "Très bien! Vous avez de bonnes connaissances civiques.";
+  } else if (currentPercentage >= 40) {
+    currentScoreText = "Bon travail! Vous avez des bases solides mais quelques lacunes.";
+  } else {
+    currentScoreText = "Continuez à apprendre! La culture civique est importante pour l'intégration.";
+  }
+}
+
+function displayResults() {
+  document.getElementById('testContainer').style.display = 'none';
+  
+  document.getElementById('scoreDisplay').textContent = `${currentScore}/${selectedQuestions.length}`;
+  document.getElementById('scoreText').textContent = currentScoreText;
+  
+  const testResult = getTestResult(currentScore, selectedQuestions.length);
+  document.getElementById('recommendationText').textContent = testResult.result;
+  document.getElementById('recommendationDetails').textContent = testResult.details;
+  
+  setTimeout(() => {
+    document.getElementById('scoreFill').style.width = currentPercentage + '%';
+  }, 300);
+  
+  // 显示详细答案
+  const resultsDetails = document.getElementById('resultsDetails');
+  resultsDetails.innerHTML = '<h3 style="text-align: center; margin-bottom: 30px; color: var(--primary-blue);">Détail des réponses</h3>';
+  
+  selectedQuestions.forEach((question, index) => {
+    const userAnswerIndex = userAnswers[index];
+    const isCorrect = userAnswerIndex === question.answer;
+    const userAnswer = userAnswerIndex !== null ? 
+      question.options[userAnswerIndex] : "Non répondue";
+    const correctAnswer = question.options[question.answer];
+    
+    const resultItem = document.createElement('div');
+    resultItem.className = `result-item ${isCorrect ? 'correct' : 'incorrect'}`;
+    
+    const icon = isCorrect ? 
+      '<i class="fas fa-check-circle" style="color:var(--green); margin-right:8px;"></i>' : 
+      '<i class="fas fa-times-circle" style="color:var(--red); margin-right:8px;"></i>';
+    
+    resultItem.innerHTML = `
+      <div class="result-question">${icon} Question ${index + 1}: ${question.question}</div>
+      <div class="result-answer">
+        <strong>Votre réponse:</strong> ${userAnswer}
+      </div>
+      ${!isCorrect ? `<div class="result-answer"><strong>Réponse correcte:</strong> ${correctAnswer}</div>` : ''}
+      <div class="result-explanation">
+        <strong>Explication:</strong> ${question.explanation}
+      </div>
+    `;
+    
+    resultsDetails.appendChild(resultItem);
+  });
+  
+  document.getElementById('resultsContainer').classList.add('show');
+  
+  setTimeout(() => {
+    document.getElementById('resultsContainer').scrollIntoView({ behavior: 'smooth' });
+  }, 500);
+}
+
+function getTestResult(score, total) {
+  const percentage = Math.round((score / total) * 100);
+  let result = "";
+  let details = "";
+  
+  if (percentage >= 80) {
+    result = "Niveau excellent";
+    details = "Félicitations! Votre niveau est excellent. Vous maîtrisez bien les principes de la République et les institutions françaises. Vous êtes prêt pour l'examen officiel.";
+  } else if (percentage >= 60) {
+    result = "Niveau satisfaisant";
+    details = "Vous avez de bonnes connaissances civiques mais quelques points à revoir. Nous vous recommandons de réviser les thématiques où vous avez fait des erreurs.";
+  } else if (percentage >= 40) {
+    result = "Niveau à améliorer";
+    details = "Vous avez des bases mais des lacunes importantes. Nous vous conseillons de suivre notre cours complet pour mieux préparer l'examen officiel.";
+  } else {
+    result = "Niveau insuffisant";
+    details = "Vos connaissances civiques sont insuffisantes pour réussir l'examen officiel. Nous vous recommandons vivement de suivre notre formation complète.";
+  }
+  
+  return { result, details };
+}
+
+// ==================== 其他功能 ====================
+function restartTest() {
+  if (confirm("Voulez-vous vraiment recommencer le test? Vos réponses actuelles seront perdues.")) {
+    // 完全重新初始化
+    currentQuestionIndex = 0;
+    timeLeft = totalTime;
+    if (timerInterval) {
+      clearInterval(timerInterval);
+      timerInterval = null;
+    }
+    
+    document.getElementById('resultsContainer').classList.remove('show');
+    document.getElementById('testContainer').style.display = 'block';
+    
+    // 重新选择题目（每次都会不同）
+    selectQuestionsByCategory();
+    userAnswers = new Array(selectedQuestions.length).fill(null);
+    
+    document.getElementById('totalQuestions').textContent = selectedQuestions.length;
+    document.getElementById('timerDisplay').textContent = "45:00";
+    document.getElementById('timerProgress').style.width = "100%";
+    document.getElementById('timerWarning').style.display = 'none';
+    document.getElementById('timerCritical').style.display = 'none';
+    
+    showQuestion(currentQuestionIndex);
+    updateQuestionCounter();
+    
+    startTimer();
+    
+    window.scrollTo(0, 0);
+  }
+}
+
+function showInstructions() {
+  alert("Instructions du test étudiant:\n\n" +
+        "1. Durée totale : 45 minutes pour 40 questions\n" +
+        "2. Format : Questions à choix multiples (4 options)\n" +
+        "3. Seuil de réussite : 32/40 (80%) pour l'examen officiel\n" +
+        "4. Navigation : Utilisez les boutons 'Précédente' et 'Suivante'\n" +
+        "5. Timer : Le temps restant est affiché en haut\n" +
+        "6. Avertissements : À 10 minutes et 5 minutes de la fin\n" +
+        "7. Soumission : Cliquez sur 'Soumettre le test' quand vous avez terminé\n\n" +
+        "Bonne chance pour votre test de simulation!");
+}
+
+function goBackToHome() {
+  if (confirm("Êtes-vous sûr de vouloir quitter? Votre progression sera perdue.")) {
+    window.location.href = "index.html";
+  }
+}
+
+// ==================== 初始化 ====================
+document.addEventListener('DOMContentLoaded', function() {
+  console.log("页面加载完成，题库包含", fullQuestionBank.length, "道题");
+  
+  document.getElementById('studentPassword').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      validateLogin();
+    }
+  });
+});
+</script>
+
+
+</body>
+</html>
