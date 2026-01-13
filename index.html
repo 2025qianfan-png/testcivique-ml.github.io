@@ -1267,16 +1267,13 @@ h1, h2, h3, h4 {
       </div>
       
       <div class="results-actions">
-        <button class="btn btn-success" onclick="sendResultsToEmail()">
-          <i class="fas fa-envelope"></i> Envoyer mes résultats
-        </button>
-        <button class="btn" onclick="restartTest()">
-          <i class="fas fa-redo"></i> Refaire le test
-        </button>
-        <button class="btn btn-primary" onclick="goBackToHome()">
-          <i class="fas fa-home"></i> Retour à l'accueil
-        </button>
-      </div>
+  <button class="btn" onclick="restartTest()">
+    <i class="fas fa-redo"></i> Refaire le test
+  </button>
+  <button class="btn btn-primary" onclick="goBackToHome()">
+    <i class="fas fa-home"></i> Retour à l'accueil
+  </button>
+</div>
     </div>
   </div>
 </main>
@@ -1844,15 +1841,30 @@ function displayResults(isAutoSubmit) {
   // Afficher les résultats
   document.getElementById('resultsContainer').classList.add('show');
   
+  // ==================== 新增：自动发送邮件 ====================
+  // 延迟一点时间，让用户先看到结果
+  setTimeout(() => {
+    console.log("自动发送邮件中...");
+    sendResultsToEmail();
+  }, 1500);
+  
   // Défiler vers les résultats
   setTimeout(() => {
     document.getElementById('resultsContainer').scrollIntoView({ behavior: 'smooth' });
   }, 500);
 }
-
 // Email sending functions
 function sendResultsToEmail() {
-  showEmailStatus("sending");
+  console.log("自动发送邮件...");
+  
+  // 检查是否有学生信息
+  if (!studentInfo.email) {
+    console.warn("没有学生邮箱信息，跳过邮件发送");
+    return;
+  }
+  
+  // 显示发送状态（修改标题为"自动发送"）
+  showEmailStatus("auto_sending");
   
   // Construire le contenu de l'email
   const emailData = prepareEmailData();
@@ -1860,7 +1872,6 @@ function sendResultsToEmail() {
   // Envoyer l'email via EmailJS
   sendEmailWithEmailJS(emailData);
 }
-
 function prepareEmailData() {
   const fullName = `${studentInfo.firstName} ${studentInfo.lastName}`;
   const recommendation = getCourseRecommendation(currentScore);
@@ -2136,6 +2147,7 @@ function showEmailStatus(status, errorDetails = "") {
       break;
   }
 }
+
 function closeStatusModal() {
   document.getElementById('emailStatusModal').style.display = 'none';
 }
