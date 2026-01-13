@@ -1916,37 +1916,117 @@ function prepareEmailData() {
 }
 
 function sendEmailWithEmailJS(emailData) {
-  // Configuration EmailJS - À COMPLÉTER AVEC VOS CLÉS
-  const serviceID = "service_vx5xgmg"; // À remplacer
-  const templateID = "template_72yeiak"; // À remplacer
+  console.log("开始发送EmailJS邮件...");
   
+  // 使用您的实际配置
+  const serviceID = "service_5i2hyhb";
+  const templateID = "template_72yeiak";
+  
+  console.log("配置检查:");
+  console.log("- Service ID:", serviceID);
+  console.log("- Template ID:", templateID);
+  console.log("- Public Key: D2jk67ERbrJZSUyvC");
+  
+  // 构建模板参数 - 与您的模板变量完全匹配
   const templateParams = {
-    to_email: emailData.to_email,
-    cc_email: emailData.cc_email,
-    subject: emailData.subject,
-    student_name: emailData.student_name,
-    student_email: emailData.student_email,
-    test_date: emailData.test_date,
-    score: emailData.score,
-    percentage: emailData.percentage,
-    recommendation: emailData.recommendation,
-    details: emailData.details,
-    message: emailData.body
+    // 必需字段（根据EmailJS要求）
+    from_name: "Association Mille Voiles",
+    reply_to: studentInfo.email,
+    
+    // 模板变量（必须与模板中的 {{variable}} 完全一致）
+    student_name: emailData.student_name || `${studentInfo.firstName} ${studentInfo.lastName}`,
+    student_email: emailData.student_email || studentInfo.email,
+    test_date: emailData.test_date || studentInfo.testDate,
+    score: emailData.score || `${currentScore}/${questions.length}`,
+    percentage: emailData.percentage || `${Math.round(currentPercentage)}%`,
+    recommendation: emailData.recommendation || getCourseRecommendation(currentScore).recommendation,
+    details: emailData.details || getCourseRecommendation(currentScore).details,
+    
+    // 邮件基本信息
+    to_email: emailData.to_email || "2025qianfan@gmail.com",
+    subject: emailData.subject || `Résultats Test Civique - ${studentInfo.firstName} ${studentInfo.lastName}`
   };
   
-  // Envoyer l'email
+  console.log("发送参数检查:", templateParams);
+  
+  // 验证所有必需的模板变量都有值
+  const requiredVars = ['student_name', 'student_email', 'test_date', 'score', 'percentage', 'recommendation', 'details'];
+  const missingVars = requiredVars.filter(varName => !templateParams[varName]);
+  
+  if (missingVars.length > 0) {
+    console.error("缺少必要的模板变量:", missingVars);
+    showEmailStatus("error", `缺少必要的邮件数据: ${missingVars.join(', ')}`);
+    return;
+  }
+  
+  // 发送邮件
   emailjs.send(serviceID, templateID, templateParams)
     .then(function(response) {
-      console.log('Email envoyé avec succès!', response.status, response.text);
+      console.log('✅ 邮件发送成功!', response);
+      console.log('状态码:', response.status);
+      console.log('响应文本:', response.text);
+      
       showEmailStatus("success");
     })
     .catch(function(error) {
-      console.error('Erreur lors de l\'envoi de l\'email:', error);
-      // Fallback: utiliser mailto: si EmailJS échoue
-      sendEmailFallback(emailData);
+      console.error('❌ 邮件发送失败:', error);
+      
+      // 分析错误类型
+      let errorMsg = "邮件发送失败";
+      let errorDetails = "";
+      
+      if (error.text) {
+        errorDetails = error.text;
+        
+        if (error.text.includes("Invalid template ID")) {
+          errorMsg = "模板ID无效，请检查Template ID";
+        } else if (error.text.includes("Invalid service ID")) {
+          errorMsg = "服务ID无效，请检查Service ID";
+        } else if (error.text.includes("Public Key")) {
+          errorMsg = "Public Key错误";
+        } else if (error.text.includes("user_id")) {
+          errorMsg = "用户ID错误，请检查Public Key";
+        }
+      }
+      
+      if (error.status) {
+        console.error("HTTP状态码:", error.status);
+        
+        switch(error.status) {
+          case 0:
+            errorMsg = "网络错误，请检查网络连接";
+            break;
+          case 400:
+            errorMsg = "请求参数错误";
+            break;
+          case 401:
+            errorMsg = "认证失败，请检查Public Key";
+            break;
+          case 404:
+            errorMsg = "服务或模板不存在";
+            break;
+          case 429:
+            errorMsg = "发送次数过多，请稍后重试";
+            break;
+          case 500:
+            errorMsg = "服务器错误";
+            break;
+        }
+      }
+      
+      console.error("详细错误信息:", errorMsg, errorDetails);
+      
+      // 显示详细的错误信息
+      showEmailStatus("error", `${errorMsg}${errorDetails ? `: ${errorDetails}` : ''}`);
+      
+      // 提供备选方案
+      setTimeout(function() {
+        if (confirm(`邮件发送失败 (${errorMsg})。\n\n是否使用备选方法发送邮件？`)) {
+          sendEmailFallback(emailData);
+        }
+      }, 1500);
     });
 }
-
 function sendEmailFallback(emailData) {
   // Fallback: utiliser mailto: pour envoyer l'email
   const subject = encodeURIComponent(emailData.subject);
@@ -1960,7 +2040,7 @@ function sendEmailFallback(emailData) {
   showEmailStatus("fallback");
 }
 
-function showEmailStatus(status) {
+function showEmailStatus(status, errorDetails = "") {
   const modal = document.getElementById('emailStatusModal');
   const icon = document.getElementById('statusIcon');
   const title = document.getElementById('statusTitle');
@@ -1974,40 +2054,88 @@ function showEmailStatus(status) {
       icon.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
       icon.style.color = 'var(--primary-blue)';
       title.textContent = "Envoi en cours";
-      message.textContent = "Vos résultats sont en cours d'envoi à 2025qianfan@gmail.com...";
+      message.innerHTML = `
+        <div style="text-align: left; background: rgba(0,64,128,0.1); padding: 15px; border-radius: 8px; margin: 15px 0;">
+          <p><strong>Destinataire :</strong> 2025qianfan@gmail.com</p>
+          <p><strong>Copie à :</strong> ${studentInfo.email}</p>
+          <p><strong>Étudiant :</strong> ${studentInfo.firstName} ${studentInfo.lastName}</p>
+          <p><strong>Score :</strong> ${currentScore}/${questions.length}</p>
+        </div>
+        <p>Envoi des résultats via EmailJS...</p>
+      `;
       button.style.display = 'none';
       break;
       
     case "success":
       icon.innerHTML = '<i class="fas fa-check-circle"></i>';
       icon.className = "status-icon status-success";
-      title.textContent = "Email envoyé !";
-      message.textContent = `Vos résultats ont été envoyés avec succès à 2025qianfan@gmail.com. Une copie a été envoyée à ${studentInfo.email}.`;
-      button.textContent = "Continuer";
+      title.textContent = "Succès !";
+      message.innerHTML = `
+        <p style="color: var(--green); font-weight: bold;">✅ Email envoyé avec succès !</p>
+        <div style="text-align: left; background: rgba(39,174,96,0.1); padding: 15px; border-radius: 8px; margin: 15px 0;">
+          <p><strong>Destinataire :</strong> 2025qianfan@gmail.com</p>
+          <p><strong>Copie envoyée à :</strong> ${studentInfo.email}</p>
+          <p><strong>Score :</strong> ${currentScore}/${questions.length}</p>
+          <p><strong>Recommandation :</strong> ${getCourseRecommendation(currentScore).recommendation}</p>
+        </div>
+        <p style="font-size: 0.9em; color: #666;">L'association recevra vos résultats sous peu.</p>
+      `;
+      button.textContent = "Fermer";
       button.style.display = 'block';
-      break;
-      
-    case "fallback":
-      icon.innerHTML = '<i class="fas fa-envelope"></i>';
-      icon.className = "status-icon";
-      icon.style.color = 'var(--orange)';
-      title.textContent = "Ouvrez votre client email";
-      message.textContent = "Veuillez envoyer manuellement vos résultats en utilisant le lien mailto: qui s'est ouvert. Assurez-vous d'envoyer à 2025qianfan@gmail.com.";
-      button.textContent = "J'ai envoyé l'email";
-      button.style.display = 'block';
+      button.onclick = closeStatusModal;
       break;
       
     case "error":
       icon.innerHTML = '<i class="fas fa-times-circle"></i>';
       icon.className = "status-icon status-error";
       title.textContent = "Erreur d'envoi";
-      message.textContent = "Impossible d'envoyer l'email. Veuillez contacter l'administrateur à 2025qianfan@gmail.com.";
-      button.textContent = "Fermer";
+      message.innerHTML = `
+        <p style="color: var(--red); font-weight: bold;">❌ L'envoi a échoué</p>
+        <div style="text-align: left; background: rgba(231,76,60,0.1); padding: 15px; border-radius: 8px; margin: 15px 0;">
+          <p><strong>Erreur :</strong> ${errorDetails || "Erreur inconnue"}</p>
+          <p><strong>Veuillez contacter :</strong> 2025qianfan@gmail.com</p>
+          <p><strong>Score à rapporter :</strong> ${currentScore}/${questions.length}</p>
+        </div>
+        <p style="font-size: 0.9em; color: #666;">
+          Conseil : Prenez une capture d'écran de vos résultats pour référence.
+        </p>
+      `;
+      button.textContent = "Réessayer";
       button.style.display = 'block';
+      button.onclick = function() {
+        closeStatusModal();
+        setTimeout(() => sendResultsToEmail(), 500);
+      };
+      break;
+      
+    case "fallback":
+      icon.innerHTML = '<i class="fas fa-envelope-open"></i>';
+      icon.className = "status-icon";
+      icon.style.color = 'var(--orange)';
+      title.textContent = "Envoi manuel";
+      message.innerHTML = `
+        <p>Veuillez utiliser votre client email :</p>
+        <div style="text-align: left; background: rgba(243,156,18,0.1); padding: 15px; border-radius: 8px; margin: 15px 0;">
+          <p><strong>Destinataire :</strong> 2025qianfan@gmail.com</p>
+          <p><strong>Copie à :</strong> ${studentInfo.email}</p>
+          <p><strong>Sujet :</strong> Résultats Test Civique - ${studentInfo.firstName} ${studentInfo.lastName}</p>
+          <p><strong>Votre score :</strong> ${currentScore}/${questions.length}</p>
+        </div>
+        <p style="font-size: 0.9em; color: #666;">Votre client email va s'ouvrir automatiquement...</p>
+      `;
+      button.textContent = "Ouvrir maintenant";
+      button.style.display = 'block';
+      button.onclick = function() {
+        const emailData = prepareEmailData();
+        const subject = encodeURIComponent(emailData.subject);
+        const body = encodeURIComponent(emailData.body);
+        const mailtoLink = `mailto:2025qianfan@gmail.com?cc=${studentInfo.email}&subject=${subject}&body=${body}`;
+        window.open(mailtoLink, '_blank');
+        closeStatusModal();
+      };
       break;
   }
 }
-
 function closeStatusModal() {
   document.getElementById('emailStatusModal').style.display = 'none';
 }
