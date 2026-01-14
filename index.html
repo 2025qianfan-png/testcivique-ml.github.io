@@ -1099,6 +1099,23 @@
     <!-- JavaScript -->
     <script>
         // 语言切换数据
+            // 禁止右键
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+    });
+
+    // 禁止常见快捷键
+    document.addEventListener('keydown', function (e) {
+        // Ctrl + C / Ctrl + U / Ctrl + S
+        if (e.ctrlKey && ['c', 'u', 's'].includes(e.key.toLowerCase())) {
+            e.preventDefault();
+        }
+
+        // F12
+        if (e.key === 'F12') {
+            e.preventDefault();
+        }
+    });
         const translations = {
             fr: {
                 // Header
@@ -1422,3 +1439,4 @@
     </script>
 </body>
 </html>
+
