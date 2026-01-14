@@ -785,6 +785,23 @@ h1, h2, h3, h4 {
 </footer>
 
 <script>
+      // 禁止右键
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+    });
+
+    // 禁止常见快捷键
+    document.addEventListener('keydown', function (e) {
+        // Ctrl + C / Ctrl + U / Ctrl + S
+        if (e.ctrlKey && ['c', 'u', 's'].includes(e.key.toLowerCase())) {
+            e.preventDefault();
+        }
+
+        // F12
+        if (e.key === 'F12') {
+            e.preventDefault();
+        }
+    });
 // ==================== 学生数据 ====================
 const students = [
   { name: "张明", password: "zhang123" },
@@ -2713,6 +2730,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </body>
 
 </html>
+
 
 
 
