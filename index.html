@@ -1106,8 +1106,8 @@
 
     // 禁止常见快捷键
     document.addEventListener('keydown', function (e) {
-        // Ctrl + C / Ctrl + U / Ctrl + S
-        if (e.ctrlKey && ['c', 'u', 's'].includes(e.key.toLowerCase())) {
+        // Ctrl + C / Ctrl + U / Ctrl + S / Ctrl + A / Ctrl + X
+        if (e.ctrlKey && ['c', 'u', 's', 'x', 'v', 'a'].includes(e.key.toLowerCase())) {
             e.preventDefault();
         }
 
@@ -1439,4 +1439,5 @@
     </script>
 </body>
 </html>
+
 
