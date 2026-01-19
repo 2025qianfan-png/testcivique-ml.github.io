@@ -476,17 +476,31 @@
             border-radius: var(--border-radius);
             transition: var(--transition);
             border: 2px solid transparent;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .theme-card:hover {
             border-color: var(--primary-blue);
             transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
         }
 
         .theme-card h5 {
             color: var(--primary-blue);
             margin-bottom: 10px;
             font-size: 1.1rem;
+        }
+
+        /* Theme Card Link Style */
+        .theme-link {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         /* FAQ Section */
@@ -899,26 +913,55 @@
                     </p>
                     
                     <div class="themes-grid">
-                        <div class="theme-card">
+                        <!-- 主题1 -->
+                        <a href="thematique-valeurs.html" class="theme-card">
                             <h5 id="theme1">1. Principes et valeurs</h5>
                             <p id="theme1Desc">La devise et les symboles de la République, la laïcité</p>
-                        </div>
-                        <div class="theme-card">
+                            <div class="theme-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span id="link1Text">En savoir plus</span>
+                            </div>
+                        </a>
+                        
+                        <!-- 主题2 -->
+                        <a href="thematique-institutions.html" class="theme-card">
                             <h5 id="theme2">2. Institutions</h5>
                             <p id="theme2Desc">L'organisation de la République française, l'Union européenne et ses institutions</p>
-                        </div>
-                        <div class="theme-card">
+                            <div class="theme-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span id="link2Text">En savoir plus</span>
+                            </div>
+                        </a>
+                        
+                        <!-- 主题3 -->
+                        <a href="thematique-droits.html" class="theme-card">
                             <h5 id="theme3">3. Droits et devoirs</h5>
                             <p id="theme3Desc">Les droits fondamentaux, les obligations et les devoirs des personnes résidant en France</p>
-                        </div>
-                        <div class="theme-card">
+                            <div class="theme-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span id="link3Text">En savoir plus</span>
+                            </div>
+                        </a>
+                        
+                        <!-- 主题4 -->
+                        <a href="thematique-culture.html" class="theme-card">
                             <h5 id="theme4">4. Culture</h5>
                             <p id="theme4Desc">L'Histoire, la géographie et la culture françaises</p>
-                        </div>
-                        <div class="theme-card">
+                            <div class="theme-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span id="link4Text">En savoir plus</span>
+                            </div>
+                        </a>
+                        
+                        <!-- 主题5 -->
+                        <a href="thematique-societe.html" class="theme-card">
                             <h5 id="theme5">5. Vie sociale</h5>
                             <p id="theme5Desc">L'autorité parentale et le système éducatif, le fait de travailler en France</p>
-                        </div>
+                            <div class="theme-link">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span id="link5Text">En savoir plus</span>
+                            </div>
+                        </a>
                     </div>
                     
                     <p id="resourceText" style="margin-top: 30px; font-style: italic;">
@@ -1098,15 +1141,14 @@
 
     <!-- JavaScript -->
     <script>
-        // 语言切换数据
-            // 禁止右键
+         // 禁止右键
     document.addEventListener('contextmenu', function (e) {
         e.preventDefault();
     });
 
     // 禁止常见快捷键
     document.addEventListener('keydown', function (e) {
-        // Ctrl + C / Ctrl + U / Ctrl + S / Ctrl + A / Ctrl + X
+        // Ctrl + C / Ctrl + U / Ctrl + S
         if (e.ctrlKey && ['c', 'u', 's', 'x', 'v', 'a'].includes(e.key.toLowerCase())) {
             e.preventDefault();
         }
@@ -1116,6 +1158,7 @@
             e.preventDefault();
         }
     });
+        // 语言切换数据
         const translations = {
             fr: {
                 // Header
@@ -1202,6 +1245,13 @@
                 theme5: "5. Vie sociale",
                 theme5Desc: "L'autorité parentale et le système éducatif, le fait de travailler en France",
                 resourceText: "Vous pouvez trouver des fiches pour préparer l'examen civique, et prendre connaissance des centres agréés au sein desquels il est possible de passer l'examen sur le site formation-civique.interieur.gouv.fr.",
+                
+                // 链接文本
+                link1Text: "En savoir plus",
+                link2Text: "En savoir plus",
+                link3Text: "En savoir plus",
+                link4Text: "En savoir plus",
+                link5Text: "En savoir plus",
                 
                 // FAQ Section
                 faqTitle: "Questions fréquentes",
@@ -1314,6 +1364,13 @@
                 theme5: "5. 社会生活",
                 theme5Desc: "父母权威和教育体系，在法国工作",
                 resourceText: "您可以在网站 formation-civique.interieur.gouv.fr 上找到准备公民考试的资料，并了解可以参加考试的认证中心。",
+                
+                // 链接文本
+                link1Text: "了解更多",
+                link2Text: "了解更多",
+                link3Text: "了解更多",
+                link4Text: "了解更多",
+                link5Text: "了解更多",
                 
                 // FAQ Section
                 faqTitle: "常见问题",
@@ -1439,5 +1496,3 @@
     </script>
 </body>
 </html>
-
-
