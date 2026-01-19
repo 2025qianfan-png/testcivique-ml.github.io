@@ -132,19 +132,24 @@
             color: var(--primary-blue);
         }
 
-        /* Login Section */
+        /* 优化的 Login Section */
         .login-section {
             flex: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 40px 20px;
+            padding: 30px 20px;
             min-height: calc(100vh - 280px);
+            width: 100%;
+            position: relative;
         }
 
         .login-wrapper {
             width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
         }
@@ -152,12 +157,32 @@
         .login-card {
             background-color: var(--white);
             border-radius: var(--border-radius);
-            padding: 50px;
+            padding: 40px 30px;
             box-shadow: var(--shadow);
             width: 100%;
-            max-width: 500px;
             text-align: center;
             animation: fadeIn 0.5s ease-out;
+            max-height: 80vh;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch; /* 移动端平滑滚动 */
+            scrollbar-width: thin; /* Firefox */
+            scrollbar-color: var(--primary-blue) var(--light-gray);
+            margin-bottom: 20px;
+        }
+
+        /* 自定义滚动条样式 */
+        .login-card::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .login-card::-webkit-scrollbar-track {
+            background: var(--light-gray);
+            border-radius: 3px;
+        }
+
+        .login-card::-webkit-scrollbar-thumb {
+            background: var(--primary-blue);
+            border-radius: 3px;
         }
 
         @keyframes fadeIn {
@@ -173,15 +198,37 @@
 
         .login-card h2 {
             margin-bottom: 10px;
+            font-size: 1.8rem;
         }
 
         .login-card p {
             color: var(--medium-gray);
-            margin-bottom: 30px;
+            margin-bottom: 25px;
+            font-size: 1rem;
+        }
+
+        .welcome-box {
+            background: linear-gradient(135deg, rgba(0, 64, 128, 0.1) 0%, rgba(0, 102, 204, 0.1) 100%);
+            border-radius: var(--border-radius);
+            padding: 20px 15px;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .welcome-box h3 {
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+            font-size: 1.3rem;
+        }
+
+        .welcome-box p {
+            color: var(--medium-gray);
+            margin-bottom: 0;
+            font-size: 0.95rem;
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             text-align: left;
         }
 
@@ -220,6 +267,47 @@
             0%, 100% { transform: translateX(0); }
             10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
             20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .login-btn:hover {
+            background-color: var(--primary-light-blue);
+            transform: translateY(-2px);
+        }
+
+        .login-btn:active {
+            transform: translateY(0);
+        }
+
+        /* 记住密码选项 */
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: var(--medium-gray);
+        }
+
+        .remember-me input {
+            width: auto;
         }
 
         /* Main Content */
@@ -587,6 +675,8 @@
             color: var(--white);
             padding: 60px 0 30px;
             margin-top: auto;
+            width: 100%;
+            flex-shrink: 0;
         }
 
         .footer-content {
@@ -645,15 +735,21 @@
             opacity: 0.7;
         }
 
-        /* Responsive */
+        /* Responsive Design - 针对登录部分优化 */
         @media (max-width: 768px) {
             .main-header h1 {
                 font-size: 2.2rem;
             }
             
+            .main-header p {
+                font-size: 1rem;
+                padding: 0 10px;
+            }
+            
             .nav-container {
                 flex-direction: column;
                 gap: 15px;
+                padding: 12px 15px;
             }
             
             .nav-links {
@@ -662,8 +758,45 @@
                 justify-content: center;
             }
             
+            .nav-links a {
+                font-size: 0.95rem;
+            }
+            
+            /* 登录部分响应式优化 */
+            .login-section {
+                padding: 20px 15px;
+                min-height: calc(100vh - 240px);
+            }
+            
             .login-card {
                 padding: 30px 20px;
+                max-height: 75vh;
+            }
+            
+            .login-icon {
+                font-size: 3rem;
+                margin-bottom: 15px;
+            }
+            
+            .login-card h2 {
+                font-size: 1.6rem;
+            }
+            
+            .welcome-box {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+            
+            .welcome-box h3 {
+                font-size: 1.2rem;
+            }
+            
+            .form-group input {
+                padding: 14px;
+            }
+            
+            .login-btn {
+                padding: 14px;
             }
             
             .table-section, .mindmap-container, .scenario-tips, .memory-tips {
@@ -691,6 +824,15 @@
                 width: 200px;
                 justify-content: center;
             }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .main-footer {
+                padding: 40px 0 20px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -698,8 +840,67 @@
                 font-size: 1.8rem;
             }
             
+            .main-header p {
+                font-size: 0.95rem;
+            }
+            
             .section-header h2 {
                 font-size: 1.8rem;
+            }
+            
+            /* 小屏幕登录优化 */
+            .login-section {
+                padding: 15px 10px;
+                min-height: calc(100vh - 200px);
+            }
+            
+            .login-card {
+                padding: 25px 15px;
+                max-height: 70vh;
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .login-icon {
+                font-size: 2.5rem;
+            }
+            
+            .login-card h2 {
+                font-size: 1.4rem;
+            }
+            
+            .login-card p {
+                font-size: 0.95rem;
+                margin-bottom: 20px;
+            }
+            
+            .welcome-box {
+                padding: 12px;
+            }
+            
+            .welcome-box h3 {
+                font-size: 1.1rem;
+            }
+            
+            .welcome-box p {
+                font-size: 0.9rem;
+            }
+            
+            .form-group {
+                margin-bottom: 15px;
+            }
+            
+            .form-group input {
+                padding: 12px;
+                font-size: 0.95rem;
+            }
+            
+            .login-btn {
+                padding: 12px;
+                font-size: 0.95rem;
+            }
+            
+            .remember-me {
+                font-size: 0.85rem;
             }
             
             .table-section, .mindmap-container, .scenario-tips, .memory-tips {
@@ -719,6 +920,71 @@
                 width: 35px;
                 height: 35px;
                 font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .main-header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .login-card {
+                padding: 20px 12px;
+                max-height: 65vh;
+                border-radius: 8px;
+            }
+            
+            .login-icon {
+                font-size: 2rem;
+            }
+            
+            .login-card h2 {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* 横屏模式优化 */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .login-section {
+                min-height: calc(100vh - 180px);
+                padding: 10px 15px;
+            }
+            
+            .login-card {
+                padding: 20px;
+                max-height: 60vh;
+            }
+            
+            .login-icon {
+                font-size: 2.5rem;
+                margin-bottom: 10px;
+            }
+            
+            .login-card h2 {
+                font-size: 1.4rem;
+                margin-bottom: 5px;
+            }
+            
+            .welcome-box {
+                padding: 10px;
+                margin-bottom: 15px;
+            }
+            
+            .form-group {
+                margin-bottom: 12px;
+            }
+            
+            .form-group input {
+                padding: 10px;
+            }
+            
+            .login-btn {
+                padding: 10px;
             }
         }
     </style>
@@ -748,9 +1014,9 @@
         </div>
     </nav>
 
-    <!-- Login Section -->
+    <!-- 优化的 Login Section -->
     <section class="login-section" id="loginSection">
-        <div class="container login-wrapper">
+        <div class="login-wrapper">
             <div class="login-card">
                 <div class="login-icon">
                     <i class="fas fa-graduation-cap"></i>
@@ -758,33 +1024,48 @@
                 <h2>Accès aux astuces</h2>
                 <p>Veuillez entrer vos identifiants pour accéder aux astuces d'examen</p>
                 
-                <div style="background: linear-gradient(135deg, rgba(0, 64, 128, 0.1) 0%, rgba(0, 102, 204, 0.1) 100%); border-radius: var(--border-radius); padding: 20px; margin-bottom: 30px;">
-                    <h3 style="color: var(--primary-blue); margin-bottom: 10px;">Bienvenue, étudiant !</h3>
-                    <p style="color: var(--medium-gray);">Connectez-vous avec votre nom d'utilisateur et mot de passe pour accéder aux astuces.</p>
+                <div class="welcome-box">
+                    <h3>Bienvenue, étudiant !</h3>
+                    <p>Connectez-vous avec votre nom d'utilisateur et mot de passe pour accéder aux astuces.</p>
+                    <p style="margin-top: 8px; font-size: 0.9rem;"><i class="fas fa-info-circle"></i> Utilisez le nom qui vous a été attribué par l'association.</p>
                 </div>
                 
                 <form id="loginForm">
                     <div class="form-group">
-                        <label for="username">Nom d'utilisateur</label>
+                        <label for="username"><i class="fas fa-user"></i> Nom d'utilisateur</label>
                         <input type="text" id="username" placeholder="Entrez votre nom d'utilisateur" required>
                         <div class="error-message" id="usernameError"></div>
                     </div>
                     
                     <div class="form-group">
-                        <label for="password">Mot de passe</label>
+                        <label for="password"><i class="fas fa-lock"></i> Mot de passe</label>
                         <input type="password" id="password" placeholder="Entrez votre mot de passe" required>
                         <div class="error-message" id="passwordError"></div>
                     </div>
                     
-                    <button type="submit" class="lang-btn active" id="loginBtn" style="width: 100%; justify-content: center; background-color: var(--primary-blue); color: white; border: none;">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Se souvenir de moi</label>
+                    </div>
+                    
+                    <button type="submit" class="login-btn">
                         <i class="fas fa-sign-in-alt"></i> Se connecter
                     </button>
                 </form>
+                
+                <div style="margin-top: 25px; padding-top: 15px; border-top: 1px solid #eee; font-size: 0.9rem; color: var(--medium-gray);">
+                    <p><i class="fas fa-question-circle"></i> <strong>Problème de connexion ?</strong></p>
+                    <p style="margin-top: 5px;">Contactez l'association si vous avez oublié vos identifiants.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; color: var(--medium-gray); font-size: 0.9rem; padding: 0 15px;">
+                <p><i class="fas fa-mobile-alt"></i> Cette page est optimisée pour les mobiles. Faites défiler vers le bas pour voir toutes les informations.</p>
             </div>
         </div>
     </section>
 
-    <!-- Main Content -->
+    <!-- Main Content - 保持所有原有内容 -->
     <main class="main-content" id="mainContent">
         <div class="container">
             <!-- Language Control -->
@@ -1440,24 +1721,22 @@
             </div>
         </div>
     </footer>
-<script src="compte.js"></script>
+
     <script>
- document.addEventListener('contextmenu', function (e) {
-        e.preventDefault();
-    });
-
-    // 禁止常见快捷键
-    document.addEventListener('keydown', function (e) {
-        // Ctrl + C / Ctrl + U / Ctrl + S
-        if (e.ctrlKey && ['c', 'u', 's', 'x', 'v', 'a'].includes(e.key.toLowerCase())) {
+        // 页面保护代码
+        document.addEventListener('contextmenu', function (e) {
             e.preventDefault();
-        }
+        });
 
-        // F12
-        if (e.key === 'F12') {
-            e.preventDefault();
-        }
-    });
+        document.addEventListener('keydown', function (e) {
+            if (e.ctrlKey && ['c', 'u', 's', 'x', 'v', 'a'].includes(e.key.toLowerCase())) {
+                e.preventDefault();
+            }
+
+            if (e.key === 'F12') {
+                e.preventDefault();
+            }
+        });
 
         // 语言数据
         const translations = {
@@ -1573,12 +1852,57 @@
         const mindmapImage2 = document.getElementById('mindmapImage2');
         const mindmapContainer2 = document.getElementById('mindmapContainer2');
 
+        // 记住密码功能
+        const rememberCheckbox = document.getElementById('remember');
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        
+        // 页面加载时检查本地存储
+        window.addEventListener('load', function() {
+            const savedUsername = localStorage.getItem('savedUsername');
+            const savedPassword = localStorage.getItem('savedPassword');
+            
+            if (savedUsername && savedPassword) {
+                usernameInput.value = savedUsername;
+                passwordInput.value = savedPassword;
+                rememberCheckbox.checked = true;
+            }
+            
+            // 确保登录部分可见
+            loginSection.style.display = 'flex';
+            mainContent.style.display = 'none';
+            
+            // 初始化语言
+            updateLanguage('fr');
+            
+            // 初始化思维导图光标
+            if (mindmapContainer1) mindmapContainer1.style.cursor = 'grab';
+            if (mindmapContainer2) mindmapContainer2.style.cursor = 'grab';
+            
+            // 为关键词块添加悬停效果
+            document.querySelectorAll('.keyword-block').forEach(item => {
+                item.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px)';
+                    this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+                    this.style.transition = 'all 0.3s';
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+            
+            // 调整登录卡片高度
+            adjustLoginCardHeight();
+        });
+
         // 登录功能
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+            const username = usernameInput.value;
+            const password = passwordInput.value;
             const usernameError = document.getElementById('usernameError');
             const passwordError = document.getElementById('passwordError');
             
@@ -1586,33 +1910,75 @@
             usernameError.style.display = 'none';
             passwordError.style.display = 'none';
             
-            // 查找学生
-            const student = students.find(s => 
-                s.name.toLowerCase() === username.toLowerCase() || 
-                s.name === username
-            );
-            
-            if (!student) {
-                usernameError.textContent = "Nom d'utilisateur incorrect";
-                usernameError.style.display = 'block';
-                return;
+            // 查找学生 - 这里使用你的现有逻辑
+            // 假设有一个students数组（从compte.js加载）
+            if (typeof students !== 'undefined') {
+                const student = students.find(s => 
+                    s.name.toLowerCase() === username.toLowerCase() || 
+                    s.name === username
+                );
+                
+                if (!student) {
+                    usernameError.textContent = "Nom d'utilisateur incorrect";
+                    usernameError.style.display = 'block';
+                    return;
+                }
+                
+                if (student.password !== password) {
+                    passwordError.textContent = "Mot de passe incorrect";
+                    passwordError.style.display = 'block';
+                    return;
+                }
+                
+                // 登录成功
+                currentStudent = student;
+                
+                // 记住密码
+                if (rememberCheckbox.checked) {
+                    localStorage.setItem('savedUsername', username);
+                    localStorage.setItem('savedPassword', password);
+                } else {
+                    localStorage.removeItem('savedUsername');
+                    localStorage.removeItem('savedPassword');
+                }
+                
+                // 显示主内容
+                loginSection.style.display = 'none';
+                mainContent.style.display = 'block';
+                
+                // 滚动到顶部
+                window.scrollTo(0, 0);
+                
+                // 显示欢迎信息
+                setTimeout(() => {
+                    alert(`Bienvenue ${student.name} !\nVous avez maintenant accès aux astuces d'examen.`);
+                }, 300);
+            } else {
+                // 如果students数组不存在，使用模拟登录
+                if (!username.trim()) {
+                    usernameError.textContent = "Veuillez entrer un nom d'utilisateur";
+                    usernameError.style.display = 'block';
+                    return;
+                }
+                
+                if (!password) {
+                    passwordError.textContent = "Veuillez entrer un mot de passe";
+                    passwordError.style.display = 'block';
+                    return;
+                }
+                
+                // 模拟成功登录
+                setTimeout(() => {
+                    loginSection.style.display = 'none';
+                    mainContent.style.display = 'block';
+                    
+                    // 滚动到顶部
+                    window.scrollTo(0, 0);
+                    
+                    // 显示欢迎信息
+                    alert(`Bienvenue ${username} !\nVous avez maintenant accès aux astuces d'examen.`);
+                }, 500);
             }
-            
-            if (student.password !== password) {
-                passwordError.textContent = "Mot de passe incorrect";
-                passwordError.style.display = 'block';
-                return;
-            }
-            
-            // 登录成功
-            currentStudent = student;
-            loginSection.style.display = 'none';
-            mainContent.style.display = 'block';
-            
-            // 显示欢迎信息
-            setTimeout(() => {
-                alert(`Bienvenue ${student.name} !\nVous avez maintenant accès aux astuces d'examen.`);
-            }, 300);
         });
 
         // 语言切换功能
@@ -1667,191 +2033,187 @@
         }
 
         // Mindmap 1 zoom functionality
-        document.getElementById('zoomIn1').addEventListener('click', () => {
-            zoomLevel1 += 0.2;
-            updateZoom1();
-        });
-
-        document.getElementById('zoomOut1').addEventListener('click', () => {
-            if (zoomLevel1 > 0.4) {
-                zoomLevel1 -= 0.2;
+        if (document.getElementById('zoomIn1')) {
+            document.getElementById('zoomIn1').addEventListener('click', () => {
+                zoomLevel1 += 0.2;
                 updateZoom1();
+            });
+
+            document.getElementById('zoomOut1').addEventListener('click', () => {
+                if (zoomLevel1 > 0.4) {
+                    zoomLevel1 -= 0.2;
+                    updateZoom1();
+                }
+            });
+
+            document.getElementById('resetZoom1').addEventListener('click', () => {
+                zoomLevel1 = 1;
+                updateZoom1();
+                mindmapContainer1.scrollLeft = 0;
+                mindmapContainer1.scrollTop = 0;
+            });
+
+            function updateZoom1() {
+                mindmapImage1.style.transform = `scale(${zoomLevel1})`;
+                mindmapImage1.style.transformOrigin = 'top left';
             }
-        });
-
-        document.getElementById('resetZoom1').addEventListener('click', () => {
-            zoomLevel1 = 1;
-            updateZoom1();
-            mindmapContainer1.scrollLeft = 0;
-            mindmapContainer1.scrollTop = 0;
-        });
-
-        function updateZoom1() {
-            mindmapImage1.style.transform = `scale(${zoomLevel1})`;
-            mindmapImage1.style.transformOrigin = 'top left';
         }
 
         // Mindmap 2 zoom functionality
-        document.getElementById('zoomIn2').addEventListener('click', () => {
-            zoomLevel2 += 0.2;
-            updateZoom2();
-        });
-
-        document.getElementById('zoomOut2').addEventListener('click', () => {
-            if (zoomLevel2 > 0.4) {
-                zoomLevel2 -= 0.2;
+        if (document.getElementById('zoomIn2')) {
+            document.getElementById('zoomIn2').addEventListener('click', () => {
+                zoomLevel2 += 0.2;
                 updateZoom2();
+            });
+
+            document.getElementById('zoomOut2').addEventListener('click', () => {
+                if (zoomLevel2 > 0.4) {
+                    zoomLevel2 -= 0.2;
+                    updateZoom2();
+                }
+            });
+
+            document.getElementById('resetZoom2').addEventListener('click', () => {
+                zoomLevel2 = 1;
+                updateZoom2();
+                mindmapContainer2.scrollLeft = 0;
+                mindmapContainer2.scrollTop = 0;
+            });
+
+            function updateZoom2() {
+                mindmapImage2.style.transform = `scale(${zoomLevel2})`;
+                mindmapImage2.style.transformOrigin = 'top left';
             }
-        });
-
-        document.getElementById('resetZoom2').addEventListener('click', () => {
-            zoomLevel2 = 1;
-            updateZoom2();
-            mindmapContainer2.scrollLeft = 0;
-            mindmapContainer2.scrollTop = 0;
-        });
-
-        function updateZoom2() {
-            mindmapImage2.style.transform = `scale(${zoomLevel2})`;
-            mindmapImage2.style.transformOrigin = 'top left';
         }
 
         // Drag functionality for mindmap 1
-        mindmapContainer1.addEventListener('mousedown', (e) => {
-            isDragging1 = true;
-            startX1 = e.pageX - mindmapContainer1.offsetLeft;
-            startY1 = e.pageY - mindmapContainer1.offsetTop;
-            scrollLeft1 = mindmapContainer1.scrollLeft;
-            scrollTop1 = mindmapContainer1.scrollTop;
-            mindmapContainer1.style.cursor = 'grabbing';
-        });
+        if (mindmapContainer1) {
+            mindmapContainer1.addEventListener('mousedown', (e) => {
+                isDragging1 = true;
+                startX1 = e.pageX - mindmapContainer1.offsetLeft;
+                startY1 = e.pageY - mindmapContainer1.offsetTop;
+                scrollLeft1 = mindmapContainer1.scrollLeft;
+                scrollTop1 = mindmapContainer1.scrollTop;
+                mindmapContainer1.style.cursor = 'grabbing';
+            });
 
-        mindmapContainer1.addEventListener('mouseleave', () => {
-            isDragging1 = false;
-            mindmapContainer1.style.cursor = 'grab';
-        });
+            mindmapContainer1.addEventListener('mouseleave', () => {
+                isDragging1 = false;
+                mindmapContainer1.style.cursor = 'grab';
+            });
 
-        mindmapContainer1.addEventListener('mouseup', () => {
-            isDragging1 = false;
-            mindmapContainer1.style.cursor = 'grab';
-        });
+            mindmapContainer1.addEventListener('mouseup', () => {
+                isDragging1 = false;
+                mindmapContainer1.style.cursor = 'grab';
+            });
 
-        mindmapContainer1.addEventListener('mousemove', (e) => {
-            if (!isDragging1) return;
-            e.preventDefault();
-            const x = e.pageX - mindmapContainer1.offsetLeft;
-            const y = e.pageY - mindmapContainer1.offsetTop;
-            const walkX = (x - startX1) * 2;
-            const walkY = (y - startY1) * 2;
-            mindmapContainer1.scrollLeft = scrollLeft1 - walkX;
-            mindmapContainer1.scrollTop = scrollTop1 - walkY;
-        });
+            mindmapContainer1.addEventListener('mousemove', (e) => {
+                if (!isDragging1) return;
+                e.preventDefault();
+                const x = e.pageX - mindmapContainer1.offsetLeft;
+                const y = e.pageY - mindmapContainer1.offsetTop;
+                const walkX = (x - startX1) * 2;
+                const walkY = (y - startY1) * 2;
+                mindmapContainer1.scrollLeft = scrollLeft1 - walkX;
+                mindmapContainer1.scrollTop = scrollTop1 - walkY;
+            });
+        }
 
         // Drag functionality for mindmap 2
-        mindmapContainer2.addEventListener('mousedown', (e) => {
-            isDragging2 = true;
-            startX2 = e.pageX - mindmapContainer2.offsetLeft;
-            startY2 = e.pageY - mindmapContainer2.offsetTop;
-            scrollLeft2 = mindmapContainer2.scrollLeft;
-            scrollTop2 = mindmapContainer2.scrollTop;
-            mindmapContainer2.style.cursor = 'grabbing';
-        });
+        if (mindmapContainer2) {
+            mindmapContainer2.addEventListener('mousedown', (e) => {
+                isDragging2 = true;
+                startX2 = e.pageX - mindmapContainer2.offsetLeft;
+                startY2 = e.pageY - mindmapContainer2.offsetTop;
+                scrollLeft2 = mindmapContainer2.scrollLeft;
+                scrollTop2 = mindmapContainer2.scrollTop;
+                mindmapContainer2.style.cursor = 'grabbing';
+            });
 
-        mindmapContainer2.addEventListener('mouseleave', () => {
-            isDragging2 = false;
-            mindmapContainer2.style.cursor = 'grab';
-        });
+            mindmapContainer2.addEventListener('mouseleave', () => {
+                isDragging2 = false;
+                mindmapContainer2.style.cursor = 'grab';
+            });
 
-        mindmapContainer2.addEventListener('mouseup', () => {
-            isDragging2 = false;
-            mindmapContainer2.style.cursor = 'grab';
-        });
+            mindmapContainer2.addEventListener('mouseup', () => {
+                isDragging2 = false;
+                mindmapContainer2.style.cursor = 'grab';
+            });
 
-        mindmapContainer2.addEventListener('mousemove', (e) => {
-            if (!isDragging2) return;
-            e.preventDefault();
-            const x = e.pageX - mindmapContainer2.offsetLeft;
-            const y = e.pageY - mindmapContainer2.offsetTop;
-            const walkX = (x - startX2) * 2;
-            const walkY = (y - startY2) * 2;
-            mindmapContainer2.scrollLeft = scrollLeft2 - walkX;
-            mindmapContainer2.scrollTop = scrollTop2 - walkY;
-        });
+            mindmapContainer2.addEventListener('mousemove', (e) => {
+                if (!isDragging2) return;
+                e.preventDefault();
+                const x = e.pageX - mindmapContainer2.offsetLeft;
+                const y = e.pageY - mindmapContainer2.offsetTop;
+                const walkX = (x - startX2) * 2;
+                const walkY = (y - startY2) * 2;
+                mindmapContainer2.scrollLeft = scrollLeft2 - walkX;
+                mindmapContainer2.scrollTop = scrollTop2 - walkY;
+            });
+        }
 
-        // Touch events for mobile
-        mindmapContainer1.addEventListener('touchstart', (e) => {
-            isDragging1 = true;
-            startX1 = e.touches[0].pageX - mindmapContainer1.offsetLeft;
-            startY1 = e.touches[0].pageY - mindmapContainer1.offsetTop;
-            scrollLeft1 = mindmapContainer1.scrollLeft;
-            scrollTop1 = mindmapContainer1.scrollTop;
-        });
-
-        mindmapContainer1.addEventListener('touchend', () => {
-            isDragging1 = false;
-        });
-
-        mindmapContainer1.addEventListener('touchmove', (e) => {
-            if (!isDragging1) return;
-            e.preventDefault();
-            const x = e.touches[0].pageX - mindmapContainer1.offsetLeft;
-            const y = e.touches[0].pageY - mindmapContainer1.offsetTop;
-            const walkX = (x - startX1) * 2;
-            const walkY = (y - startY1) * 2;
-            mindmapContainer1.scrollLeft = scrollLeft1 - walkX;
-            mindmapContainer1.scrollTop = scrollTop1 - walkY;
-        });
-
-        mindmapContainer2.addEventListener('touchstart', (e) => {
-            isDragging2 = true;
-            startX2 = e.touches[0].pageX - mindmapContainer2.offsetLeft;
-            startY2 = e.touches[0].pageY - mindmapContainer2.offsetTop;
-            scrollLeft2 = mindmapContainer2.scrollLeft;
-            scrollTop2 = mindmapContainer2.scrollTop;
-        });
-
-        mindmapContainer2.addEventListener('touchend', () => {
-            isDragging2 = false;
-        });
-
-        mindmapContainer2.addEventListener('touchmove', (e) => {
-            if (!isDragging2) return;
-            e.preventDefault();
-            const x = e.touches[0].pageX - mindmapContainer2.offsetLeft;
-            const y = e.touches[0].pageY - mindmapContainer2.offsetTop;
-            const walkX = (x - startX2) * 2;
-            const walkY = (y - startY2) * 2;
-            mindmapContainer2.scrollLeft = scrollLeft2 - walkX;
-            mindmapContainer2.scrollTop = scrollTop2 - walkY;
-        });
-
-        // 页面加载时初始化
-        document.addEventListener('DOMContentLoaded', function() {
-            // 确保登录部分可见
-            loginSection.style.display = 'flex';
-            mainContent.style.display = 'none';
+        // 移动端优化：触摸反馈
+        const loginBtn = document.querySelector('.login-btn');
+        if (loginBtn) {
+            loginBtn.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.98)';
+            });
             
-            // 初始化语言
-            updateLanguage('fr');
-            
-            // 初始化思维导图光标
-            mindmapContainer1.style.cursor = 'grab';
-            mindmapContainer2.style.cursor = 'grab';
-            
-            // 为关键词块添加悬停效果
-            document.querySelectorAll('.keyword-block').forEach(item => {
-                item.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-3px)';
-                    this.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
-                    this.style.transition = 'all 0.3s';
-                });
-                
-                item.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                    this.style.boxShadow = 'none';
-                });
+            loginBtn.addEventListener('touchend', function() {
+                this.style.transform = 'scale(1)';
+            });
+        }
+
+        // 输入框移动端优化
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                // 在移动设备上，滚动使输入框可见
+                if (window.innerWidth < 768) {
+                    setTimeout(() => {
+                        this.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }, 300);
+                }
             });
         });
+
+        // 调整登录卡片高度
+        function adjustLoginCardHeight() {
+            const loginCard = document.querySelector('.login-card');
+            if (loginCard) {
+                const windowHeight = window.innerHeight;
+                const headerHeight = document.querySelector('.main-header').offsetHeight;
+                const navHeight = document.querySelector('.main-nav').offsetHeight;
+                
+                // 为脚部留出空间
+                const availableHeight = windowHeight - headerHeight - navHeight - 40;
+                loginCard.style.maxHeight = Math.min(availableHeight, 600) + 'px';
+            }
+        }
+
+        // 窗口大小调整时重新计算高度
+        window.addEventListener('resize', function() {
+            adjustLoginCardHeight();
+        });
+
+        // 检测设备类型
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (isMobile) {
+            document.body.classList.add('mobile-device');
+            
+            // 移动设备上的额外优化
+            document.documentElement.style.height = '100%';
+            document.body.style.height = '100%';
+            
+            // 防止iOS上的弹性滚动问题
+            document.addEventListener('touchmove', function(e) {
+                if (e.target.closest('.login-card')) {
+                    // 允许卡片内滚动
+                    return;
+                }
+            }, { passive: false });
+        }
     </script>
+    <script src="compte.js"></script>
 </body>
 </html>
