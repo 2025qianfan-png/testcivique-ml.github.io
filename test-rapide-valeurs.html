@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Test Rapide - Valeurs de la République</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -35,6 +35,8 @@
 
         html, body {
             height: 100%;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -45,6 +47,8 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            position: relative;
+            touch-action: manipulation;
         }
 
         h1, h2, h3, h4, h5 {
@@ -69,12 +73,14 @@
             text-align: center;
             box-shadow: var(--shadow);
             position: relative;
+            flex-shrink: 0;
         }
 
         .main-header h1 {
             color: var(--white);
             font-size: 2.8rem;
             margin-bottom: 10px;
+            word-wrap: break-word;
         }
 
         .main-header p {
@@ -82,6 +88,7 @@
             opacity: 0.9;
             max-width: 800px;
             margin: 0 auto;
+            padding: 0 15px;
         }
 
         /* Navigation */
@@ -91,6 +98,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            flex-shrink: 0;
         }
 
         .nav-container {
@@ -98,6 +106,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 20px;
+            flex-wrap: wrap;
         }
 
         .logo {
@@ -109,6 +118,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            flex-shrink: 0;
         }
 
         .logo i {
@@ -119,6 +129,8 @@
             display: flex;
             gap: 30px;
             align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .nav-links a {
@@ -127,6 +139,7 @@
             font-weight: 500;
             transition: var(--transition);
             position: relative;
+            padding: 5px 0;
         }
 
         .nav-links a:hover {
@@ -141,6 +154,9 @@
             justify-content: center;
             padding: 40px 20px;
             min-height: calc(100vh - 280px);
+            position: relative;
+            width: 100%;
+            overflow-y: auto;
         }
 
         .login-wrapper {
@@ -148,6 +164,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            max-width: 100%;
+            padding: 20px 0;
         }
 
         .login-card {
@@ -159,6 +177,8 @@
             max-width: 500px;
             text-align: center;
             animation: fadeIn 0.5s ease-out;
+            margin: auto;
+            box-sizing: border-box;
         }
 
         @keyframes fadeIn {
@@ -174,11 +194,14 @@
 
         .login-card h2 {
             margin-bottom: 10px;
+            font-size: 2rem;
+            word-wrap: break-word;
         }
 
         .login-card p {
             color: var(--medium-gray);
             margin-bottom: 30px;
+            font-size: 1.1rem;
         }
 
         .form-group {
@@ -191,6 +214,7 @@
             margin-bottom: 8px;
             font-weight: 600;
             color: var(--primary-blue);
+            font-size: 1rem;
         }
 
         .form-group input {
@@ -201,6 +225,8 @@
             font-family: 'Open Sans', sans-serif;
             font-size: 1rem;
             transition: var(--transition);
+            box-sizing: border-box;
+            -webkit-appearance: none;
         }
 
         .form-group input:focus {
@@ -388,7 +414,7 @@
             color: white;
         }
 
-        /* Options - 修复选择功能 */
+        /* Options */
         .options-container {
             display: flex;
             flex-direction: column;
@@ -608,6 +634,10 @@
             font-family: 'Montserrat', sans-serif;
             box-shadow: var(--shadow);
             text-decoration: none;
+            min-height: 54px;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .btn:hover {
@@ -658,6 +688,8 @@
             color: var(--white);
             padding: 60px 0 30px;
             margin-top: auto;
+            flex-shrink: 0;
+            width: 100%;
         }
 
         .footer-content {
@@ -685,6 +717,8 @@
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
             transition: var(--transition);
+            display: inline-block;
+            padding: 2px 0;
         }
 
         .footer-links a:hover {
@@ -1061,6 +1095,9 @@
             }
         });
 
+        // 学生数据库
+       
+
         // 题库数据
         const allQuestions = [...questionsFourYears, ...questionsTenYears];
 
@@ -1082,7 +1119,7 @@
                     ...pickRandomByCategory(questionsFourYears, "Devise et symboles", 4),
                     ...pickRandomByCategory(questionsFourYears, "Laïcité", 3),
                     ...pickRandomByCategory(questionsFourYears, "Mises en situation", 3)
-                ].sort(() => Math.random() - 0.5); // 最后再打乱一次顺序
+                ].sort(() => Math.random() - 0.5);
             },
 
             resident: () => {
@@ -1099,10 +1136,13 @@
         let selectedQuestions = [];
         let currentQuestionIndex = 0;
         let userAnswers = [];
-        let questionAnswered = []; // 记录哪些问题已经回答过
+        let questionAnswered = [];
         let score = 0;
         let currentStudent = null;
-        let isAnswerChecked = false; // 跟踪当前问题是否已检查答案
+        let isAnswerChecked = false;
+        let questionScored = [];
+
+        questionScored = new Array(selectedQuestions.length).fill(false);       
 
         // DOM 元素
         const loginSection = document.getElementById('loginSection');
@@ -1242,7 +1282,7 @@
             loadQuestion(currentQuestionIndex);
         }
 
-        // 加载题目 - 修改为显示分类
+        // 加载题目
         function loadQuestion(index) {
             const question = selectedQuestions[index];
             
@@ -1397,12 +1437,15 @@
             // 禁用检查答案按钮
             this.disabled = true;
             
-            // 如果答案正确，增加分数
+            // 如果答案正确，增加分数 - 修复：只有当答案正确时才增加分数
+         if (!questionScored[currentQuestionIndex]) {
             if (userAnswer === currentQuestion.answer) {
                 score++;
-                currentScore.textContent = score;
             }
-            
+            questionScored[currentQuestionIndex] = true;
+            currentScore.textContent = score;
+        }
+
             // 更新问题状态
             updateQuestionStatus(currentQuestionIndex);
             
@@ -1458,13 +1501,23 @@
             testSection.style.display = 'none';
             resultsSection.style.display = 'block';
             
-            // 计算最终得分
+            // 计算最终得分 - 修复：使用正确的分数变量
+         // ===== 最终成绩：重新按所有题目计算（不管点没点 Vérifier）=====
+            let finalScoreCount = 0;
             const totalQuestionsCount = selectedQuestions.length;
-            const percentage = (score / totalQuestionsCount) * 100;
-            
-            // 更新分数显示
-            finalScore.textContent = score;
-            finalTotal.textContent = totalQuestionsCount;
+
+            selectedQuestions.forEach((question, index) => {
+                if (userAnswers[index] === question.answer) {
+                    finalScoreCount++;
+                }
+            });
+
+// 更新分数显示
+finalScore.textContent = finalScoreCount;
+finalTotal.textContent = totalQuestionsCount;
+
+const percentage = (finalScoreCount / totalQuestionsCount) * 100;
+
             
             // 显示结果消息
             let message = '';
@@ -1484,10 +1537,10 @@
             resultsMessage.textContent = message;
             resultsCard.className = `results-card ${iconClass}`;
             
-            // 显示详细结果 - 包含分类信息
+            // 显示详细结果
             let detailsHTML = '<h3 style="margin-bottom: 20px;">Détail de vos réponses :</h3>';
             
-            selectedQuestions.forEach((question, index) => {
+            selectedQuestions.forEach((question, index) =>{
                 const userAnswer = userAnswers[index];
                 const isCorrect = userAnswer === question.answer;
                 const letters = ['A', 'B', 'C', 'D'];
@@ -1537,7 +1590,44 @@
             testSelection.style.display = 'none';
             testSection.style.display = 'none';
             resultsSection.style.display = 'none';
+            
+            // 调整登录区域高度
+            adjustLoginSectionHeight();
+            
+            // 窗口大小改变时重新调整
+            window.addEventListener('resize', adjustLoginSectionHeight);
         });
+
+        // 防止脚部遮挡函数
+        function adjustLoginSectionHeight() {
+            const loginSection = document.querySelector('.login-section');
+            const footer = document.querySelector('.main-footer');
+            
+            if (loginSection && footer) {
+                const footerHeight = footer.offsetHeight;
+                const headerHeight = document.querySelector('.main-header').offsetHeight;
+                const navHeight = document.querySelector('.main-nav').offsetHeight;
+                
+                // 计算可用高度
+                const availableHeight = window.innerHeight - headerHeight - navHeight - footerHeight;
+                
+                // 设置最小高度
+                const minHeight = Math.max(availableHeight, 300);
+                loginSection.style.minHeight = minHeight + 'px';
+                
+                // 确保内容垂直居中
+                const loginWrapper = document.querySelector('.login-wrapper');
+                if (loginWrapper) {
+                    if (availableHeight < 500) {
+                        loginWrapper.style.alignItems = 'flex-start';
+                        loginWrapper.style.paddingTop = '40px';
+                    } else {
+                        loginWrapper.style.alignItems = 'center';
+                        loginWrapper.style.paddingTop = '0';
+                    }
+                }
+            }
+        }
     </script>
 </body>
 </html>
