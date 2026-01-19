@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Test Rapide - Valeurs de la République</title>
+    <title>Test Rapide - Principes et valeurs de la République </title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -840,7 +840,7 @@
     <!-- Header -->
     <header class="main-header">
         <div class="container">
-            <h1>Test Rapide - Valeurs de la République</h1>
+            <h1>Test Rapide - Principes et valeurs de la République</h1>
             <p>Association Mille Voiles - Évaluez vos connaissances sur les principes et valeurs républicaines</p>
         </div>
     </header>
@@ -910,7 +910,7 @@
                         <i class="fas fa-id-card"></i>
                     </div>
                     <h3>Carte de séjour pluriannuelle</h3>
-                    <p>Test de 10 questions adapté aux personnes demandant une carte de séjour pluriannuelle (4 ans).</p>
+                    <p>Test de 20 questions adapté aux personnes demandant une carte de séjour pluriannuelle (4 ans).</p>
                     <div class="btn btn-success">Commencer ce test</div>
                 </a>
                 
@@ -919,7 +919,7 @@
                         <i class="fas fa-passport"></i>
                     </div>
                     <h3>Carte de résident (10 ans)</h3>
-                    <p>Test de 10 questions pour la carte de résident de 10 ans. Questions plus approfondies.</p>
+                    <p>Test de 20 questions pour la carte de résident de 10 ans. Questions plus approfondies.</p>
                     <div class="btn btn-success">Commencer ce test</div>
                 </a>
             </div>
@@ -932,12 +932,12 @@
             <div class="test-header">
                 <div class="test-info">
                     <h2 id="testTypeTitle">Test Rapide</h2>
-                    <p id="testTheme">Valeurs de la République</p>
+                    <p id="testTheme">Principes et valeurs de la République</p>
                     <p id="studentNameDisplay" style="font-size: 0.9rem; opacity: 0.9; margin-top: 5px;"></p>
                 </div>
                 <div class="test-stats">
-                    <div><strong>Question :</strong> <span id="currentQuestion">1</span>/<span id="totalQuestions">10</span></div>
-                    <div><strong>Score :</strong> <span id="currentScore">0</span>/10</div>
+                    <div><strong>Question :</strong> <span id="currentQuestion">1</span>/<span id="totalQuestions">20</span></div>
+                    <div><strong>Score :</strong> <span id="currentScore">0</span>/20</div>
                 </div>
             </div>
 
@@ -948,7 +948,7 @@
             
             <div class="question-container" id="questionContainer">
                 <div class="question-header">
-                    <div class="question-number">Question <span id="questionNum">1</span>/<span id="totalQuestions2">10</span></div>
+                    <div class="question-number">Question <span id="questionNum">1</span>/<span id="totalQuestions2">20</span></div>
                     <div style="color: var(--primary-blue); font-weight: 600;" id="questionStatus">Non répondue</div>
                 </div>
                 
@@ -1002,7 +1002,7 @@
                 <div class="score-display">
                     <span id="finalScore">0</span>
                     <span class="score-separator">/</span>
-                    <span class="total-questions" id="finalTotal">10</span>
+                    <span class="total-questions" id="finalTotal">20</span>
                 </div>
                 
                 <div class="results-message" id="resultsMessage">
@@ -1041,7 +1041,7 @@
                 <div class="footer-column">
                     <h4>Liens rapides</h4>
                     <ul class="footer-links">
-                        <li><a href="thematique-valeurs.html"><i class="fas fa-chevron-right"></i> Valeurs de la République</a></li>
+                        <li><a href="thematique-valeurs.html"><i class="fas fa-chevron-right"></i> Principes et valeurs de la République</a></li>
                         <li><a href="astuces-examen.html"><i class="fas fa-chevron-right"></i> Astuces pour l'examen</a></li>
                         <li><a href="test-civique.html"><i class="fas fa-chevron-right"></i> Test Civique complet</a></li>
                         <li><a href="index.html"><i class="fas fa-chevron-right"></i> Page d'accueil</a></li>
@@ -1116,17 +1116,17 @@
         const questionBanks = {
             pluriannuel: () => {
                 return [
-                    ...pickRandomByCategory(questionsFourYears, "Devise et symboles", 4),
-                    ...pickRandomByCategory(questionsFourYears, "Laïcité", 3),
-                    ...pickRandomByCategory(questionsFourYears, "Mises en situation", 3)
+                    ...pickRandomByCategory(questionsFourYears, "Devise et symboles", 8),
+                    ...pickRandomByCategory(questionsFourYears, "Laïcité", 2),
+                    ...pickRandomByCategory(questionsFourYears, "Mises en situation", 10)
                 ].sort(() => Math.random() - 0.5);
             },
 
             resident: () => {
                 return [
-                    ...pickRandomByCategory(allQuestions, "Devise et symboles", 4),
-                    ...pickRandomByCategory(allQuestions, "Laïcité", 3),
-                    ...pickRandomByCategory(allQuestions, "Mises en situation", 3)
+                    ...pickRandomByCategory(allQuestions, "Devise et symboles", 8),
+                    ...pickRandomByCategory(allQuestions, "Laïcité", 2),
+                    ...pickRandomByCategory(allQuestions, "Mises en situation", 10)
                 ].sort(() => Math.random() - 0.5);
             }
         };
