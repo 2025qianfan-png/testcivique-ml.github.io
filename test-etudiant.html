@@ -37,6 +37,7 @@ body {
   color: var(--dark-gray);
   background-color: var(--light-gray);
   line-height: 1.7;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4 {
@@ -257,7 +258,7 @@ h1, h2, h3, h4 {
   min-width: 140px;
 }
 
-/* Test Selection Modal */
+/* Test Selection Modal - 完全重新设计为移动端优先 */
 .selection-overlay {
   position: fixed;
   top: 0;
@@ -268,60 +269,80 @@ h1, h2, h3, h4 {
   z-index: 3001;
   display: none;
   justify-content: center;
-  align-items: center;
-  padding: 20px;
+  align-items: flex-start;
+  padding: 15px;
+  overflow-y: auto;
 }
 
 .selection-content {
   background-color: var(--white);
-  padding: 40px;
+  padding: 20px;
   border-radius: var(--border-radius);
   max-width: 1100px;
   width: 100%;
-  margin: 0 auto;
+  margin: 10px auto;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   animation: modalFade 0.4s ease-out;
+  display: flex;
+  flex-direction: column;
+  max-height: 95vh;
+}
+
+.selection-header {
+  flex-shrink: 0;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 15px;
 }
 
 .selection-content h2 {
-  font-size: 2rem;
-  margin-bottom: 30px;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
   color: var(--primary-blue);
   text-align: center;
 }
 
 .selection-content p {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   color: var(--medium-gray);
-  font-size: 1.1rem;
+  font-size: 1rem;
   text-align: center;
+  line-height: 1.4;
 }
 
-/* Test Type Cards - Three columns side by side */
+/* Test Type Cards Container - 移动端优先设计 */
+.test-types-wrapper {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 15px;
+  padding-right: 5px;
+}
+
 .test-types-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-  margin-bottom: 30px;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-bottom: 15px;
 }
 
 .test-type-card {
   background-color: var(--white);
   border: 2px solid #e0e0e0;
   border-radius: var(--border-radius);
-  padding: 25px;
+  padding: 15px;
   cursor: pointer;
   transition: var(--transition);
   text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  height: 100%;
+  height: auto;
   position: relative;
+  min-height: 180px;
+  overflow: hidden;
 }
 
 .test-type-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-hover);
 }
 
@@ -350,14 +371,15 @@ h1, h2, h3, h4 {
 .test-type-card.disabled::after {
   content: "⛔";
   position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 1.2rem;
+  top: 8px;
+  right: 8px;
+  font-size: 1rem;
 }
 
 .test-type-icon {
-  font-size: 3rem;
-  margin-bottom: 20px;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  flex-shrink: 0;
 }
 
 .test-type-card.allowed .test-type-icon {
@@ -369,10 +391,12 @@ h1, h2, h3, h4 {
 }
 
 .test-type-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
   color: var(--primary-blue);
   text-align: center;
+  flex-shrink: 0;
+  line-height: 1.2;
 }
 
 .test-type-card.disabled h3 {
@@ -380,21 +404,25 @@ h1, h2, h3, h4 {
 }
 
 .test-type-card p {
-  font-size: 1rem;
-  margin-bottom: 15px;
-  text-align: center;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
   color: var(--medium-gray);
-  flex-grow: 1;
+  text-align: center;
+  line-height: 1.3;
 }
 
 .test-info {
   background-color: var(--light-gray);
-  padding: 12px;
-  border-radius: 8px;
-  margin-top: 15px;
+  padding: 8px;
+  border-radius: 6px;
+  margin-top: auto;
   width: 100%;
   text-align: left;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  overflow-y: auto;
+  max-height: 120px;
+  flex-shrink: 0;
+  line-height: 1.3;
 }
 
 .test-type-card.disabled .test-info {
@@ -405,17 +433,78 @@ h1, h2, h3, h4 {
 .test-info-item {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
+  line-height: 1.3;
 }
 
 .test-info-item i {
-  margin-right: 10px;
+  margin-right: 6px;
   color: var(--primary-blue);
   margin-top: 2px;
+  flex-shrink: 0;
+  font-size: 0.8rem;
 }
 
 .test-type-card.disabled .test-info-item i {
   color: #888;
+}
+
+.test-info-item span {
+  flex: 1;
+  word-break: break-word;
+  font-size: 0.8rem;
+}
+
+/* 剩余天数信息样式 */
+.days-left-info {
+  background-color: rgba(0, 100, 255, 0.1);
+  border-left: 4px solid var(--primary-blue);
+  padding: 12px;
+  border-radius: 0 8px 8px 0;
+  margin: 10px 0;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.days-left-info i {
+  color: var(--primary-blue);
+  margin-right: 8px;
+}
+
+.selection-footer {
+  flex-shrink: 0;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+}
+
+.selection-footer .btn {
+  width: 100%;
+  max-width: 300px;
+}
+
+/* 添加自定义滚动条样式 */
+.test-info::-webkit-scrollbar,
+.test-types-wrapper::-webkit-scrollbar {
+  width: 4px;
+}
+
+.test-info::-webkit-scrollbar-track,
+.test-types-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 2px;
+}
+
+.test-info::-webkit-scrollbar-thumb,
+.test-types-wrapper::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 2px;
+}
+
+.test-info::-webkit-scrollbar-thumb:hover,
+.test-types-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
 }
 
 /* Test Container */
@@ -505,11 +594,13 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: center;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .progress-container {
   flex-grow: 1;
   max-width: 400px;
+  min-width: 200px;
 }
 
 .progress-bar {
@@ -531,7 +622,7 @@ h1, h2, h3, h4 {
 .question-card {
   background-color: var(--white);
   border-radius: var(--border-radius);
-  padding: 40px;
+  padding: 30px;
   margin-bottom: 30px;
   box-shadow: var(--shadow);
   transition: var(--transition);
@@ -539,23 +630,24 @@ h1, h2, h3, h4 {
 
 .question-text {
   font-size: 1.4rem;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   color: var(--primary-blue);
   font-weight: 600;
+  line-height: 1.4;
 }
 
 /* Options with ABCD labels */
 .options-container {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  margin-bottom: 30px;
+  gap: 12px;
+  margin-bottom: 25px;
 }
 
 .option {
   display: flex;
   align-items: flex-start;
-  padding: 18px 20px;
+  padding: 16px 18px;
   border: 2px solid #e0e0e0;
   border-radius: 10px;
   cursor: pointer;
@@ -577,15 +669,16 @@ h1, h2, h3, h4 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   background-color: var(--primary-blue);
   color: white;
   border-radius: 50%;
   font-weight: bold;
-  margin-right: 15px;
+  margin-right: 12px;
   flex-shrink: 0;
   font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
 }
 
 .option input {
@@ -598,6 +691,7 @@ h1, h2, h3, h4 {
   flex-grow: 1;
   display: flex;
   align-items: flex-start;
+  line-height: 1.4;
 }
 
 /* Navigation */
@@ -606,11 +700,14 @@ h1, h2, h3, h4 {
   justify-content: space-between;
   margin-top: 40px;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .nav-btn {
   padding: 14px 30px;
   min-width: 150px;
+  flex: 1;
+  min-width: 120px;
 }
 
 .nav-btn:disabled {
@@ -636,7 +733,7 @@ h1, h2, h3, h4 {
 .results-content {
   background-color: var(--white);
   border-radius: var(--border-radius);
-  padding: 50px;
+  padding: 40px;
   margin-top: 40px;
   box-shadow: var(--shadow);
   text-align: center;
@@ -656,6 +753,7 @@ h1, h2, h3, h4 {
 .score-text {
   font-size: 1.8rem;
   margin-bottom: 30px;
+  line-height: 1.3;
 }
 
 .score-bar {
@@ -706,6 +804,8 @@ h1, h2, h3, h4 {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .theme-name {
@@ -762,6 +862,8 @@ h1, h2, h3, h4 {
   font-size: 0.9rem;
   color: var(--medium-gray);
   margin-top: 5px;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 /* Question Map */
@@ -879,6 +981,8 @@ h1, h2, h3, h4 {
   margin-bottom: 25px;
   padding-bottom: 15px;
   border-bottom: 2px solid var(--light-gray);
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 .review-header h4 {
@@ -1060,55 +1164,240 @@ h1, h2, h3, h4 {
   animation: heartbreak 0.5s ease-in-out 3;
 }
 
-/* 剩余天数信息样式 */
-.days-left-info {
-  background-color: rgba(0, 100, 255, 0.1);
-  border-left: 4px solid var(--primary-blue);
-  padding: 15px;
-  border-radius: 0 8px 8px 0;
-  margin: 15px 0;
-  font-size: 1rem;
+/* Test Header */
+.test-header {
+  display: none;
+  background-color: var(--white);
+  padding: 20px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-.days-left-info i {
-  color: var(--primary-blue);
-  margin-right: 10px;
+.test-header .container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-  .test-types-container {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
+.test-header h1 {
+  font-size: 1.8rem;
+  margin: 0;
 }
 
-@media (max-width: 768px) {
-  .test-types-container {
-    grid-template-columns: 1fr;
-    gap: 20px;
+.test-header p {
+  color: var(--medium-gray);
+  margin: 0;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.header-actions .btn {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+}
+
+/* 全局滚动条样式 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Responsive - 移动端优先设计 */
+
+/* 平板 - 768px以上 */
+@media (min-width: 768px) {
+  .selection-overlay {
+    padding: 20px;
   }
   
   .selection-content {
-    padding: 25px 20px;
+    padding: 25px;
     margin: 20px auto;
+    max-height: 90vh;
   }
   
   .selection-content h2 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
   
-  .login-content {
-    padding: 25px 20px;
+  .test-types-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .test-type-card {
+    padding: 20px;
+    min-height: 220px;
+  }
+  
+  .test-type-icon {
+    font-size: 2.5rem;
+  }
+  
+  .test-type-card h3 {
+    font-size: 1.4rem;
+  }
+  
+  .test-info {
+    font-size: 0.85rem;
+    padding: 10px;
+    max-height: 150px;
+  }
+  
+  .test-info-item span {
+    font-size: 0.85rem;
+  }
+  
+  .days-left-info {
+    font-size: 1rem;
+    padding: 15px;
+  }
+  
+  .selection-footer .btn {
+    max-width: 250px;
+  }
+}
+
+/* 桌面端 - 992px以上 */
+@media (min-width: 992px) {
+  .selection-content {
+    padding: 30px;
     margin: 30px auto;
   }
   
-  .login-content h2 {
+  .selection-content h2 {
+    font-size: 2rem;
+  }
+  
+  .test-types-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+  }
+  
+  .test-type-card {
+    padding: 25px;
+    min-height: 280px;
+  }
+  
+  .test-type-icon {
+    font-size: 3rem;
+  }
+  
+  .test-type-card h3 {
     font-size: 1.5rem;
   }
   
+  .test-info {
+    font-size: 0.9rem;
+    max-height: 180px;
+  }
+  
+  .test-info-item span {
+    font-size: 0.9rem;
+  }
+}
+
+/* 大桌面端 - 1200px以上 */
+@media (min-width: 1200px) {
+  .selection-content {
+    max-width: 1200px;
+  }
+  
+  .test-type-card {
+    min-height: 320px;
+  }
+}
+
+/* 小手机优化 - 576px以下 */
+@media (max-width: 576px) {
+  .selection-overlay {
+    padding: 10px;
+  }
+  
+  .selection-content {
+    padding: 15px;
+    margin: 5px auto;
+    max-height: 98vh;
+  }
+  
+  .selection-content h2 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+  }
+  
+  .selection-content p {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+  }
+  
+  .test-type-card {
+    padding: 12px;
+    min-height: 160px;
+  }
+  
+  .test-type-icon {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+  }
+  
+  .test-type-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+  
+  .test-info {
+    font-size: 0.75rem;
+    padding: 6px;
+    max-height: 100px;
+  }
+  
+  .test-info-item {
+    margin-bottom: 3px;
+  }
+  
+  .test-info-item i {
+    font-size: 0.7rem;
+    margin-right: 4px;
+  }
+  
+  .test-info-item span {
+    font-size: 0.75rem;
+  }
+  
+  .days-left-info {
+    font-size: 0.8rem;
+    padding: 10px;
+    margin: 8px 0;
+  }
+  
+  .selection-footer .btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+  
+  /* 其他页面的移动端优化 */
   .question-map {
-    grid-template-columns: repeat(8, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 8px;
   }
   
@@ -1117,7 +1406,7 @@ h1, h2, h3, h4 {
   }
   
   .question-card {
-    padding: 25px;
+    padding: 20px;
   }
   
   .question-text {
@@ -1125,21 +1414,13 @@ h1, h2, h3, h4 {
   }
   
   .option {
-    padding: 15px;
+    padding: 12px 15px;
   }
   
   .option-letter {
     width: 25px;
     height: 25px;
-    font-size: 0.9rem;
-  }
-  
-  .results-content {
-    padding: 30px 20px;
-  }
-  
-  .score-display {
-    font-size: 3rem;
+    font-size: 0.8rem;
   }
   
   .navigation-btns {
@@ -1148,54 +1429,6 @@ h1, h2, h3, h4 {
   
   .nav-btn {
     width: 100%;
-  }
-  
-  .login-btns {
-    flex-direction: column;
-  }
-  
-  .btn-modal {
-    width: 100%;
-  }
-  
-  .timer-display {
-    font-size: 2rem;
-  }
-  
-  .theme-charts-container {
-    gap: 15px;
-  }
-  
-  .theme-chart-item {
-    padding: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .question-map {
-    grid-template-columns: repeat(5, 1fr);
-  }
-  
-  .map-legend {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .selection-content {
-    padding: 20px 15px;
-  }
-  
-  .login-content {
-    padding: 20px 15px;
-  }
-  
-  .login-content h2 {
-    font-size: 1.3rem;
-  }
-  
-  .form-group input {
-    padding: 12px;
   }
   
   .results-actions {
@@ -1214,13 +1447,38 @@ h1, h2, h3, h4 {
   .score-text {
     font-size: 1.3rem;
   }
-  
-  .alert-content {
-    padding: 25px;
+}
+
+/* 超小手机 - 375px以下 */
+@media (max-width: 375px) {
+  .question-map {
+    grid-template-columns: repeat(4, 1fr);
   }
   
-  .alert-icon {
-    font-size: 3rem;
+  .test-type-card {
+    padding: 10px;
+    min-height: 150px;
+  }
+  
+  .test-type-icon {
+    font-size: 1.5rem;
+  }
+  
+  .test-type-card h3 {
+    font-size: 1rem;
+  }
+  
+  .test-info {
+    font-size: 0.7rem;
+    max-height: 90px;
+  }
+  
+  .test-info-item span {
+    font-size: 0.7rem;
+  }
+  
+  .selection-content h2 {
+    font-size: 1.2rem;
   }
 }
 </style>
@@ -1281,110 +1539,115 @@ h1, h2, h3, h4 {
   </div>
 </div>
 
-<!-- Test Selection Modal -->
+<!-- Test Selection Modal - 完全重新设计 -->
 <div id="selectionModal" class="selection-overlay">
   <div class="selection-content">
-    <h2>Choisissez votre test</h2>
-    <p id="selectionMessage">Cliquez sur une option pour commencer immédiatement</p>
-    
-    <!-- 剩余天数信息显示区域 -->
-    <div id="daysLeftInfo" class="days-left-info" style="display: none;">
-      <p><i class="fas fa-calendar-check"></i> <span id="daysLeftText">Votre accès est valide pour X jours.</span></p>
+    <div class="selection-header">
+      <h2>Choisissez votre test</h2>
+      <p id="selectionMessage">Cliquez sur une option pour commencer immédiatement</p>
+      
+      <!-- 剩余天数信息显示区域 -->
+      <div id="daysLeftInfo" class="days-left-info" style="display: none;">
+        <p><i class="fas fa-calendar-check"></i> <span id="daysLeftText">Votre accès est valide pour X jours.</span></p>
+      </div>
     </div>
     
-    <div class="test-types-container">
-      <!-- Test for multi-year residence permit -->
-      <div class="test-type-card" id="multiYearCard" onclick="startTestIfAllowed('multi_year')">
-        <div class="test-type-icon">
-          <i class="fas fa-passport"></i>
-        </div>
-        <h3>Titre de Séjour 2-4 Ans</h3>
-        <div class="test-info">
-          <div class="test-info-item">
-            <i class="fas fa-users"></i>
-            <span><strong>适用人群 / Public visé：</strong></span>
-          </div>
-          <div class="test-info-item">
-            <i class="fas fa-user-graduate"></i>
-            <span>学生签证转工作签证 / Étudiants en reconversion professionnelle</span>
-          </div>
-          <div class="test-info-item">
-            <i class="fas fa-file-contract"></i>
-            <span>首次申请多年居留 / Première demande de titre pluriannuel</span>
-          </div>
-          <div class="test-info-item">
+    <!-- 测试卡片容器，支持滚动 -->
+    <div class="test-types-wrapper">
+      <div class="test-types-container">
+        <!-- Test for multi-year residence permit -->
+        <div class="test-type-card" id="multiYearCard" onclick="startTestIfAllowed('multi_year')">
+          <div class="test-type-icon">
             <i class="fas fa-passport"></i>
-            <span>专业人才护照持有者 / Titulaires de passeport talent</span>
           </div>
-          <div class="test-info-item">
-            <i class="fas fa-briefcase"></i>
-            <span>工作合同续签者 / Renouvellement de contrat de travail</span>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Test for 10-year residence card -->
-      <div class="test-type-card" id="tenYearCard" onclick="startTestIfAllowed('ten_year')">
-        <div class="test-type-icon">
-          <i class="fas fa-id-card-alt"></i>
-        </div>
-        <h3>Carte de Résident 10 Ans</h3>
-        <div class="test-info">
-          <div class="test-info-item">
-            <i class="fas fa-users"></i>
-            <span><strong>适用人群 / Public visé：</strong></span>
-          </div>
-          <div class="test-info-item">
-            <i class="fas fa-calendar-alt"></i>
-            <span>在法国连续居住满5年 / Résidence continue en France depuis 5 ans</span>
-          </div>
-          <div class="test-info-item">
-            <i class="fas fa-heart"></i>
-            <span>法籍人士的配偶 / Conjoint(e) de citoyen(ne) français(e)</span>
-          </div>
-          <div class="test-info-item">
-            <i class="fas fa-shield-alt"></i>
-            <span>难民身份获得批准者 / Réfugiés statutaires</span>
-          </div>
-          <div class="test-info-item">
-            <i class="fas fa-user-tie"></i>
-            <span>长期工作合同持有者 / Titulaires de CDI longue durée</span>
+          <h3>Titre de Séjour 2-4 Ans</h3>
+          <div class="test-info">
+            <div class="test-info-item">
+              <i class="fas fa-users"></i>
+              <span><strong>适用人群 / Public visé：</strong></span>
+            </div>
+            <div class="test-info-item">
+              <i class="fas fa-user-graduate"></i>
+              <span>学生签证转工作签证 / Étudiants en reconversion professionnelle</span>
+            </div>
+            <div class="test-info-item">
+              <i class="fas fa-file-contract"></i>
+              <span>首次申请多年居留 / Première demande de titre pluriannuel</span>
+            </div>
+            <div class="test-info-item">
+              <i class="fas fa-passport"></i>
+              <span>专业人才护照持有者 / Titulaires de passeport talent</span>
+            </div>
+            <div class="test-info-item">
+              <i class="fas fa-briefcase"></i>
+              <span>工作合同续签者 / Renouvellement de contrat de travail</span>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <!-- Test for French nationality -->
-      <div class="test-type-card" id="nationalityCard" onclick="startTestIfAllowed('nationality')">
-        <div class="test-type-icon">
-          <i class="fas fa-flag"></i>
+        
+        <!-- Test for 10-year residence card -->
+        <div class="test-type-card" id="tenYearCard" onclick="startTestIfAllowed('ten_year')">
+          <div class="test-type-icon">
+            <i class="fas fa-id-card-alt"></i>
+          </div>
+          <h3>Carte de Résident 10 Ans</h3>
+          <div class="test-info">
+            <div class="test-info-item">
+              <i class="fas fa-users"></i>
+              <span><strong>适用人群 / Public visé：</strong></span>
+            </div>
+            <div class="test-info-item">
+              <i class="fas fa-calendar-alt"></i>
+              <span>在法国连续居住满5年 / Résidence continue en France depuis 5 ans</span>
+            </div>
+            <div class="test-info-item">
+              <i class="fas fa-heart"></i>
+              <span>法籍人士的配偶 / Conjoint(e) de citoyen(ne) français(e)</span>
+            </div>
+            <div class="test-info-item">
+              <i class="fas fa-shield-alt"></i>
+              <span>难民身份获得批准者 / Réfugiés statutaires</span>
+            </div>
+            <div class="test-info-item">
+              <i class="fas fa-user-tie"></i>
+              <span>长期工作合同持有者 / Titulaires de CDI longue durée</span>
+            </div>
+          </div>
         </div>
-        <h3>Nationalité Française</h3>
-        <div class="test-info">
-          <div class="test-info-item">
-            <i class="fas fa-users"></i>
-            <span><strong>适用人群 / Public visé：</strong></span>
+        
+        <!-- Test for French nationality -->
+        <div class="test-type-card" id="nationalityCard" onclick="startTestIfAllowed('nationality')">
+          <div class="test-type-icon">
+            <i class="fas fa-flag"></i>
           </div>
-          <div class="test-info-item">
-            <i class="fas fa-home"></i>
-            <span>在法国合法居住满5年 / Résidence légale en France depuis 5 ans</span>
-          </div>
-          <div class="test-info-item">
-            <i class="fas fa-language"></i>
-            <span>法语水平达到B1及以上 / Niveau de français B1 ou supérieur</span>
-          </div>
-          <div class="test-info-item">
-            <i class="fas fa-balance-scale"></i>
-            <span>无犯罪记录且完税证明 / Casier judiciaire vierge et impôts à jour</span>
-          </div>
-          <div class="test-info-item">
-            <i class="fas fa-hands-helping"></i>
-            <span>与法国社会文化深度融入 / Intégration approfondie à la société française</span>
+          <h3>Nationalité Française</h3>
+          <div class="test-info">
+            <div class="test-info-item">
+              <i class="fas fa-users"></i>
+              <span><strong>适用人群 / Public visé：</strong></span>
+            </div>
+            <div class="test-info-item">
+              <i class="fas fa-home"></i>
+              <span>在法国合法居住满5年 / Résidence légale en France depuis 5 ans</span>
+            </div>
+            <div class="test-info-item">
+              <i class="fas fa-language"></i>
+              <span>法语水平达到B1及以上 / Niveau de français B1 ou supérieur</span>
+            </div>
+            <div class="test-info-item">
+              <i class="fas fa-balance-scale"></i>
+              <span>无犯罪记录且完税证明 / Casier judiciaire vierge et impôts à jour</span>
+            </div>
+            <div class="test-info-item">
+              <i class="fas fa-hands-helping"></i>
+              <span>与法国社会文化深度融入 / Intégration approfondie à la société française</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
     
-    <div class="login-btns">
+    <div class="selection-footer">
       <button class="btn btn-modal" onclick="goBackToLogin()">
         <i class="fas fa-sign-out-alt"></i> Changer d'utilisateur
       </button>
@@ -1475,11 +1738,11 @@ h1, h2, h3, h4 {
   <div id="resultsContainer" class="results-container">
     <div class="results-content">
       <div class="results-header">
-        <!-- 修正：显示总分 -->
+        <!-- 显示总分 -->
         <div class="score-display" id="scoreDisplay">0/40</div>
         <div class="score-text" id="scoreText">Chargement du résultat...</div>
         
-        <!-- 修正：显示进度条 -->
+        <!-- 显示进度条 -->
         <div class="score-bar">
           <div class="score-fill" id="scoreFill"></div>
         </div>
