@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Test des Valeurs de la République et Laïcité</title>
+<title>Test - Droits fondamentaux et obligations des résidents</title>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
@@ -1152,7 +1152,7 @@ h1, h2, h3, h4 {
 <!-- Login Modal -->
 <div id="loginModal" class="login-overlay">
   <div class="login-content">
-    <h2>Accès Test des Valeurs Républicaines</h2>
+    <h2>Accès Test Droits et Obligations des Résidents</h2>
     <p>Veuillez entrer vos informations d'étudiant</p>
     
     <form id="loginForm" class="login-form">
@@ -1169,7 +1169,7 @@ h1, h2, h3, h4 {
       
       <div style="background-color: rgba(243,156,18,0.1); border-left: 4px solid var(--orange); padding: 12px; border-radius: 0 8px 8px 0; margin: 20px 0; font-size: 0.9rem;">
         <p><i class="fas fa-info-circle"></i> Test spécialisé : 20 questions - Pas de limite de temps</p>
-        <p><i class="fas fa-check-circle"></i> Thèmes : Valeurs de la République et Laïcité</p>
+        <p><i class="fas fa-check-circle"></i> Thèmes : Droits fondamentaux et obligations des résidents</p>
       </div>
     </form>
     
@@ -1218,7 +1218,7 @@ h1, h2, h3, h4 {
 <!-- Test Header -->
 <header class="test-header" style="display: none;">
   <div class="container">
-    <h1 id="testTitle">Valeurs de la République et Laïcité</h1>
+  <h1 id="testTitle">Droits et Obligations des Résidents</h1>
     <p id="testSubtitle">20 questions - Pas de limite de temps</p>
     <div class="header-actions">
       <button class="btn" onclick="showInstructions()">
@@ -1379,12 +1379,13 @@ document.addEventListener('keydown', function (e) {
     }
 });
 
+
 // ==================== 主题分布配置 ====================
-// 更新为主题分布：Laïcité 3道，Devise et symboles 7道，Mises en situation 10道
+// 模块三：基本权利和居住义务
 const themeDistribution = {
-    "Laïcité": 3,
-    "Devise et symboles de la République": 7,
-    "Mises en situation": 10
+    "Droits fondamentaux": 5,                                   // 基本权利：5道
+    "Obligations et devoirs des personnes résidant en France": 5, // 居住义务：5道
+    "Mises en situation": 10                                    // 情境题：10道
 };
 
 // ==================== 全局变量 ====================
@@ -1662,13 +1663,12 @@ function startTest() {
             document.querySelector('.test-footer').style.display = 'block';
             
             // 更新测试标题
-            document.getElementById('testTitle').textContent = "Valeurs Républicaines et Laïcité";
-            document.getElementById('testSubtitle').textContent = "Test spécialisé sur les principes fondamentaux";
-            document.getElementById('testTypeInfo').textContent = "Test des Valeurs de la République";
-            document.getElementById('footerTestInfo').textContent = 
-                `Valeurs Républicaines - 20 questions - Pas de limite de temps`;
-            
-            initializeTest();
+             document.getElementById('testTitle').textContent = "Droits et Obligations";
+    document.getElementById('testSubtitle').textContent = "Droits fondamentaux et devoirs des résidents";
+    document.getElementById('testTypeInfo').textContent = "Test Droits et Obligations";
+    document.getElementById('footerTestInfo').textContent = 
+        "Droits fondamentaux et obligations des résidents - 20 questions";
+                        initializeTest();
             
         } catch (error) {
             console.error("初始化测试失败:", error);
@@ -1681,67 +1681,101 @@ function startTest() {
 function selectQuestionsByTheme() {
     console.log("开始按主题分布选择题目...");
     
-    // 1. 按主题分组题目
-    const questionsByTheme = {};
+    // 1. 按category字段分组题目
+    const questionsByCategory = {};
     
     allQuestions.forEach((question) => {
-        const theme = question.theme || question.category || "Autre";
-        if (!questionsByTheme[theme]) {
-            questionsByTheme[theme] = [];
+        const category = question.category || "Autre";
+        if (!questionsByCategory[category]) {
+            questionsByCategory[category] = [];
         }
-        questionsByTheme[theme].push(question);
+        questionsByCategory[category].push(question);
     });
     
-    console.log("题库主题分布:", Object.keys(questionsByTheme));
+    console.log("题库分类分布:", Object.keys(questionsByCategory));
     
-    // 2. 专门处理Mises en situation - 从si001到si0047中随机选择
+    // 2. 专门处理Mises en situation - 筛选si048到si0105
     let situationQuestions = [];
-    if (questionsByTheme["Mises en situation"]) {
-        situationQuestions = questionsByTheme["Mises en situation"];
-    } else {
-        // 如果没有"Mises en situation"分类，尝试从所有题目中筛选id以"si"开头的
+    
+    // 先尝试从分类中找
+    if (questionsByCategory["Mises en situation"]) {
+        situationQuestions = questionsByCategory["Mises en situation"];
+    }
+    
+    // 如果没有分类，从所有题目中筛选id以"si"开头的
+    if (situationQuestions.length === 0) {
         situationQuestions = allQuestions.filter(q => {
             const id = q.id || "";
-            return id.toLowerCase().startsWith("si") && parseInt(id.substring(2)) >= 1 && parseInt(id.substring(2)) <= 47;
+            if (!id.toLowerCase().startsWith("si")) return false;
+            
+            // 提取数字部分
+            const numMatch = id.match(/si(\d+)/i);
+            if (!numMatch) return false;
+            
+            const num = parseInt(numMatch[1]);
+            // 只选择si048到si0105的题目
+            return num >= 48 && num <= 105;
+        });
+    } else {
+        // 如果已经有分类，也需要筛选id范围
+        situationQuestions = situationQuestions.filter(q => {
+            const id = q.id || "";
+            if (!id.toLowerCase().startsWith("si")) return false;
+            
+            const numMatch = id.match(/si(\d+)/i);
+            if (!numMatch) return false;
+            
+            const num = parseInt(numMatch[1]);
+            return num >= 48 && num <= 105;
         });
     }
     
-    console.log("Mises en situation题目数量:", situationQuestions.length);
+    console.log(`找到Mises en situation (si048-si0105)题目: ${situationQuestions.length}道`);
     
-    // 3. 根据配置选择题目
+    // 3. 根据新主题分布选择题目
     selectedQuestions = [];
     let totalSelected = 0;
     
-    // 选择Laïcité题目
-    const laiciteQuestions = questionsByTheme["Laïcité"] || [];
-    if (laiciteQuestions.length > 0) {
-        const shuffled = shuffleArray([...laiciteQuestions]);
-        const selected = shuffled.slice(0, Math.min(3, laiciteQuestions.length));
+    // 选择"Droits fondamentaux"题目 (5题)
+    const droitsQuestions = questionsByCategory["Droits fondamentaux"] || [];
+    if (droitsQuestions.length > 0) {
+        const shuffled = shuffleArray([...droitsQuestions]);
+        const selected = shuffled.slice(0, Math.min(5, droitsQuestions.length));
         selectedQuestions.push(...selected);
         totalSelected += selected.length;
     } else {
-        console.warn("警告：没有找到Laïcité题目");
+        console.warn("警告：没有找到Droits fondamentaux题目");
     }
     
-    // 选择Devise et symboles题目
-    const deviseQuestions = questionsByTheme["Devise et symboles de la République"] || [];
-    if (deviseQuestions.length > 0) {
-        const shuffled = shuffleArray([...deviseQuestions]);
-        const selected = shuffled.slice(0, Math.min(7, deviseQuestions.length));
+    // 选择"Obligations et devoirs"题目 (5题)
+    const obligationsQuestions = questionsByCategory["Obligations et devoirs des personnes résidant en France"] || [];
+    if (obligationsQuestions.length > 0) {
+        const shuffled = shuffleArray([...obligationsQuestions]);
+        const selected = shuffled.slice(0, Math.min(5, obligationsQuestions.length));
         selectedQuestions.push(...selected);
         totalSelected += selected.length;
     } else {
-        console.warn("警告：没有找到Devise et symboles de la République题目");
+        console.warn("警告：没有找到Obligations et devoirs des personnes résidant en France题目");
     }
     
-    // 选择Mises en situation题目
+    // 选择"Mises en situation"题目 (10题) - 从si048到si0105
     if (situationQuestions.length > 0) {
         const shuffled = shuffleArray([...situationQuestions]);
         const selected = shuffled.slice(0, Math.min(10, situationQuestions.length));
         selectedQuestions.push(...selected);
         totalSelected += selected.length;
+        console.log(`选择了${selected.length}道情境题 (si048-si0105)`);
     } else {
-        console.warn("警告：没有找到Mises en situation题目");
+        console.warn("警告：没有找到Mises en situation (si048-si0105)题目");
+        // 如果没有足够的情境题，从其他情境题中补充
+        const allSituation = questionsByCategory["Mises en situation"] || 
+                            allQuestions.filter(q => (q.id || "").toLowerCase().startsWith("si"));
+        if (allSituation.length > 0) {
+            const shuffled = shuffleArray([...allSituation]);
+            const needed = 10 - (selectedQuestions.length % 10);
+            const selected = shuffled.slice(0, Math.min(needed, allSituation.length));
+            selectedQuestions.push(...selected);
+        }
     }
     
     console.log(`已选择 ${totalSelected} 题`);
@@ -1757,6 +1791,7 @@ function selectQuestionsByTheme() {
             const shuffled = shuffleArray([...availableQuestions]);
             const toAdd = shuffled.slice(0, Math.min(needed, availableQuestions.length));
             selectedQuestions.push(...toAdd);
+            console.log(`补充了${toAdd.length}道其他题目`);
         }
     }
     
@@ -1770,26 +1805,27 @@ function selectQuestionsByTheme() {
     
     console.log(`最终选择 ${selectedQuestions.length} 题`);
     
-    // 为题目添加标签 - 修复重复标签问题
+    // 5. 为新主题添加标签
     selectedQuestions = selectedQuestions.map((question) => {
-        const theme = question.theme || question.category || "Autre";
+        const category = question.category || "Autre";
         let tags = [];
         
-        // 根据主题添加主要标签（只加一个）
-        if (theme.includes("Laïcité")) {
-            tags.push("Laïcité");
-        } else if (theme.includes("Devise") || theme.includes("symboles")) {
-            tags.push("Symboles");
-        } else if (theme.includes("Mises en situation") || (question.id && question.id.toLowerCase().startsWith("si"))) {
+        // 根据category添加标签
+        if (category.includes("Droits fondamentaux") || category.includes("Droits")) {
+            tags.push("Droits");
+        } else if (category.includes("Obligations") || category.includes("devoirs")) {
+            tags.push("Obligations");
+        } else if (category.includes("Mises en situation") || 
+                  (question.id && question.id.toLowerCase().startsWith("si"))) {
             tags.push("Situation");
         }
         
-        // 只添加难度标签（如果存在）
+        // 添加难度标签（如果存在）
         if (question.difficulté) {
             tags.push(question.difficulté);
         }
         
-        // 只添加类型标签（如果存在）
+        // 添加类型标签（如果存在）
         if (question.typeQuestion) {
             tags.push(question.typeQuestion);
         }
@@ -1797,11 +1833,10 @@ function selectQuestionsByTheme() {
         return {
             ...question,
             customTags: tags,
-            theme: theme // 确保theme字段存在
+            theme: category
         };
     });
 }
-
 // Fisher-Yates 洗牌算法
 function shuffleArray(array) {
     const newArray = [...array];
