@@ -259,7 +259,9 @@ h1, h2, h3, h4 {
   min-width: 140px;
 }
 
-/* Training Info Modal */
+/* ========== 修改以下样式 ========== */
+
+/* Training Info Modal - 改为和登录框一样的样式 */
 .training-info-modal {
   position: fixed;
   top: 0;
@@ -270,8 +272,9 @@ h1, h2, h3, h4 {
   z-index: 3001;
   display: none;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* 改这里：从center改为flex-start */
   padding: 20px;
+  overflow-y: auto; /* 加这行：启用垂直滚动 */
 }
 
 .training-info-content {
@@ -280,10 +283,54 @@ h1, h2, h3, h4 {
   border-radius: var(--border-radius);
   max-width: 700px;
   width: 100%;
+  margin: 40px auto; /* 改这里：添加上下边距 */
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   animation: modalFade 0.4s ease-out;
+  /* 添加这两行 */
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
 }
 
+/* ========== 删除下面这些旧的响应式样式（如果有的话）========== */
+/*
+.training-info-content {
+  max-height: 90vh;
+}
+*/
+
+/* 保持现有的响应式样式，但要修改max-height值 */
+@media (min-width: 768px) {
+  .training-info-content {
+    padding: 25px;
+    margin: 20px auto; /* 调整边距 */
+    max-height: 85vh; /* 改为使用vh单位 */
+  }
+}
+
+@media (max-width: 576px) {
+  .training-info-content {
+    padding: 15px;
+    margin: 10px auto; /* 调整边距 */
+    max-height: 90vh; /* 改为使用vh单位 */
+  }
+  
+  .training-info-header h2 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 375px) {
+  .training-info-content {
+    padding: 10px;
+    margin: 5px auto; /* 调整边距 */
+    max-height: 95vh; /* 增加高度 */
+  }
+  
+  .training-info-header h2 {
+    font-size: 1.2rem;
+  }
+}
 .training-info-header {
   text-align: center;
   margin-bottom: 25px;
@@ -1189,9 +1236,12 @@ h1, h2, h3, h4 {
   </div>
 </div>
 
-<!-- Training Info Modal -->
+<!-- 找到这个部分 -->
 <div id="trainingInfoModal" class="training-info-modal">
   <div class="training-info-content">
+    <!-- 在这两行中间添加： -->
+    <div style="max-height: 100%; overflow-y: auto; padding-right: 5px;">
+    
     <div class="training-info-header">
       <h2>Informations sur votre formation</h2>
       <p>Informations sur le test et votre compte</p>
@@ -1199,11 +1249,25 @@ h1, h2, h3, h4 {
     
     <div class="training-info-body">
       <div class="training-type-info" id="trainingTypeInfo">
-        <!-- 培训类型信息将由JavaScript动态生成 -->
+        <!-- 内容不变 -->
       </div>
       
       <div class="access-days-info" id="accessDaysInfo" style="display: none;">
-        <!-- 剩余天数信息将由JavaScript动态生成 -->
+        <!-- 内容不变 -->
+      </div>
+      
+      <!-- 添加这个额外信息块让内容更充实 -->
+      <div style="margin-top: 30px; padding: 15px; background-color: rgba(0, 64, 128, 0.05); border-radius: 8px; border-left: 4px solid var(--primary-blue);">
+        <h3 style="color: var(--primary-blue); margin-bottom: 10px; font-size: 1.1rem;">
+          <i class="fas fa-lightbulb"></i> Conseils pour le test
+        </h3>
+        <ul style="color: var(--medium-gray); padding-left: 20px; line-height: 1.6;">
+          <li>Prenez votre temps, il n'y a pas de limite de temps</li>
+          <li>Lisez attentivement chaque question</li>
+          <li>Consultez les explications après chaque réponse</li>
+          <li>Le test peut être recommencé si nécessaire</li>
+          <li>Seuil de réussite : 16/20 (80%)</li>
+        </ul>
       </div>
     </div>
     
@@ -1211,6 +1275,9 @@ h1, h2, h3, h4 {
       <button class="btn btn-primary" onclick="closeTrainingInfo()">
         <i class="fas fa-play-circle"></i> Commencer le test
       </button>
+    </div>
+    
+    <!-- 在这行之前添加： -->
     </div>
   </div>
 </div>
@@ -1242,7 +1309,7 @@ h1, h2, h3, h4 {
       <div class="counter-info">
         <div>
           <h3>Question <span id="currentQuestion">1</span> sur <span id="totalQuestions">20</span></h3>
-          <p id="testTypeInfo">Évaluation – Histoire, géographie et culture françaises</p>
+          <p id="testTypeInfo">Test des Valeurs Républicaines</p>
         </div>
         <div class="progress-container">
           <div>Progression: <span id="progressPercent">0%</span></div>
@@ -1353,7 +1420,7 @@ h1, h2, h3, h4 {
 <footer class="test-footer">
   <div class="container">
     <p>© 2026 Association Mille Voiles</p>
-    <p id="footerTestInfo">Évaluation – Histoire, géographie et culture françaises</p>
+    <p id="footerTestInfo">Test des Valeurs Républicaines - Simulation spécialisée</p>
     <p><a href="index.html">Retour au site principal</a></p>
   </div>
 </footer>
@@ -2236,7 +2303,7 @@ function proceedWithRestart() {
 
 function showInstructions() {
     showAlert("Instructions du test",
-        "Évaluation – Histoire, géographie et culture françaises\n\n" +
+        "TEST DES VALEURS RÉPUBLICAINES ET LAÏCITÉ\n\n" +
         "1. 20 questions à choix multiples\n" +
         "2. Pas de limite de temps\n" +
         "3. Cliquez sur une réponse pour la sélectionner\n" +
@@ -2327,5 +2394,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 </body>
-
 </html>
