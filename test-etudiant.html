@@ -1967,16 +1967,28 @@
     padding: 10px 20px;
     font-size: 0.9rem;
   }
-    /* 手机修复 - 就加这个 */
+/* 手机修复 - 就加这个 */
 @media (max-width: 768px) {
   /* 按钮缩小 */
-  .btn { padding: 12px 24px !important; font-size: 0.9rem !important; }
+  .btn { 
+    padding: 10px 20px !important; 
+    font-size: 0.85rem !important; 
+  }
   
-  /* 导航缩小 */
-  .test-header h1 { font-size: 1.2rem !important; }
+  /* 导航缩小 - 更激进 */
+  .test-header h1 { 
+    font-size: 1rem !important;  /* 从1.2rem改为1rem */
+  }
   
   /* 卡片单列 */
-  .test-types-container { grid-template-columns: 1fr !important; }
+  .test-types-container { 
+    grid-template-columns: 1fr !important; 
+  }
+  
+  /* 额外必须加的：导航栏整体 */
+  .test-header {
+    padding: 10px 0 !important;
+  }
 }
   </style>
 </head>
@@ -4695,4 +4707,5 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
+
 
