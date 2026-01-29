@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <!-- 在test.html的head部分，修改为： -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="question_multia.js"></script>
+<script src="question_resident.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Test Étudiant Civique - Association Mille Voiles</title>
@@ -1804,9 +1809,7 @@ h1, h2, h3, h4 {
   </div>
 </footer>
 
-<script src="compte.js"></script>
-<script src="question_multia.js"></script>
-<script src="question_resident.js"></script>
+
 
 <script>
 // ==================== 全局配置 ====================
@@ -1824,6 +1827,144 @@ document.addEventListener('keydown', function (e) {
         e.preventDefault();
     }
 });
+// ==================== 登录验证（使用Supabase） ====================
+async function validateLogin() {
+    console.log("登录按钮被点击");
+    
+    const name = document.getElementById('studentName').value.trim();
+    const password = document.getElementById('studentPassword').value.trim();
+    const loginError = document.getElementById('loginError');
+    const loadingSpinner = document.getElementById('loginSpinner');
+    const loginButtons = document.getElementById('loginButtons');
+    
+    if (!name || !password) {
+        showAlert("Champs requis", "Veuillez remplir tous les champs.", 'warning');
+        return;
+    }
+    
+    loginError.style.display = 'none';
+    loginButtons.style.display = 'none';
+    loadingSpinner.style.display = 'block';
+    
+    try {
+        // 检查Supabase是否可用 - 添加详细日志
+        console.log('检查window.supabaseAuth:', window.supabaseAuth);
+        console.log('检查window.supabase:', window.supabase);
+        
+        if (!window.supabaseAuth) {
+            console.error('supabaseAuth未定义，检查文件加载顺序');
+            
+            // 尝试直接创建Supabase客户端
+            if (window.supabase) {
+                console.log('尝试直接使用window.supabase');
+                const supabaseUrl = 'https://pokwxlbntoxoxogptned.supabase.co';
+                const supabaseKey = 'sb_publishable_pu4aBS3wXF2e3ckgENTt4g_9_HvSG_v';
+                
+                const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
+                
+                // 临时直接验证
+                const { data, error } = await supabaseClient
+                    .from('students')
+                    .select('*')
+                    .eq('name', name)
+                    .eq('password', password)
+                    .single();
+                
+                if (error) {
+                    throw new Error(`验证失败: ${error.message}`);
+                }
+                
+                if (!data) {
+                    loginError.textContent = "Nom ou mot de passe incorrect";
+                    loginError.style.display = 'block';
+                    loginButtons.style.display = 'flex';
+                    loadingSpinner.style.display = 'none';
+                    return;
+                }
+                
+                // 存储学生信息（简化版）
+                studentInfo = {
+                    name: data.name,
+                    testDate: new Date().toLocaleString('fr-FR'),
+                    type: data.type,
+                    daysLeft: -1,
+                    id: data.id
+                };
+                
+                console.log('直接验证成功:', studentInfo);
+                
+                // 隐藏登录模态框，显示测试选择
+                document.getElementById('loginModal').style.display = 'none';
+                document.getElementById('selectionModal').style.display = 'flex';
+                
+                updateTestCardPermissions();
+                showDaysLeftInfo();
+                
+                loadingSpinner.style.display = 'none';
+                loginButtons.style.display = 'flex';
+                return;
+            }
+            
+            throw new Error("Le système d'authentification n'est pas disponible. Veuillez recharger la page.");
+        }
+        
+        // 从Supabase验证学生
+        const student = await window.supabaseAuth.validateStudent(name, password);
+        
+        if (!student) {
+            loginError.textContent = "Nom ou mot de passe incorrect";
+            loginError.style.display = 'block';
+            loginButtons.style.display = 'flex';
+            loadingSpinner.style.display = 'none';
+            return;
+        }
+        
+        // 检查访问权限
+        const accessCheck = window.supabaseAuth.checkAccess(student);
+        
+        if (!accessCheck.valid) {
+            showAlert("Accès expiré", 
+                `${accessCheck.message}\n\nVeuillez contacter l'administrateur pour renouveler votre accès.`, 
+                'error');
+            loginError.textContent = accessCheck.message;
+            loginError.style.display = 'block';
+            loginButtons.style.display = 'flex';
+            loadingSpinner.style.display = 'none';
+            return;
+        }
+        
+        // 存储学生信息
+        studentInfo = {
+            name: student.name,
+            testDate: new Date().toLocaleString('fr-FR'),
+            type: student.type,
+            daysLeft: accessCheck.daysLeft,
+            id: student.id,
+            expiryDate: accessCheck.expiryDate ? accessCheck.expiryDate.toLocaleDateString('fr-FR') : null
+        };
+        
+        console.log('登录成功:', studentInfo);
+        
+        // 隐藏登录模态框，显示测试选择
+        document.getElementById('loginModal').style.display = 'none';
+        document.getElementById('selectionModal').style.display = 'flex';
+        
+        // 根据学生类型设置卡片权限状态
+        updateTestCardPermissions();
+        
+        // 显示剩余天数信息
+        showDaysLeftInfo();
+        
+    } catch (error) {
+        console.error("登录失败:", error);
+        showAlert("Erreur de connexion", 
+            error.message || "Erreur lors de la connexion à la base de données.\n\nVeuillez vérifier votre connexion internet.", 
+            'error');
+    } finally {
+        loadingSpinner.style.display = 'none';
+        loginButtons.style.display = 'flex';
+    }
+}
 
 // ==================== 主题分布配置 ====================
 const themeDistribution = {
@@ -1929,107 +2070,73 @@ function closeAlert() {
 }
 
 // ==================== 登录验证 ====================
-function validateLogin() {
-    console.log("登录按钮被点击");
+// ==================== 登录验证（使用Supabase） ====================
+// 简化的supabase-config.js
+console.log('开始加载supabase-config.js');
+
+// 直接定义全局函数，不等待DOM加载
+window.supabaseAuth = {
+    validateStudent: async function(name, password) {
+        console.log('validateStudent被调用:', name);
+        
+        try {
+            // 直接创建客户端
+            const supabase = window.supabase.createClient(
+                'https://pokwxlbntoxoxogptned.supabase.co',
+                'sb_publishable_pu4aBS3wXF2e3ckgENTt4g_9_HvSG_v'
+            );
+            
+            const { data, error } = await supabase
+                .from('students')
+                .select('*')
+                .eq('name', name)
+                .single();
+            
+            if (error) {
+                console.error('查询错误:', error);
+                return null;
+            }
+            
+            if (data.password !== password) {
+                return null;
+            }
+            
+            return data;
+            
+        } catch (error) {
+            console.error('验证错误:', error);
+            return null;
+        }
+    },
     
-    const name = document.getElementById('studentName').value.trim();
-    const password = document.getElementById('studentPassword').value.trim();
-    const loginError = document.getElementById('loginError');
-    const loadingSpinner = document.getElementById('loginSpinner');
-    const loginButtons = document.getElementById('loginButtons');
-    
-    if (!name || !password) {
-        showAlert("Champs requis", "Veuillez remplir tous les champs.", 'warning');
-        return;
-    }
-    
-    if (typeof students === 'undefined') {
-        showAlert("Erreur de chargement", "Fichier des étudiants non chargé. Vérifiez compte.js", 'error');
-        return;
-    }
-    
-    // 查找匹配的学生
-    const student = students.find(s => 
-        s.name.toLowerCase() === name.toLowerCase() && 
-        s.password === password
-    );
-    
-    if (!student) {
-        loginError.style.display = 'block';
-        return;
-    }
-    
-    // ==================== 检查用户使用时限 ====================
-    if (student.timer) {
+    checkAccess: function(student) {
+        if (!student.timer) {
+            return { valid: true, daysLeft: -1 };
+        }
+        
         const expiryDate = new Date(student.timer);
         const currentDate = new Date();
         
-        // 如果到期日小于当前日期，说明已过期
         if (expiryDate < currentDate) {
-            showAlert("Accès expiré", 
-                "Votre période d'accès a expiré le " + student.timer + 
-                "\n\nVeuillez contacter l'administrateur pour renouveler votre accès.", 
-                'error');
-            loginError.textContent = "Votre période d'accès a expiré";
-            loginError.style.display = 'block';
-            return;
+            return { 
+                valid: false, 
+                daysLeft: 0,
+                message: `Votre période d'accès a expiré le ${expiryDate.toLocaleDateString('fr-FR')}` 
+            };
         } else {
-            // 计算剩余天数
             const timeDiff = expiryDate - currentDate;
             const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
             
-            // 存储剩余天数到studentInfo
-            studentInfo.daysLeft = daysLeft;
-            
-            // 显示剩余天数信息
-            console.log(`学生 ${name} 还有 ${daysLeft} 天可用`);
+            return { 
+                valid: true, 
+                daysLeft: daysLeft,
+                expiryDate: expiryDate
+            };
         }
-    } else {
-        // 如果没有设置timer，默认为长期有效
-        studentInfo.daysLeft = -1; // -1表示长期有效
     }
-    // ==================== 时限检查结束 ====================
-    
-    // 检查学生类型
-    if (!student.type) {
-        showAlert("Erreur de compte", "Type d'étudiant non défini dans le compte.", 'error');
-        return;
-    }
-    
-    // 记录学生信息
-    studentInfo.name = name;
-    studentInfo.testDate = new Date().toLocaleString('fr-FR');
-    studentInfo.type = student.type;
-    
-    loginError.style.display = 'none';
-    loginButtons.style.display = 'none';
-    loadingSpinner.style.display = 'block';
-    
-    setTimeout(() => {
-        try {
-            if (typeof question_multi === 'undefined') {
-                throw new Error("题库 question_multi.js 未加载");
-            }
-            
-            document.getElementById('loginModal').style.display = 'none';
-            document.getElementById('selectionModal').style.display = 'flex';
-            
-            // 根据学生类型设置卡片权限状态
-            updateTestCardPermissions();
-            
-            // 显示剩余天数信息
-            showDaysLeftInfo();
-            
-        } catch (error) {
-            console.error("登录失败:", error);
-            showAlert("Erreur de connexion", error.message || "Erreur lors de la connexion.", 'error');
-        } finally {
-            loadingSpinner.style.display = 'none';
-            loginButtons.style.display = 'flex';
-        }
-    }, 500);
-}
+};
 
+console.log('supabase-config.js加载完成');
 // ==================== 显示剩余天数信息 ====================
 function showDaysLeftInfo() {
     const daysLeftInfo = document.getElementById('daysLeftInfo');
