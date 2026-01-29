@@ -1967,6 +1967,17 @@
     padding: 10px 20px;
     font-size: 0.9rem;
   }
+    /* 手机修复 - 就加这个 */
+@media (max-width: 768px) {
+  /* 按钮缩小 */
+  .btn { padding: 12px 24px !important; font-size: 0.9rem !important; }
+  
+  /* 导航缩小 */
+  .test-header h1 { font-size: 1.2rem !important; }
+  
+  /* 卡片单列 */
+  .test-types-container { grid-template-columns: 1fr !important; }
+}
   </style>
 </head>
 <body>
@@ -4684,3 +4695,4 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
+
