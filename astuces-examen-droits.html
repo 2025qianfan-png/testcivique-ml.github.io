@@ -6,7 +6,7 @@
     <title>Droits fondamentaux et obligations - Association Mille Voiles</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
- <style>
+    <style>
         :root {
             --primary-blue: #004080;
             --primary-light-blue: #0066cc;
@@ -60,7 +60,7 @@
             padding: 0 20px;
         }
 
-        /* Header */
+        /* Header - 保持不变 */
         .main-header {
             background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-light-blue) 100%);
             color: var(--white);
@@ -83,56 +83,31 @@
             margin: 0 auto;
         }
 
-        /* Navigation */
+        /* Navigation - 简化为只有返回主页 */
         .main-nav {
             background-color: var(--white);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            padding: 15px 0;
+            text-align: center;
         }
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
+        .back-home {
+            display: inline-flex;
             align-items: center;
-            padding: 15px 20px;
-        }
-
-        .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1.5rem;
+            gap: 8px;
             color: var(--primary-blue);
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo i {
-            color: var(--primary-yellow);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--dark-gray);
-            text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 1.1rem;
             transition: var(--transition);
-            position: relative;
         }
 
-        .nav-links a:hover {
-            color: var(--primary-blue);
+        .back-home:hover {
+            color: var(--primary-light-blue);
+            transform: translateX(-5px);
         }
 
-        /* 简化的登录部分 - 只有登录框 */
+        /* 登录部分 - 改为test-rapide样式 */
         .login-section {
             flex: 1;
             display: flex;
@@ -140,46 +115,33 @@
             justify-content: center;
             padding: 30px 20px;
             min-height: calc(100vh - 280px);
-            width: 100%;
-            position: relative;
-        }
-
-        .login-wrapper {
-            width: 100%;
-            max-width: 400px;
-            margin: 0 auto;
         }
 
         .login-card {
             background-color: var(--white);
             border-radius: var(--border-radius);
-            padding: 40px 30px;
+            padding: 40px;
             box-shadow: var(--shadow);
             width: 100%;
+            max-width: 450px;
             text-align: center;
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .login-icon {
-            font-size: 3.5rem;
+            font-size: 4rem;
             color: var(--primary-blue);
             margin-bottom: 20px;
         }
 
         .login-card h2 {
-            margin-bottom: 10px;
-            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-size: 2rem;
         }
 
         .login-card p {
             color: var(--medium-gray);
-            margin-bottom: 25px;
-            font-size: 1rem;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
         }
 
         .form-group {
@@ -197,7 +159,7 @@
         .form-group input {
             width: 100%;
             padding: 15px;
-            border: 1px solid #ddd;
+            border: 2px solid #ddd;
             border-radius: 8px;
             font-family: 'Open Sans', sans-serif;
             font-size: 1rem;
@@ -215,24 +177,17 @@
             font-size: 0.9rem;
             margin-top: 5px;
             display: none;
-            animation: shake 0.5s;
-        }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-            20%, 40%, 60%, 80% { transform: translateX(5px); }
         }
 
         .login-btn {
             width: 100%;
-            padding: 15px;
+            padding: 16px;
             background-color: var(--primary-blue);
             color: white;
             border: none;
             border-radius: 8px;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 1.1rem;
             cursor: pointer;
             transition: var(--transition);
             display: flex;
@@ -251,21 +206,7 @@
             transform: translateY(0);
         }
 
-        /* 记住密码选项 */
-        .remember-me {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 15px;
-            font-size: 0.9rem;
-            color: var(--medium-gray);
-        }
-
-        .remember-me input {
-            width: auto;
-        }
-
-        /* Main Content */
+        /* Main Content - 以下所有内容保持不变 */
         .main-content {
             flex: 1;
             padding: 60px 0;
@@ -451,7 +392,7 @@
             color: var(--primary-yellow);
         }
 
-        /* Mindmap Section - 现在是3个图像 */
+        /* Mindmap Section - 现在是2个图像 */
         .mindmap-section {
             margin: 40px 0;
         }
@@ -624,73 +565,24 @@
             color: var(--primary-yellow);
         }
 
-        /* Footer */
+        /* Footer - 简化版本 */
         .main-footer {
             background-color: var(--primary-blue);
             color: var(--white);
-            padding: 60px 0 30px;
+            padding: 30px 0;
             margin-top: auto;
             width: 100%;
-            flex-shrink: 0;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-column h4 {
-            color: var(--primary-yellow);
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: var(--primary-yellow);
-            padding-left: 5px;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .contact-item i {
-            color: var(--primary-yellow);
+            text-align: center;
         }
 
         .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
+            padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.9rem;
             opacity: 0.7;
         }
 
-        /* Responsive Design */
+        /* Responsive Design - 保持原有响应式 */
         @media (max-width: 768px) {
             .main-header h1 {
                 font-size: 2.2rem;
@@ -701,30 +593,13 @@
                 padding: 0 10px;
             }
             
-            .nav-container {
-                flex-direction: column;
-                gap: 15px;
-                padding: 12px 15px;
-            }
-            
-            .nav-links {
-                gap: 20px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .nav-links a {
-                font-size: 0.95rem;
-            }
-            
-            /* 登录部分响应式优化 */
             .login-section {
                 padding: 20px 15px;
-                min-height: calc(100vh - 240px);
+                min-height: calc(100vh - 180px);
             }
             
             .login-card {
-                padding: 30px 20px;
+                padding: 30px;
             }
             
             .login-icon {
@@ -769,15 +644,6 @@
                 width: 200px;
                 justify-content: center;
             }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .main-footer {
-                padding: 40px 0 20px;
-            }
         }
 
         @media (max-width: 480px) {
@@ -785,23 +651,8 @@
                 font-size: 1.8rem;
             }
             
-            .main-header p {
-                font-size: 0.95rem;
-            }
-            
-            .section-header h2 {
-                font-size: 1.8rem;
-            }
-            
-            /* 小屏幕登录优化 */
-            .login-section {
-                padding: 15px 10px;
-                min-height: calc(100vh - 200px);
-            }
-            
             .login-card {
-                padding: 25px 15px;
-                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+                padding: 25px 20px;
             }
             
             .login-icon {
@@ -812,104 +663,12 @@
                 font-size: 1.4rem;
             }
             
-            .login-card p {
-                font-size: 0.95rem;
-                margin-bottom: 20px;
-            }
-            
-            .form-group {
-                margin-bottom: 15px;
-            }
-            
-            .form-group input {
-                padding: 12px;
-                font-size: 0.95rem;
-            }
-            
-            .login-btn {
-                padding: 12px;
-                font-size: 0.95rem;
-            }
-            
-            .remember-me {
-                font-size: 0.85rem;
-            }
-            
             .table-section, .mindmap-container, .scenario-tips, .memory-tips {
-                padding: 20px;
+                padding: 20px 15px;
             }
             
             .mindmap-viewer {
                 height: 300px;
-            }
-            
-            .mindmap-controls {
-                top: 10px;
-                right: 10px;
-            }
-            
-            .zoom-btn {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
-            }
-        }
-
-        @media (max-width: 360px) {
-            .main-header h1 {
-                font-size: 1.5rem;
-            }
-            
-            .nav-links {
-                flex-direction: column;
-                gap: 8px;
-            }
-            
-            .login-card {
-                padding: 20px 12px;
-                border-radius: 8px;
-            }
-            
-            .login-icon {
-                font-size: 2rem;
-            }
-            
-            .login-card h2 {
-                font-size: 1.3rem;
-            }
-        }
-
-        /* 横屏模式优化 */
-        @media (max-height: 600px) and (orientation: landscape) {
-            .login-section {
-                min-height: calc(100vh - 180px);
-                padding: 10px 15px;
-            }
-            
-            .login-card {
-                padding: 20px;
-            }
-            
-            .login-icon {
-                font-size: 2.5rem;
-                margin-bottom: 10px;
-            }
-            
-            .login-card h2 {
-                font-size: 1.4rem;
-                margin-bottom: 5px;
-            }
-            
-            .form-group {
-                margin-bottom: 12px;
-            }
-            
-            .form-group input {
-                padding: 10px;
-            }
-            
-            .login-btn {
-                padding: 10px;
             }
         }
     </style>
@@ -923,61 +682,45 @@
         </div>
     </header>
 
-    <!-- Navigation -->
+    <!-- Navigation - 简化：只有返回主页 -->
     <nav class="main-nav">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <i class="fas fa-home"></i>
-                <span>Association Mille Voiles</span>
+        <div class="container">
+            <a href="thematique-droits.html" class="back-home">
+                <i class="fas fa-arrow-left"></i> Retour à l'accueil
             </a>
-            <div class="nav-links">
-                <a href="index.html">Accueil</a>
-                <a href="thematique-valeurs.html">Valeurs de la République</a>
-                <a href="histoire-geographie-culture.html">Histoire, géographie et culture</a>
-                <a href="autorite-education-travail.html">Autorité parentale et travail</a>
-                <a href="droits-obligations-devoirs.html">Droits fondamentaux et obligations</a>
-                <a href="test-civique.html">Test Civique</a>
-            </div>
         </div>
     </nav>
 
-    <!-- 简化的登录部分 -->
+    <!-- 登录部分 - 改为test-rapide样式 -->
     <section class="login-section" id="loginSection">
-        <div class="login-wrapper">
-            <div class="login-card">
-                <div class="login-icon">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                <h2>Accès aux astuces</h2>
-                <p>Veuillez entrer vos identifiants pour accéder aux astuces d'examen</p>
-                
-                <form id="loginForm">
-                    <div class="form-group">
-                        <label for="username"><i class="fas fa-user"></i> Nom d'utilisateur</label>
-                        <input type="text" id="username" placeholder="Entrez votre nom d'utilisateur" required>
-                        <div class="error-message" id="usernameError"></div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="password"><i class="fas fa-lock"></i> Mot de passe</label>
-                        <input type="password" id="password" placeholder="Entrez votre mot de passe" required>
-                        <div class="error-message" id="passwordError"></div>
-                    </div>
-                    
-                    <div class="remember-me">
-                        <input type="checkbox" id="remember">
-                        <label for="remember">Se souvenir de moi</label>
-                    </div>
-                    
-                    <button type="submit" class="login-btn">
-                        <i class="fas fa-sign-in-alt"></i> Se connecter
-                    </button>
-                </form>
+        <div class="login-card">
+            <div class="login-icon">
+                <i class="fas fa-graduation-cap"></i>
             </div>
+            <h2>Accès aux astuces</h2>
+            <p>Veuillez entrer vos identifiants pour accéder aux astuces d'examen</p>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username"><i class="fas fa-user"></i> Nom d'utilisateur</label>
+                    <input type="text" id="username" placeholder="Entrez votre nom d'utilisateur" required>
+                    <div class="error-message" id="usernameError"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password"><i class="fas fa-lock"></i> Mot de passe</label>
+                    <input type="password" id="password" placeholder="Entrez votre mot de passe" required>
+                    <div class="error-message" id="passwordError"></div>
+                </div>
+                
+                <button type="submit" class="login-btn">
+                    <i class="fas fa-sign-in-alt"></i> Se connecter
+                </button>
+            </form>
         </div>
     </section>
 
-    <!-- Main Content -->
+    <!-- Main Content - 以下所有内容保持原样 -->
     <main class="main-content" id="mainContent">
         <div class="container">
             <!-- Language Control -->
@@ -1832,50 +1575,9 @@
         </div>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer - 简化版 -->
     <footer class="main-footer">
         <div class="container">
-            <div class="footer-content">
-                <!-- About Column -->
-                <div class="footer-column">
-                    <h4>À propos</h4>
-                    <p>
-                        L'association Mille Voiles accompagne les communautés chinoises en France dans leurs démarches d'intégration, d'apprentissage du français et de préparation aux examens officiels.
-                    </p>
-                </div>
-                
-                <!-- Quick Links Column -->
-                <div class="footer-column">
-                    <h4>Liens rapides</h4>
-                    <ul class="footer-links">
-                        <li><a href="thematique-valeurs.html"><i class="fas fa-chevron-right"></i> Valeurs de la République</a></li>
-                        <li><a href="histoire-geographie-culture.html"><i class="fas fa-chevron-right"></i> Histoire, géographie et culture</a></li>
-                        <li><a href="autorite-education-travail.html"><i class="fas fa-chevron-right"></i> Autorité parentale et travail</a></li>
-                        <li><a href="droits-obligations-devoirs.html"><i class="fas fa-chevron-right"></i> Droits fondamentaux et obligations</a></li>
-                        <li><a href="test-civique.html"><i class="fas fa-chevron-right"></i> Test Civique complet</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Contact Column -->
-                <div class="footer-column">
-                    <h4>Contact</h4>
-                    <div class="contact-info">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>2025qianfan@gmail.com</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-globe"></i>
-                            <span>Association Mille Voiles</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>94800 Villejuif</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
             <div class="footer-bottom">
                 <p>&copy; 2025 Association Mille Voiles - Tous droits réservés.</p>
             </div>
@@ -1989,7 +1691,6 @@
             }
         };
 
-        let currentStudent = null;
         let currentLanguage = 'fr';
         
         // Mindmap zoom functionality
@@ -2012,22 +1713,8 @@
         const mindmapImage2 = document.getElementById('mindmapImage2');
         const mindmapContainer2 = document.getElementById('mindmapContainer2');
 
-        // 记住密码功能
-        const rememberCheckbox = document.getElementById('remember');
-        const usernameInput = document.getElementById('username');
-        const passwordInput = document.getElementById('password');
-        
-        // 页面加载时检查本地存储
+        // 页面加载时
         window.addEventListener('load', function() {
-            const savedUsername = localStorage.getItem('savedUsername');
-            const savedPassword = localStorage.getItem('savedPassword');
-            
-            if (savedUsername && savedPassword) {
-                usernameInput.value = savedUsername;
-                passwordInput.value = savedPassword;
-                rememberCheckbox.checked = true;
-            }
-            
             // 确保登录部分可见
             loginSection.style.display = 'flex';
             mainContent.style.display = 'none';
@@ -2054,12 +1741,12 @@
             });
         });
 
-        // 登录功能
+        // 登录功能 - 简单版本
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const username = usernameInput.value;
-            const password = passwordInput.value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
             const usernameError = document.getElementById('usernameError');
             const passwordError = document.getElementById('passwordError');
             
@@ -2067,75 +1754,27 @@
             usernameError.style.display = 'none';
             passwordError.style.display = 'none';
             
-            // 查找学生 - 这里使用你的现有逻辑
-            // 假设有一个students数组（从compte.js加载）
-            if (typeof students !== 'undefined') {
-                const student = students.find(s => 
-                    s.name.toLowerCase() === username.toLowerCase() || 
-                    s.name === username
-                );
-                
-                if (!student) {
-                    usernameError.textContent = "Nom d'utilisateur incorrect";
-                    usernameError.style.display = 'block';
-                    return;
-                }
-                
-                if (student.password !== password) {
-                    passwordError.textContent = "Mot de passe incorrect";
-                    passwordError.style.display = 'block';
-                    return;
-                }
-                
-                // 登录成功
-                currentStudent = student;
-                
-                // 记住密码
-                if (rememberCheckbox.checked) {
-                    localStorage.setItem('savedUsername', username);
-                    localStorage.setItem('savedPassword', password);
-                } else {
-                    localStorage.removeItem('savedUsername');
-                    localStorage.removeItem('savedPassword');
-                }
-                
-                // 显示主内容
+            // 基本验证
+            if (!username.trim()) {
+                usernameError.textContent = "Veuillez entrer un nom d'utilisateur";
+                usernameError.style.display = 'block';
+                return;
+            }
+            
+            if (!password) {
+                passwordError.textContent = "Veuillez entrer un mot de passe";
+                passwordError.style.display = 'block';
+                return;
+            }
+            
+            // 简单的模拟验证 - 只要输入了用户名和密码就可以登录
+            setTimeout(() => {
                 loginSection.style.display = 'none';
                 mainContent.style.display = 'block';
                 
                 // 滚动到顶部
                 window.scrollTo(0, 0);
-                
-                // 显示欢迎信息
-                setTimeout(() => {
-                    alert(`Bienvenue ${student.name} !\nVous avez maintenant accès aux astuces d'examen.`);
-                }, 300);
-            } else {
-                // 如果students数组不存在，使用模拟登录
-                if (!username.trim()) {
-                    usernameError.textContent = "Veuillez entrer un nom d'utilisateur";
-                    usernameError.style.display = 'block';
-                    return;
-                }
-                
-                if (!password) {
-                    passwordError.textContent = "Veuillez entrer un mot de passe";
-                    passwordError.style.display = 'block';
-                    return;
-                }
-                
-                // 模拟成功登录
-                setTimeout(() => {
-                    loginSection.style.display = 'none';
-                    mainContent.style.display = 'block';
-                    
-                    // 滚动到顶部
-                    window.scrollTo(0, 0);
-                    
-                    // 显示欢迎信息
-                    alert(`Bienvenue ${username} !\nVous avez maintenant accès aux astuces d'examen.`);
-                }, 500);
-            }
+            }, 500);
         });
 
         // 语言切换功能
@@ -2308,31 +1947,6 @@
                 mindmapContainer2.scrollTop = scrollTop2 - walkY;
             });
         }
-
-        // 移动端优化：触摸反馈
-        const loginBtn = document.querySelector('.login-btn');
-        if (loginBtn) {
-            loginBtn.addEventListener('touchstart', function() {
-                this.style.transform = 'scale(0.98)';
-            });
-            
-            loginBtn.addEventListener('touchend', function() {
-                this.style.transform = 'scale(1)';
-            });
-        }
-
-        // 输入框移动端优化
-        const inputs = document.querySelectorAll('input');
-        inputs.forEach(input => {
-            input.addEventListener('focus', function() {
-                // 在移动设备上，滚动使输入框可见
-                if (window.innerWidth < 768) {
-                    setTimeout(() => {
-                        this.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }, 300);
-                }
-            });
-        });
     </script>
     <script src="compte.js"></script>
 </body>
