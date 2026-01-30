@@ -178,27 +178,41 @@
             width: 100%;
         }
 
-        /* 管理员入口按钮 */
-        .admin-access {
-            margin-left: 15px;
-        }
+      /* 管理员入口按钮 */
+.admin-access {
+    margin-left: 15px;
+}
 
-        .admin-btn {
-            background: linear-gradient(135deg, var(--purple) 0%, #9b59b6 100%);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: var(--shadow);
-            text-decoration: none;
-        }
+.admin-btn {
+    background: var(--purple); /* 保持紫色背景 */
+    color: white !important; /* 确保字体为白色 */
+    border: none;
+    padding: 12px 25px; /* 稍微增加内边距：上下12px，左右25px */
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 图标和文字的间距 */
+    text-decoration: none;
+    font-size: 0.95rem; /* 稍微增大字体 */
+    white-space: nowrap; /* 防止文字换行 */
+    min-width: 150px; /* 设置最小宽度，让按钮更长一点 */
+    justify-content: center; /* 居中显示 */
+    text-align: center;
+}
 
+.admin-btn:hover {
+    background: #5b2c6f; /* 鼠标悬停时稍微深一点的紫色 */
+    transform: translateY(-2px);
+    color: white !important; /* 悬停时也保持白色 */
+}
+
+.admin-btn i {
+    color: white !important; /* 确保图标也是白色 */
+    font-size: 1rem; /* 图标大小 */
+}
         .admin-btn:hover {
             transform: translateY(-2px);
             box-shadow: var(--shadow-hover);
