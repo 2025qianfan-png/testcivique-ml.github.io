@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Test - Droits fondamentaux et obligations des résidents</title>
+<!-- 添加Supabase库和配置文件 -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
@@ -1427,7 +1431,7 @@ h1, h2, h3, h4 {
   </div>
 </footer>
 
-<script src="compte.js"></script>
+
 <script src="question_multia.js"></script>
 <script src="question_resident.js"></script>
 
@@ -1512,6 +1516,90 @@ function closeAlert() {
     document.getElementById('alertModal').style.display = 'none';
 }
 
+
+function closeTrainingInfo() {
+    document.getElementById('trainingInfoModal').style.display = 'none';
+    startTest();
+}
+
+
+// ==================== 登录验证 ====================
+function validateLogin() {
+    console.log("登录按钮被点击");
+    
+    const name = document.getElementById('studentName').value.trim();
+    const password = document.getElementById('studentPassword').value.trim();
+    const loginError = document.getElementById('loginError');
+    const loadingSpinner = document.getElementById('loginSpinner');
+    const loginButtons = document.getElementById('loginButtons');
+    
+    if (!name || !password) {
+        showAlert("Champs requis", "Veuillez remplir tous les champs.", 'warning');
+        return;
+    }
+    
+    // 显示加载状态
+    loginError.style.display = 'none';
+    loginButtons.style.display = 'none';
+    loadingSpinner.style.display = 'block';
+    
+    console.log("尝试Supabase登录:", name);
+    
+    // 使用Supabase验证（和之前测试系统一样）
+    window.supabaseAuth.validateStudent(name, password)
+        .then(student => {
+            if (student) {
+                console.log("登录成功:", student);
+                
+                // 检查访问权限
+                const accessCheck = window.supabaseAuth.checkAccess(student);
+                
+                if (!accessCheck.valid) {
+                    showAlert("Accès expiré", 
+                        accessCheck.message || "Votre période d'accès a expiré.", 
+                        'error');
+                    resetLoginForm();
+                    return;
+                }
+                
+                // 存储学生信息
+                studentInfo = {
+                    name: student.name,
+                    testDate: new Date().toLocaleString('fr-FR'),
+                    type: student.type || "t",
+                    daysLeft: accessCheck.daysLeft
+                };
+                
+                console.log("学生信息保存:", studentInfo);
+                
+                // 登录成功，隐藏登录窗口
+                document.getElementById('loginModal').style.display = 'none';
+                
+                // 显示培训信息窗口
+                showTrainingInfo();
+                
+            } else {
+                console.log("登录失败: 用户名或密码错误");
+                showAlert("Échec de connexion", "Nom d'étudiant ou mot de passe incorrect.", 'error');
+                resetLoginForm();
+            }
+        })
+        .catch(error => {
+            console.error("登录错误:", error);
+            showAlert("Erreur de connexion", "Une erreur est survenue. Veuillez réessayer.", 'error');
+            resetLoginForm();
+        });
+}
+
+// 重置登录表单
+function resetLoginForm() {
+    const loginSpinner = document.getElementById('loginSpinner');
+    const loginButtons = document.getElementById('loginButtons');
+    
+    loginSpinner.style.display = 'none';
+    loginButtons.style.display = 'flex';
+}
+
 // ==================== 培训信息窗口 ====================
 function showTrainingInfo() {
     const trainingTypeInfo = document.getElementById('trainingTypeInfo');
@@ -1524,54 +1612,82 @@ function showTrainingInfo() {
     switch(studentInfo.type) {
         case 'm': // 四年居留
             trainingHTML = `
-                <h3><i class="fas fa-passport"></i> Formation : Titre de Séjour 2-4 Ans</h3>
-                <p><strong>Formation pour :</strong> Titre de séjour pluriannuel (2-4 ans)</p>
-                <p><strong>Training for :</strong> Multi-year residence permit (2-4 years)</p>
+                <h3><i class="fas fa-balance-scale"></i> Formation : Droits Fondamentaux et Obligations des Résidents</h3>
+                <p><strong>Public visé :</strong> Demandeurs de titre de séjour pluriannuel (2-4 ans)</p>
+                <p><strong>Target audience :</strong> Multi-year residence permit applicants (2-4 years)</p>
                 <div class="chinese">
-                    <strong>对应培训：</strong> 2-4年居留许可培训
+                    <strong>适用对象：</strong> 2-4年居留许可申请者
                 </div>
             `;
-            difficultyNote = '<p><strong>Note sur la difficulté :</strong> Les questions sont adaptées au niveau requis pour la demande de titre pluriannuel.</p>';
+            difficultyNote = '<p><strong>Note :</strong> Questions sur les droits fondamentaux et les obligations des personnes résidant en France.</p>';
             break;
             
         case 'n': // 入籍
             trainingHTML = `
-                <h3><i class="fas fa-flag"></i> Formation : Nationalité Française</h3>
-                <p><strong>Formation pour :</strong> Acquisition de la nationalité française</p>
-                <p><strong>Training for :</strong> Acquisition of French nationality</p>
+                <h3><i class="fas fa-balance-scale"></i> Formation : Droits Fondamentaux et Obligations des Résidents</h3>
+                <p><strong>Public visé :</strong> Demandeurs de nationalité française</p>
+                <p><strong>Target audience :</strong> French nationality applicants</p>
                 <div class="chinese">
-                    <strong>对应培训：</strong> 法国入籍培训
+                    <strong>适用对象：</strong> 法国入籍申请者
                 </div>
             `;
-            difficultyNote = '<p><strong>Note sur la difficulté :</strong> Les questions sont plus approfondies pour répondre aux exigences de la naturalisation.</p>';
+            difficultyNote = '<p><strong>Note :</strong> Questions approfondies sur les droits et devoirs en France.</p>';
             break;
             
         case 'r': // 十年居留
             trainingHTML = `
-                <h3><i class="fas fa-id-card-alt"></i> Formation : Carte de Résident 10 Ans</h3>
-                <p><strong>Formation pour :</strong> Carte de résident de 10 ans</p>
-                <p><strong>Training for :</strong> 10-year resident card</p>
+                <h3><i class="fas fa-balance-scale"></i> Formation : Droits Fondamentaux et Obligations des Résidents</h3>
+                <p><strong>Public visé :</strong> Demandeurs de carte de résident de 10 ans</p>
+                <p><strong>Target audience :</strong> 10-year resident card applicants</p>
                 <div class="chinese">
-                    <strong>对应培训：</strong> 10年居留卡培训
+                    <strong>适用对象：</strong> 10年居留卡申请者
                 </div>
             `;
-            difficultyNote = '<p><strong>Note sur la difficulté :</strong> Le niveau des questions est adapté à la demande de carte de résident longue durée.</p>';
+            difficultyNote = '<p><strong>Note :</strong> Questions sur l\'équilibre entre droits et obligations des résidents.</p>';
             break;
             
         case 't': // 所有类型
             trainingHTML = `
-                <h3><i class="fas fa-graduation-cap"></i> Formation : Tous les parcours</h3>
-                <p><strong>Formation pour :</strong> Tous les types de demandes (accès complet)</p>
-                <p><strong>Training for :</strong> All types of applications (full access)</p>
+                <h3><i class="fas fa-balance-scale"></i> Formation : Droits Fondamentaux et Obligations des Résidents</h3>
+                <p><strong>Public visé :</strong> Tous les demandeurs (accès complet)</p>
+                <p><strong>Target audience :</strong> All applicants (full access)</p>
                 <div class="chinese">
-                    <strong>对应培训：</strong> 全类型培训（完全访问权限）
+                    <strong>适用对象：</strong> 所有申请者（完全访问权限）
                 </div>
             `;
-            difficultyNote = '<p><strong>Note sur la difficulté :</strong> Vous avez accès à toutes les questions des différents niveaux.</p>';
+            difficultyNote = '<p><strong>Note :</strong> Vous avez accès à toutes les questions sur les droits et obligations.</p>';
             break;
     }
     
     trainingHTML += difficultyNote;
+    
+    // 添加测试具体信息
+    trainingHTML += `
+        <div style="margin-top: 15px; padding: 12px; background-color: rgba(0, 64, 128, 0.08); border-radius: 6px;">
+            <p style="margin-bottom: 8px;"><strong><i class="fas fa-question-circle"></i> Test spécialisé :</strong></p>
+            <p><strong>Thèmes principaux :</strong></p>
+            <ul style="margin-left: 20px; margin-bottom: 10px;">
+                <li><i class="fas fa-hand-paper"></i> Droits fondamentaux (libertés individuelles, égalité)</li>
+                <li><i class="fas fa-user-check"></i> Obligations des résidents (devoirs, respect des lois)</li>
+                <li><i class="fas fa-gavel"></i> Protection contre les discriminations</li>
+                <li><i class="fas fa-users"></i> Droits et devoirs dans la société française</li>
+            </ul>
+            <p>• 20 questions sur les droits et obligations - Pas de limite de temps</p>
+            <p>• Seuil de réussite : 16/20 (80%)</p>
+            <div class="chinese" style="margin-top: 10px;">
+                <p><strong>主要主题：</strong></p>
+                <ul style="margin-left: 20px; margin-bottom: 10px;">
+                    <li>基本权利（个人自由、平等）</li>
+                    <li>居民义务（责任、遵守法律）</li>
+                    <li>反歧视保护</li>
+                    <li>法国社会中的权利与义务</li>
+                </ul>
+                <p>• 20道关于权利和义务的题目 - 无时间限制</p>
+                <p>• 通过标准：16/20 (80%)</p>
+            </div>
+        </div>
+    `;
+    
     trainingTypeInfo.innerHTML = trainingHTML;
     
     // 显示剩余天数信息
@@ -1590,111 +1706,6 @@ function showTrainingInfo() {
     // 显示培训信息窗口
     document.getElementById('trainingInfoModal').style.display = 'flex';
 }
-
-function closeTrainingInfo() {
-    document.getElementById('trainingInfoModal').style.display = 'none';
-    startTest();
-}
-
-// ==================== 登录验证 ====================
-function validateLogin() {
-    console.log("登录按钮被点击");
-    
-    const name = document.getElementById('studentName').value.trim();
-    const password = document.getElementById('studentPassword').value.trim();
-    const loginError = document.getElementById('loginError');
-    const loadingSpinner = document.getElementById('loginSpinner');
-    const loginButtons = document.getElementById('loginButtons');
-    
-    if (!name || !password) {
-        showAlert("Champs requis", "Veuillez remplir tous les champs.", 'warning');
-        return;
-    }
-    
-    if (typeof students === 'undefined') {
-        showAlert("Erreur de chargement", "Fichier des étudiants non chargé. Vérifiez compte.js", 'error');
-        return;
-    }
-    
-    // 查找匹配的学生
-    const student = students.find(s => 
-        s.name.toLowerCase() === name.toLowerCase() && 
-        s.password === password
-    );
-    
-    if (!student) {
-        loginError.style.display = 'block';
-        return;
-    }
-    
-    // ==================== 检查用户使用时限 ====================
-    if (student.timer) {
-        const expiryDate = new Date(student.timer);
-        const currentDate = new Date();
-        
-        // 如果到期日小于当前日期，说明已过期
-        if (expiryDate < currentDate) {
-            showAlert("Accès expiré", 
-                "Votre période d'accès a expiré le " + student.timer + 
-                "\n\nVeuillez contacter l'administrateur pour renouveler votre accès.", 
-                'error');
-            loginError.textContent = "Votre période d'accès a expiré";
-            loginError.style.display = 'block';
-            return;
-        } else {
-            // 计算剩余天数
-            const timeDiff = expiryDate - currentDate;
-            const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-            
-            // 存储剩余天数到studentInfo
-            studentInfo.daysLeft = daysLeft;
-            
-            // 显示剩余天数信息
-            console.log(`学生 ${name} 还有 ${daysLeft} 天可用`);
-        }
-    } else {
-        // 如果没有设置timer，默认为长期有效
-        studentInfo.daysLeft = -1; // -1表示长期有效
-    }
-    // ==================== 时限检查结束 ====================
-    
-    // 检查学生类型
-    if (!student.type) {
-        showAlert("Erreur de compte", "Type d'étudiant non défini dans le compte.", 'error');
-        return;
-    }
-    
-    // 记录学生信息
-    studentInfo.name = name;
-    studentInfo.testDate = new Date().toLocaleString('fr-FR');
-    studentInfo.type = student.type;
-    
-    loginError.style.display = 'none';
-    loginButtons.style.display = 'none';
-    loadingSpinner.style.display = 'block';
-    
-    setTimeout(() => {
-        try {
-            if (typeof question_multi === 'undefined') {
-                throw new Error("题库 question_multi.js 未加载");
-            }
-            
-            // 登录成功，隐藏登录窗口
-            document.getElementById('loginModal').style.display = 'none';
-            
-            // 显示培训信息窗口
-            showTrainingInfo();
-            
-        } catch (error) {
-            console.error("登录失败:", error);
-            showAlert("Erreur de connexion", error.message || "Erreur lors de la connexion.", 'error');
-        } finally {
-            loadingSpinner.style.display = 'none';
-            loginButtons.style.display = 'flex';
-        }
-    }, 500);
-}
-
 // ==================== 开始测试 ====================
 function startTest() {
     // 显示加载动画
