@@ -113,7 +113,7 @@
             color: var(--primary-blue);
         }
 
-        /* Navigation */
+        /* Navigation - 重新设计 */
         .main-nav {
             background-color: var(--white);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -127,6 +127,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 15px 20px;
+            position: relative;
         }
 
         .logo {
@@ -138,16 +139,53 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            z-index: 101;
         }
 
         .logo i {
             color: var(--primary-yellow);
         }
 
+        /* 汉堡菜单按钮 */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            z-index: 101;
+        }
+
+        .hamburger span {
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-blue);
+            border-radius: 10px;
+            transition: var(--transition);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* 导航链接 */
         .nav-links {
             display: flex;
             gap: 25px;
             align-items: center;
+            transition: var(--transition);
         }
 
         .nav-links a {
@@ -157,6 +195,7 @@
             transition: var(--transition);
             position: relative;
             padding: 8px 0;
+            white-space: nowrap;
         }
 
         .nav-links a:hover {
@@ -178,45 +217,40 @@
             width: 100%;
         }
 
-      /* 管理员入口按钮 */
-.admin-access {
-    margin-left: 15px;
-}
+        /* 管理员入口按钮 */
+        .admin-access {
+            margin-left: 15px;
+        }
 
-.admin-btn {
-    background: var(--purple); /* 保持紫色背景 */
-    color: white !important; /* 确保字体为白色 */
-    border: none;
-    padding: 12px 25px; /* 稍微增加内边距：上下12px，左右25px */
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    gap: 10px; /* 图标和文字的间距 */
-    text-decoration: none;
-    font-size: 0.95rem; /* 稍微增大字体 */
-    white-space: nowrap; /* 防止文字换行 */
-    min-width: 150px; /* 设置最小宽度，让按钮更长一点 */
-    justify-content: center; /* 居中显示 */
-    text-align: center;
-}
+        .admin-btn {
+            background: var(--purple);
+            color: white !important;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            min-width: 150px;
+            justify-content: center;
+            text-align: center;
+        }
 
-.admin-btn:hover {
-    background: #5b2c6f; /* 鼠标悬停时稍微深一点的紫色 */
-    transform: translateY(-2px);
-    color: white !important; /* 悬停时也保持白色 */
-}
-
-.admin-btn i {
-    color: white !important; /* 确保图标也是白色 */
-    font-size: 1rem; /* 图标大小 */
-}
         .admin-btn:hover {
+            background: #5b2c6f;
             transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
-            background: linear-gradient(135deg, #7d3c98 0%, #8e44ad 100%);
+            color: white !important;
+        }
+
+        .admin-btn i {
+            color: white !important;
+            font-size: 1rem;
         }
 
         /* Hero Section */
@@ -400,7 +434,7 @@
             background-color: #229954;
         }
 
-        /* 主题卡片网格 - 优化5个主题的布局 */
+        /* 主题卡片网格 */
         .themes-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -708,8 +742,64 @@
             opacity: 0.7;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
+        /* ==================== 响应式设计 ==================== */
+        @media (max-width: 1024px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background-color: var(--white);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                padding: 100px 30px 30px;
+                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+                gap: 0;
+                transition: right 0.4s ease;
+                overflow-y: auto;
+                z-index: 100;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links a {
+                width: 100%;
+                padding: 15px 0;
+                border-bottom: 1px solid var(--light-gray);
+                font-size: 1.1rem;
+            }
+            
+            .nav-links a::after {
+                display: none;
+            }
+            
+            .nav-links a:hover {
+                color: var(--primary-blue);
+                background-color: rgba(0, 64, 128, 0.05);
+            }
+            
+            .admin-access {
+                margin-left: 0;
+                margin-top: 20px;
+                width: 100%;
+            }
+            
+            .admin-btn {
+                width: 100%;
+                justify-content: center;
+                min-width: unset;
+                padding: 15px 20px;
+            }
+            
             .main-header h1 {
                 font-size: 2.2rem;
             }
@@ -724,22 +814,6 @@
             
             .cards-container {
                 grid-template-columns: 1fr;
-            }
-            
-            .nav-container {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .nav-links {
-                gap: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .admin-access {
-                margin-left: 0;
-                margin-top: 10px;
             }
             
             .article-content {
@@ -764,11 +838,16 @@
             }
             
             .lang-btn {
-                padding: 8px 16px;
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+            
+            .nav-container {
+                padding: 12px 20px;
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
             .main-header h1 {
                 font-size: 1.8rem;
             }
@@ -790,17 +869,79 @@
                 font-size: 1rem;
             }
             
-            .language-toggle {
-                flex-direction: row;
-                gap: 10px;
+            .themes-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .theme-card {
+                min-height: 250px;
+                padding: 20px;
+            }
+            
+            .nav-links {
+                width: 85%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-header h1 {
+                font-size: 1.6rem;
+            }
+            
+            .main-header p {
+                font-size: 1rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.4rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .themes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .theme-card {
+                min-height: 220px;
             }
             
             .article-image {
                 height: 250px;
             }
             
-            .theme-card {
-                min-height: 250px;
+            .language-toggle {
+                flex-direction: row;
+                gap: 10px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .nav-links {
+                width: 90%;
+                padding: 100px 20px 20px;
+            }
+            
+            .cards-container {
+                gap: 20px;
+            }
+            
+            .test-card {
+                margin-bottom: 20px;
+            }
+            
+            .card-header {
+                padding: 20px;
+            }
+            
+            .card-body {
+                padding: 20px;
             }
         }
     </style>
@@ -831,7 +972,15 @@
                 <i class="fas fa-graduation-cap"></i>
                 <span id="logoText">Mille Voiles</span>
             </a>
-            <div class="nav-links">
+            
+            <!-- 汉堡菜单按钮 -->
+            <button class="hamburger" id="hamburgerBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <div class="nav-links" id="navLinks">
                 <a href="#accueil" id="navHome">Accueil</a>
                 <a href="#tests" id="navTests">Tests en ligne</a>
                 <a href="#thematiques" id="navThemes">Thématiques</a>
@@ -1005,7 +1154,7 @@
         </div>
     </section>
 
-    <!-- Policy Content - 保持原样 -->
+    <!-- Policy Content -->
     <section class="policy-content" id="politique">
         <div class="container">
             <div class="article-content">
@@ -1216,6 +1365,27 @@
                 e.preventDefault();
             }
         });
+
+        // 汉堡菜单功能
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        if (hamburgerBtn && navLinks) {
+            hamburgerBtn.addEventListener('click', function() {
+                hamburgerBtn.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+            
+            // 点击导航链接后关闭菜单（移动设备）
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 1024) {
+                        hamburgerBtn.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    }
+                });
+            });
+        }
 
         // 语言切换数据
         const translations = {
@@ -1536,6 +1706,14 @@
                         });
                     }
                 });
+            });
+            
+            // 窗口大小变化时，如果大于1024px，确保汉堡菜单关闭
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 1024) {
+                    hamburgerBtn.classList.remove('active');
+                    navLinks.classList.remove('active');
+                }
             });
         });
     </script>
