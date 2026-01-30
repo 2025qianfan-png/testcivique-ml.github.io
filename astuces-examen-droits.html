@@ -6,6 +6,9 @@
     <title>Droits fondamentaux et obligations - Association Mille Voiles</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <!-- 添加Supabase库和配置文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
 <style>
     :root {
         --primary-blue: #004080;
@@ -1760,6 +1763,85 @@
                 e.preventDefault();
             }
         });
+                // ==================== 新增：登录验证函数 ====================
+        function validateLogin() {
+            console.log("登录按钮被点击");
+            
+            const name = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const usernameError = document.getElementById('usernameError');
+            const passwordError = document.getElementById('passwordError');
+            
+            if (!name || !password) {
+                usernameError.textContent = "Veuillez remplir tous les champs";
+                usernameError.style.display = 'block';
+                return;
+            }
+            
+            // 显示加载状态
+            const loginBtn = document.querySelector('.login-btn');
+            const originalBtnText = loginBtn.innerHTML;
+            loginBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Connexion...';
+            loginBtn.disabled = true;
+            
+            usernameError.style.display = 'none';
+            passwordError.style.display = 'none';
+            
+            console.log("尝试Supabase登录:", name);
+            
+            // 使用Supabase验证（和测试系统一样）
+            window.supabaseAuth.validateStudent(name, password)
+                .then(student => {
+                    if (student) {
+                        console.log("登录成功:", student);
+                        
+                        // 检查访问权限
+                        const accessCheck = window.supabaseAuth.checkAccess(student);
+                        
+                        if (!accessCheck.valid) {
+                            passwordError.textContent = accessCheck.message || "Votre période d'accès a expiré";
+                            passwordError.style.display = 'block';
+                            loginBtn.innerHTML = originalBtnText;
+                            loginBtn.disabled = false;
+                            return;
+                        }
+                        
+                        // 登录成功，显示主内容
+                        loginBtn.innerHTML = '<i class="fas fa-check"></i> Connexion réussie!';
+                        loginBtn.style.backgroundColor = 'var(--green)';
+                        
+                        setTimeout(() => {
+                            loginSection.style.display = 'none';
+                            mainContent.style.display = 'block';
+                            
+                            // 重置按钮
+                            loginBtn.innerHTML = originalBtnText;
+                            loginBtn.style.backgroundColor = '';
+                            loginBtn.disabled = false;
+                            
+                            // 滚动到顶部
+                            window.scrollTo(0, 0);
+                        }, 1000);
+                        
+                    } else {
+                        console.log("登录失败: 用户名或密码错误");
+                        passwordError.textContent = "Nom d'utilisateur ou mot de passe incorrect";
+                        passwordError.style.display = 'block';
+                        loginBtn.innerHTML = originalBtnText;
+                        loginBtn.disabled = false;
+                    }
+                })
+                .catch(error => {
+                    console.error("登录错误:", error);
+                    passwordError.textContent = "Une erreur est survenue. Veuillez réessayer.";
+                    passwordError.style.display = 'block';
+                    loginBtn.innerHTML = originalBtnText;
+                    loginBtn.disabled = false;
+                });
+        }
+        
+        // 全局变量
+        let studentInfo = { name: "", testDate: "", type: "", daysLeft: 0 };
 
         // 语言数据
         const translations = {
@@ -1873,8 +1955,7 @@
         const mindmapContainer1 = document.getElementById('mindmapContainer1');
         const mindmapImage2 = document.getElementById('mindmapImage2');
         const mindmapContainer2 = document.getElementById('mindmapContainer2');
-
-        // 页面加载时
+        // 页面加载时 - 保持不变
         window.addEventListener('load', function() {
             // 确保登录部分可见
             loginSection.style.display = 'flex';
@@ -1882,7 +1963,13 @@
             
             // 初始化语言
             updateLanguage('fr');
-            
+                        // 添加回车键登录支持
+            document.getElementById('password').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    validateLogin();
+                }
+            });
             // 初始化思维导图光标
             if (mindmapContainer1) mindmapContainer1.style.cursor = 'grab';
             if (mindmapContainer2) mindmapContainer2.style.cursor = 'grab';
@@ -1903,39 +1990,10 @@
         });
 
         // 登录功能 - 简单版本
+                // 登录功能 - 使用Supabase验证
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const usernameError = document.getElementById('usernameError');
-            const passwordError = document.getElementById('passwordError');
-            
-            // 重置错误信息
-            usernameError.style.display = 'none';
-            passwordError.style.display = 'none';
-            
-            // 基本验证
-            if (!username.trim()) {
-                usernameError.textContent = "Veuillez entrer un nom d'utilisateur";
-                usernameError.style.display = 'block';
-                return;
-            }
-            
-            if (!password) {
-                passwordError.textContent = "Veuillez entrer un mot de passe";
-                passwordError.style.display = 'block';
-                return;
-            }
-            
-            // 简单的模拟验证 - 只要输入了用户名和密码就可以登录
-            setTimeout(() => {
-                loginSection.style.display = 'none';
-                mainContent.style.display = 'block';
-                
-                // 滚动到顶部
-                window.scrollTo(0, 0);
-            }, 500);
+            validateLogin();
         });
 
         // 语言切换功能
