@@ -6,7 +6,7 @@
   <script src="question_multia.js"></script>
   <script src="question_resident.js"></script>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=0.8">
   <title>Test Étudiant Civique - Association Mille Voiles</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -1967,29 +1967,6 @@
     padding: 10px 20px;
     font-size: 0.9rem;
   }
-/* 手机修复 - 就加这个 */
-@media (max-width: 768px) {
-  /* 按钮缩小 */
-  .btn { 
-    padding: 10px 20px !important; 
-    font-size: 0.85rem !important; 
-  }
-  
-  /* 导航缩小 - 更激进 */
-  .test-header h1 { 
-    font-size: 1rem !important;  /* 从1.2rem改为1rem */
-  }
-  
-  /* 卡片单列 */
-  .test-types-container { 
-    grid-template-columns: 1fr !important; 
-  }
-  
-  /* 额外必须加的：导航栏整体 */
-  .test-header {
-    padding: 10px 0 !important;
-  }
-}
   </style>
 </head>
 <body>
@@ -2782,7 +2759,7 @@ function displayMistakesMap() {
     selectedQuestions.forEach((question, index) => {
         const isCorrect = userAnswers[index] === question.answer;
         const theme = question.theme || question.category || "Autre";
-        const difficulty = question.difficulty || "中等";
+        const difficulty = question['difficulté'];
         const difficultyClass = getDifficultyClass(difficulty);
         
         html += `
@@ -2843,7 +2820,7 @@ function displayQuestionDetail(index) {
     const userAnswer = userAnswers[index];
     const isCorrect = userAnswer === question.answer;
     const theme = question.theme || question.category || "Autre";
-    const difficulty = question.difficulty || "中等";
+    const difficulty = question['difficulté'];
     const difficultyClass = getDifficultyClass(difficulty);
     const optionLetters = ['A', 'B', 'C', 'D'];
     
@@ -3133,7 +3110,7 @@ function displayFilteredMistakesList() {
         
         // 难度筛选
         if (currentMistakesFilter.difficulty !== 'all') {
-            const difficulty = mistake.difficulty || '中等';
+            const difficulty = mistake['difficulté'] || mistake.difficulty || 'moyen';
             if (difficulty !== currentMistakesFilter.difficulty) return false;
         }
         
@@ -4000,21 +3977,28 @@ function formatExplanation(explanation) {
 }
 
 // 获取难度对应的CSS类
+// 获取难度对应的CSS类
 function getDifficultyClass(difficulty) {
-    const difficultyMap = {
-        '简单': 'easy',
-        'facile': 'easy',
-        'easy': 'easy',
-        '中等': 'medium',
-        'moyen': 'medium',
-        'medium': 'medium',
-        '困难': 'hard',
-        'difficile': 'hard',
-        'hard': 'hard'
-    };
-    return difficultyMap[difficulty?.toLowerCase()] || 'medium';
+    if (!difficulty) return 'medium';
+    
+    // 将难度值转为小写并去除空格
+    const difficultyStr = String(difficulty).toLowerCase().trim();
+    
+    // 检查各种可能的难度值
+    if (difficultyStr === 'simple' || difficultyStr === 'facile' || difficultyStr === 'easy' || difficultyStr === '简单') {
+        return 'easy';
+    }
+    if (difficultyStr === 'moyen' || difficultyStr === 'medium' || difficultyStr === '中等') {
+        return 'medium';
+    }
+    if (difficultyStr === 'difficile' || difficultyStr === 'hard' || difficultyStr === '困难') {
+        return 'hard';
+    }
+    
+    // 默认返回中等
+    console.warn(`未知的难度值: "${difficulty}"，返回中等`);
+    return 'medium';
 }
-
 // 记录错题到数据库
 async function recordMistakesToDatabase() {
     console.log('开始记录错题到数据库...');
@@ -4033,13 +4017,18 @@ async function recordMistakesToDatabase() {
                 try {
                     const userAnswer = userAnswers[i] !== null ? userAnswers[i] : -1;
                     
-                    const result = await window.supabaseAuth.recordMistake(
-                        studentInfo,
-                        selectedQuestions[i],
-                        userAnswer,
-                        selectedTestType
-                    );
-                    
+                  const questionToSave = { ...selectedQuestions[i] };
+                  // 确保有 difficulty 属性
+                  if (!questionToSave.difficulty && questionToSave['difficulté']) {
+                      questionToSave.difficulty = questionToSave['difficulté'];
+                  }
+
+                  const result = await window.supabaseAuth.recordMistake(
+                      studentInfo,
+                      questionToSave,
+                      userAnswer,
+                      selectedTestType
+                  );
                     if (result) {
                         recordedCount++;
                     }
@@ -4707,5 +4696,3 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 </body>
 </html>
-
-
