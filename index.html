@@ -20,6 +20,7 @@
             --green: #27ae60;
             --red: #e74c3c;
             --orange: #f39c12;
+            --purple: #8e44ad;
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.12);
             --border-radius: 12px;
@@ -76,7 +77,7 @@
             margin: 0 auto;
         }
 
-        /* Language Toggle - 平行放置 */
+        /* Language Toggle */
         .language-toggle {
             position: absolute;
             top: 20px;
@@ -145,7 +146,7 @@
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 25px;
             align-items: center;
         }
 
@@ -155,6 +156,7 @@
             font-weight: 500;
             transition: var(--transition);
             position: relative;
+            padding: 8px 0;
         }
 
         .nav-links a:hover {
@@ -164,7 +166,7 @@
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 0;
             height: 2px;
@@ -174,6 +176,33 @@
 
         .nav-links a:hover::after {
             width: 100%;
+        }
+
+        /* 管理员入口按钮 */
+        .admin-access {
+            margin-left: 15px;
+        }
+
+        .admin-btn {
+            background: linear-gradient(135deg, var(--purple) 0%, #9b59b6 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: var(--shadow);
+            text-decoration: none;
+        }
+
+        .admin-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+            background: linear-gradient(135deg, #7d3c98 0%, #8e44ad 100%);
         }
 
         /* Hero Section */
@@ -357,6 +386,86 @@
             background-color: #229954;
         }
 
+        /* 主题卡片网格 - 优化5个主题的布局 */
+        .themes-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 1200px) {
+            .themes-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .themes-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .themes-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .theme-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 2px solid transparent;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            height: 100%;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .theme-card:hover {
+            border-color: var(--primary-blue);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .theme-icon {
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            flex-shrink: 0;
+        }
+
+        .theme-card h3 {
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+            line-height: 1.4;
+            flex-grow: 0;
+        }
+
+        .theme-card p {
+            color: var(--medium-gray);
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        .theme-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary-blue);
+            font-weight: 600;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
         /* Policy Content */
         .policy-content {
             padding: 80px 0;
@@ -461,46 +570,6 @@
             color: var(--primary-blue);
             margin-bottom: 15px;
             font-size: 1.2rem;
-        }
-
-        .themes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .theme-card {
-            background: var(--light-gray);
-            padding: 20px;
-            border-radius: var(--border-radius);
-            transition: var(--transition);
-            border: 2px solid transparent;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        .theme-card:hover {
-            border-color: var(--primary-blue);
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .theme-card h5 {
-            color: var(--primary-blue);
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-        }
-
-        /* Theme Card Link Style */
-        .theme-link {
-            margin-top: 10px;
-            font-size: 0.9rem;
-            color: var(--primary-blue);
-            display: flex;
-            align-items: center;
-            gap: 5px;
         }
 
         /* FAQ Section */
@@ -649,9 +718,14 @@
             }
             
             .nav-links {
-                gap: 20px;
+                gap: 15px;
                 flex-wrap: wrap;
                 justify-content: center;
+            }
+            
+            .admin-access {
+                margin-left: 0;
+                margin-top: 10px;
             }
             
             .article-content {
@@ -710,11 +784,15 @@
             .article-image {
                 height: 250px;
             }
+            
+            .theme-card {
+                min-height: 250px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Language Toggle - 平行放置 -->
+    <!-- Language Toggle -->
     <div class="language-toggle">
         <button class="lang-btn active" id="langFr" onclick="switchLanguage('fr')">
             <i class="fas fa-language"></i> FR
@@ -742,9 +820,16 @@
             <div class="nav-links">
                 <a href="#accueil" id="navHome">Accueil</a>
                 <a href="#tests" id="navTests">Tests en ligne</a>
+                <a href="#thematiques" id="navThemes">Thématiques</a>
                 <a href="#politique" id="navPolicy">Nouvelle politique</a>
                 <a href="#faq" id="navFAQ">FAQ</a>
                 <a href="#contact" id="navContact">Contact</a>
+                <!-- 管理员入口 -->
+                <div class="admin-access">
+                    <a href="admin.html" class="admin-btn" id="adminBtn">
+                        <i class="fas fa-user-shield"></i> Administration
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
@@ -783,7 +868,6 @@
                             <li><i class="fas fa-check"></i> <span id="feature5">Sans engagement</span></li>
                         </ul>
                         
-                        <!-- 密码信息 -->
                         <div class="password-info">
                             <p id="passwordInfoFree">
                                 <i class="fas fa-key"></i> <strong>Accès protégé :</strong> 
@@ -814,7 +898,6 @@
                             <li><i class="fas fa-check"></i> <span id="feature10">Accès à la plateforme</span></li>
                         </ul>
                         
-                        <!-- 密码信息 -->
                         <div class="password-info">
                             <p id="passwordInfoStudent">
                                 <i class="fas fa-lock"></i> <strong>Accès réservé :</strong> 
@@ -831,7 +914,84 @@
         </div>
     </section>
 
-    <!-- Policy Content -->
+    <!-- 主题卡片网格 - 5个主题 -->
+    <section class="policy-content" id="thematiques">
+        <div class="container">
+            <div class="section-title">
+                <h2 id="themesTitle">Thématiques de l'examen</h2>
+                <p id="themesSubtitle">Les 5 thématiques principales que vous devrez maîtriser pour réussir l'examen civique</p>
+            </div>
+            
+            <div class="themes-grid">
+                <!-- 主题1 -->
+                <a href="thematique-valeurs.html" class="theme-card">
+                    <div class="theme-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h3 id="theme1">Principes et valeurs</h3>
+                    <p id="theme1Desc">La devise et les symboles de la République, la laïcité, les valeurs fondamentales de la France.</p>
+                    <div class="theme-link">
+                        <span id="link1Text">En savoir plus</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+                
+                <!-- 主题2 -->
+                <a href="thematique-institutions.html" class="theme-card">
+                    <div class="theme-icon">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3 id="theme2">Institutions</h3>
+                    <p id="theme2Desc">Organisation de la République française, l'Union européenne et ses institutions politiques.</p>
+                    <div class="theme-link">
+                        <span id="link2Text">En savoir plus</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+                
+                <!-- 主题3 -->
+                <a href="thematique-droits.html" class="theme-card">
+                    <div class="theme-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3 id="theme3">Droits et devoirs</h3>
+                    <p id="theme3Desc">Les droits fondamentaux, les obligations et devoirs des personnes résidant en France.</p>
+                    <div class="theme-link">
+                        <span id="link3Text">En savoir plus</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+                
+                <!-- 主题4 -->
+                <a href="thematique-culture.html" class="theme-card">
+                    <div class="theme-icon">
+                        <i class="fas fa-theater-masks"></i>
+                    </div>
+                    <h3 id="theme4">Culture française</h3>
+                    <p id="theme4Desc">L'Histoire, la géographie et la culture françaises, patrimoine culturel national.</p>
+                    <div class="theme-link">
+                        <span id="link4Text">En savoir plus</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+                
+                <!-- 主题5 -->
+                <a href="thematique-societe.html" class="theme-card">
+                    <div class="theme-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 id="theme5">Vie sociale</h3>
+                    <p id="theme5Desc">L'autorité parentale, système éducatif, travail en France et services publics.</p>
+                    <div class="theme-link">
+                        <span id="link5Text">En savoir plus</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Policy Content - 保持原样 -->
     <section class="policy-content" id="politique">
         <div class="container">
             <div class="article-content">
@@ -843,7 +1003,7 @@
                     </div>
                 </div>
                 
-                <!-- 文章图片 - 更换为相关图片 -->
+                <!-- 文章图片 -->
                 <div class="article-image">
                     <img src="https://www.leparisien.fr/resizer/ZnvsKA9JRhRoUFUhp0qZyQ7cqVY=/932x582/cloudfront-eu-central-1.images.arcpublishing.com/leparisien/KH3X37UNKRGUPI5PA6NZ3DX7UQ.jpg" alt="Examen civique en France" id="articleImage">
                     <div class="image-caption">
@@ -912,58 +1072,6 @@
                         Chaque QCM composant l'examen civique comprendra des questions sur les 5 thématiques étudiées lors de la formation civique :
                     </p>
                     
-                    <div class="themes-grid">
-                        <!-- 主题1 -->
-                        <a href="thematique-valeurs.html" class="theme-card">
-                            <h5 id="theme1">1. Principes et valeurs</h5>
-                            <p id="theme1Desc">La devise et les symboles de la République, la laïcité</p>
-                            <div class="theme-link">
-                                <i class="fas fa-external-link-alt"></i>
-                                <span id="link1Text">En savoir plus</span>
-                            </div>
-                        </a>
-                        
-                        <!-- 主题2 -->
-                        <a href="thematique-institutions.html" class="theme-card">
-                            <h5 id="theme2">2. Institutions</h5>
-                            <p id="theme2Desc">L'organisation de la République française, l'Union européenne et ses institutions</p>
-                            <div class="theme-link">
-                                <i class="fas fa-external-link-alt"></i>
-                                <span id="link2Text">En savoir plus</span>
-                            </div>
-                        </a>
-                        
-                        <!-- 主题3 -->
-                        <a href="thematique-droits.html" class="theme-card">
-                            <h5 id="theme3">3. Droits et devoirs</h5>
-                            <p id="theme3Desc">Les droits fondamentaux, les obligations et les devoirs des personnes résidant en France</p>
-                            <div class="theme-link">
-                                <i class="fas fa-external-link-alt"></i>
-                                <span id="link3Text">En savoir plus</span>
-                            </div>
-                        </a>
-                        
-                        <!-- 主题4 -->
-                        <a href="thematique-culture.html" class="theme-card">
-                            <h5 id="theme4">4. Culture</h5>
-                            <p id="theme4Desc">L'Histoire, la géographie et la culture françaises</p>
-                            <div class="theme-link">
-                                <i class="fas fa-external-link-alt"></i>
-                                <span id="link4Text">En savoir plus</span>
-                            </div>
-                        </a>
-                        
-                        <!-- 主题5 -->
-                        <a href="thematique-societe.html" class="theme-card">
-                            <h5 id="theme5">5. Vie sociale</h5>
-                            <p id="theme5Desc">L'autorité parentale et le système éducatif, le fait de travailler en France</p>
-                            <div class="theme-link">
-                                <i class="fas fa-external-link-alt"></i>
-                                <span id="link5Text">En savoir plus</span>
-                            </div>
-                        </a>
-                    </div>
-                    
                     <p id="resourceText" style="margin-top: 30px; font-style: italic;">
                         Vous pouvez trouver des fiches pour préparer l'examen civique, et prendre connaissance des centres agréés au sein desquels il est possible de passer l'examen sur le site formation-civique.interieur.gouv.fr.
                     </p>
@@ -989,10 +1097,10 @@
                     </div>
                     <div class="faq-answer">
                         <div id="faq1AFr">
-                            <p>À partir du 1er janvier 2026, tous les étrangers non-ressortissants de l'UE souhaitant obtenir une carte de séjour pluriannuelle, une carte de résident ou la naturalisation française devront passer et réussir l'examen civique. Les exceptions incluent les bénéficiaires de protection internationale et ceux qui demandent le renouvellement de leur titre de séjour.</p>
+                            <p>À partir du 1er janvier 2026, tous les étrangers non-ressortissants de l'UE souhaitant obtenir une carte de séjour pluriannuelle, une carte de résident ou la naturalisation française devront passer et réussir l'examen civique.</p>
                         </div>
                         <div id="faq1AZh" style="display: none;">
-                            <p>从2026年1月1日起，所有希望获得多年居留卡、长期居留卡或法国国籍的非欧盟外国人都必须参加并通过公民考试。例外情况包括国际保护受益人和申请居留许可续签的人员。</p>
+                            <p>从2026年1月1日起，所有希望获得多年居留卡、长期居留卡或法国国籍的非欧盟外国人都必须参加并通过公民考试。</p>
                         </div>
                     </div>
                 </div>
@@ -1005,10 +1113,10 @@
                     </div>
                     <div class="faq-answer">
                         <div id="faq2AFr">
-                            <p>L'examen officiel comprend 40 questions : 28 questions de connaissances générales et 12 questions de mises en situation. Chaque question a 4 options, avec une seule réponse correcte. Pour réussir, il faut obtenir au moins 32 bonnes réponses (80%).</p>
+                            <p>L'examen officiel comprend 40 questions : 28 questions de connaissances générales et 12 questions de mises en situation. Pour réussir, il faut obtenir au moins 32 bonnes réponses (80%).</p>
                         </div>
                         <div id="faq2AZh" style="display: none;">
-                            <p>官方考试包括40道题：28道一般知识题和12道情境题。每道题有4个选项，只有一个正确答案。要通过考试，必须获得至少32个正确答案（80%）。</p>
+                            <p>官方考试包括40道题：28道一般知识题和12道情境题。要通过考试，必须获得至少32个正确答案（80%）。</p>
                         </div>
                     </div>
                 </div>
@@ -1016,73 +1124,15 @@
                 <!-- FAQ 3 -->
                 <div class="faq-item" data-id="3">
                     <div class="faq-question">
-                        <span id="faq3Q">Quelle est la durée de l'examen ?</span>
+                        <span id="faq3Q">L'examen civique remplace-t-il le test de langue ?</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
                     <div class="faq-answer">
                         <div id="faq3AFr">
-                            <p>L'examen officiel dure maximum 45 minutes et se passe sur support numérique dans des centres agréés par le Ministère de l'Intérieur. L'examen est chronométré, mais la plupart des candidats terminent en 30-40 minutes.</p>
+                            <p>Non, l'examen civique est un nouvel examen supplémentaire. Pour la naturalisation ou certains titres de séjour, vous devez toujours prouver votre maîtrise du français.</p>
                         </div>
                         <div id="faq3AZh" style="display: none;">
-                            <p>官方考试最长持续45分钟，在内政部认证中心的数字设备上进行。考试有计时，但大多数考生在30-40分钟内完成。</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- FAQ 4 -->
-                <div class="faq-item" data-id="4">
-                    <div class="faq-question">
-                        <span id="faq4Q">Où puis-je passer l'examen civique ?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div id="faq4AFr">
-                            <p>L'examen se passe dans des centres agréés par le Ministère de l'Intérieur, souvent les mêmes qui proposent les tests de langue (ex : centres TCF, OFII). La liste complète des centres est disponible sur le site officiel formation-civique.interieur.gouv.fr.</p>
-                        </div>
-                        <div id="faq4AZh" style="display: none;">
-                            <p>考试在内政部认证的中心进行，通常是提供语言测试的相同中心（例如：TCF、OFII中心）。完整中心列表可在官方网站 formation-civique.interieur.gouv.fr 上找到。</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- FAQ 5 -->
-                <div class="faq-item" data-id="5">
-                    <div class="faq-question">
-                        <span id="faq5Q">L'examen civique remplace-t-il le test de langue ?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div id="faq5AFr">
-                            <p>Non, l'examen civique est un nouvel examen <strong>supplémentaire</strong>. Pour la naturalisation ou certains titres de séjour, vous devez toujours prouver votre maîtrise du français (niveau A2 pour la naturalisation par exemple) par un diplôme ou un test reconnu (TEF, TCF...).</p>
-                        </div>
-                        <div id="faq5AZh" style="display: none;">
-                            <p>不，公民考试是一项<strong>新增的</strong>考试。对于入籍或某些居留许可，您仍然需要通过文凭或认可的法语考试（TEF、TCF等）来证明您的法语水平（例如，入籍要求A2级）。</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- FAQ 6 -->
-                <div class="faq-item" data-id="6">
-                    <div class="faq-question">
-                        <span id="faq6Q">Les questions sont-elles difficiles ? Comment se préparer ?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <div id="faq6AFr">
-                            <p>Les questions portent sur les principes de la République, l'histoire, les institutions et la vie en France. Elles sont conçues pour être accessibles après avoir suivi la <strong>formation civique de 24 heures</strong>. Pour vous préparer, vous pouvez :</p>
-                            <ul style="margin-top: 10px; margin-left: 20px;">
-                                <li>Suivre les cours de l'association Mille Voiles / 千帆协会</li>
-                                <li>Consulter les fiches de révision sur le site officiel</li>
-                                <li>Utiliser nos <strong>tests en ligne</strong> pour vous entraîner</li>
-                            </ul>
-                        </div>
-                        <div id="faq6AZh" style="display: none;">
-                            <p>问题涉及共和国原则、历史、制度和法国生活。这些问题旨在让参加完<strong>24小时公民培训</strong>的人能够掌握。为做准备，您可以：</p>
-                            <ul style="margin-top: 10px; margin-left: 20px;">
-                                <li>参加千帆协会的课程</li>
-                                <li>查阅官方网站的复习资料</li>
-                                <li>使用我们的<strong>在线测试</strong>进行练习</li>
-                            </ul>
+                            <p>不，公民考试是一项新增的考试。对于入籍或某些居留许可，您仍然需要证明您的法语水平。</p>
                         </div>
                     </div>
                 </div>
@@ -1098,7 +1148,7 @@
                 <div class="footer-column">
                     <h4 id="footerAbout">À propos</h4>
                     <p id="footerAboutText">
-                        L'association Mille Voiles  accompagne les communautés chinoises en France dans leurs démarches d'intégration, d'apprentissage du français et de préparation aux examens officiels.
+                        L'association Mille Voiles accompagne les communautés chinoises en France dans leurs démarches d'intégration, d'apprentissage du français et de préparation aux examens officiels.
                     </p>
                 </div>
                 
@@ -1108,8 +1158,10 @@
                     <ul class="footer-links">
                         <li><a href="#accueil"><i class="fas fa-chevron-right"></i> <span id="footerLink1">Accueil</span></a></li>
                         <li><a href="#tests"><i class="fas fa-chevron-right"></i> <span id="footerLink2">Tests en ligne</span></a></li>
-                        <li><a href="#politique"><i class="fas fa-chevron-right"></i> <span id="footerLink3">Nouvelle politique</span></a></li>
-                        <li><a href="#faq"><i class="fas fa-chevron-right"></i> <span id="footerLink4">FAQ</span></a></li>
+                        <li><a href="#thematiques"><i class="fas fa-chevron-right"></i> <span id="footerLink3">Thématiques</span></a></li>
+                        <li><a href="#politique"><i class="fas fa-chevron-right"></i> <span id="footerLink4">Nouvelle politique</span></a></li>
+                        <li><a href="#faq"><i class="fas fa-chevron-right"></i> <span id="footerLink5">FAQ</span></a></li>
+                        <li><a href="admin.html"><i class="fas fa-chevron-right"></i> <span id="footerLink6">Administration</span></a></li>
                     </ul>
                 </div>
                 
@@ -1122,10 +1174,6 @@
                             <span id="footerEmail">2025qianfan@gmail.com</span>
                         </div>
                         <div class="contact-item">
-                            <i class="fas fa-globe"></i>
-                            <span id="footerWebsite">Site en construction</span>
-                        </div>
-                        <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
                             <span id="footerAddress">Association enregistrée à Paris</span>
                         </div>
@@ -1134,30 +1182,27 @@
             </div>
             
             <div class="footer-bottom">
-                <p id="footerCopyright">&copy; 2025 Association Mille Voiles / 千帆协会 - Tous droits réservés. | <a href="#" style="color: var(--primary-yellow);" id="footerPrivacy">Mentions légales</a></p>
+                <p id="footerCopyright">&copy; 2025 Association Mille Voiles / 千帆协会 - Tous droits réservés.</p>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
     <script>
-         // 禁止右键
-    document.addEventListener('contextmenu', function (e) {
-        e.preventDefault();
-    });
-
-    // 禁止常见快捷键
-    document.addEventListener('keydown', function (e) {
-        // Ctrl + C / Ctrl + U / Ctrl + S
-        if (e.ctrlKey && ['c', 'u', 's', 'x', 'v', 'a'].includes(e.key.toLowerCase())) {
+        // 禁止右键和快捷键
+        document.addEventListener('contextmenu', function (e) {
             e.preventDefault();
-        }
+        });
 
-        // F12
-        if (e.key === 'F12') {
-            e.preventDefault();
-        }
-    });
+        document.addEventListener('keydown', function (e) {
+            if (e.ctrlKey && ['c', 'u', 's', 'x', 'v', 'a'].includes(e.key.toLowerCase())) {
+                e.preventDefault();
+            }
+            if (e.key === 'F12') {
+                e.preventDefault();
+            }
+        });
+
         // 语言切换数据
         const translations = {
             fr: {
@@ -1169,9 +1214,11 @@
                 // Navigation
                 navHome: "Accueil",
                 navTests: "Tests en ligne",
+                navThemes: "Thématiques",
                 navPolicy: "Nouvelle politique",
                 navFAQ: "FAQ",
                 navContact: "Contact",
+                adminBtn: '<i class="fas fa-user-shield"></i> Administration',
                 
                 // Hero
                 heroTitle: "Préparez-vous à l'examen civique 2026",
@@ -1204,19 +1251,35 @@
                 passwordInfoStudent: '<i class="fas fa-lock"></i> <strong>Accès réservé :</strong> Mot de passe fourni après inscription aux cours de l\'association',
                 studentTestBtn: '<i class="fas fa-lock"></i> Accéder au test étudiant',
                 
+                // Themes
+                themesTitle: "Thématiques de l'examen",
+                themesSubtitle: "Les 5 thématiques principales que vous devrez maîtriser pour réussir l'examen civique",
+                theme1: "Principes et valeurs",
+                theme1Desc: "La devise et les symboles de la République, la laïcité, les valeurs fondamentales de la France.",
+                theme2: "Institutions",
+                theme2Desc: "Organisation de la République française, l'Union européenne et ses institutions politiques.",
+                theme3: "Droits et devoirs",
+                theme3Desc: "Les droits fondamentaux, les obligations et devoirs des personnes résidant en France.",
+                theme4: "Culture française",
+                theme4Desc: "L'Histoire, la géographie et la culture françaises, patrimoine culturel national.",
+                theme5: "Vie sociale",
+                theme5Desc: "L'autorité parentale, système éducatif, travail en France et services publics.",
+                link1Text: "En savoir plus",
+                link2Text: "En savoir plus",
+                link3Text: "En savoir plus",
+                link4Text: "En savoir plus",
+                link5Text: "En savoir plus",
+                
                 // Policy Content
                 articleTitle: "Un nouvel examen civique pour les étrangers souhaitant s'installer en France",
                 articleDate: "Publié le 18 décembre 2025",
                 articleSource: "Service Public / Direction de l'information légale et administrative (Premier ministre)",
                 imageCaption: "Examen civique - Nouvelle exigence pour les étrangers souhaitant s'installer en France",
                 imageCitation: "Crédit: LP/ Jean-Baptiste Quentin",
-                
                 introPara: "Pour obtenir une carte de séjour pluriannuelle, une carte de résident ou la naturalisation française, les étrangers devront avoir réussi un examen civique à compter du 1er janvier 2026. Ce test vise notamment à évaluer leur connaissance des principes et valeurs de la République, ainsi que des droits et devoirs des personnes résidant en France.",
-                
                 section1Title: "Contexte légal",
                 section1Text1: "La loi du 26 janvier 2024 pour contrôler l'immigration, améliorer l'intégration a notamment créé un examen civique.",
                 section1Text2: "Cette épreuve, d'une durée de 45 minutes maximum et réalisée sur support numérique, se présente sous la forme d'un questionnaire à choix multiples (QCM) comprenant 40 questions (28 questions de connaissances générales et 12 questions de mises en situation) ; à chaque fois, une seule réponse est correcte parmi les 4 options proposées. Pour valider l'examen, il faut avoir obtenu au moins 32 bonnes réponses (soit 80 % de réussite).",
-                
                 section2Title: "Qui est concerné ?",
                 section2Text1: "À partir du 1er janvier 2026, la réussite à cet examen sera obligatoire pour :",
                 highlight1Title: "Obligations à partir du 1er janvier 2026 :",
@@ -1225,44 +1288,21 @@
                 highlight2Title: "Exceptions :",
                 exception1: "• Vous n'aurez pas à passer l'examen civique si vous demandez le renouvellement de votre carte de séjour pluriannuelle ou de votre carte de résident",
                 exception2: "• Vous n'êtes pas concerné par cet examen si vous êtes bénéficiaire d'une protection internationale, notamment",
-                
                 section3Title: "Quand passer l'examen civique ?",
                 section3Text1: "L'examen civique devra être passé avant le dépôt de la demande de titre de séjour ou de naturalisation.",
                 section3Text2: "Pour les personnes souhaitant obtenir un titre de séjour pluriannuel, l'examen interviendra obligatoirement en conclusion d'une formation civique (d'une durée de 24 heures, réparties sur 4 jours). Actuellement, cette formation est suivie par les étrangers après l'obtention de leur titre de séjour, dans le cadre de leur contrat d'intégration républicaine. À compter du 1er janvier 2026, ils devront donc suivre cette formation avant l'obtention de leur titre de séjour.",
                 highlight3Title: "Important :",
                 highlight3Text: "L'attestation de réussite à l'examen civique n'aura pas une durée de validité limitée.",
-                
                 section4Title: "Thématiques de l'examen",
                 section4Text: "Chaque QCM composant l'examen civique comprendra des questions sur les 5 thématiques étudiées lors de la formation civique :",
-                theme1: "1. Principes et valeurs",
-                theme1Desc: "La devise et les symboles de la République, la laïcité",
-                theme2: "2. Institutions",
-                theme2Desc: "L'organisation de la République française, l'Union européenne et ses institutions",
-                theme3: "3. Droits et devoirs",
-                theme3Desc: "Les droits fondamentaux, les obligations et les devoirs des personnes résidant en France",
-                theme4: "4. Culture",
-                theme4Desc: "L'Histoire, la géographie et la culture françaises",
-                theme5: "5. Vie sociale",
-                theme5Desc: "L'autorité parentale et le système éducatif, le fait de travailler en France",
                 resourceText: "Vous pouvez trouver des fiches pour préparer l'examen civique, et prendre connaissance des centres agréés au sein desquels il est possible de passer l'examen sur le site formation-civique.interieur.gouv.fr.",
-                
-                // 链接文本
-                link1Text: "En savoir plus",
-                link2Text: "En savoir plus",
-                link3Text: "En savoir plus",
-                link4Text: "En savoir plus",
-                link5Text: "En savoir plus",
                 
                 // FAQ Section
                 faqTitle: "Questions fréquentes",
                 faqSubtitle: "Trouvez rapidement des réponses à vos questions sur le nouvel examen civique",
-                
                 faq1Q: "Qui doit passer l'examen civique ?",
                 faq2Q: "Combien de questions dans l'examen officiel ?",
-                faq3Q: "Quelle est la durée de l'examen ?",
-                faq4Q: "Où puis-je passer l'examen civique ?",
-                faq5Q: "L'examen civique remplace-t-il le test de langue ?",
-                faq6Q: "Les questions sont-elles difficiles ? Comment se préparer ?",
+                faq3Q: "L'examen civique remplace-t-il le test de langue ?",
                 
                 // Footer
                 footerAbout: "À propos",
@@ -1270,14 +1310,14 @@
                 footerLinks: "Liens rapides",
                 footerLink1: "Accueil",
                 footerLink2: "Tests en ligne",
-                footerLink3: "Nouvelle politique",
-                footerLink4: "FAQ",
+                footerLink3: "Thématiques",
+                footerLink4: "Nouvelle politique",
+                footerLink5: "FAQ",
+                footerLink6: "Administration",
                 footerContact: "Contact",
                 footerEmail: "2025qianfan@gmail.com",
-                footerWebsite: "Site en construction",
                 footerAddress: "Association enregistrée à Paris",
-                footerCopyright: "© 2025 Association Mille Voiles / 千帆协会 - Tous droits réservés. | ",
-                footerPrivacy: "Mentions légales"
+                footerCopyright: "© 2025 Association Mille Voiles / 千帆协会 - Tous droits réservés."
             },
             zh: {
                 // Header
@@ -1288,9 +1328,11 @@
                 // Navigation
                 navHome: "首页",
                 navTests: "在线测试",
+                navThemes: "考试主题",
                 navPolicy: "新政解读",
                 navFAQ: "常见问题",
                 navContact: "联系我们",
+                adminBtn: '<i class="fas fa-user-shield"></i> 管理后台',
                 
                 // Hero
                 heroTitle: "为2026年公民考试做好准备",
@@ -1323,19 +1365,35 @@
                 passwordInfoStudent: '<i class="fas fa-lock"></i> <strong>受限访问：</strong> 报名参加协会课程后提供密码',
                 studentTestBtn: '<i class="fas fa-lock"></i> 进入学员测试',
                 
+                // Themes
+                themesTitle: "考试主题",
+                themesSubtitle: "您必须掌握的5个主要主题才能通过公民考试",
+                theme1: "原则与价值观",
+                theme1Desc: "共和国的格言和象征，政教分离，法国的基本价值观。",
+                theme2: "机构",
+                theme2Desc: "法国共和国的组织，欧盟及其政治机构。",
+                theme3: "权利与义务",
+                theme3Desc: "基本权利，在法国居住者的义务和责任。",
+                theme4: "法国文化",
+                theme4Desc: "法国的历史、地理和文化，国家文化遗产。",
+                theme5: "社会生活",
+                theme5Desc: "父母权威，教育体系，在法国工作和公共服务。",
+                link1Text: "了解更多",
+                link2Text: "了解更多",
+                link3Text: "了解更多",
+                link4Text: "了解更多",
+                link5Text: "了解更多",
+                
                 // Policy Content
                 articleTitle: "面向希望在法国定居的外国人的新公民考试",
                 articleDate: "发布于2025年12月18日",
                 articleSource: "公共服务 / 总理府法律与行政信息局",
                 imageCaption: "公民考试 - 希望在法国定居的外国人的新要求",
                 imageCitation: "图片来源：LP/ Jean-Baptiste Quentin",
-                
                 introPara: "从2026年1月1日起，外国人必须通过公民考试才能获得多年居留卡、长期居留卡或法国国籍。此考试旨在评估他们对共和国原则和价值观，以及在法国居住者的权利和义务的了解。",
-                
                 section1Title: "法律背景",
                 section1Text1: "2024年1月26日颁布的《控制移民，改善融合法》特别设立了这项公民考试。",
                 section1Text2: "这项考试最长持续45分钟，在数字设备上进行，形式为包含40道题（28道一般知识题和12道情境题）的多项选择题（QCM）；每道题提供4个选项，只有一个正确答案。要通过考试，必须获得至少32个正确答案（即80%的正确率）。",
-                
                 section2Title: "谁受影响？",
                 section2Text1: "从2026年1月1日起，以下情况必须通过此考试：",
                 highlight1Title: "从2026年1月1日起的义务：",
@@ -1344,44 +1402,21 @@
                 highlight2Title: "例外情况：",
                 exception1: "• 如果您申请更新您的多年居留卡或长期居留卡，则无需参加公民考试",
                 exception2: "• 如果您是国际保护受益人（例如），则不受此考试影响",
-                
                 section3Title: "何时参加公民考试？",
                 section3Text1: "公民考试必须在提交居留许可或入籍申请之前通过。",
                 section3Text2: "对于希望获得多年居留许可的人员，考试必须在公民培训（为期24小时，分4天进行）结束后进行。目前，外国人在获得居留许可后，在其共和融合合同框架内参加此培训。从2026年1月1日起，他们必须在获得居留许可之前参加此培训。",
                 highlight3Title: "重要提示：",
                 highlight3Text: "公民考试通过证明没有有效期限。",
-                
                 section4Title: "考试主题",
                 section4Text: "构成公民考试的每套多项选择题将涵盖公民培训期间学习的5个主题：",
-                theme1: "1. 原则与价值观",
-                theme1Desc: "共和国的格言和象征，政教分离原则",
-                theme2: "2. 机构",
-                theme2Desc: "法国共和国的组织，欧盟及其机构",
-                theme3: "3. 权利与义务",
-                theme3Desc: "基本权利，在法国居住者的义务和责任",
-                theme4: "4. 文化",
-                theme4Desc: "法国的历史、地理和文化",
-                theme5: "5. 社会生活",
-                theme5Desc: "父母权威和教育体系，在法国工作",
                 resourceText: "您可以在网站 formation-civique.interieur.gouv.fr 上找到准备公民考试的资料，并了解可以参加考试的认证中心。",
-                
-                // 链接文本
-                link1Text: "了解更多",
-                link2Text: "了解更多",
-                link3Text: "了解更多",
-                link4Text: "了解更多",
-                link5Text: "了解更多",
                 
                 // FAQ Section
                 faqTitle: "常见问题",
                 faqSubtitle: "快速找到关于新公民考试的问题答案",
-                
                 faq1Q: "谁必须参加公民考试？",
                 faq2Q: "官方考试有多少道题？",
-                faq3Q: "考试时长是多久？",
-                faq4Q: "我可以在哪里参加公民考试？",
-                faq5Q: "公民考试会取代语言测试吗？",
-                faq6Q: "题目难吗？如何准备？",
+                faq3Q: "公民考试会取代语言测试吗？",
                 
                 // Footer
                 footerAbout: "关于我们",
@@ -1389,14 +1424,14 @@
                 footerLinks: "快速链接",
                 footerLink1: "首页",
                 footerLink2: "在线测试",
-                footerLink3: "新政解读",
-                footerLink4: "常见问题",
+                footerLink3: "考试主题",
+                footerLink4: "新政解读",
+                footerLink5: "常见问题",
+                footerLink6: "管理后台",
                 footerContact: "联系我们",
                 footerEmail: "2025qianfan@gmail.com",
-                footerWebsite: "网站建设中",
                 footerAddress: "注册于巴黎的协会",
-                footerCopyright: "© 2025 千帆协会 / Association Mille Voiles - 版权所有。 | ",
-                footerPrivacy: "法律声明"
+                footerCopyright: "© 2025 千帆协会 / Association Mille Voiles - 版权所有。"
             }
         };
 
@@ -1418,7 +1453,7 @@
             for (const [key, value] of Object.entries(data)) {
                 const element = document.getElementById(key);
                 if (element) {
-                    if (key.includes('Btn') || key.includes('Info')) {
+                    if (key.includes('Btn') || key.includes('Info') || key.includes('Title') || key.includes('Desc') || key.includes('Text')) {
                         element.innerHTML = value;
                     } else {
                         element.textContent = value;
@@ -1432,19 +1467,16 @@
 
         // 切换FAQ回答显示的函数
         function toggleFAQAnswers(lang) {
-            // 所有FAQ回答的容器
             const faqContainers = document.querySelectorAll('.faq-answer > div');
             
             faqContainers.forEach(container => {
                 if (lang === 'fr') {
-                    // 显示法语回答，隐藏中文回答
                     if (container.id.includes('Fr')) {
                         container.style.display = 'block';
                     } else if (container.id.includes('Zh')) {
                         container.style.display = 'none';
                     }
                 } else {
-                    // 显示中文回答，隐藏法语回答
                     if (container.id.includes('Fr')) {
                         container.style.display = 'none';
                     } else if (container.id.includes('Zh')) {
@@ -1454,7 +1486,7 @@
             });
         }
 
-        // FAQ交互功能
+        // 页面初始化
         document.addEventListener('DOMContentLoaded', function() {
             // 设置默认语言
             switchLanguage('fr');
@@ -1466,7 +1498,6 @@
                 item.addEventListener('click', function() {
                     this.classList.toggle('active');
                     
-                    // 关闭其他打开的FAQ
                     faqItems.forEach(otherItem => {
                         if (otherItem !== this && otherItem.classList.contains('active')) {
                             otherItem.classList.remove('active');
