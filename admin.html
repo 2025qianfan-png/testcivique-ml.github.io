@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
     <title>Administration - Association Mille Voiles</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -113,6 +113,7 @@
         }
 
         /* 登录部分 */
+        /* 登录部分 */
         .login-section {
             flex: 1;
             display: flex;
@@ -120,9 +121,10 @@
             justify-content: center;
             padding: 30px 20px;
             min-height: calc(100vh - 280px);
+            overflow-y: auto; /* 新增这一行 - 允许垂直滚动 */
+            -webkit-overflow-scrolling: touch; /* 新增这一行 - iOS平滑滚动 */
         }
-
-        .login-card {
+            .login-card {
             background-color: var(--white);
             border-radius: var(--border-radius);
             padding: 40px;
@@ -130,6 +132,9 @@
             width: 100%;
             max-width: 450px;
             text-align: center;
+            margin: 20px auto; /* 新增这一行 - 增加上下间距 */
+            max-height: 90vh; /* 新增这一行 - 限制最大高度 */
+            overflow-y: auto; /* 新增这一行 - 内部可滚动 */
         }
 
         .login-icon {
@@ -802,16 +807,17 @@
                 font-size: 1rem;
                 padding: 0 10px;
             }
-            
-            .login-section {
-                padding: 20px 15px;
-                min-height: calc(100vh - 180px);
-            }
-            
+               .login-section {
+            padding: 10px 15px; /* 减小padding */
+        min-height: calc(100vh - 200px);
+        align-items: flex-start; /* 新增 - 顶部对齐 */
+    }   
+    
             .login-card {
-                padding: 30px;
+                padding: 25px 20px;
+                margin: 10px auto; /* 确保有间距 */
+                max-height: 85vh; /* 移动端更小的高度 */
             }
-            
             .login-icon {
                 font-size: 3rem;
                 margin-bottom: 15px;
@@ -867,17 +873,21 @@
             .action-buttons {
                 flex-direction: column;
             }
+             .form-group input {
+        font-size: 16px !important;
+    }
         }
 
         @media (max-width: 480px) {
-            .main-header h1 {
-                font-size: 1.8rem;
-            }
-            
-            .login-card {
-                padding: 25px 20px;
-            }
-            
+              .main-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .login-card {
+        padding: 20px 15px;
+        margin: 5px auto;
+        max-height: 80vh; /* 小屏幕更小的高度 */
+    }
             .login-icon {
                 font-size: 2.5rem;
             }
