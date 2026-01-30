@@ -2,7 +2,7 @@
 
 const question_resident = [
   
- {
+{
     id: "ds0082",
     type: "carte resident",
     category: "Devise et symboles de la République",
@@ -12,7 +12,7 @@ const question_resident = [
     options: [
       "Le début de la Révolution française en 1789",
       "L'adoption de la Déclaration des droits de l'homme et du citoyen en 1789",
-      "La proclamation de la Première République française en 1792",
+       "La proclamation de la Première République française en 1792",
       "La fin de la Révolution française en 1799"
     ],
     answer: 0,
@@ -102,7 +102,8 @@ const question_resident = [
     question: "Complétez les paroles de la Marseillaise : \"Allons enfants de la patrie [...]\"",
     options: ["Le jour de gloire est arrivé", "Chantons ensemble", "À la victoire", "Ensemble pour la France"],
     answer: 0,
-    explanation: `A) ✅ Le jour de gloire est arrivé\nFR : Correct ! Cette phrase emblématique est le début du refrain et symbolise l'appel à la défense de la nation et à la victoire.\n中：正确。这句经典歌词是副歌的开头，象征呼吁保卫国家和争取胜利。\n\nB) ❌ Chantons ensemble\nFR : Faux. Cette formulation ne figure pas dans le texte officiel.\n中：错误。歌词中没有"Chantons ensemble"这句话。\n\nC) ❌ À la victoire\nFR : Faux. Bien意思相近，但官方歌词是"Le jour de gloire est arrivé"。\n中：错误。意思接近，但官方歌词是"Le jour de gloire est arrivé"。\n\nD) ❌ Ensemble pour la France\nFR : Faux. 这不是官方歌词的一部分。\n中：错误。不是官方歌词的一部分。`.trim()
+    explanation: `A) ✅ Le jour de gloire est arrivé\nFR : Correct ! Cette phrase emblématique est le début du refrain et symbolise l'appel à la défense de la nation et à la victoire.\n中：正确。这句经典歌词是副歌的开头，象征呼吁保卫国家和争取胜利。\n\nB) ❌ Chantons ensemble\nFR : Faux. Cette formulation ne figure pas dans le texte officiel.\n中：错误。歌词中没有"Chantons ensemble"这句话。\n\nC) ❌ À la victoire\nFR : Faux. Le sens est proche, mais la formule officielle est : « Le jour de gloire est arrivé ».
+\n中：错误。意思接近，但官方歌词是"Le jour de gloire est arrivé"。\n\nD) ❌ Ensemble pour la France\nFR : Faux. Ça ne fait pas partie des paroles officielles.\n中：错误。不是官方歌词的一部分。`.trim()
   },
   {
     id: "ds0089",
@@ -530,7 +531,234 @@ const question_resident = [
     ],
     answer: 0,
     explanation: "✅ A. L'égalité - Correct ! Traiter un élève différemment en raison de son origine constitue une violation de l'égalité.\n中：正确。因出身而区别对待学生违反平等原则。\n\n❌ B. La fraternité - Faux. Cela concerne surtout l'égalité et la non-discrimination.\n中：错误。这主要违反平等与反歧视原则，而非博爱。\n\n❌ C. La neutralité - Faux. La neutralité concerne l'État et les services publics, pas directement la situation.\n中：错误。中立主要适用于公共服务与国家机构，不直接指向此情境。\n\n❌ D. La tradition - Faux. La tradition n'est pas une norme juridique protégée dans ce contexte.\n中：错误。传统不是该情境下的法律原则。"
-  },{
+  },
+  
+ {
+  id: "si0048",
+  type: "carte resident",
+  category: "Mises en situation",
+  difficulté: "simple",
+  typeQuestion: "examen original", // 有红色o标志
+  question: "En France, peut-on créer librement une association pour aider les personnes âgées ?",
+  options: [
+    "Oui, on peut la créer librement",
+    "Il faut obligatoirement l’autorisation de la mairie",
+    "Il faut l’autorisation de la police",
+    "Il faut l’accord des parents"
+  ],
+  answer: 0,
+  explanation: 
+"✅ A. Oui, on peut la créer librement – Correct !\n\
+FR : En France, la liberté d’association est garantie par la loi de 1901. Toute personne peut créer librement une association, notamment pour aider les personnes âgées, dans le respect de la loi.\n\
+中：正确。\n\
+法国《1901年结社法》保障结社自由，任何人都可以依法自由成立协会，例如帮助老年人的协会。\n\n\
+❌ B. Il faut obligatoirement l’autorisation de la mairie – Faux.\n\
+FR : Il n’est pas nécessaire d’obtenir une autorisation préalable de la mairie pour créer une association.\n\
+中：错误。\n\
+成立协会不需要事先获得市政府的批准。\n\n\
+❌ C. Il faut l’autorisation de la police – Faux.\n\
+FR : La police n’intervient pas dans la création d’une association.\n\
+中：错误。\n\
+警察机构不参与协会成立的审批。\n\n\
+❌ D. Il faut l’accord des parents – Faux.\n\
+FR : L’accord des parents n’est pas requis pour créer une association.\n\
+中：错误。\n\
+成立协会不需要家长同意。"
+},
+{
+  id: "si0049",
+  type: "carte resident",
+  category: "Mises en situation",
+  difficulté: "moyen",
+  typeQuestion: "examen original", // 有红色o标志
+  question: "En France, peut-on répudier sa femme ?",
+  options: [
+    "Oui, si le père de la femme est d’accord",
+    "Non, c’est interdit par la loi",
+    "Oui, si le frère de la femme est d’accord",
+    "Non, car on ne peut pas hériter de sa femme"
+  ],
+  answer: 1,
+  explanation:
+"❌ A. Oui, si le père de la femme est d’accord – Faux.\n\
+FR : L’accord du père n’a aucune valeur juridique. La répudiation est interdite en France, quelle que soit l’opinion de la famille.\n\
+中：错误。\n\
+妻子父亲的同意在法律上没有任何效力，在法国，无论家庭是否同意，休妻都是被禁止的。\n\n\
+✅ B. Non, c’est interdit par la loi – Correct !\n\
+FR : En France, la répudiation est interdite. La fin d’un mariage ne peut se faire que par une procédure légale de divorce devant un juge.\n\
+中：正确。\n\
+在法国，休妻是被法律禁止的。婚姻只能通过依法进行的离婚程序来解除。\n\n\
+❌ C. Oui, si le frère de la femme est d’accord – Faux.\n\
+FR : Le frère de la femme n’a aucun pouvoir légal sur le mariage.\n\
+中：错误。\n\
+妻子的兄弟对婚姻没有任何法律决定权。\n\n\
+❌ D. Non, car on ne peut pas hériter de sa femme – Faux.\n\
+FR : La raison de l’interdiction n’est pas liée à l’héritage, mais au respect de l’égalité et des droits des époux.\n\
+中：错误。\n\
+禁止休妻的原因不是继承问题，而是为了保护夫妻平等与个人权利。"
+},
+{
+  id: "si0050",
+  type: "carte resident",
+  category: "Mises en situation",
+  difficulté: "moyen",
+  typeQuestion: "examen original", // 有红色o标志
+  question: "Une femme peut-elle porter un voile religieux dans la rue en France ?",
+  options: [
+    "Non, c’est interdit par la loi",
+    "Oui, au nom de la liberté de conscience",
+    "Non, personne n’a le droit de le porter",
+    "Oui, seulement dans certaines régions"
+  ],
+  answer: 0,
+  explanation:
+"✅ A. Non, c’est interdit par la loi – Correct !\n\
+FR : En France, le port du voile intégral couvrant le visage (comme le niqab ou la burqa) est interdit dans l’espace public, y compris dans la rue, afin de garantir l’ordre public et le vivre-ensemble.\n\
+中：正确。\n\
+在法国，遮挡整个面部的宗教头巾（如罩袍、面纱）在公共空间（包括街道）是被法律禁止的，这是为了维护公共秩序和社会共同生活。\n\n\
+❌ B. Oui, au nom de la liberté de conscience – Faux.\n\
+FR : La liberté de conscience existe, mais elle connaît des limites. Elle ne permet pas de porter un voile couvrant entièrement le visage dans l’espace public.\n\
+中：错误。\n\
+良心自由是存在的，但并非无限，不能据此在公共场所佩戴遮挡面部的头巾。\n\n\
+❌ C. Non, personne n’a le droit de le porter – Faux.\n\
+FR : La loi n’interdit pas tous les signes religieux, mais uniquement ceux qui dissimulent le visage dans l’espace public.\n\
+中：错误。\n\
+法律并未禁止所有宗教标志，而是针对在公共场所遮挡面部的行为。\n\n\
+❌ D. Oui, seulement dans certaines régions – Faux.\n\
+FR : L’interdiction s’applique sur tout le territoire français, sans exception régionale.\n\
+中：错误。\n\
+该禁令适用于整个法国，没有任何地区例外。"
+},
+{
+  id: "si0051",
+  type: "carte resident",
+  category: "Mises en situation",
+  difficulté: "simple",
+  typeQuestion: "examen original", // 有红色o标志
+  question: "Une entreprise recrute un homme et une femme pour le même poste mais leur propose des salaires différents. Cette situation est :",
+  options: [
+    "Une discrimination interdite",
+    "Autorisée si l’employeur le souhaite",
+    "Interdite car tous les salariés doivent avoir exactement le même salaire",
+    "Autorisée dans certains secteurs"
+  ],
+  answer: 0,
+  explanation:
+"✅ A. Une discrimination interdite – Correct !\n\
+FR : La discrimination salariale fondée sur le sexe est interdite par la loi. Tous les salariés occupant le même poste doivent recevoir un salaire équitable selon des critères objectifs.\n\
+中：正确。\n\
+基于性别的薪资歧视是违法的。担任同一岗位的员工应根据客观标准获得公平薪酬。\n\n\
+❌ B. Autorisée si l’employeur le souhaite – Faux.\n\
+FR : L’employeur ne peut pas décider arbitrairement de payer différemment hommes et femmes pour le même travail.\n\
+中：错误。\n\
+雇主不能随意决定对同一岗位的男女支付不同薪酬。\n\n\
+❌ C. Interdite car tous les salariés doivent avoir exactement le même salaire – Faux.\n\
+FR : La loi interdit la discrimination, mais les salaires peuvent varier selon l’expérience, les qualifications ou la performance, pas selon le sexe.\n\
+中：错误。\n\
+法律禁止歧视，但工资可以因经验、资历或绩效不同而有所差异，不能因性别不同。\n\n\
+❌ D. Autorisée dans certains secteurs – Faux.\n\
+FR : La loi sur l’égalité salariale s’applique à tous les secteurs professionnels.\n\
+中：错误。\n\
+平等薪酬的法律适用于所有行业，没有行业例外。"
+},
+{
+  id: "si0052",
+  type: "carte resident",
+  category: "Mises en situation",
+  difficulté: "moyen",
+  typeQuestion: "examen original", // 有红色o标志
+  question: "Un employeur refuse d’embaucher une femme parce qu’elle est enceinte. Cette situation est :",
+  options: [
+    "Une discrimination interdite",
+    "Autorisée si l’employeur le souhaite",
+    "Interdite seulement avec l’accord de la police",
+    "Autorisée car la grossesse est une situation particulière"
+  ],
+  answer: 0,
+  explanation:
+"✅ A. Une discrimination interdite – Correct !\n\
+FR : Refuser l’embauche d’une personne en raison de sa grossesse constitue une discrimination prohibée par la loi. La grossesse ne peut pas être un motif de refus d’emploi.\n\
+中：正确。\n\
+因怀孕而拒绝招聘属于法律禁止的歧视。怀孕不能成为拒绝就业的理由。\n\n\
+❌ B. Autorisée si l’employeur le souhaite – Faux.\n\
+FR : L’employeur n’a pas le droit d’agir ainsi, même s’il s’agit de son choix personnel.\n\
+中：错误。\n\
+即使是雇主的个人意愿，也不能因怀孕而拒绝招聘。\n\n\
+❌ C. Interdite seulement avec l’accord de la police – Faux.\n\
+FR : La police n’a aucun rôle dans l’autorisation ou l’interdiction des discriminations à l’embauche.\n\
+中：错误。\n\
+警方无权决定招聘中的歧视是否合法。\n\n\
+❌ D. Autorisée car la grossesse est une situation particulière – Faux.\n\
+FR : La loi protège les femmes enceintes contre toute discrimination professionnelle.\n\
+中：错误。\n\
+法律明确保护孕妇不受职业歧视，怀孕不能作为拒绝录用的理由。"
+},
+{
+  id: "si0053",
+  type: "carte resident",
+  category: "Mises en situation",
+  difficulté: "moyen",
+  typeQuestion: "examen original", // 有红色o标志
+  question: "Madame X et Monsieur Y sont en couple mais n’ont pas la même religion. Monsieur Y exige que Madame X adopte sa religion pour se marier. Cette situation :",
+  options: [
+    "Porte atteinte à la liberté de conscience",
+    "Est conforme aux valeurs de la République",
+    "Est obligatoire selon la loi française",
+    "Est justifiée par la tradition"
+  ],
+  answer: 0,
+  explanation:
+"✅ A. Porte atteinte à la liberté de conscience – Correct !\n\
+FR : Obliger quelqu’un à changer de religion pour se marier viole sa liberté de conscience et son droit à choisir ses croyances.\n\
+中：正确。\n\
+强迫某人为了结婚而改变宗教信仰侵犯了其良心自由以及选择信仰的权利。\n\n\
+❌ B. Est conforme aux valeurs de la République – Faux.\n\
+FR : Les valeurs républicaines respectent la liberté de conscience ; imposer un changement de religion est donc contraire à ces valeurs.\n\
+中：错误。\n\
+共和价值观强调尊重良心自由，强迫改变宗教信仰违背这些价值观。\n\n\
+❌ C. Est obligatoire selon la loi française – Faux.\n\
+FR : La loi française n’impose aucune religion pour le mariage.\n\
+中：错误。\n\
+法国法律不要求结婚必须信奉某种宗教。\n\n\
+❌ D. Est justifiée par la tradition – Faux.\n\
+FR : La tradition ne peut jamais justifier une atteinte aux droits individuels et à la liberté de conscience.\n\
+中：错误。\n\
+传统不能成为侵犯个人权利和良心自由的理由。"
+},
+{
+  id: "si0054",
+  type: "carte resident",
+  category: "Mises en situation",
+  difficulté: "moyen",
+  typeQuestion: "examen original", // 有红色o标志
+  question: "Monsieur Y porte une croix visible en se rendant à la mairie pour effectuer une démarche. Que dit le principe de neutralité ?",
+  options: [
+    "C’est autorisé",
+    "Ce n’est pas autorisé",
+    "Autorisé seulement si l’usager est d’accord",
+    "Autorisé selon la religion de l’agent"
+  ],
+  answer: 1,
+  explanation:
+"❌ A. C’est autorisé – Faux.\n\
+FR : Même une croyance personnelle ne permet pas de porter des symboles religieux visibles pendant le service public.\n\
+中：错误。\n\
+即使是个人信仰，也不允许在公共服务工作期间佩戴明显的宗教标志。\n\n\
+✅ B. Ce n’est pas autorisé – Correct !\n\
+FR : Le principe de neutralité dans les services publics impose que les agents publics ne portent pas de signes religieux visibles pendant l’exercice de leurs fonctions. Cela garantit que tous les usagers sont traités de manière égale, indépendamment de leur religion. Porter une croix visible en mairie viole ce principe.\n\
+中：正确。\n\
+公共服务中的中立原则要求公职人员在履行职务期间不得佩戴明显的宗教标志。这一原则确保所有使用公共服务的人都受到平等对待，不受宗教信仰影响。在市政厅佩戴可见的十字架违反了该原则。\n\n\
+❌ C. Autorisé seulement si l’usager est d’accord – Faux.\n\
+FR : La neutralité s’applique indépendamment de l’accord de l’usager. La religion de l’agent ne peut pas influencer le service public.\n\
+中：错误。\n\
+中立原则不取决于使用者是否同意，公职人员的宗教信仰不能影响公共服务。\n\n\
+❌ D. Autorisé selon la religion de l’agent – Faux.\n\
+FR : La neutralité est obligatoire pour tous les agents publics, quelle que soit leur religion.\n\
+中：错误。\n\
+中立原则对所有公职人员一视同仁，不因宗教不同而有所区别。"
+},
+
+  {
     id: "in0063", // 延续多年卡编号
     type: "carte resident",
     category: "Institutions", 
@@ -1185,10 +1413,43 @@ const question_resident = [
     answer: 2,
     explanation: `❌ A. La prise de la Bastille - Faux. La prise de la Bastille a lieu en 1789, c'est le début de la Révolution, pas la fin de la monarchie.\n中：错误。巴士底狱被攻占发生在1789年，是革命开始。\n\n❌ B. La fuite à Varennes - Faux. La fuite à Varennes se déroule en 1791, c'est une tentative d'évasion du roi, mais la monarchie n'est pas encore officiellement abolie.\n中：错误。凡尔赛逃亡发生在1791年，君主制尚未正式结束。\n\n✅ C. La proclamation de la République - Correct ! En 1792, la République est proclamée (9 août 1792), ce qui marque la fin officielle de la monarchie.\n中：正确！1792年（8月9日）宣布共和国，标志着君主制正式结束。\n\n❌ D. Le sacre de Napoléon - Faux. Le sacre de Napoléon a lieu en 1804, bien après la fin de la monarchie.\n中：错误。拿破仑加冕发生在1804年，远在君主制结束之后。`
   },
+  {
+  id: "tg0086",
+  type: "carte resident",
+  category: "Territoires et géographie",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "Quel est le premier traité ayant établi la base de l’Union européenne ?",
+  options: [
+    "Traité de Maastricht",
+    "Traité de Rome",
+    "Traité de Lisbonne",
+    "Traité de Nice"
+  ],
+  answer: 1,
+  explanation: "❌ A. Traité de Maastricht - Faux, parce que le traité de Maastricht (1992) a créé l'Union européenne, mais ce n'est pas le premier traité fondateur.\n中：错误，因为《马斯特里赫特条约》虽然创建了欧盟，但不是第一个奠基条约。\n\n✅ B. Traité de Rome - Correct, parce que le traité de Rome (1957) est le premier traité important qui a créé la Communauté économique européenne, base de l'Union européenne.\n中：正确，因为《罗马条约》（1957）是第一个建立欧洲经济共同体的关键条约，是欧盟成立的基础。\n\n❌ C. Traité de Lisbonne - Faux, parce que le traité de Lisbonne (2007) réforme les institutions de l'Union, mais ce n'est pas le premier traité.\n中：错误，因为《里斯本条约》是对欧盟机构的改革条约，不是第一个。\n\n❌ D. Traité de Nice - Faux, parce que le traité de Nice (2001) a modifié les règles de fonctionnement de l'Union, mais ce n'est pas le premier traité.\n中：错误，因为《尼斯条约》只是修改欧盟运作规则，不是第一个。"
+},
+{
+  id: "tg0087",
+  type: "carte resident",
+  category: "Culture générale",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "Qui est Marguerite Yourcenar ?",
+  options: [
+    "Une peintre",
+    "Une écrivaine",
+    "Une musicienne",
+    "Une scientifique"
+  ],
+  answer: 1,
+  explanation: "❌ A. Une peintre - Faux. Yourcenar n’était pas peintre, mais écrivaine.\n中：错误。于尔瑟纳不是画家，而是作家。\n\n✅ B. Une écrivaine - Correct. Marguerite Yourcenar (1903-1987) est une célèbre écrivaine française, connue notamment pour son roman Mémoires d’Hadrien. Elle est la première femme élue à l’Académie française en 1980.\n中：正确。玛格丽特·于尔瑟纳（1903-1987）是法国著名作家，代表作包括《哈德良回忆录》。她于1980年成为第一位当选法国科学院的女性成员。\n\n❌ C. Une musicienne - Faux. Elle n’était pas musicienne et n’a pas composé de musique.\n中：错误。她不是音乐家，也没有创作音乐。\n\n❌ D. Une scientifique - Faux. Yourcenar n’était pas scientifique, mais écrivain et intellectuelle.\n中：错误。于尔瑟纳不是科学家，而是作家和知识分子。"
+},
+
 
 
   {
-    id: "ap0101", // 十年卡ID从0101开始
+    id: "ap0051", // 十年卡ID从0101开始
     type: "carte resident",
     category: "Autorité parentale et système éducatif",
     difficulté: "moyen",
@@ -1203,6 +1464,37 @@ const question_resident = [
     answer: 1,
     explanation: `❌ A. Vendre les biens librement - Faux. **parce que** la vente des biens de l'enfant est encadrée par la loi.\n中：错误，因为出售孩子财产受法律限制。\n\n✅ B. Utiliser les revenus pour l'enfant - Correct ! **parce que** les parents doivent gérer les biens dans l'intérêt de l'enfant.\n中：正确，因为父母必须用这些财产收益为孩子利益服务。\n\n❌ C. Garder l'argent sans limite - Faux. **parce que** l'argent doit être utilisé pour l'enfant.\n中：错误，因为资金需用于孩子。\n\n❌ D. Transférer les biens - Faux. **parce que** les transferts sont réglementés.\n中：错误，因为不能随意转让。`
   },
+  {
+  id: "ap0052",
+  type: "examen original",
+  category: "Autorité parentale et système éducatif",
+  difficulté: "moyen",
+  question: "Un père peut-il donner une fessée à son enfant ?",
+  options: [
+    "Oui, s’il a l’accord de la mère",
+    "Oui, si c’est pour corriger",
+    "Non, parce que toute violence éducative est interdite par la loi",
+    "Oui, si l’enfant a fait une faute grave"
+  ],
+  answer: 2,
+  explanation: "a) Faux : même avec accord, la violence est interdite.\nb) Faux : toute violence éducative est interdite.\nc) Correct : depuis 2019, toute violence physique ou psychologique est interdite.\nd) Faux : aucune faute ne justifie la violence."
+},
+{
+  id: "ap0053",
+  type: "examen original",
+  category:" Autorité parentale et système éducatif",
+  difficulté: "moyen",
+  question: "Les parents peuvent faire quoi pour un enfant de 6 ans ? Quelle réponse est fausse ?",
+  options: [
+    "Participer aux élections des représentants des parents d’élèves",
+    "Suivre la scolarité et les progrès de l’enfant",
+   " Discuter avec l’enseignant des difficultés de l’enfant",
+    "hoisir les matières et les cours de l’enfant"
+  ],
+  answer: 3,
+  explanation:" A) Correct : droit de voter aux élections des représentants.\nB) Correct : suivre l’éducation et les progrès.\nC) Correct : échanger avec l’enseignant.\nD) Faux : matières et emploi du temps définis par l’école, pas par les parents."
+}
+,
     {
     id: "tr0053",
     type: "carte resident",
@@ -1333,32 +1625,23 @@ const question_resident = [
     ❌ D. Décider de vacances - Faux, parce que les vacances ne sont pas une cause de rupture de contrat.
     中：错误，因为假期不是解除合同的原因。`
   },
-  {
-    id: "tr0058",
-    type: "carte resident",
-    category: "Travail",
-    difficulté: "moyen",
-    typeQuestion: "examen original",
-    question: "Que doit contenir le règlement intérieur ?",
-    options: [
-      "Les règles d'hygiène et de sécurité",
-      "La liste des employés",
-      "Les prix des produits",
-      "Les horaires des magasins voisins"
-    ],
-    answer: 0,
-    explanation: `✅ A. Les règles d'hygiène et de sécurité - Correct, parce que le règlement intérieur doit inclure les mesures de santé et sécurité au travail. Donc c'est une obligation légale.
-    中：正确，因为内部规章制度必须包含职业健康与安全措施，所以这是法定义务。
-    
-    ❌ B. La liste des employés - Faux, parce que ce n'est pas obligatoire dans le règlement intérieur.
-    中：错误，因为员工名单不是必须包含的内容。
-    
-    ❌ C. Les prix des produits - Faux, parce que cela concerne la commercialisation, pas le fonctionnement interne.
-    中：错误，因为这与营销相关，不是内部运营。
-    
-    ❌ D. Les horaires des magasins voisins - Faux, parce que cela n'a pas de lien avec l'organisation interne de l'entreprise.
-    中：错误，因为这与公司的内部组织无关。`
-  },
+{
+  id: "tr0058",
+  type: "carte resident",
+  category: "Travail",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "Un employeur peut rompre un CDI pour :",
+  options: [
+    "Pour un motif réel et sérieux",
+    "Pour changer de quartier",
+    "Pour acheter une maison",
+    "Pour décider de vacances"
+  ],
+  answer: 0,
+  explanation: "✅ A. Pour un motif réel et sérieux - Correct ! Un employeur peut rompre un CDI uniquement s’il existe un motif réel et sérieux (ex : faute, insuffisance professionnelle, motif économique, etc.).\n中：正确！雇主只有在存在真实且合理的理由时才能解除CDI（例如：员工犯错、工作能力不足、经济原因等）。\n\n❌ B. Pour changer de quartier - Faux. Changer de quartier est un choix personnel du salarié, ce n’est pas un motif légal pour rompre un CDI.\n中：错误。搬家换区是个人原因，不构成合法解雇理由。\n\n❌ C. Pour acheter une maison - Faux. Acheter une maison est un projet personnel, cela ne justifie pas la rupture d’un CDI par l’employeur.\n中：错误。买房属于个人生活安排，不是合法解雇理由。\n\n❌ D. Pour décider de vacances - Faux. Décider de prendre des vacances n’est pas un motif pour rompre un CDI.\n中：错误。休假不是合法解雇理由。"
+}
+,
   {
     id: "tr0059",
     type: "carte resident",

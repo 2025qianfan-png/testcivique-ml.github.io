@@ -172,9 +172,11 @@ const question_multi = [
     difficulté: "simple",
     typeQuestion: "question simulée",
     question: "Où peut-on voir la devise de la République ?",
-    options: ["Pièces de monnaie et timbres", "Publicités commerciales", "Livres scolaires", "Affiches de cinéma"],
+    options: ["Pièces de monnaie et timbres", "Publicités commerciales", "Sur les bâtiments scolaires officiels", "Affiches de cinéma"],
     answer: 0,
-    explanation: `A) ✅ Pièces de monnaie et timbres\nFR : Correct ! La devise figure souvent sur les pièces de monnaie et les timbres officiels.\n中：正确。共和国格言常印在硬币和邮票上。\n\nB) ❌ Publicités commerciales\nFR : Faux. Les publicités sont privées et ne représentent pas l'État.\n中：错误。商业广告属于私人领域，不代表国家。\n\nC) ✅ Livres scolaires\nFR : Correct ! Les livres scolaires expliquent les valeurs de la République.\n中：正确。教材中会介绍共和国的价值观。\n\nD) ❌ Affiches de cinéma\nFR : Faux. Les affiches de cinéma ne sont pas des supports officiels.\n中：错误。电影海报不是国家官方载体。`.trim()
+    explanation: `A) ✅ Pièces de monnaie et timbres\nFR : Correct ! La devise figure souvent sur les pièces de monnaie et les timbres officiels.\n中：正确。共和国格言常印在硬币和邮票上。\n\nB) ❌ Publicités commerciales\nFR : Faux. Les publicités sont privées et ne représentent pas l'État.\n中：错误。商业广告属于私人领域，不代表国家。\n\nC)❌ Sur les bâtiments scolaires officiels
+FR : Faux Les bâtiments scolaires ne sont pas obligatoirement des lieux officiels pour la devise.
+中：错误。学校建筑不是必须出现格言。 ✅ Livres scolaires\nFR : Correct ! Les livres scolaires expliquent les valeurs de la République.\n中：正确。教材中会介绍共和国的价值观。\n\nD) ❌ Affiches de cinéma\nFR : Faux. Les affiches de cinéma ne sont pas des supports officiels.\n中：错误。电影海报不是国家官方载体。`.trim()
   },
   {
     id: "ds0017",
@@ -460,7 +462,8 @@ const question_multi = [
     question: "Parmi les propositions suivantes, laquelle constitue une participation citoyenne ?",
     options: ["Voter lors des élections", "Regarder la télévision tous les soirs", "Acheter des vêtements de marque", "Jouer aux jeux vidéo"],
     answer: 0,
-    explanation: `A) ✅ Voter lors des élections\nFR : Correct ! Voter est l'exemple le plus direct et important de participation citoyenne dans une démocratie.\n中：正确。投票是民主国家最直接、最重要的公民参与形式。\n\nB) ❌ Regarder la télévision tous les soirs\nFR : Faux. Regarder la télévision est une activité personnelle, pas une participation citoyenne.\n中：错误。看电视是个人行为，不属于公民参与。\n\nC) ❌ Acheter des vêtements de marque\nFR : Faux. 购物行为与公民责任无关。\n中：错误。购买品牌服饰与公民责任无关。\n\nD) ❌ Jouer aux jeux vidéo\nFR : Faux. Jouer aux jeux vidéo est une activité de loisir, pas une participation civique.\n中：错误。玩电子游戏属于娱乐活动，不算公民参与。`.trim()
+    explanation: `A) ✅ Voter lors des élections\nFR : Correct ! Voter est l'exemple le plus direct et important de participation citoyenne dans une démocratie.\n中：正确。投票是民主国家最直接、最重要的公民参与形式。\n\nB) ❌ Regarder la télévision tous les soirs\nFR : Faux. Regarder la télévision est une activité personnelle, pas une participation citoyenne.\n中：错误。看电视是个人行为，不属于公民参与。\n\nC) ❌ Acheter des vêtements de marque\nFR : Faux. Les actes d’achat n’ont aucun lien avec les responsabilités citoyennes.
+\n中：错误。购买品牌服饰与公民责任无关。\n\nD) ❌ Jouer aux jeux vidéo\nFR : Faux. Jouer aux jeux vidéo est une activité de loisir, pas une participation civique.\n中：错误。玩电子游戏属于娱乐活动，不算公民参与。`.trim()
   },
   {
     id: "ds0043",
@@ -1952,13 +1955,13 @@ const question_multi = [
     explanation: `❌ A. 348 - Faux. Trop peu.
 中：错误。人数过少。
 
-❌ B. 500 - Faux. 不是正确数字。
+❌ B. 500 - Faux. Ce n’est pas le bon nombre de personnes
 中：错误。不是正确人数。
 
 ✅ C. 577 - Correct. L'Assemblée nationale compte 577 députés.
 中：正确。国民议会由577名议员组成。
 
-❌ D. 600 - Faux. 不是正确数字。
+❌ D. 600 - Faux. Ce n’est pas le bon nombre de personnes.
 中：错误。不是正确人数。`
   },
   {
@@ -2157,17 +2160,17 @@ const question_multi = [
       "105"
     ],
     answer: 2,
-    explanation: `❌ A. 95 - Faux. C'est le nombre de départements en métropole (sans outre-mer).
-中：错误。95是本土省份数量（不含海外省）。
+    explanation: `❌ A. 95 - Faux. Ce n’est pas le bon nombre.
+中：错误。不是正确数字。
 
-❌ B. 96 - Faux. 也是常见错误。
-中：错误。也不是正确数字。
+❌ B. 96 - Faux. Ce n’est pas le bon nombre.
+中：错误。不是正确数字。
 
 ✅ C. 101 - Correct. La France compte 101 départements (y compris outre-mer).
 中：正确。法国共101个省（含海外省）。
 
-❌ D. 105 - Faux. 不是正确数字。
-中：错误。不是正确人数。`
+❌ D. 105 - Faux. Ce n’est pas le bon nombre.
+中：错误。不是正确数字。`
   },
   {
     id: "in0021",
@@ -2472,14 +2475,14 @@ const question_multi = [
     explanation: `❌ A. 12 - Faux. Ce n'est pas le bon chiffre.
 中：错误。不是正确数字。
 
-✅ B. 13 - Correct. La France métropolitaine compte 13 régions.
+❌ B. 13 - Faux. La France métropolitaine compte 13 régions.
 中：正确。法国本土共有13个大区。
 
 ❌ C. 15 - Faux. Ce n'est pas le bon chiffre.
 中：错误。不是正确数字。
 
-❌ D. 18 - Faux. 18 inclut les régions d'outre-mer mais ce n'est pas le bon chiffre exact pour métropole.
-中：错误。18包括海外大区，但不是正确答案。`
+✅ D. 18 - Correct. 18 inclut les régions d’outre-mer.
+中：正确。18包括海外大区。`
   },
   {
     id: "in0033",
@@ -2576,13 +2579,13 @@ const question_multi = [
     explanation: `❌ A. Environ 10 000 - Faux. Trop peu.
 中：错误。数量过少。
 
-❌ B. Environ 20 000 - Faux. 仍然太少。
-中：错误。仍然太少。
+❌ B. Environ 20 000 - Faux.Trop peu.
+中：错误。太少。
 
 ✅ C. Environ 36 000 - Correct. La France compte environ 35 000 à 36 000 communes.
 中：正确。法国大约有3.6万左右的市镇。
 
-❌ D. Environ 50 000 - Faux. 过多。
+❌ D. Environ 50 000 - Faux. Il y a trop.
 中：错误。数量过多。`
   },
   {
@@ -2680,14 +2683,17 @@ const question_multi = [
     explanation: `❌ A. Le président - Faux. Le chef du gouvernement est le Premier ministre.
 中：错误。政府首脑是总理。
 
-❌ B. Le maire - Faux. 市长不是政府首脑。
-中：错误。
+❌ B. Le maire - Faux.  Le préfet représente l’État dans un département, mais il ne fait pas partie du gouvernement.
+
+中：错误。市长不领导政府，而是管理市镇。
 
 ✅ C. Le Premier ministre - Correct. Le Premier ministre est le chef du gouvernement.
 中：正确。总理是政府首脑。
 
-❌ D. Le préfet - Faux. 省长不是政府首脑。
-中：错误。`
+❌ D. Le préfet - Faux. Le préfet représente l’État dans un département, mais il ne fait pas partie du gouvernement.
+
+中：错误。省长代表国家在省内行政，但不是政府成员。`
+
   },
   {
     id: "in0041",
@@ -3033,7 +3039,7 @@ const question_multi = [
     category: "Institutions",
     difficulté: "moyen",
     typeQuestion: "examen original",
-    question: "Qui nomme les juges et magistrats en France ?",
+    question: "Comment sont recrutés les juges et magistrats en France ?",
     options: [
       "Le président uniquement",
       "Par concours, indépendamment du pouvoir politique",
@@ -3050,7 +3056,7 @@ const question_multi = [
 ❌ C. Le Parlement - Faux. Le Parlement ne nomme pas les juges.
 中：错误。议会不任命法官。
 
-❌ D. Le Premier ministre - Faux. 不是他的职责。
+❌ D. Le Premier ministre - Faux. Ce n’est pas le rôle du Premier ministre.
 中：错误。不是总理职责。`
   },
   {
@@ -3935,7 +3941,8 @@ const question_multi = [
 ❌ C. 1992 - Faux. 1992 est le traité de Maastricht.
 中：错误。1992年是马斯特里赫特条约。
 
-❌ D. 2000 - Faux. 2000年不是象征采纳年份。
+❌ D. 2000 - Faux.  L’an 2000 n’est pas l’année symbolique de l’adoption.
+
 中：错误。2000年不是采纳年份。`
   },
   {
@@ -3961,7 +3968,7 @@ const question_multi = [
 ✅ C. 2000 - Correct ! La devise « Unité dans la diversité » est adoptée en 2000.
 中：正确。2000年采纳格言"多样中的统一"。
 
-❌ D. 2007 - Faux. 2007是里斯本条约，不是格言年份。
+❌ D. 2007 - Faux. L’année 2007 est celle du traité de Lisbonne.
 中：错误。2007年是里斯本条约年份。`
   },
   {
@@ -3984,10 +3991,10 @@ const question_multi = [
 ❌ B. Traité de Rome - Faux. Le traité de Rome est une étape importante, mais pas la date célébrée.
 中：错误。罗马条约重要，但不是欧洲日纪念日期。
 
-❌ C. Traité de Maastricht - Faux. 不是欧洲日纪念的事件。
+❌ C. Traité de Maastricht - Faux. Le traité de Maastricht n’est pas l’événement commémoré par la Journée de l’Europe.
 中：错误。马斯特里赫特条约不是欧洲日纪念事件。
 
-❌ D. Création de l'euro - Faux. 不是欧洲日纪念的事件。
+❌ D. Création de l'euro - Faux. La création de l’euro n’est pas l’événement commémoré par la Journée de l’Europe.
 中：错误。欧元创建不是欧洲日纪念事件。`
   },
   {
@@ -3999,7 +4006,7 @@ const question_multi = [
     question: "Les valeurs de l'UE incluent :",
     options: [
       "Unité et prospérité",
-      "Liberté, paix et solidarité",
+      "Liberté, démocratie, respect des droits humains, paix, solidarité",
       "Croissance économique et armée commune",
       "Aucune des réponses"
     ],
@@ -4267,14 +4274,15 @@ const question_multi = [
     explanation: `❌ A. 72 - Faux. Ce nombre était valable avant la répartition actuelle.
 中：错误。该数字不是现行席位。
 
-❌ B. 81 - Faux. 81不是正确的法国议席数。
-中：错误。不是正确席位数。
+❌ B. 81 - Faux. 81 n’est pas le nombre correct de sièges pour la France. 
+中：错误。81不是正确席位数。
 
 ✅ C. 79 - Correct ! Depuis 2024, la France dispose de 79 députés européens.
 中：正确。自2024年起法国有79名欧洲议会议员。
 
-❌ D. 85 - Faux. 85不是正确席位数。
-中：错误。不是正确席位数。`
+❌ D. 85 - Faux. 85 n’est pas le nombre correct de sièges pour la France. 
+
+中：错误。85不是正确席位数。`
   },
   {
     id: "ue0040",
@@ -4352,7 +4360,7 @@ const question_multi = [
 中：错误。
 
 ❌ D. Avoir un diplôme universitaire - Faux. Ce n'est pas une condition.
-中：错误。`
+中：错误。这不是一个条件。`
   },
   {
     id: "ue0043",
@@ -4403,7 +4411,8 @@ const question_multi = [
 ❌ C. Sur tous les bâtiments privés en Europe - Faux. Ce n'est pas obligatoire.
 中：错误。私人建筑不强制。
 
-❌ D. Sur les billets de banque uniquement - Faux. 欧元纸币上没有欧盟旗帜。
+❌ D. Sur les billets de banque uniquement - Faux.  Les billets en euros n’affichent pas le drapeau européen.
+
 中：错误。欧元纸币没有欧盟旗帜。`
   },
   {
@@ -4426,10 +4435,12 @@ const question_multi = [
 ✅ B. 1986 - Correct ! Le drapeau européen est hissé pour la première fois devant la Commission européenne en 1986.
 中：正确。1986年首次在欧盟委员会前升旗。
 
-❌ C. 1992 - Faux. 1992是马斯特里赫特条约。
+❌ C. 1992 - Faux. 1992, c’est le traité de Maastricht.
+
 中：错误。1992年是马斯特里赫特条约。
 
-❌ D. 2000 - Faux. 2000年不是首次升旗年份。
+❌ D. 2000 - Faux. Le drapeau n’a pas été hissé pour la première fois en 2000.
+
 中：错误。不是首次升旗年份。`
   },
   {
@@ -4481,7 +4492,8 @@ const question_multi = [
 ❌ C. L'unité économique uniquement - Faux. L'hymne vise surtout aux valeurs humaines.
 中：错误。歌曲强调人类价值，不仅是经济。
 
-❌ D. La monnaie unique - Faux. 不是关于货币。
+❌ D. La monnaie unique - Faux. Ce n’est pas lié à la monnaie.
+
 中：错误。与货币无关。`
   },
   {
@@ -4611,7 +4623,8 @@ const question_multi = [
 ❌ C. Oui, mais seulement si l'un d'eux est étudiant - Faux. Ils peuvent résider pour travail, études ou vie privée.
 中：错误。居住理由不限于学习。
 
-❌ D. Non, car l'Allemagne est hors UE - Faux. 德国是欧盟成员国。
+❌ D. Non, car l'Allemagne est hors UE - Faux. L’Allemagne est membre de l’Union européenne.
+
 中：错误。德国是欧盟成员。`
   },
   {
@@ -4634,7 +4647,7 @@ const question_multi = [
 ❌ B. Non, elle ne peut voter que en France - Faux. Elle peut choisir de voter en France ou en Belgique (une seule fois).
 中：错误。可选择在法国或居住国投票，但只能选一次。
 
-❌ C. Oui, mais seulement si elle a 21 ans - Faux. 选举年龄通常是18岁。
+❌ C. Oui, mais seulement si elle a 21 ans - Faux.  L’âge de vote est généralement de 18 ans.
 中：错误。通常投票年龄是18岁。
 
 ❌ D. Non, car seule la Belgique vote - Faux. Tous les pays membres organisent des élections européennes.
@@ -4657,13 +4670,15 @@ const question_multi = [
     explanation: `✅ A. Oui, il peut acheter librement - Correct ! Les citoyens de l'UE peuvent acheter des biens immobiliers dans un autre pays membre sans restriction.
 中：正确。欧盟公民可在其他成员国自由购房。
 
-❌ B. Non, seuls les Français peuvent acheter - Faux. 欧盟国家公民享有同等购买权。
+❌ B. Non, seuls les Français peuvent acheter - Faux. Les citoyens de l’Union européenne bénéficient du droit égal à l’achat de biens immobiliers.
 中：错误。欧盟公民享有平等购房权。
 
-❌ C. Oui, mais il doit demander une autorisation - Faux. 购房一般不需要特殊许可。
+❌ C. Oui, mais il doit demander une autorisation - Faux. L’achat d’un bien immobilier ne nécessite généralement pas d’autorisation spéciale.
+
 中：错误。通常不需要特别许可。
 
-❌ D. Non, car la Pologne n'est pas dans l'UE - Faux. 波兰是欧盟成员国。
+❌ D. Non, car la Pologne n'est pas dans l'UE - Faux. La Pologne fait partie de l’Union européenne.
+
 中：错误。波兰是欧盟成员。`
   },
 
@@ -6470,16 +6485,15 @@ const question_multi = [
     typeQuestion: "question simulée", // 无"o"标记
     question: "Quelle liberté permet à une personne de ne pas avoir de religion ?",
     options: [
-      "Liberté de croyance",
-      "Liberté de religion",
+      "Liberté de réunion",
+      " Liberté de conscience",
       "Liberté d'expression",
       "Liberté de circulation"
     ],
     answer: 1,
-    explanation: `❌ A. Liberté de croyance - Faux. En France, on parle surtout de liberté de religion, qui inclut aussi le fait de ne pas croire.
-中：错误。法国通常用"宗教自由"，它也包含不信仰。
-
-✅ B. Liberté de religion - Correct ! Cette liberté inclut le droit de croire ou de ne pas croire.
+    explanation: `❌ A. Liberté de réunion - Faux. Liée au droit de réunion, mais ne concerne pas le choix de la religion.
+中：错误。与集会相关，不涉及信仰选择。
+✅ B. Liberté de  conscience - Correct ! Cette liberté inclut le droit de croire ou de ne pas croire.
 中：正确。宗教自由包括信仰或不信仰。
 
 ❌ C. Liberté d'expression - Faux. Elle concerne le droit de s'exprimer, pas forcément la religion.
@@ -7280,7 +7294,7 @@ const question_multi = [
       "En 1958",
       "En 1974",
       "En 1981",
-      "En 2004"
+      "En 2007"
     ],
     answer: 2,
     explanation: `❌ A. En 1958 - Faux. 1958 correspond à la création de la Ve République, pas à l'abolition de la peine de mort.
@@ -7292,8 +7306,8 @@ const question_multi = [
 ✅ C. En 1981 - Correct ! La peine de mort est abolie en France en 1981, sous le gouvernement de François Mitterrand et le ministre de la Justice Robert Badinter.
 中：正确。法国于1981年废除死刑，关键人物是司法部长罗伯特·巴迪内。
 
-❌ D. En 2004 - Faux. En 2004, la France a renforcé l'interdiction en inscrivant l'abolition dans la Constitution, mais l'abolition elle-même date de 1981.
-中：错误。2004年是把废除死刑写入宪法，但真正废除是1981年。`
+❌ D. En 2007 - Faux. En 2007, la France a renforcé l'interdiction en inscrivant l'abolition dans la Constitution, mais l'abolition elle-même date de 1981.
+中：错误。2007年是把废除死刑写入宪法，但真正废除是1981年。`
   },
   {
     id: "dr0006",
@@ -7616,7 +7630,7 @@ const question_multi = [
     question: "Quelle liberté permet à une personne de croire en la religion de son choix ?",
     options: [
       "Liberté de circulation",
-      "Liberté de religion",
+      "Liberté de  conscience",
       "Liberté d'expression",
       "Liberté de vote"
     ],
@@ -7624,7 +7638,7 @@ const question_multi = [
     explanation: `❌ A. Liberté de circulation - Faux. Cela concerne le droit de se déplacer, pas la religion.
 中：错误。出行自由与宗教信仰无关。
 
-✅ B. Liberté de religion - Correct ! Elle permet de choisir sa religion ou de ne pas en avoir.
+✅ B. Liberté de  conscience - Correct ! Elle permet de choisir sa religion ou de ne pas en avoir.
 中：正确。宗教自由允许选择信仰或不信仰。
 
 ❌ C. Liberté d'expression - Faux. La liberté d'expression permet de parler, mais pas forcément de choisir une religion.
@@ -7761,7 +7775,7 @@ const question_multi = [
 中：错误。批评是合法的，除非构成诽谤。
 
 ❌ D. Pour empêcher les élections - Faux. Ce n'est pas une raison légale et ne correspond pas aux principes démocratiques.
-中：错误。不能用来阻止选举。`
+中：错误。 这不是合法理由，也不符合民主原则。`
   },
   {
     id: "dr0024",
@@ -11797,22 +11811,23 @@ const question_multi = [
     answer: 2,
     explanation: "❌ A. Rome - Faux. Rome est la capitale de l'Italie.\n中：错误。罗马是意大利首都。\n\n❌ B. Madrid - Faux. Madrid est la capitale de l'Espagne.\n中：错误。马德里是西班牙首都。\n\n✅ C. Lyon - Correct ! Lyon est une grande ville française.\n中：正确！里昂是法国的一座大城市。\n\n❌ D. Berlin - Faux. Berlin est la capitale de l'Allemagne.\n中：错误。柏林是德国首都。"
   },
-  {
-    id: "tg0004",
-    type: "carte multi",
-    category: "Territoires et géographie",
-    difficulté: "moyen",
-    typeQuestion: "examen original",
-    question: "Quel océan borde la côte ouest française ?",
-    options: [
-      "L'océan Indien",
-      "L'océan Pacifique",
-      "L'océan Arctique",
-      "L'océan Atlantique"
-    ],
-    answer: 3,
-    explanation: "❌ A. L'océan Indien - Faux. L'océan Indien est loin de la France.\n中：错误。印度洋离法国很远。\n\n❌ B. L'océan Pacifique - Faux. 太平洋也不在法国西部。\n中：错误。太平洋不在法国西海岸。\n\n❌ C. L'océan Arctique - Faux. 北极海不在法国西部。\n中：错误。北极海不在法国西海岸。\n\n✅ D. L'océan Atlantique - Correct ! La côte ouest de la France borde l'océan Atlantique.\n中：正确！法国西海岸临大西洋。"
-  },
+{
+  id: "tg0004",
+  type: "carte multi",
+  category: "Territoires et géographie",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "Quel océan borde la côte ouest française ?",
+  options: [
+    "L'océan Indien",
+    "L'océan Pacifique",
+    "L'océan Arctique",
+    "L'océan Atlantique"
+  ],
+  "answer": 3,
+  "explanation": "❌ A. L'océan Indien - Faux. L'océan Indien est loin de la France.\n中：错误。印度洋离法国很远。\n\n❌ B. L'océan Pacifique - Faux. Le Pacifique ne se trouve pas à l’ouest de la France.\n中：错误。太平洋不在法国西海岸。\n\n❌ C. L'océan Arctique - Faux. La mer Arctique ne se trouve pas à l’ouest de la France.\n中：错误。北极海不在法国西海岸。\n\n✅ D. L'océan Atlantique - Correct ! La côte ouest de la France borde l'océan Atlantique.\n中：正确！法国西海岸临大西洋。"
+},
+
   {
     id: "tg0005",
     type: "carte multi",
@@ -11827,7 +11842,7 @@ const question_multi = [
       "Un fleuve"
     ],
     answer: 2,
-    explanation: "❌ A. Un pays - Faux. Paris n'est pas un pays.\n中：错误。巴黎不是国家。\n\n❌ B. Une région - Faux. Paris est une ville, pas une région.\n中：错误。巴黎是城市，不是地区。\n\n✅ C. Une capitale - Correct ! Paris est la capitale de la France.\n中：正确！巴黎是法国的首都。\n\n❌ D. Un fleuve - Faux. 巴黎不是河流。\n中：错误。巴黎不是河流。"
+    explanation: "❌ A. Un pays - Faux. Paris n'est pas un pays.\n中：错误。巴黎不是国家。\n\n❌ B. Une région - Faux. Paris est une ville, pas une région.\n中：错误。巴黎是城市，不是地区。\n\n✅ C. Une capitale - Correct ! Paris est la capitale de la France.\n中：正确！巴黎是法国的首都。\n\n❌ D. Un fleuve - Faux. Paris n’est pas un fleuve.\n中：错误。巴黎不是河流。"
   },
   {
     id: "tg0006",
@@ -11878,7 +11893,7 @@ const question_multi = [
     explanation: "❌ A. La Corse - Faux. La Corse est une région française mais elle est en métropole, pas un DOM.\n中：错误。科西嘉是法国本土地区，不是海外省。\n\n❌ B. La Sicile - Faux. La Sicile appartient à l'Italie.\n中：错误。西西里岛属于意大利。\n\n✅ C. La Martinique - Correct ! La Martinique est un département d'outre-mer français.\n中：正确！马提尼克是法国海外省。\n\n❌ D. Malte - Faux. Malte est un pays indépendant.\n中：错误。马耳他是独立国家。"
   },
   {
-    id: "tg0009",
+    id: "tr0009",
     type: "carte multi",
     category: "Territoires et géographie",
     difficulté: "simple",
@@ -12003,7 +12018,7 @@ const question_multi = [
       "L'océan Indien"
     ],
     answer: 1,
-    explanation: "❌ A. La mer Noire - Faux. La mer Noire ne touche pas la France métropolitaine.\n中：错误。黑海不与法国本土接壤。\n\n✅ B. L'océan Atlantique - Correct ! L'océan Atlantique borde la côte ouest de la France métropolitaine.\n中：正确！大西洋位于法国本土西部沿海。\n\n❌ C. La mer Rouge - Faux. La mer Rouge est très loin de la France.\n中：错误。红海离法国很远。\n\n❌ D. L'océan Indien - Faux. 印度洋不与法国本土接壤。\n中：错误。印度洋不在法国本土边界。"
+    explanation: "❌ A. La mer Noire - Faux. La mer Noire ne touche pas la France métropolitaine.\n中：错误。黑海不与法国本土接壤。\n\n✅ B. L'océan Atlantique - Correct ! L'océan Atlantique borde la côte ouest de la France métropolitaine.\n中：正确！大西洋位于法国本土西部沿海。\n\n❌ C. La mer Rouge - Faux. La mer Rouge est très loin de la France.\n中：错误。红海离法国很远。\n\n❌ D. L'océan Indien - Faux.  L’océan Indien ne touche pas la France métropolitaine.\n中：错误。印度洋不在法国本土边界。"
   },
   {
     id: "tg0017",
@@ -12115,7 +12130,7 @@ const question_multi = [
       "85 millions"
     ],
     answer: 2,
-    explanation: "❌ A. 45 millions - Faux. Trop faible pour la population française actuelle.\n中：错误。这个数字太少。\n\n❌ B. 55 millions - Faux. 仍然偏低。\n中：错误。仍然偏低。\n\n✅ C. 68 millions - Correct ! La population de la France est d'environ 68 millions en 2025.\n中：正确！2025年法国人口约为6800万左右。\n\n❌ D. 85 millions - Faux. 这个数字太高。\n中：错误。过高。"
+    explanation: "❌ A. 45 millions - Faux. Trop faible pour la population française actuelle.\n中：错误。这个数字太少。\n\n❌ B. 55 millions - Faux. Trop faible \n中：错误。仍然偏低。\n\n✅ C. 68 millions - Correct ! La population de la France est d'environ 68 millions en 2025.\n中：正确！2025年法国人口约为6800万左右。\n\n❌ D. 85 millions - Faux. Ce chiffre est trop élevé.\n中：错误。过高。"
   },
   {
     id: "tg0024",
@@ -12292,7 +12307,7 @@ const question_multi = [
       "Environ 600 millions"
     ],
     answer: 2,
-    explanation: "❌ A. Environ 80 millions - Faux. 80 millions correspond plutôt au nombre de locuteurs natifs.\n中：错误。约8000万更接近母语使用者数量。\n\n❌ B. Environ 150 millions - Faux. 150 millions仍然偏低。\n中：错误。约1.5亿仍偏低。\n\n✅ C. Environ 300 millions - Correct ! Environ 300 millions de personnes parlent français dans le monde (incluant les locuteurs natifs et ceux qui l'apprennent).\n中：正确！全球约有3亿人使用法语（包括母语和第二语言使用者）。\n\n❌ D. Environ 600 millions - Faux. 600 millions trop élevé.\n中：错误。约6亿偏高。"
+    explanation: "❌ A. Environ 80 millions - Faux. 80 millions correspond plutôt au nombre de locuteurs natifs.\n中：错误。约8000万更接近母语使用者数量。\n\n❌ B. Environ 150 millions - Faux. 150 millions trop peu \n中：错误。约1.5亿仍偏低。\n\n✅ C. Environ 300 millions - Correct ! Environ 300 millions de personnes parlent français dans le monde (incluant les locuteurs natifs et ceux qui l'apprennent).\n中：正确！全球约有3亿人使用法语（包括母语和第二语言使用者）。\n\n❌ D. Environ 600 millions - Faux. 600 millions trop élevé.\n中：错误。约6亿偏高。"
   },
   {
     id: "tg0035",
@@ -12868,7 +12883,7 @@ const question_multi = [
       "Mer Caspienne"
     ],
     answer: 0,
-    explanation: "✅ A. La Manche - Correct ! La Manche borde le nord de la France.\n中：正确！北海在法国北部沿海。\n\n❌ B. Mer Méditerranée - Faux. La Méditerranée est au sud de la France.\n中：错误。地中海在法国南部。\n\n❌ C. Mer Noire - Faux. La mer Noire ne touche pas la France.\n中：错误。黑海不与法国接壤。\n\n❌ D. Mer Caspienne - Faux. La mer Caspienne ne touche pas la France.\n中：错误。里海不与法国接壤。"
+    explanation: "✅ A. La Manche - Correct ! La Manche borde le nord de la France.\n中：正确！英吉利海峡在法国北部沿海。\n\n❌ B. Mer Méditerranée - Faux. La Méditerranée est au sud de la France.\n中：错误。地中海在法国南部。\n\n❌ C. Mer Noire - Faux. La mer Noire ne touche pas la France.\n中：错误。黑海不与法国接壤。\n\n❌ D. Mer Caspienne - Faux. La mer Caspienne ne touche pas la France.\n中：错误。里海不与法国接壤。"
   },
   {
     id: "tg0071",
@@ -13222,22 +13237,23 @@ const question_multi = [
     answer: 1,
     explanation: "❌ A. La Seine - Faux. La Seine est surtout à Paris.\n中：错误。塞纳河主要在巴黎流经。\n\n✅ B. Le Rhin - Correct ! Le Rhin sert de frontière naturelle entre la France et l'Allemagne.\n中：正确！莱茵河是法国与德国的自然边界。\n\n❌ C. La Loire - Faux. La Loire est au centre de la France.\n中：错误。卢瓦尔河在法国中部。\n\n❌ D. Le Rhône - Faux. Le Rhône est au sud-est.\n中：错误。罗讷河在东南部。"
   },
-  {
-    id: "tg0093",
-    type: "carte multi",
-    category: "Territoires et géographie",
-    difficulté: "simple",
-    typeQuestion: "examen original",
-    question: "Quelle proportion de Français vit en ville environ ?",
-    options: [
-      "30%",
-      "50%",
-      "70%",
-      "81%"
-    ],
-    answer: 2,
-    explanation: "❌ A. 30% - Faux. 30% est trop faible.\n中：错误。30%太少。\n\n❌ B. 50% - Faux. 50% est encore trop faible.\n中：错误。50%仍然偏低。\n\n✅ C. 70% - Correct ! Environ 70% des Français vivent en ville.\n中：正确！大约70%的法国人居住在城市。\n\n❌ D. 81% - Faux. 81% est trop élevé.\n中：错误。81%偏高。"
-  },
+{
+  id: "tg0093",
+  type: "carte multi",
+  category: "Territoires et géographie",
+  difficulté: "simple",
+  typeQuestion: "examen original",
+  question: "Quelle proportion de Français vit en ville environ ?",
+  options: [
+    "30%",
+    "50%",
+    "70%",
+    "81%"
+  ],
+  answer: 3,
+  explanation: "❌ A. 30% - Faux. 30% est beaucoup trop faible par rapport à la réalité.\n中：错误。30%与实际情况相比明显过低。\n\n❌ B. 50% - Faux. 50% reste inférieur à la proportion réelle de la population urbaine.\n中：错误。50%仍然低于实际的城市人口比例。\n\n❌ C. 70% - Faux. 70% est proche, mais inférieur au chiffre réel.\n中：错误。70%比较接近，但仍低于真实数据。\n\n✅ D. 81% - Correct ! Environ 81% des Français vivent en ville.\n中：正确！ 大约81%的法国人居住在城市。"
+}
+,
   {
     id: "tg0094",
     type: "carte multi",
@@ -13526,6 +13542,26 @@ const question_multi = [
     answer: 1,
     explanation: "❌ A. Le Havre - Faux. Le Havre est sur la Manche.\n中：错误。勒阿弗尔在英吉利海峡。\n\n✅ B. Marseille - Correct ! Marseille est un grand port maritime en Méditerranée.\n中：正确！马赛是地中海大港。\n\n❌ C. Nantes - Faux. Nantes est sur l'Atlantique.\n中：错误。南特在大西洋沿岸。\n\n❌ D. Rouen - Faux. Rouen est sur la Seine, pas en Méditerranée.\n中：错误。鲁昂在塞纳河畔，不在地中海。"
   },
+
+{
+  id: "tg0112",
+  type: "carte multi",
+  category: "Territoires et géographie",
+  difficulté: "simple",
+  typeQuestion: "examen original",
+  question: "À quelle occasion peut-on visiter gratuitement de nombreux lieux culturels en France ?",
+  options: [
+    "Le 14 juillet",
+    "La Journée européenne du patrimoine",
+    "Le premier lundi du mois",
+    "À Pâques"
+  ],
+  answer: 1,
+  explanation: "❌ A. Le 14 juillet - Faux. Le 14 juillet est la fête nationale, mais les lieux culturels ne sont pas systématiquement gratuits ce jour-là.\n中：错误。7 月 14 日是法国国庆日，但文化场所并不一定在这一天免费开放。\n\n✅ B. La Journée européenne du patrimoine - Correct ! Lors de la Journée européenne du patrimoine, de nombreux musées et monuments sont ouverts gratuitement au public.\n中：正确！在欧洲文化遗产日，许多博物馆和历史遗迹向公众免费开放。\n\n❌ C. Le premier lundi du mois - Faux. En France, la gratuité concerne le premier dimanche du mois, pas le lundi.\n中：错误。在法国，免费开放通常是每月的第一个星期日，而不是星期一。\n\n❌ D. À Pâques - Faux. Pâques est une fête religieuse, mais elle n’entraîne pas la gratuité générale des lieux culturels.\n中：错误。复活节是宗教节日，但并不会让文化场所普遍免费开放。"
+},
+
+
+
 
   {
     id: "gh0001",
@@ -14484,22 +14520,22 @@ const question_multi = [
     answer: 0,
     explanation: `✅ A. Guider les patients et coordonner leurs soins - Correct ! parce que le médecin traitant oriente le patient et coordonne les soins. Donc c'est son rôle principal.\n中：正确，因为家庭医生指导并协调治疗，所以这是主要职责。\n\n❌ B. Se concentrer uniquement sur les urgences - Faux. parce que le médecin traitant suit le patient au quotidien, pas seulement les urgences. Donc ce n'est pas vrai.\n中：错误，因为家庭医生是长期跟踪，不只处理急诊，所以不对。\n\n❌ C. Remplir des formulaires administratifs - Faux. parce que ce n'est pas sa mission principale. Donc ce n'est pas la réponse.\n中：错误，因为填写表格不是主要职责，所以不对。\n\n❌ D. Faire uniquement des prescriptions pour les hôpitaux - Faux. parce que il prescrit aussi des soins courants et suit le patient. Donc ce n'est pas correct.\n中：错误，因为家庭医生也开常规处方，不仅给医院，所以不对。`
   },
-  {
-    id: "so0005",
-    type: "carte multi",
-    category: "Accès aux soins",
-    difficulté: "simple",
-    typeQuestion: "examen original",
-    question: "Dans quelles situations doit-on se rendre aux urgences de l'hôpital ?",
-    options: [
-      "Pour un accident grave ou maladie nécessitant une intervention immédiate",
-      "Pour un rhume léger",
-      "Pour un rendez-vous de routine",
-      "Pour des questions administratives"
-    ],
-    answer: 0,
-    explanation: `✅ A. Pour un accident grave ou maladie nécessitant une intervention immédiate - Correct ! parce que les urgences sont pour les situations graves nécessitant une action immédiate. Donc c'est le bon choix.\n中：正确，因为急诊用于严重事故或需立即治疗的病症，所以是正确选项。\n\n❌ B. Pour un rhume léger - Faux. parce que un rhume léger ne nécessite pas d'urgence. Donc ce n'est pas la bonne raison.\n中：错误，因为轻微感冒不需要急诊，所以不对。\n\n❌ C. Pour un rendez-vous de routine - Faux. parce que les rendez-vous de routine se font chez le médecin. Donc ce n'est pas urgent.\n中：错误，因为常规预约在医生处进行，不是急诊。\n\n❌ D. Pour des questions administratives - Faux. parce que les urgences ne gèrent pas l'administration. Donc ce n'est pas correct.\n中：错误，因为急诊不处理行政问题，所以不对。`
-  },
+ {
+  id: "so0005",
+  type: "carte multi",
+  category: "Accès aux soins",
+  difficulté: "simple",
+  typeQuestion: "examen original",
+  question: "Dans quelles situations doit-on se rendre aux urgences de l'hôpital ?",
+  options: [
+    "Pour un accident grave ou maladie nécessitant une intervention immédiate",
+    "Pour un rhume léger",
+    "Pour un rendez-vous de routine",
+    "Pour des questions administratives"
+  ],
+  answer: 0,
+  explanation: "a) Correct, parce que les urgences sont pour les situations graves nécessitant une action immédiate. Donc c’est le bon choix.\n中：正确，因为急诊用于严重事故或需立即治疗的病症，所以是正确选项。\n\nb) Faux, parce que un rhume léger ne nécessite pas d’urgence. Donc ce n’est pas la bonne raison.\n中：错误，因为轻微感冒不需要急诊，所以不对。\n\nc) Faux, parce que les rendez-vous de routine se font chez le médecin. Donc ce n’est pas urgent.\n中：错误，因为常规预约在医生处进行，不是急诊。\n\nd) Faux, parce que les urgences ne gèrent pas l’administration. Donc ce n’est pas correct.\n中：错误，因为急诊不处理行政问题，所以不对。"
+},
   {
     id: "so0006",
     type: "carte multi",
@@ -14516,22 +14552,25 @@ const question_multi = [
     answer: 0,
     explanation: `✅ A. Protéger la santé de tous - Correct ! parce que les vaccinations obligatoires visent à protéger la population et éviter les épidémies. Donc c'est l'objectif.\n中：正确，因为强制疫苗旨在保护全民健康，防止疫情，所以是目标。\n\n❌ B. Faire plaisir aux médecins - Faux. parce que ce n'est pas l'objectif des vaccins. Donc ce n'est pas vrai.\n中：错误，因为不是为了取悦医生，所以不对。\n\n❌ C. Créer des emplois - Faux. parce que ce n'est pas la raison principale. Donc ce n'est pas correct.\n中：错误，因为不是为了创造就业，所以不对。\n\n❌ D. Être obligé de payer - Faux. parce que la vaccination vise la santé, pas l'obligation de payer. Donc ce n'est pas la bonne réponse.\n中：错误，因为目的不是收费，所以不对。`
   },
+
+
+
   {
     id: "so0007",
-    type: "carte multi",
-    category: "Accès aux soins",
-    difficulté: "simple",
-    typeQuestion: "examen original",
-    question: "À quoi sert la carte Vitale ?",
-    options: [
-      "Pour rembourser les frais de santé rapidement",
-      "Pour payer moins d'impôts",
-      "Pour justifier ses études",
-      "Pour voyager à l'étranger"
-    ],
-    answer: 0,
-    explanation: `✅ A. Pour rembourser les frais de santé rapidement - Correct ! parce que la carte Vitale permet d'accélérer les remboursements. Donc c'est son utilité.\n中：正确，因为Vitale卡可加快医疗报销，所以就是用来报销的。\n\n❌ B. Pour payer moins d'impôts - Faux. parce que la carte Vitale n'est pas liée aux impôts. Donc ce n'est pas son rôle.\n中：错误，因为与税务无关，所以不对。\n\n❌ C. Pour justifier ses études - Faux. parce que ce n'est pas un document scolaire. Donc ce n'est pas correct.\n中：错误，因为不是学历证明，所以不对。\n\n❌ D. Pour voyager à l'étranger - Faux. parce que la carte Vitale sert en France pour la santé. Donc ce n'est pas sa fonction.\n中：错误，因为它在法国用于医疗，不是旅行证件。`
-  },
+  type: "carte multi",
+  category: "Accès aux soins",
+  difficulté: "simple",
+  typeQuestion: "examen original",
+  question: "À quoi sert la carte Vitale ?",
+  options: [
+    "Pour rembourser les frais de santé rapidement",
+    "Pour payer moins d’impôts",
+    "Pour justifier ses études",
+    "Pour voyager à l’étranger"
+  ],
+  answer: 0,
+  explanation: "a) Correct, parce que la carte Vitale permet d’accélérer les remboursements. Donc c’est son utilité.\n中：正确，因为Vitale卡可加快医疗报销，所以就是用来报销的。\n\nb) Faux, parce que la carte Vitale n’est pas liée aux impôts. Donc ce n’est pas son rôle.\n中：错误，因为与税务无关，所以不对。\n\nc) Faux, parce que ce n’est pas un document scolaire. Donc ce n’est pas correct.\n中：错误，因为不是学历证明，所以不对。\n\nd) Faux, parce que la carte Vitale sert en France pour la santé. Donc ce n’est pas sa fonction.\n中：错误，因为它在法国用于医疗，不是旅行证件。"
+},
   {
     id: "so0008",
     type: "carte multi",
@@ -14613,53 +14652,54 @@ const question_multi = [
     explanation: `✅ A. Obligatoire pour tous les résidents en France - Correct ! parce que la protection sociale est obligatoire pour les résidents. Donc l'inscription est obligatoire.\n中：正确，因为法国居民必须参加医保，所以注册是强制的。\n\n❌ B. Facultative - Faux. parce que ce n'est pas optionnel. Donc ce n'est pas correct.\n中：错误，因为不是自愿的，所以不对。\n\n❌ C. Seule pour les employés - Faux. parce que même les étudiants ou les sans emploi doivent être couverts. Donc ce n'est pas vrai.\n中：错误，因为不仅员工需要医保，其他居民也需要。\n\n❌ D. Pour les retraités seulement - Faux. parce que ce n'est pas réservé aux retraités. Donc ce n'est pas correct.\n中：错误，因为不限于退休人员。`
   },
   {
-    id: "so0013",
+  id: "so0013",
     type: "carte multi",
     category: "Accès aux soins",
     difficulté: "moyen",
-    typeQuestion: "examen original",
-    question: "Quel professionnel peut délivrer des conseils pour un mal de tête léger ?",
-    options: [
-      "Pharmacien",
-      "Médecin spécialiste",
-      "Chirurgien",
-      "Infirmier"
-    ],
-    answer: 0,
-    explanation: `✅ A. Pharmacien - Correct ! parce que le pharmacien peut conseiller pour un mal de tête léger. Donc c'est le bon choix.\n中：正确，因为药师可建议轻微头痛处理。\n\n❌ B. Médecin spécialiste - Faux. parce que ce n'est pas nécessaire pour un mal de tête léger. Donc ce n'est pas le premier choix.\n中：错误，因为不需要专科医生。\n\n❌ C. Chirurgien - Faux. parce que un chirurgien ne traite pas ce type de problème en priorité. Donc ce n'est pas adapté.\n中：错误，因为外科医生不适合处理轻微头痛。\n\n❌ D. Infirmier - Faux. parce que l'infirmier peut aider, mais le pharmacien est le plus accessible pour ce cas. Donc ce n'est pas le meilleur choix.\n中：错误，因为护士可以协助，但药师更合适。`
-  },
-  {
+  typeQuestion: "examen original",
+  question: "Quel professionnel peut délivrer des conseils pour un mal de tête léger ?",
+  options: [
+    "Pharmacien",
+    "Médecin spécialiste",
+    "Chirurgien",
+    "Infirmier"
+  ],
+  answer: 0,
+  explanation: "a) Correct, parce que le pharmacien peut conseiller pour un mal de tête léger. Donc c’est le bon choix.\n中：正确，因为药师可建议轻微头痛处理。\n\nb) Faux, parce que ce n’est pas nécessaire pour un mal de tête léger. Donc ce n’est pas le premier choix.\n中：错误，因为不需要专科医生。\n\nc) Faux, parce qu’un chirurgien ne traite pas ce type de problème en priorité. Donc ce n’est pas adapté.\n中：错误，因为外科医生不适合处理轻微头痛。\n\nd) Faux, parce que l’infirmier peut aider, mais le pharmacien est le plus accessible pour ce cas. Donc ce n’est pas le meilleur choix.\n中：错误，因为护士可以协助，但药师更合适。"
+},
+{
     id: "so0014",
     type: "carte multi",
     category: "Accès aux soins",
     difficulté: "moyen",
-    typeQuestion: "examen original",
-    question: "Que signifie le parcours de soins coordonnés ?",
-    options: [
-      "Commencer par le médecin traitant qui oriente vers d'autres professionnels",
-      "Consulter directement un spécialiste",
-      "Aller seulement à l'hôpital",
-      "Ne jamais consulter le médecin"
-    ],
-    answer: 0,
-    explanation: `✅ A. Commencer par le médecin traitant qui oriente vers d'autres professionnels - Correct ! parce que le parcours coordonné commence par le médecin traitant. Donc il oriente vers spécialistes si besoin.\n中：正确，因为协调医疗路径要先看家庭医生，由他转诊。\n\n❌ B. Consulter directement un spécialiste - Faux. parce que sans orientation, le remboursement peut être moins élevé. Donc ce n'est pas le parcours coordonné.\n中：错误，因为直接看专科可能报销降低，不属于协调路径。\n\n❌ C. Aller seulement à l'hôpital - Faux. parce que l'hôpital n'est pas le seul lieu de soins. Donc ce n'est pas correct.\n中：错误，因为不只是去医院。\n\n❌ D. Ne jamais consulter le médecin - Faux. parce que le médecin est au centre du parcours. Donc ce n'est pas vrai.\n中：错误，因为必须看医生。`
-  },
-  {
-    id: "so0015",
+  typeQuestion: "examen original",
+  question: "Que signifie le parcours de soins coordonnés ?",
+  options: [
+    "Commencer par le médecin traitant qui oriente vers d’autres professionnels",
+    "Consulter directement un spécialiste",
+    "Aller seulement à l’hôpital",
+    "Ne jamais consulter le médecin"
+  ],
+  answer: 0,
+  explanation: "a) Correct, parce que le parcours coordonné commence par le médecin traitant. Donc il oriente vers spécialistes si besoin.\n中：正确，因为协调医疗路径要先看家庭医生，由他转诊。\n\nb) Faux, parce que sans orientation, le remboursement peut être moins élevé. Donc ce n’est pas le parcours coordonné.\n中：错误，因为直接看专科可能报销降低，不属于协调路径。\n\nc) Faux, parce que l’hôpital n’est pas le seul lieu de soins. Donc ce n’est pas correct.\n中：错误，因为不只是去医院。\n\nd) Faux, parce que le médecin est au centre du parcours. Donc ce n’est pas vrai.\n中：错误，因为必须看医生。"
+},
+{
+  id: "so0015",
     type: "carte multi",
     category: "Accès aux soins",
     difficulté: "moyen",
-    typeQuestion: "examen original",
-    question: "Quelle structure peut accueillir les enfants de moins de 6 ans pour un suivi santé ?",
-    options: [
-      "Centre de protection maternelle et infantile (PMI)",
-      "Hôpital privé",
-      "Pharmacie",
-      "Cabinet de médecin spécialiste"
-    ],
-    answer: 0,
-    explanation: `✅ A. Centre de protection maternelle et infantile (PMI) - Correct ! parce que la PMI assure le suivi santé des jeunes enfants. Donc c'est la structure adaptée.\n中：正确，因为PMI负责6岁以下儿童健康随访，所以适合。\n\n❌ B. Hôpital privé - Faux. parce que ce n'est pas le lieu principal pour le suivi systématique. Donc ce n'est pas la réponse idéale.\n中：错误，因为不是常规随访主要机构。\n\n❌ C. Pharmacie - Faux. parce que la pharmacie ne fait pas de suivi médical complet. Donc ce n'est pas correct.\n中：错误，因为药店不做完整健康随访。\n\n❌ D. Cabinet de médecin spécialiste - Faux. parce que ce n'est pas systématiquement pour tous les enfants. Donc ce n'est pas la structure principale.\n中：错误，因为专科诊所不一定适用于全部儿童随访。`
-  },
+
+  typeQuestion: "examen original",
+  question: "Quelle structure peut accueillir les enfants de moins de 6 ans pour un suivi santé ?",
+  options: [
+    "Centre de protection maternelle et infantile (PMI)",
+    "Hôpital privé",
+    "Pharmacie",
+    "Cabinet de médecin spécialiste"
+  ],
+  answer: 0,
+  explanation: "a) Correct, parce que la PMI assure le suivi santé des jeunes enfants. Donc c’est la structure adaptée.\n中：正确，因为PMI负责6岁以下儿童健康随访，所以适合。\n\nb) Faux, parce que ce n’est pas le lieu principal pour le suivi systématique. Donc ce n’est pas la réponse idéale.\n中：错误，因为不是常规随访主要机构。\n\nc) Faux, parce que la pharmacie ne fait pas de suivi médical complet. Donc ce n’est pas correct.\n中：错误，因为药店不做完整健康随访。\n\nd) Faux, parce que ce n’est pas systématiquement pour tous les enfants. Donc ce n’est pas la structure principale.\n中：错误，因为专科诊所不一定适用于全部儿童随访。"
+},
   {
     id: "so0016",
     type: "carte multi",
@@ -14683,15 +14723,15 @@ const question_multi = [
     difficulté: "simple",
     typeQuestion: "examen original",
     question: "Où peut-on récupérer des médicaments sur prescription ?",
-    options: [
-      "Pharmacie",
-      "Poste",
-      "Banque",
-      "Mairie"
-    ],
-    answer: 0,
-    explanation: `✅ A. Pharmacie - Correct ! parce que les médicaments sur ordonnance se retirent en pharmacie. Donc c'est le bon lieu.\n中：正确，因为处方药在药房取，所以答案是药房。\n\n❌ B. Poste - Faux. parce que la poste ne distribue pas les médicaments. Donc ce n'est pas possible.\n中：错误，因为邮局不发药。\n\n❌ C. Banque - Faux. parce que la banque ne vend pas de médicaments. Donc ce n'est pas correct.\n中：错误，因为银行不卖药。\n\n❌ D. Mairie - Faux. parce que la mairie ne délivre pas de médicaments. Donc ce n'est pas correct.\n中：错误，因为市政府不发药。`
-  },
+  options: [
+    "Pharmacie",
+    "Poste",
+    "Banque",
+    "Mairie"
+  ],
+  answer: 0,
+  explanation: "a) Correct, parce que les médicaments sur ordonnance se retirent en pharmacie. Donc c’est le bon lieu.\n中：正确，因为处方药在药房取，所以答案是药房。\n\nb) Faux, parce que la poste ne distribue pas les médicaments. Donc ce n’est pas possible.\n中：错误，因为邮局不发药。\n\nc) Faux, parce que la banque ne vend pas de médicaments. Donc ce n’est pas correct.\n中：错误，因为银行不卖药。\n\nd) Faux, parce que la mairie ne délivre pas de médicaments. Donc ce n’est pas correct.\n中：错误，因为市政府不发药。"
+},
   {
     id: "so0018",
     type: "carte multi",
@@ -14699,15 +14739,15 @@ const question_multi = [
     difficulté: "simple",
     typeQuestion: "examen original",
     question: "Quel professionnel traite les troubles mentaux et émotionnels ?",
-    options: [
-      "Psychiatre",
-      "Médecin généraliste",
-      "Ophtalmologue",
-      "Dentiste"
-    ],
-    answer: 0,
-    explanation: `✅ A. Psychiatre - Correct ! parce que le psychiatre est spécialisé dans les troubles mentaux. Donc c'est le professionnel adapté.\n中：正确，因为精神科医生专门治疗心理问题，所以是适合的专业人士。\n\n❌ B. Médecin généraliste - Faux. parce que il peut orienter, mais n'est pas spécialiste. Donc ce n'est pas la meilleure réponse.\n中：错误，因为全科医生可转诊，但不是专业医生。\n\n❌ C. Ophtalmologue - Faux. parce que il traite les yeux, pas la santé mentale. Donc ce n'est pas correct.\n中：错误，因为眼科医生不治心理问题。\n\n❌ D. Dentiste - Faux. parce que il traite les dents, pas la santé mentale. Donc ce n'est pas correct.\n中：错误，因为牙医不处理心理问题。`
-  },
+  options: [
+    "Psychiatre",
+    "Médecin généraliste",
+    "Ophtalmologue",
+    "Dentiste"
+  ],
+  answer: 0,
+  explanation: "a) Correct, parce que le psychiatre est spécialisé dans les troubles mentaux. Donc c’est le professionnel adapté.\n中：正确，因为精神科医生专门治疗心理问题，所以是适合的专业人士。\n\nb) Faux, parce que il peut orienter, mais n’est pas spécialiste. Donc ce n’est pas la meilleure réponse.\n中：错误，因为全科医生可转诊，但不是专业医生。\n\nc) Faux, parce que il traite les yeux, pas la santé mentale. Donc ce n’est pas correct.\n中：错误，因为眼科医生不治心理问题。\n\nd) Faux, parce que il traite les dents, pas la santé mentale. Donc ce n’est pas correct.\n中：错误，因为牙医不处理心理问题。"
+ },
   {
     id: "so0019",
     type: "carte multi",
@@ -14746,48 +14786,48 @@ const question_multi = [
     category: "Accès aux soins",
     difficulté: "simple",
     typeQuestion: "examen original",
-    question: "Quel service est ouvert 24h/24 et 7j/7 pour les urgences vitales ?",
-    options: [
-      "Urgences hospitalières",
-      "Pharmacie",
-      "Médecin de garde",
-      "Mutuelle"
-    ],
-    answer: 0,
-    explanation: `✅ A. Urgences hospitalières - Correct ! parce que les urgences hospitalières sont ouvertes 24h/24 pour les situations vitales. Donc c'est le bon service.\n中：正确，因为医院急诊全天候开放处理危急情况。\n\n❌ B. Pharmacie - Faux. parce que les pharmacies ne sont pas toutes ouvertes 24h/24. Donc ce n'est pas toujours disponible.\n中：错误，因为药店不一定全天开门。\n\n❌ C. Médecin de garde - Faux. parce que le médecin de garde est disponible mais pas forcément 24h/24 partout. Donc ce n'est pas la réponse principale.\n中：错误，因为值班医生不一定全天候覆盖。\n\n❌ D. Mutuelle - Faux. parce que la mutuelle n'est pas un service d'urgence. Donc ce n'est pas correct.\n中：错误，因为保险不处理急诊。`
-  },
+     question: "Quel service est ouvert 24h/24 et 7j/7 pour les urgences vitales ?",
+  options: [
+    "Pharmacie",
+    "Urgences hospitalières",
+    "Médecin traitant",
+    "Mutuelle"
+  ],
+  answer: 1,
+  explanation: "a) Faux, parce que les pharmacies ne sont pas toutes ouvertes 24h/24.\n中：错误，因为药店并非全天候营业。\n\nb) Correct, parce que les urgences hospitalières sont ouvertes 24h/24 et 7j/7 pour les situations vitales.\n中：正确，因为医院急诊全天候开放，处理生命危险情况。\n\nc) Faux, parce que le médecin traitant consulte sur rendez-vous et n’est pas disponible 24h/24. Il n’est pas un service d’urgence vital.\n中：错误，因为家庭医生需要预约看诊，无法全天候值班，也不适用于生命危险的急诊。\n\nd) Faux, parce que la mutuelle est une assurance santé, pas un service d’urgence.\n中：错误，因为保险不是急诊服务。"
+},
   {
     id: "so0022",
     type: "carte multi",
     category: "Accès aux soins",
     difficulté: "simple",
     typeQuestion: "examen original",
-    question: "Qu'est-ce que la Complémentaire Santé Solidaire (C2S) ?",
-    options: [
-      "Une couverture pour personnes aux ressources modestes",
-      "Une couverture pour étudiants uniquement",
-      "Une carte Vitale",
-      "Une mutuelle obligatoire"
-    ],
-    answer: 0,
-    explanation: `✅ A. Une couverture pour personnes aux ressources modestes - Correct ! parce que la C2S aide les personnes à faibles ressources à payer les soins. Donc c'est une aide sociale.\n中：正确，因为C2S是给低收入人群的医疗补助。\n\n❌ B. Une couverture pour étudiants uniquement - Faux. parce que ce n'est pas réservé aux étudiants. Donc ce n'est pas correct.\n中：错误，因为不只学生可用。\n\n❌ C. Une carte Vitale - Faux. parce que la C2S n'est pas une carte. Donc ce n'est pas vrai.\n中：错误，因为不是Vitale卡。\n\n❌ D. Une mutuelle obligatoire - Faux. parce que ce n'est pas obligatoire, c'est une aide selon les ressources. Donc ce n'est pas correct.\n中：错误，因为不是强制性互助保险。`
-  },
+    question: "Qu’est-ce que la Complémentaire Santé Solidaire (C2S) ?",
+  options: [
+    "Une couverture pour personnes aux ressources modestes",
+    "Une couverture pour étudiants uniquement",
+    "Une carte Vitale",
+    "Une mutuelle obligatoire"
+  ],
+  answer: 0,
+  explanation: "a) Correct, parce que la C2S aide les personnes à faibles ressources à payer les soins. Donc c’est une aide sociale.\n中：正确，因为C2S是给低收入人群的医疗补助。\n\nb) Faux, parce que ce n’est pas réservé aux étudiants. Donc ce n’est pas correct.\n中：错误，因为不只学生可用。\n\nc) Faux, parce que la C2S n’est pas une carte. Donc ce n’est pas vrai.\n中：错误，因为不是Vitale卡。\n\nd) Faux, parce que ce n’est pas obligatoire, c’est une aide selon les ressources. Donc ce n’est pas correct.\n中：错误，因为不是强制性互助保险。"
+},
   {
     id: "so0023",
     type: "carte multi",
     category: "Accès aux soins",
     difficulté: "simple",
     typeQuestion: "examen original",
-    question: "Quelle plateforme peut-on utiliser pour prendre rendez-vous avec un médecin ?",
-    options: [
-      "Doctolib",
-      "Ameli",
-      "Banque en ligne",
-      "Préfecture"
-    ],
-    answer: 0,
-    explanation: `✅ A. Doctolib - Correct ! parce que Doctolib permet de prendre des rendez-vous médicaux en ligne. Donc c'est la bonne plateforme.\n中：正确，因为Doctolib可在线预约医生。\n\n❌ B. Ameli - Faux. parce que Ameli sert surtout aux remboursements et démarches, pas aux rendez-vous. Donc ce n'est pas la meilleure réponse.\n中：错误，因为Ameli主要用于报销，不是预约。\n\n❌ C. Banque en ligne - Faux. parce que la banque ne sert pas à prendre RDV médical. Donc ce n'est pas correct.\n中：错误，因为银行不能预约医生。\n\n❌ D. Préfecture - Faux. parce que la préfecture gère l'administration, pas les rendez-vous médicaux. Donc ce n'est pas correct.\n中：错误，因为省政府不负责医疗预约。`
-  },
+     question: "Quelle plateforme peut-on utiliser pour prendre rendez-vous avec un médecin ?",
+  options: [
+    "Ameli",
+    "Doctolib",
+    "Banque en ligne",
+    "Préfecture"
+  ],
+  answer: 1,
+  explanation: "a) Faux, parce que Ameli sert surtout aux remboursements et démarches, pas aux rendez-vous. Donc ce n’est pas la meilleure réponse.\n中：错误，因为Ameli主要用于报销，不是预约。\n\nb) Correct, parce que Doctolib permet de prendre des rendez-vous médicaux en ligne. Donc c’est la bonne plateforme.\n中：正确，因为Doctolib可以在线预约医生，所以是正确答案。\n\nc) Faux, parce que la banque ne sert pas à prendre RDV médical. Donc ce n’est pas correct.\n中：错误，因为银行不能预约医生。\n\nd) Faux, parce que la préfecture gère l’administration, pas les rendez-vous médicaux. Donc ce n’est pas correct.\n中：错误，因为省政府不负责医疗预约。"
+},
   {
     id: "so0024",
     type: "carte multi",
@@ -15003,16 +15043,16 @@ const question_multi = [
     category: "Accès aux soins",
     difficulté: "simple",
     typeQuestion: "examen original",
-    question: "Quel remboursement est possible pendant la période de maternité ?",
-    options: [
-      "100% des frais médicaux liés ou non à la grossesse",
-      "Seulement consultations gynécologiques",
-      "Soins esthétiques",
-      "Transport"
-    ],
-    answer: 0,
-    explanation: `✅ A. 100% des frais médicaux liés ou non à la grossesse - Correct ! parce que pendant la maternité, certains frais médicaux sont remboursés à 100%. Donc c'est possible.\n中：正确，因为孕期某些医疗费用可100%报销。\n\n❌ B. Seulement consultations gynécologiques - Faux. parce que d'autres frais liés à la grossesse sont aussi remboursés. Donc ce n'est pas suffisant.\n中：错误，因为不只妇科咨询。\n\n❌ C. Soins esthétiques - Faux. parce que ce n'est pas médicalement nécessaire. Donc ce n'est pas remboursé.\n中：错误，因为美容不报销。\n\n❌ D. Transport - Faux. parce que le transport n'est pas systématiquement remboursé à 100%. Donc ce n'est pas correct.\n中：错误，因为交通不一定全报销。`
-  },
+   question: "Quel remboursement est possible pendant la période de maternité ?",
+  options: [
+    "Les examens obligatoires à partir du 6ᵉ mois de grossesse",
+    "Seulement consultations gynécologiques",
+    "Soins esthétiques",
+    "Transport"
+  ],
+  answer: 0,
+  explanation: "a) Correct, parce que les examens obligatoires à partir du 6ᵉ mois font partie du suivi de grossesse et sont remboursés à 100% pendant la maternité.\n中：正确，因为从怀孕第六个月开始的必要检查属于孕期随访，符合“孕期保障”范围，因此可100%报销。\n\nb) Faux, parce que d’autres frais liés à la grossesse sont aussi remboursés. Donc ce n’est pas suffisant.\n中：错误，因为不只妇科咨询。\n\nc) Faux, parce que ce n’est pas médicalement nécessaire. Donc ce n’est pas remboursé.\n中：错误，因为美容不报销。\n\nd) Faux, parce que le transport n’est pas systématiquement remboursé à 100%. Donc ce n’est pas correct.\n中：错误，因为交通不一定全报销。"
+},
   {
     id: "so0038",
     type: "carte multi",
@@ -15943,32 +15983,23 @@ const question_multi = [
     ❌ D. Seulement après mariage - Faux, parce que le mariage n'est pas une condition pour entreprendre.
     中：错误，因为婚姻不是创业条件。`
   },
-  {
-    id: "tr0009",
-    type: "carte multi",
-    category: "Travail",
-    difficulté: "moyen",
-    typeQuestion: "examen original", // 原题，因为有“9o 中”
-    question: "À partir de quel âge un mineur peut-il travailler ?",
-    options: [
-      "14 ans",
-      "16 ans",
-      "18 ans",
-      "12 ans"
-    ],
-    answer: 0, // 对应选项 A
-    explanation: `✅ A. 14 ans - Correct, parce que la loi permet le travail à partir de 14 ans sous conditions (travail léger et autorisation). Donc 14 ans est l'âge minimum légal.
-    中：正确，因为法律允许14岁起在特定条件下工作，所以这是最低年龄。
-    
-    ❌ B. 16 ans - Faux, parce que l'âge minimum est inférieur à 16 ans.
-    中：错误，因为最低年龄不是16岁。
-    
-    ❌ C. 18 ans - Faux, parce que 18 ans est l'âge adulte, pas l'âge minimum pour travailler.
-    中：错误，因为不是最低年龄。
-    
-    ❌ D. 12 ans - Faux, parce que 12 ans est trop jeune et interdit pour travailler.
-    中：错误，因为12岁不允许工作。`
-  },
+{
+  id: "tg0009",
+  type: "carte multi",
+  category: "Travail",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "À partir de quel âge un mineur peut-il travailler ?",
+  options: [
+    "14 ans",
+    "16 ans",
+    "18 ans",
+    "12 ans"
+  ],
+  answer: 1,
+  explanation: "❌ A. 14 ans - Faux. 14 ans est possible seulement pour des travaux légers pendant les vacances scolaires, avec autorisation.\n中：错误。14岁只允许在假期进行轻工作并需授权。\n\n✅ B. 16 ans - Correct ! L’âge minimum pour travailler en France est généralement 16 ans (travail normal, sous conditions).\n中：正确！法国常规工作最低年龄通常为16岁（在符合条件的情况下）。\n\n❌ C. 18 ans - Faux, parce que 18 ans est l’âge adulte, pas l’âge minimum pour travailler.\n中：错误，因为不是最低年龄。\n\n❌ D. 12 ans - Faux, parce que 12 ans est trop jeune et interdit pour travailler.\n中：错误，因为12 岁不允许工作。"
+}
+,
   {
     id: "tr0010",
     type: "carte multi",
@@ -16551,32 +16582,23 @@ const question_multi = [
     ❌ D. Acheter des actions - Faux, parce que ce n'est pas une application financière.
     中：错误，因为不涉及股票交易。`
   },
-  {
-    id: "tr0020",
-    type: "carte multi",
-    category: "Travail",
-    difficulté: "moyen",
-    typeQuestion: "question simulée", // 模拟题，没有“o”
-    question: "Une personne qui reçoit le RSA:",
-    options: [
-      "Inscrite automatiquement à France Travail",
-      "Obligée de créer une entreprise",
-      "Exclue de tout accompagnement",
-      "Licenciée automatiquement"
-    ],
-    answer: 0, // 对应选项 A
-    explanation: `✅ A. Inscrite automatiquement à France Travail - Correct, parce que le RSA est lié à l'insertion professionnelle. Donc la personne doit être accompagnée vers l'emploi.
-    中：正确，因为RSA与就业融入相关，所以通常会被纳入France Travail伴随计划。
-    
-    ❌ B. Obligée de créer une entreprise - Faux, parce que le RSA ne force pas à créer une entreprise.
-    中：错误，因为RSA不要求创业。
-    
-    ❌ C. Exclue de tout accompagnement - Faux, parce que au contraire elle doit être accompagnée pour retrouver un emploi.
-    中：错误，因为相反需要支持。
-    
-    ❌ D. Licenciée automatiquement - Faux, parce que le RSA n'a aucun lien avec un licenciement.
-    中：错误，因为RSA与解雇无关。`
-  },
+{
+  id: "tr0020",
+  type: "carte multi",
+  category: "Travail",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "Une personne qui reçoit le RSA :",
+  options: [
+    "Peut être accompagné par France Travail",
+    "Obligée de créer une entreprise",
+    "Exclue de tout accompagnement",
+    "Licenciée automatiquement"
+  ],
+  answer: 0,
+  explanation: "✅ A. Peut être accompagné par France Travail - Correct, parce que le RSA est lié à l’insertion professionnelle. Donc la personne doit être accompagnée vers l’emploi.\n中：正确，因为RSA 与就业融入相关，所以通常会被纳入 France Travail 伴随计划。\n\n❌ B. Obligée de créer une entreprise - Faux, parce que le RSA ne force pas à créer une entreprise.\n中：错误，因为RSA 不要求创业。\n\n❌ C. Exclue de tout accompagnement - Faux, parce que au contraire elle doit être accompagnée pour retrouver un emploi.\n中：错误，因为相反需要支持。\n\n❌ D. Licenciée automatiquement - Faux, parce que le RSA n’a aucun lien avec un licenciement.\n中：错误，因为RSA 与解雇无关。"
+}
+,
   
   {
     id: "tr0021",
@@ -16971,32 +16993,23 @@ const question_multi = [
     ❌ D. Les écoles - Faux, parce que ce n'est pas une catégorie générale.
     中：错误，因为学校只是某个行业的一部分。`
   },
-  {
-    id: "tr0029",
-    type: "carte multi",
-    category: "Travail",
-    difficulté: "moyen",
-    typeQuestion: "question simulée",
-    question: "Un salarié peut cumuler plusieurs contrats si :",
-    options: [
-      "La loi le permet et il respecte les heures maximales",
-      "Son employeur refuse",
-      "Il est mineur",
-      "Il est retraité"
-    ],
-    answer: 0,
-    explanation: `✅ A. La loi le permet et il respecte les heures maximales - Correct, parce que il est possible d'avoir plusieurs emplois si le temps de travail total respecte la réglementation. Donc c'est autorisé sous conditions.
-    中：正确，因为只要总工时符合法规，可以多份合同。
-    
-    ❌ B. Son employeur refuse - Faux, parce que le refus de l'employeur n'empêche pas toujours le cumul si la loi l'autorise.
-    中：错误，因为只要法律允许，雇主不能随意禁止。
-    
-    ❌ C. Il est mineur - Faux, parce que les mineurs ont des restrictions spécifiques.
-    中：错误，因为未成年人有特殊限制。
-    
-    ❌ D. Il est retraité - Faux, parce que être retraité ne donne pas automatiquement le droit à plusieurs contrats.
-    中：错误，因为退休与合同数量无关。`
-  },
+{
+  id: "tr0029",
+  type: "carte multi",
+  category: "Travail",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "Un salarié peut cumuler plusieurs contrats si :",
+  options: [
+    "La loi le permet et il respecte les heures maximales",
+    "Son employeur refuse",
+    "Il est mineur",
+    "Il est retraité"
+  ],
+  answer: 0,
+  explanation: "✅ A. La loi le permet et il respecte les heures maximales - Correct, parce qu’il est possible d’avoir plusieurs emplois si le temps de travail total respecte la réglementation. Donc c’est autorisé sous conditions. Il faut aussi respecter une clause d’exclusivité si elle existe dans le contrat, et vérifier que les emplois ne sont pas incompatibles.\n中：正确，因为只要总工时符合法规，可以多份合同。且如果合同中有“排他性条款”，或工作时间冲突，则不能累积。\n\n❌ B. Son employeur refuse - Faux, parce que le refus de l’employeur n’empêche pas toujours le cumul si la loi l’autorise.\n中：错误，因为只要法律允许，雇主不能随意禁止。\n\n❌ C. Il est mineur - Faux, parce que les mineurs ont des restrictions spécifiques.\n中：错误，因为未成年人有特殊限制。\n\n❌ D. Il est retraité - Faux, parce que être retraité ne donne pas automatiquement le droit à plusieurs contrats.\n中：错误，因为退休与合同数量无关。"
+}
+,
   {
     id: "tr0030",
     type: "carte multi",
@@ -17335,32 +17348,23 @@ const question_multi = [
     ❌ D. Les touristes - Faux, parce que les touristes n'ont pas une expérience professionnelle en France.
     中：错误，因为游客没有相关工作经验。`
   },
-  {
-    id: "tr0043",
-    type: "carte multi",
-    category: "Travail",
-    difficulté: "simple",
-    typeQuestion: "question simulée",
-    question: "Le temps de travail maximal légal est :",
-    options: [
-      "10 heures par jour et 48 heures par semaine",
-      "12 heures par jour et 60 heures par semaine",
-      "6 heures par jour",
-      "30 heures par semaine"
-    ],
-    answer: 0,
-    explanation: `✅ A. 10 heures par jour et 48 heures par semaine - Correct, parce que la loi fixe une limite quotidienne à 10 heures et une limite hebdomadaire à 48 heures (avec une moyenne de 44 heures sur 12 semaines). Donc cette réponse est la bonne.
-    中：正确，因为法律规定每天最多10小时、每周最多48小时（12周平均44小时），所以这是正确答案。
-    
-    ❌ B. 12 heures par jour et 60 heures par semaine - Faux, parce que ces limites dépassent la réglementation française.
-    中：错误，因为超出了法国法定最高工作时长。
-    
-    ❌ C. 6 heures par jour - Faux, parce que ce n'est pas une règle générale, seulement une situation particulière (ex : mineurs, certains secteurs).
-    中：错误，因为6小时不是一般规定，只是某些特定情况。
-    
-    ❌ D. 30 heures par semaine - Faux, parce que la durée légale est 35 heures par semaine.
-    中：错误，因为法定标准是每周35小时。`
-  },
+ {
+  id: "tr0043",
+  type: "carte multi",
+  category: "Travail",
+  difficulté: "simple",
+  typeQuestion: "examen original",
+  question: "Le temps de travail maximal légal est :",
+  options: [
+    "48 heures par semaine",
+    "60 heures par semaine",
+    "6 heures par jour",
+    "30 heures par semaine"
+  ],
+  answer: 0,
+  explanation: "✅ A. 48 heures par semaine - Correct, parce que la limite hebdomadaire est de 48 heures (avec une moyenne de 44 heures sur 12 semaines). Donc cette réponse est la bonne.\n中：正确，因为法律规定每天最多10小时，每周最多48小时（12周平均44小时），所以这是正确答案。\n\n❌ B. 60 heures par semaine - Faux, parce que ces limites dépassent la réglementation française.\n中：错误，因为超出了法国法定最高工作时长。\n\n❌ C. 6 heures par jour - Faux, parce que ce n’est pas une règle générale, seulement une situation particulière (ex : mineurs, certains secteurs).\n中：错误，因为6小时不是一般规定，只是某些特定情况。\n\n❌ D. 30 heures par semaine - Faux, parce que la durée légale est 35 heures par semaine.\n中：错误，因为法定标准是每周35小时。"
+}
+,
   {
     id: "tr0044",
     type: "carte multi",
@@ -17830,32 +17834,23 @@ const question_multi = [
     ❌ D. À l'hôpital uniquement - Faux. L'hôpital délivre un certificat de naissance, mais la déclaration officielle se fait à la mairie.
     中：错误。医院只出具医学证明，法律登记必须在市政府完成。`
   },
-  {
-    id: "ir0010",
-    type: "carte multi",
-    category: "S'installer et résider en France",
-    difficulté: "simple",
-    typeQuestion: "examen original", // 有"10o"
-    question: "À quel âge peut-on conduire seul après avoir obtenu le permis B ?",
-    options: [
-      "Avoir 16 ans",
-      "Avoir suivi la formation obligatoire et réussir l'examen",
-      "Payer une amende",
-      "Avoir un véhicule ancien"
-    ],
-    answer: 1,
-    explanation: `❌ A. Avoir 16 ans - Faux. À 16 ans, on peut commencer certaines formations, mais pas passer l'examen classique du permis B.
-    中：错误。16岁只能开始学习，不能正式参加普通驾照考试。
-    
-    ✅ B. Avoir suivi la formation obligatoire et réussir l'examen - Correct ! La formation est imposée par la loi pour garantir la sécurité du conducteur et des autres usagers.
-    中：正确！法律要求完成培训并通过考试，以保障自己和他人的安全。
-    
-    ❌ C. Payer une amende - Faux. Les amendes sont des sanctions, pas des conditions pour un examen.
-    中：错误。罚款是处罚，不是考试条件。
-    
-    ❌ D. Avoir un véhicule ancien - Faux. L'âge du véhicule n'a aucun lien avec l'examen.
-    中：错误。车辆新旧与考试无关。`
-  },
+{
+  id: "ir0010",
+  type: "carte multi",
+  category: "S'installer et résider en France",
+  difficulté: "simple",
+  typeQuestion: "examen original",
+  question: "À quel âge peut-on conduire seul après avoir obtenu le permis B ?",
+  options: [
+    "Avoir 16 ans",
+    "Avoir suivi la formation obligatoire et réussir l’examen",
+    "Payer une amende",
+    "Avoir un véhicule ancien"
+  ],
+  answer: 1,
+  explanation: "✅ B. Avoir suivi la formation obligatoire et réussir l’examen - Correct ! Pour conduire seul en France, il faut avoir suivi toute la formation obligatoire et avoir réussi l'examen du permis B.\n中：正确！在法国，要独自驾驶，必须完成规定培训并通过驾照考试。\n\n❌ A. Avoir 16 ans - Faux. À 17 ans, on peut commencer certaines formations et passer l’examen classique du permis B.\n中：错误。16岁还不能独自驾驶，17岁可以开始学习并参加普通驾照考试。\n\n❌ C. Payer une amende - Faux. Payer une amende n’a aucun rapport avec l’âge légal pour conduire.\n中：错误。支付罚款与法定驾驶年龄无关。\n\n❌ D. Avoir un véhicule ancien - Faux. Le type de véhicule ne change pas l’âge légal.\n中：错误。车辆类型不影响法定驾驶年龄。"
+}
+,
   {
     id: "ir0011",
     type: "carte multi",
@@ -18064,32 +18059,23 @@ const question_multi = [
     ❌ D. La CAF - Faux, parce que la CAF verse des aides mais ne garantit pas l'ouverture d'un compte.
     中：错误，因为CAF只发补助，不管开户。`
   },
-  {
-    id: "ir0019",
-    type: "carte multi",
-    category: "S'installer et résider en France",
-    difficulté: "moyen",
-    typeQuestion: "question simulée", // 没有"o"
-    question: "À quel âge peut-on passer l'examen du permis B pour conduire seul ?",
-    options: [
-      "16 ans",
-      "17 ans",
-      "18 ans",
-      "20 ans"
-    ],
-    answer: 2,
-    explanation: `❌ A. 16 ans - Faux, parce que à 16 ans on peut seulement commencer certaines formations (conduite accompagnée). Donc on ne peut pas passer l'examen classique.
-    中：错误，因为16岁只能开始学习或陪同驾驶，所以不能正式考驾照。
-    
-    ❌ B. 17 ans - Faux, parce que même si l'apprentissage avance, l'examen du permis B reste réservé aux majeurs.
-    中：错误，因为即使可以提前学习，所以考试仍然要求成年。
-    
-    ✅ C. 18 ans - Correct, parce que à 18 ans une personne est juridiquement responsable. Donc elle peut conduire seule et passer l'examen du permis.
-    中：正确，因为18岁具备完全法律责任，所以可以独立驾驶并参加考试。
-    
-    ❌ D. 20 ans - Faux, parce que la loi n'impose pas d'attendre 20 ans.
-    中：错误，因为法律没有规定必须等到20岁。`
-  },
+{
+  id: "ir0019",
+  type: "carte multi",
+  category: "S'installer et résider en France",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "À quel âge peut-on passer l’examen du permis B pour conduire seul ?",
+  options: [
+    "16 ans",
+    "17 ans",
+    "18 ans",
+    "20 ans"
+  ],
+  answer: 1,
+  explanation: "✅ B. 17 ans - Correct ! On peut passer l’examen du permis B à 17 ans. Après obtention, la conduite est possible en respectant les règles (conduite accompagnée ou sous certaines conditions).\n中：正确。17岁可以参加B类驾照考试，拿到驾照后在符合法规的条件下可以驾驶（如陪同驾驶等）。\n\n❌ A. 16 ans - Faux, parce qu'à 16 ans on peut seulement commencer certaines formations (conduite accompagnée), donc on ne peut pas passer l’examen classique.\n中：错误。16岁只能开始学习或陪同驾驶，不能正式考驾照。\n\n❌ C. 18 ans - Faux. À 18 ans, on peut conduire seul sans restriction, mais l’examen peut déjà être passé à 17 ans.\n中：错误。18岁可以独立驾驶，但考试可以在17岁就参加。\n\n❌ D. 20 ans - Faux, parce que la loi n’impose pas d’attendre 20 ans.\n中：错误。法律没有规定必须等到20岁。"
+}
+,
   {
     id: "ir0020",
     type: "carte multi",
