@@ -781,7 +781,7 @@
                 right: 0;
             }
             
-            /* 关闭按钮 */
+            /* 关闭按钮 - 右上角X图标 */
             .close-menu {
                 position: absolute;
                 top: 25px;
@@ -1043,7 +1043,7 @@
             
             <!-- 导航链接 -->
             <div class="nav-links" id="navLinks">
-                <!-- 关闭按钮 -->
+                <!-- 关闭按钮 - 只在移动端显示 -->
                 <button class="close-menu" id="closeMenuBtn"></button>
                 
                 <a href="#accueil" id="navHome">Accueil</a>
@@ -1444,7 +1444,7 @@
                 navLinks.classList.add('active');
             });
             
-            // 关闭菜单
+            // 关闭菜单 - 通过X按钮
             if (closeMenuBtn) {
                 closeMenuBtn.addEventListener('click', function() {
                     hamburgerBtn.classList.remove('active');
