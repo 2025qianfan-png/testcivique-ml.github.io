@@ -141,9 +141,6 @@
             align-items: center;
             gap: 10px;
             transition: opacity 0.3s ease;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
         }
 
         .logo i {
@@ -754,10 +751,15 @@
                 display: flex;
             }
             
-            /* 汉堡菜单打开时，隐藏logo */
-            .hamburger.active ~ .logo {
-                opacity: 0;
-                visibility: hidden;
+            /* 桌面端：Logo居中，导航链接在右侧 */
+            .nav-container {
+                justify-content: space-between;
+            }
+            
+            .logo {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
             }
             
             .nav-links {
@@ -775,44 +777,16 @@
                 transition: right 0.4s ease;
                 overflow-y: auto;
                 z-index: 101;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
             }
             
             .nav-links.active {
                 right: 0;
             }
             
-            /* 关闭按钮 - 右上角X图标 */
+            /* 移除多余的关闭按钮样式 */
             .close-menu {
-                position: absolute;
-                top: 25px;
-                right: 20px;
-                width: 30px;
-                height: 30px;
-                background: transparent;
-                border: none;
-                cursor: pointer;
-                z-index: 102;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-            
-            .close-menu::before,
-            .close-menu::after {
-                content: '';
-                position: absolute;
-                width: 24px;
-                height: 3px;
-                background-color: var(--primary-blue);
-                border-radius: 2px;
-            }
-            
-            .close-menu::before {
-                transform: rotate(45deg);
-            }
-            
-            .close-menu::after {
-                transform: rotate(-45deg);
+                display: none;
             }
             
             .nav-links a {
@@ -1004,6 +978,34 @@
                 font-size: 1.1rem;
             }
         }
+
+        /* 桌面端导航布局 - 固定 */
+        @media (min-width: 1025px) {
+            .nav-container {
+                justify-content: space-between;
+            }
+            
+            .hamburger {
+                display: none;
+            }
+            
+            .logo {
+                position: static;
+                transform: none;
+            }
+            
+            /* 确保桌面端Logo和导航链接在同一行 */
+            .nav-links {
+                display: flex;
+                position: static;
+                width: auto;
+                height: auto;
+                flex-direction: row;
+                padding: 0;
+                background: none;
+                box-shadow: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1035,7 +1037,7 @@
                 <span></span>
             </button>
             
-            <!-- Logo在中间 -->
+            <!-- Logo -->
             <a href="#" class="logo">
                 <i class="fas fa-graduation-cap"></i>
                 <span id="logoText">Mille Voiles</span>
@@ -1043,9 +1045,6 @@
             
             <!-- 导航链接 -->
             <div class="nav-links" id="navLinks">
-                <!-- 关闭按钮 - 只在移动端显示 -->
-                <button class="close-menu" id="closeMenuBtn"></button>
-                
                 <a href="#accueil" id="navHome">Accueil</a>
                 <a href="#tests" id="navTests">Tests en ligne</a>
                 <a href="#thematiques" id="navThemes">Thématiques</a>
@@ -1435,22 +1434,13 @@
         // 汉堡菜单功能
         const hamburgerBtn = document.getElementById('hamburgerBtn');
         const navLinks = document.getElementById('navLinks');
-        const closeMenuBtn = document.getElementById('closeMenuBtn');
         
         if (hamburgerBtn && navLinks) {
-            // 打开菜单
+            // 打开/关闭菜单
             hamburgerBtn.addEventListener('click', function() {
-                hamburgerBtn.classList.add('active');
-                navLinks.classList.add('active');
+                hamburgerBtn.classList.toggle('active');
+                navLinks.classList.toggle('active');
             });
-            
-            // 关闭菜单 - 通过X按钮
-            if (closeMenuBtn) {
-                closeMenuBtn.addEventListener('click', function() {
-                    hamburgerBtn.classList.remove('active');
-                    navLinks.classList.remove('active');
-                });
-            }
             
             // 点击导航链接后关闭菜单（移动设备）
             navLinks.querySelectorAll('a').forEach(link => {
