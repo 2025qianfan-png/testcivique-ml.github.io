@@ -1,19 +1,17 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Test - Histoire, Géographie et Culture française</title>
+<title>Entraînement aux Annales - Examen Original</title>
 <!-- 添加Supabase库和配置文件 -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase-config.js"></script>
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 <style>
-/* Variables et reset */
+/* 原有样式保持不变，与您提供的代码一致 */
 :root {
   --primary-blue: #004080;
   --primary-light-blue: #0066cc;
@@ -265,9 +263,7 @@ h1, h2, h3, h4 {
   min-width: 140px;
 }
 
-/* ========== 修改以下样式 ========== */
-
-/* Training Info Modal - 改为和登录框一样的样式 */
+/* Training Info Modal */
 .training-info-modal {
   position: fixed;
   top: 0;
@@ -278,9 +274,9 @@ h1, h2, h3, h4 {
   z-index: 3001;
   display: none;
   justify-content: center;
-  align-items: flex-start; /* 改这里：从center改为flex-start */
+  align-items: flex-start;
   padding: 20px;
-  overflow-y: auto; /* 加这行：启用垂直滚动 */
+  overflow-y: auto;
 }
 
 .training-info-content {
@@ -289,54 +285,13 @@ h1, h2, h3, h4 {
   border-radius: var(--border-radius);
   max-width: 700px;
   width: 100%;
-  margin: 40px auto; /* 改这里：添加上下边距 */
+  margin: 40px auto;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   animation: modalFade 0.4s ease-out;
-  /* 添加这两行 */
   max-height: calc(100vh - 80px);
   overflow-y: auto;
 }
 
-/* ========== 删除下面这些旧的响应式样式（如果有的话）========== */
-/*
-.training-info-content {
-  max-height: 90vh;
-}
-*/
-
-/* 保持现有的响应式样式，但要修改max-height值 */
-@media (min-width: 768px) {
-  .training-info-content {
-    padding: 25px;
-    margin: 20px auto; /* 调整边距 */
-    max-height: 85vh; /* 改为使用vh单位 */
-  }
-}
-
-@media (max-width: 576px) {
-  .training-info-content {
-    padding: 15px;
-    margin: 10px auto; /* 调整边距 */
-    max-height: 90vh; /* 改为使用vh单位 */
-  }
-  
-  .training-info-header h2 {
-    font-size: 1.3rem;
-    margin-bottom: 8px;
-  }
-}
-
-@media (max-width: 375px) {
-  .training-info-content {
-    padding: 10px;
-    margin: 5px auto; /* 调整边距 */
-    max-height: 95vh; /* 增加高度 */
-  }
-  
-  .training-info-header h2 {
-    font-size: 1.2rem;
-  }
-}
 .training-info-header {
   text-align: center;
   margin-bottom: 25px;
@@ -400,7 +355,39 @@ h1, h2, h3, h4 {
   margin-right: 8px;
 }
 
-/* 移除题目分布部分的样式 */
+/* 用户类型指示器 */
+.user-type-indicator {
+  background-color: var(--primary-blue);
+  color: white;
+  padding: 12px 20px;
+  border-radius: var(--border-radius);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  box-shadow: var(--shadow);
+}
+
+.user-type-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.user-type-badge i {
+  font-size: 1.2rem;
+  color: var(--primary-yellow);
+}
+
+.user-type-name {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
 
 /* Test Container */
 .test-container {
@@ -411,7 +398,7 @@ h1, h2, h3, h4 {
   display: block;
 }
 
-/* Question Counter - 增强样式 */
+/* Question Counter */
 .question-counter {
   background-color: var(--white);
   padding: 20px;
@@ -453,7 +440,7 @@ h1, h2, h3, h4 {
   transition: width 0.5s ease;
 }
 
-/* Question Card - 增强版 */
+/* Question Card */
 .question-card {
   background-color: var(--white);
   border-radius: var(--border-radius);
@@ -1084,104 +1071,37 @@ h1, h2, h3, h4 {
   background: #a8a8a8;
 }
 
-/* Responsive - 移动端优先设计 */
-
-/* 平板 - 768px以上 */
-@media (min-width: 768px) {
-  .training-info-content {
-    padding: 25px;
-    margin: 20px auto;
-    max-height: 90vh;
-  }
-  
-  .training-info-header h2 {
-    font-size: 1.8rem;
+/* Responsive */
+@media (max-width: 768px) {
+  .question-map {
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 
-/* 小手机优化 - 576px以下 */
 @media (max-width: 576px) {
-  .training-info-content {
-    padding: 15px;
-    margin: 5px auto;
-    max-height: 98vh;
-  }
-  
-  .training-info-header h2 {
-    font-size: 1.3rem;
-    margin-bottom: 8px;
-  }
-  
-  .training-type-info {
-    padding: 15px;
-  }
-  
-  /* 其他页面的移动端优化 */
-  .question-map {
-    grid-template-columns: repeat(5, 1fr);
-    gap: 8px;
-  }
-  
-  .map-item {
-    font-size: 0.9rem;
-  }
-  
   .question-card {
     padding: 20px;
   }
-  
   .question-text {
     font-size: 1.2rem;
   }
-  
   .option {
     padding: 12px 15px;
   }
-  
-  .option-letter {
-    width: 25px;
-    height: 25px;
-    font-size: 0.8rem;
-  }
-  
   .navigation-btns {
     flex-direction: column;
   }
-  
   .nav-btn {
     width: 100%;
   }
-  
   .results-actions {
     flex-direction: column;
   }
-  
-  .results-actions .btn {
-    width: 100%;
-    margin-bottom: 10px;
-  }
-  
   .score-display {
     font-size: 2.5rem;
   }
-  
   .score-text {
     font-size: 1.3rem;
-  }
-}
-
-/* 超小手机 - 375px以下 */
-@media (max-width: 375px) {
-  .question-map {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  
-  .training-info-content {
-    padding: 10px;
-  }
-  
-  .training-info-header h2 {
-    font-size: 1.2rem;
   }
 }
 </style>
@@ -1202,50 +1122,43 @@ h1, h2, h3, h4 {
   </div>
 </div>
 
-
-
-<!-- 找到这个部分 -->
+<!-- Training Info Modal -->
 <div id="trainingInfoModal" class="training-info-modal">
   <div class="training-info-content">
-    <!-- 在这两行中间添加： -->
     <div style="max-height: 100%; overflow-y: auto; padding-right: 5px;">
-    
-    <div class="training-info-header">
-      <h2>Informations sur votre formation</h2>
-      <p>Informations sur le test et votre compte</p>
-    </div>
-    
-    <div class="training-info-body">
-      <div class="training-type-info" id="trainingTypeInfo">
-        <!-- 内容不变 -->
+      <div class="training-info-header">
+        <h2>Informations sur votre formation</h2>
+        <p>Entraînement aux annales officielles</p>
       </div>
       
-      <div class="access-days-info" id="accessDaysInfo" style="display: none;">
-        <!-- 内容不变 -->
+      <div class="training-info-body">
+        <div class="training-type-info" id="trainingTypeInfo">
+          <!-- 内容由JS填充 -->
+        </div>
+        
+        <div class="access-days-info" id="accessDaysInfo" style="display: none;">
+          <!-- 剩余天数由JS填充 -->
+        </div>
+        
+        <div style="margin-top: 30px; padding: 15px; background-color: rgba(0, 64, 128, 0.05); border-radius: 8px; border-left: 4px solid var(--primary-blue);">
+          <h3 style="color: var(--primary-blue); margin-bottom: 10px; font-size: 1.1rem;">
+            <i class="fas fa-lightbulb"></i> Conseils pour les annales
+          </h3>
+          <ul style="color: var(--medium-gray); padding-left: 20px; line-height: 1.6;">
+            <li>Prenez votre temps, il n'y a pas de limite de temps</li>
+            <li>Ces questions sont issues d'examens originaux</li>
+            <li>Lisez attentivement chaque question</li>
+            <li>Consultez les explications après chaque réponse</li>
+            <li>Seuil de réussite : 16/20 (80%)</li>
+          </ul>
+        </div>
       </div>
       
-      <!-- 添加这个额外信息块让内容更充实 -->
-      <div style="margin-top: 30px; padding: 15px; background-color: rgba(0, 64, 128, 0.05); border-radius: 8px; border-left: 4px solid var(--primary-blue);">
-        <h3 style="color: var(--primary-blue); margin-bottom: 10px; font-size: 1.1rem;">
-          <i class="fas fa-lightbulb"></i> Conseils pour le test
-        </h3>
-        <ul style="color: var(--medium-gray); padding-left: 20px; line-height: 1.6;">
-          <li>Prenez votre temps, il n'y a pas de limite de temps</li>
-          <li>Lisez attentivement chaque question</li>
-          <li>Consultez les explications après chaque réponse</li>
-          <li>Le test peut être recommencé si nécessaire</li>
-          <li>Seuil de réussite : 16/20 (80%)</li>
-        </ul>
+      <div class="alert-btns">
+        <button class="btn btn-primary" onclick="closeTrainingInfo()">
+          <i class="fas fa-play-circle"></i> Commencer le test
+        </button>
       </div>
-    </div>
-    
-    <div class="alert-btns">
-      <button class="btn btn-primary" onclick="closeTrainingInfo()">
-        <i class="fas fa-play-circle"></i> Commencer le test
-      </button>
-    </div>
-    
-    <!-- 在这行之前添加： -->
     </div>
   </div>
 </div>
@@ -1253,7 +1166,7 @@ h1, h2, h3, h4 {
 <!-- Test Header -->
 <header class="test-header" style="display: none;">
   <div class="container">
-    <h1 id="testTitle">Histoire et Culture Française</h1>
+    <h1 id="testTitle">Entraînement aux Annales</h1>
     <p id="testSubtitle">20 questions - Pas de limite de temps</p>
     <div class="header-actions">
       <button class="btn" onclick="showInstructions()">
@@ -1272,12 +1185,23 @@ h1, h2, h3, h4 {
 <!-- Test Container -->
 <main class="container">
   <div id="testContainer" class="test-container">
+    <!-- 用户类型指示器 -->
+    <div class="user-type-indicator" id="userTypeIndicator">
+      <div class="user-type-badge">
+        <i class="fas fa-user-graduate"></i>
+        <span id="userTypeText">Type d'utilisateur</span>
+      </div>
+      <div class="user-type-name" id="userTypeName">
+        Chargement...
+      </div>
+    </div>
+    
     <!-- Question Counter -->
     <div class="question-counter">
       <div class="counter-info">
         <div>
           <h3>Question <span id="currentQuestion">1</span> sur <span id="totalQuestions">20</span></h3>
-          <p id="testTypeInfo">Test des Valeurs Républicaines</p>
+          <p id="testTypeInfo">Annales officielles</p>
         </div>
         <div class="progress-container">
           <div>Progression: <span id="progressPercent">0%</span></div>
@@ -1290,21 +1214,18 @@ h1, h2, h3, h4 {
     
     <!-- Question -->
     <div class="question-card">
-      <!-- 题目元数据标签区域 -->
       <div class="question-meta" id="questionMeta">
-        <!-- 标签将由JavaScript动态添加 -->
+        <!-- 标签由JS动态添加，只显示一个主题标签 -->
       </div>
       
       <div class="question-text" id="questionText">Chargement de la question...</div>
       
       <div class="options-container" id="optionsContainer">
-        <!-- Options will be inserted here by JavaScript -->
+        <!-- Options inserted by JS -->
       </div>
       
       <!-- 答案反馈区域 -->
-      <div class="answer-feedback" id="answerFeedback">
-        <!-- 反馈内容将由JavaScript动态添加 -->
-      </div>
+      <div class="answer-feedback" id="answerFeedback"></div>
       
       <!-- 下一题按钮 -->
       <div class="next-question-btn" id="nextQuestionBtn">
@@ -1335,50 +1256,28 @@ h1, h2, h3, h4 {
   <div id="resultsContainer" class="results-container">
     <div class="results-content">
       <div class="results-header">
-        <!-- 显示总分 -->
         <div class="score-display" id="scoreDisplay">0/20</div>
         <div class="score-text" id="scoreText">Chargement du résultat...</div>
-        
-        <!-- 显示进度条 -->
         <div class="score-bar">
           <div class="score-fill" id="scoreFill"></div>
         </div>
       </div>
       
-      <!-- Question Map -->
       <div class="question-map-container" id="questionMapContainer">
         <h3>Carte des Réponses</h3>
-        <div class="question-map" id="questionMap">
-          <!-- Question map will be inserted here by JavaScript -->
-        </div>
+        <div class="question-map" id="questionMap"></div>
         <div class="map-legend">
-          <div class="legend-item">
-            <div class="legend-color unanswered"></div>
-            <span>Non répondue</span>
-          </div>
-          <div class="legend-item">
-            <div class="legend-color correct"></div>
-            <span>Correcte</span>
-          </div>
-          <div class="legend-item">
-            <div class="legend-color incorrect"></div>
-            <span>Incorrecte</span>
-          </div>
+          <div class="legend-item"><div class="legend-color unanswered"></div><span>Non répondue</span></div>
+          <div class="legend-item"><div class="legend-color correct"></div><span>Correcte</span></div>
+          <div class="legend-item"><div class="legend-color incorrect"></div><span>Incorrecte</span></div>
         </div>
       </div>
       
-      <!-- Question Review -->
-      <div class="question-review-container" id="questionReview">
-        <!-- Question review will be inserted here when user clicks on map -->
-      </div>
+      <div class="question-review-container" id="questionReview"></div>
       
       <div class="results-actions">
-        <button class="btn" onclick="restartTest()">
-          <i class="fas fa-redo"></i> Nouveau test
-        </button>
-        <button class="btn btn-primary" onclick="goBackToHome()">
-          <i class="fas fa-home"></i> Accueil
-        </button>
+        <button class="btn" onclick="restartTest()"><i class="fas fa-redo"></i> Nouveau test</button>
+        <button class="btn btn-primary" onclick="goBackToHome()"><i class="fas fa-home"></i> Accueil</button>
       </div>
     </div>
   </div>
@@ -1388,51 +1287,33 @@ h1, h2, h3, h4 {
 <footer class="test-footer">
   <div class="container">
     <p>© 2026 Association Mille Voiles</p>
-    <p id="footerTestInfo">Test des Valeurs Républicaines - Simulation spécialisée</p>
+    <p id="footerTestInfo">Entraînement aux annales - Examen original</p>
     <p><a href="examen-civique.html">Retour au site principal</a></p>
   </div>
 </footer>
 
 
+<!-- 题库文件 -->
 <script src="question_multia.js"></script>
 <script src="question_resident.js"></script>
 <script src="question_nat.js"></script>
 
 <script>
 // ==================== 全局配置 ====================
-let selectedTestType = 'culture_module'
-// 禁止右键
-document.addEventListener('contextmenu', function (e) {
-    e.preventDefault();
-});
-
-// 禁止常见快捷键
+// 禁止右键和快捷键
+document.addEventListener('contextmenu', function (e) { e.preventDefault(); });
 document.addEventListener('keydown', function (e) {
-    if (e.ctrlKey && ['c', 'u', 's', 'x', 'v', 'a'].includes(e.key.toLowerCase())) {
-        e.preventDefault();
-    }
-    if (e.key === 'F12') {
-        e.preventDefault();
-    }
+    if (e.ctrlKey && ['c', 'u', 's', 'x', 'v', 'a'].includes(e.key.toLowerCase())) e.preventDefault();
+    if (e.key === 'F12') e.preventDefault();
 });
-
-
-// ==================== 主题分布配置 ====================
-// 模块四：法国历史、地理和文化
-const themeDistribution = {
-    "Grandes périodes et personnages historiques": 7,  // 历史时期和人物：7道
-    "Territoires et géographie": 7,                     // 领土和地理：7道
-    "Patrimoine français": 6                           // 法国遗产：6道
-};
-// 总计：20题
 
 // ==================== 全局变量 ====================
 let studentInfo = { name: "", testDate: "", type: "", daysLeft: 0 };
 let selectedQuestions = [];
 let currentQuestionIndex = 0;
 let userAnswers = [];
-let answeredQuestions = new Set(); // 记录已回答的题目
-let currentAnswerSubmitted = false; // 当前题目是否已提交
+let answeredQuestions = new Set();
+let currentAnswerSubmitted = false;
 
 let currentScore = 0;
 let currentPercentage = 0;
@@ -1440,40 +1321,47 @@ let currentScoreText = "";
 
 let allQuestions = [];
 
+// 用户类型对应的显示文本
+const userTypeDisplay = {
+    'm': {
+        fr: 'Titre de Séjour 2-4 Ans',
+        zh: '2-4年居留许可',
+        icon: 'fa-passport',
+        color: '#3498db'
+    },
+    'n': {
+        fr: 'Nationalité Française',
+        zh: '法国国籍',
+        icon: 'fa-flag',
+        color: '#2ecc71'
+    },
+    'r': {
+        fr: 'Carte de Résident 10 Ans',
+        zh: '10年长期居留卡',
+        icon: 'fa-id-card-alt',
+        color: '#9b59b6'
+    },
+    't': {
+        fr: 'Tous les tests (accès complet)',
+        zh: '所有测试（完全访问）',
+        icon: 'fa-graduation-cap',
+        color: '#f1c40f'
+    }
+};
+
 // ==================== 自定义提示窗口 ====================
 function showAlert(title, message, type = 'info') {
     const alertModal = document.getElementById('alertModal');
-    const alertTitle = document.getElementById('alertTitle');
-    const alertMessage = document.getElementById('alertMessage');
+    document.getElementById('alertTitle').textContent = title;
+    document.getElementById('alertMessage').textContent = message;
     const alertIcon = document.getElementById('alertIcon');
-    
-    // 设置标题和消息
-    alertTitle.textContent = title;
-    alertMessage.textContent = message;
-    
-    // 设置图标类型
     alertIcon.className = 'alert-icon';
     switch(type) {
-        case 'success':
-            alertIcon.classList.add('success');
-            alertIcon.innerHTML = '<i class="fas fa-check-circle"></i>';
-            break;
-        case 'warning':
-            alertIcon.classList.add('warning');
-            alertIcon.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
-            break;
-        case 'error':
-            alertIcon.classList.add('error');
-            alertIcon.innerHTML = '<i class="fas fa-times-circle"></i>';
-            break;
-        case 'info':
-        default:
-            alertIcon.classList.add('info');
-            alertIcon.innerHTML = '<i class="fas fa-info-circle"></i>';
-            break;
+        case 'success': alertIcon.classList.add('success'); alertIcon.innerHTML = '<i class="fas fa-check-circle"></i>'; break;
+        case 'warning': alertIcon.classList.add('warning'); alertIcon.innerHTML = '<i class="fas fa-exclamation-triangle"></i>'; break;
+        case 'error': alertIcon.classList.add('error'); alertIcon.innerHTML = '<i class="fas fa-times-circle"></i>'; break;
+        default: alertIcon.classList.add('info'); alertIcon.innerHTML = '<i class="fas fa-info-circle"></i>'; break;
     }
-    
-    // 显示窗口
     alertModal.style.display = 'flex';
 }
 
@@ -1481,108 +1369,131 @@ function closeAlert() {
     document.getElementById('alertModal').style.display = 'none';
 }
 
+function closeTrainingInfo() {
+    document.getElementById('trainingInfoModal').style.display = 'none';
+    startTest();
+}
+
+// ==================== 从URL获取参数 ====================
+function getUrlParameter(name) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(name);
+}
+
+// 解析token
+function parseToken(token) {
+    try {
+        const decoded = atob(token);
+        return JSON.parse(decoded);
+    } catch (e) {
+        console.error("Token解析失败:", e);
+        return null;
+    }
+}
+
+// ==================== 更新用户类型显示 ====================
+// ==================== 更新用户类型显示 ====================
+function updateUserTypeDisplay() {
+    const userTypeText = document.getElementById('userTypeText');
+    const userTypeName = document.getElementById('userTypeName');
+    const userTypeIndicator = document.getElementById('userTypeIndicator');
+    
+    console.log("更新显示，用户类型:", studentInfo.type);
+    
+    // 根据用户类型设置显示内容
+    let displayFr = '';
+    let displayZh = '';
+    let icon = '';
+    let color = '';
+    
+    switch(studentInfo.type) {
+        case 'm':
+            displayFr = 'Titre de Séjour 2-4 Ans';
+            displayZh = '2-4年居留许可';
+            icon = 'fa-passport';
+            color = '#3498db';
+            break;
+        case 'n':
+            displayFr = 'Nationalité Française';
+            displayZh = '法国国籍';
+            icon = 'fa-flag';
+            color = '#2ecc71';
+            break;
+        case 'r':
+            displayFr = 'Carte de Résident 10 Ans';
+            displayZh = '10年长期居留卡';
+            icon = 'fa-id-card-alt';
+            color = '#9b59b6';
+            break;
+        case 't':
+            displayFr = 'Accès complet';
+            displayZh = '完全访问';
+            icon = 'fa-graduation-cap';
+            color = '#f1c40f';
+            break;
+        default:
+            displayFr = 'Visiteur';
+            displayZh = '访客模式';
+            icon = 'fa-user';
+            color = 'var(--primary-blue)';
+    }
+    
+    // 更新显示
+    userTypeText.innerHTML = `<i class="fas ${icon}"></i> ${studentInfo.name} - ${displayFr}`;
+    userTypeName.textContent = displayZh;
+    userTypeIndicator.style.backgroundColor = color;
+}
+// ==================== 培训信息窗口 ====================
 // ==================== 培训信息窗口 ====================
 function showTrainingInfo() {
     const trainingTypeInfo = document.getElementById('trainingTypeInfo');
     const accessDaysInfo = document.getElementById('accessDaysInfo');
     
-    // 根据学生类型显示不同的培训信息
-    let trainingHTML = '';
-    let difficultyNote = '';
-    let bankInfo = ''; // 新增：题库信息
+    // 用户类型显示
+    let userTypeText = '';
+    let userTypeChinese = '';
+    let userTypeIcon = '';
+    
+    console.log("显示培训信息，用户类型:", studentInfo.type);
     
     switch(studentInfo.type) {
-        case 'm': // 四年居留
-            trainingHTML = `
-                <h3><i class="fas fa-landmark-flag"></i> Formation : Histoire, Géographie et Culture Française</h3>
-                <p><strong>Public visé :</strong> Demandeurs de titre de séjour pluriannuel (2-4 ans)</p>
-                <p><strong>Target audience :</strong> Multi-year residence permit applicants (2-4 years)</p>
-                <div class="chinese">
-                    <strong>适用对象：</strong> 2-4年居留许可申请者
-                </div>
-            `;
-            bankInfo = `
-                <p><strong><i class="fas fa-database"></i> Base de questions :</strong> multi année</p>
-                <p><strong>题库来源：</strong> 多年期居留题库</p>
-            `;
-            difficultyNote = '<p><strong>Note :</strong> Questions sur les connaissances de base de l\'histoire, géographie et culture française.</p>';
+        case 'm':
+            userTypeText = 'Titre de Séjour 2-4 Ans';
+            userTypeChinese = '2-4年居留许可申请者';
+            userTypeIcon = 'fa-passport';
             break;
-            
-        case 'n': // 入籍
-            trainingHTML = `
-                <h3><i class="fas fa-landmark-flag"></i> Formation : Histoire, Géographie et Culture Française</h3>
-                <p><strong>Public visé :</strong> Demandeurs de nationalité française</p>
-                <p><strong>Target audience :</strong> French nationality applicants</p>
-                <div class="chinese">
-                    <strong>适用对象：</strong> 法国入籍申请者
-                </div>
-            `;
-            bankInfo = `
-                <p><strong><i class="fas fa-database"></i> Base de questions :</strong> Nationalité</p>
-                <p><strong>题库来源：</strong> 入籍题库</p>
-            `;
-            difficultyNote = '<p><strong>Note :</strong> Questions approfondies sur l\'histoire, la géographie et le patrimoine culturel français.</p>';
+        case 'n':
+            userTypeText = 'Nationalité Française';
+            userTypeChinese = '法国入籍申请者';
+            userTypeIcon = 'fa-flag';
             break;
-            
-        case 'r': // 十年居留
-            trainingHTML = `
-                <h3><i class="fas fa-landmark-flag"></i> Formation : Histoire, Géographie et Culture Française</h3>
-                <p><strong>Public visé :</strong> Demandeurs de carte de résident de 10 ans</p>
-                <p><strong>Target audience :</strong> 10-year resident card applicants</p>
-                <div class="chinese">
-                    <strong>适用对象：</strong> 10年居留卡申请者
-                </div>
-            `;
-            bankInfo = `
-                <p><strong><i class="fas fa-database"></i> Base de questions :</strong>Résident</p>
-                <p><strong>题库来源：</strong> 10年居留卡题库</p>
-            `;
-            difficultyNote = '<p><strong>Note :</strong> Questions sur la compréhension de l\'histoire et de la culture française.</p>';
+        case 'r':
+            userTypeText = 'Carte de Résident 10 Ans';
+            userTypeChinese = '10年长期居留卡申请者';
+            userTypeIcon = 'fa-id-card-alt';
             break;
-            
-        case 't': // 所有类型
-            trainingHTML = `
-                <h3><i class="fas fa-landmark-flag"></i> Formation : Histoire, Géographie et Culture Française</h3>
-                <p><strong>Public visé :</strong> Tous les demandeurs (accès complet)</p>
-                <p><strong>Target audience :</strong> All applicants (full access)</p>
-                <div class="chinese">
-                    <strong>适用对象：</strong> 所有申请者（完全访问权限）
-                </div>
-            `;
-            bankInfo = `
-                <p><strong><i class="fas fa-database"></i> Base de questions :</strong> Toutes les bases </p>
-                <p><strong>题库来源：</strong> 所有题库</p>
-            `;
-            difficultyNote = '<p><strong>Note :</strong> Vous avez accès à toutes les questions sur l\'histoire, la géographie et la culture française.</p>';
+        case 't':
+            userTypeText = 'Tous les tests (accès complet)';
+            userTypeChinese = '所有测试（完全访问）';
+            userTypeIcon = 'fa-graduation-cap';
             break;
+        default:
+            userTypeText = 'Visiteur';
+            userTypeChinese = '访客模式';
+            userTypeIcon = 'fa-user';
     }
     
-    // 将题库信息添加到显示内容中
-    trainingHTML += bankInfo;
-    trainingHTML += difficultyNote;
-    
-    // 添加测试具体信息
-    trainingHTML += `
-        <div style="margin-top: 15px; padding: 12px; background-color: rgba(0, 64, 128, 0.08); border-radius: 6px;">
-            <p style="margin-bottom: 8px;"><strong><i class="fas fa-question-circle"></i> Test spécialisé :</strong></p>
-            <p><strong>Domaines de connaissances :</strong></p>
-            <ul style="margin-left: 20px; margin-bottom: 10px;">
-                <li><i class="fas fa-landmark"></i> Histoire de France (périodes clés, personnages historiques)</li>
-                <li><i class="fas fa-map"></i> Géographie (régions, villes, territoires)</li>
-                <li><i class="fas fa-theater-masks"></i> Culture française (patrimoine, arts, traditions)</li>
-                <li><i class="fas fa-book-open"></i> Connaissances générales sur la France</li>
-            </ul>
-            <p>• 20 questions culturelles - Pas de limite de temps</p>
+    let trainingHTML = `
+        <h3><i class="fas fa-history"></i> Entraînement aux Annales Officielles</h3>
+        <p><strong><i class="fas fa-user"></i> Utilisateur :</strong> ${studentInfo.name}</p>
+        <p><strong><i class="${userTypeIcon}"></i> Type de test :</strong> ${userTypeText}</p>
+        <p><strong><i class="fas fa-language"></i> 测试类型：</strong> ${userTypeChinese}</p>
+        <div style="margin-top:15px; padding:12px; background:rgba(0,64,128,0.08); border-radius:6px;">
+            <p><strong><i class="fas fa-question-circle"></i> Test spécialisé :</strong></p>
+            <p>• 20 questions issues des annales - Pas de limite de temps</p>
             <p>• Seuil de réussite : 16/20 (80%)</p>
-            <div class="chinese" style="margin-top: 10px;">
-                <p><strong>知识领域：</strong></p>
-                <ul style="margin-left: 20px; margin-bottom: 10px;">
-                    <li>法国历史（关键时期、历史人物）</li>
-                    <li>地理（大区、城市、领土）</li>
-                    <li>法国文化（遗产、艺术、传统）</li>
-                    <li>关于法国的一般知识</li>
-                </ul>
-                <p>• 20道文化题目 - 无时间限制</p>
+            <div class="chinese" style="margin-top:10px;">
+                <p>• 20道真题 - 无时间限制</p>
                 <p>• 通过标准：16/20 (80%)</p>
             </div>
         </div>
@@ -1590,67 +1501,54 @@ function showTrainingInfo() {
     
     trainingTypeInfo.innerHTML = trainingHTML;
     
-    // 显示剩余天数信息
     if (studentInfo.daysLeft > 0) {
         accessDaysInfo.style.display = 'block';
-        if (studentInfo.daysLeft === 1) {
-            accessDaysInfo.innerHTML = `<p><i class="fas fa-calendar-day"></i> Votre accès est valide pour encore <strong>1 jour</strong>.</p>`;
-        } else {
-            accessDaysInfo.innerHTML = `<p><i class="fas fa-calendar-alt"></i> Votre accès est valide pour encore <strong>${studentInfo.daysLeft} jours</strong>.</p>`;
-        }
+        accessDaysInfo.innerHTML = `<p><i class="fas fa-calendar-alt"></i> Votre accès est valide pour encore <strong>${studentInfo.daysLeft} jour${studentInfo.daysLeft>1?'s':''}</strong>.</p>`;
     } else if (studentInfo.daysLeft === -1) {
         accessDaysInfo.style.display = 'block';
         accessDaysInfo.innerHTML = `<p><i class="fas fa-infinity"></i> Votre accès est valide <strong>sans limitation de durée</strong>.</p>`;
     }
     
-    // 显示培训信息窗口
     document.getElementById('trainingInfoModal').style.display = 'flex';
 }
-
-function closeTrainingInfo() {
-    document.getElementById('trainingInfoModal').style.display = 'none';
-    startTest();
-}
-
-
+// ==================== 开始测试 ====================
 // ==================== 开始测试 ====================
 function startTest() {
-    // 显示加载动画
     document.getElementById('trainingInfoModal').style.display = 'none';
-    
-    // 创建加载提示
     showAlert("Préparation du test", "Chargement des questions en cours...", 'info');
     
     setTimeout(() => {
         try {
+            console.log("开始测试，用户类型:", studentInfo.type);
+            
             // 根据学生类型选择题库
             if (studentInfo.type === 'm') {
-                // 四年居留：只用 question_multia
+                // 四年居留：只用 question_multi
                 allQuestions = [...question_multi];
-                console.log("四年居留题库：使用 question_multia，总数:", allQuestions.length);
+                console.log("四年居留题库：使用 question_multi，总数:", allQuestions.length);
             } else if (studentInfo.type === 'r') {
-                // 十年居留：使用 question_multia + question_resident
+                // 十年居留：使用 question_multi + question_resident
                 allQuestions = [...question_multi];
                 if (typeof question_resident !== 'undefined' && question_resident.length > 0) {
                     allQuestions = allQuestions.concat(question_resident);
-                    console.log("十年居留题库：使用 question_multia + question_resident，总数:", allQuestions.length);
+                    console.log("十年居留题库：使用 question_multi + question_resident，总数:", allQuestions.length);
                 } else {
-                    console.warn("question_resident.js 未找到，仅使用 question_multia");
+                    console.log("十年居留题库：仅使用 question_multi，总数:", allQuestions.length);
                 }
             } else if (studentInfo.type === 'n') {
-                // 法国入籍：使用 question_multia + question_resident + question_nat
+                // 法国入籍：使用 question_multi + question_resident + question_nat
                 allQuestions = [...question_multi];
                 if (typeof question_resident !== 'undefined' && question_resident.length > 0) {
                     allQuestions = allQuestions.concat(question_resident);
                 }
                 if (typeof question_nat !== 'undefined' && question_nat.length > 0) {
                     allQuestions = allQuestions.concat(question_nat);
-                    console.log("法国入籍题库：使用 question_multia + question_resident + question_nat，总数:", allQuestions.length);
+                    console.log("法国入籍题库：使用 question_multi + question_resident + question_nat，总数:", allQuestions.length);
                 } else {
-                    console.warn("question_nat.js 未找到，仅使用 question_multia + question_resident");
+                    console.log("法国入籍题库：question_nat 未找到，总数:", allQuestions.length);
                 }
             } else {
-                // 完全访问：使用所有题库
+                // 完全访问 (type='t' 或其他)：使用所有题库
                 allQuestions = [...question_multi];
                 if (typeof question_resident !== 'undefined' && question_resident.length > 0) {
                     allQuestions = allQuestions.concat(question_resident);
@@ -1661,206 +1559,40 @@ function startTest() {
                 console.log("完全访问题库：使用所有题库，总数:", allQuestions.length);
             }
             
-            if (allQuestions.length === 0) {
-                throw new Error("题库为空，请检查题库文件");
+            // 筛选 typeQuestion === "examen original"
+            const originalQuestions = allQuestions.filter(q => q.typeQuestion === "examen original");
+            
+            if (originalQuestions.length === 0) {
+                throw new Error("Aucune question de type 'examen original' trouvée.");
             }
             
-            // 隐藏提示窗口
+            // 随机选择20题
+            selectedQuestions = shuffleArray(originalQuestions).slice(0, 20);
+            
             closeAlert();
             
-            // 显示测试界面
             document.querySelector('.test-header').style.display = 'block';
             document.getElementById('testContainer').classList.add('show');
             document.querySelector('.test-footer').style.display = 'block';
             
-            document.getElementById('testTitle').textContent = "Histoire et Culture";
-            document.getElementById('testSubtitle').textContent = "Histoire, géographie et patrimoine français";
-            document.getElementById('testTypeInfo').textContent = "Test Histoire et Culture";
-            document.getElementById('footerTestInfo').textContent = 
-                "Histoire, géographie et culture française - 20 questions";
+            document.getElementById('testTitle').textContent = "Entraînement aux Annales";
+            document.getElementById('testSubtitle').textContent = "20 questions originales";
+            document.getElementById('testTypeInfo').textContent = "Annales officielles";
+            document.getElementById('footerTestInfo').textContent = "Annales officielles - 20 questions";
+            
+            // 更新用户类型显示
+            updateUserTypeDisplay();
             
             initializeTest();
-            
         } catch (error) {
             console.error("初始化测试失败:", error);
             showAlert("Erreur d'initialisation", error.message || "Erreur lors de l'initialisation du test.", 'error');
         }
     }, 1500);
 }
-// ==================== 根据主题分布选择题目 ====================
-function selectQuestionsByTheme() {
-    console.log("========== 开始选题 ==========");
-    console.log("学生类型:", studentInfo.type);
-    console.log("总题库大小:", allQuestions.length);
-    
-    // ========== 1. 定义允许的主题 ==========
-    const ALLOWED_THEMES = [
-        "Grandes périodes et personnages historiques",
-        "Territoires et géographie",
-        "Patrimoine français"
-    ];
-    
-    // ========== 2. 过滤：只保留允许的主题 ==========
-    const filteredQuestions = allQuestions.filter(q => {
-        const category = q.category || "Autre";
-        return ALLOWED_THEMES.includes(category);
-    });
-    
-    console.log(`📊 过滤前: ${allQuestions.length} 题`);
-    console.log(`📊 过滤后: ${filteredQuestions.length} 题 (只保留 3 个主题)`);
-    
-    // 打印各主题数量
-    const tempCount = {};
-    filteredQuestions.forEach(q => {
-        const t = q.category || "Autre";
-        tempCount[t] = (tempCount[t] || 0) + 1;
-    });
-    console.log("📋 各主题题目数量:");
-    for (const [theme, count] of Object.entries(tempCount)) {
-        console.log(`  ${theme}: ${count} 题`);
-    }
-    
-    // 如果过滤后题目不够，报错
-    if (filteredQuestions.length < 20) {
-        console.error(`❌ 错误：过滤后只有 ${filteredQuestions.length} 题，需要 20 题`);
-        // 紧急情况：从所有题目中取
-        const shuffled = shuffleArray([...allQuestions]);
-        selectedQuestions = shuffled.slice(0, 20);
-        // 添加标签后返回
-        selectedQuestions = selectedQuestions.map((question) => {
-            const category = question.category || "Autre";
-            let tags = [];
-            if (category.includes("historiques") || category.includes("personnages")) tags.push("Histoire");
-            else if (category.includes("géographie") || category.includes("Territoires")) tags.push("Géographie");
-            else if (category.includes("Patrimoine") || category.includes("culture")) tags.push("Patrimoine");
-            else tags.push(category);
-            if (question.difficulté) tags.push(question.difficulté);
-            if (question.typeQuestion) tags.push(question.typeQuestion);
-            return {
-                ...question,
-                customTags: tags,
-                theme: category
-            };
-        });
-        return;
-    }
-    
-    // ========== 3. 按主题分组 ==========
-    const questionsByCategory = {};
-    filteredQuestions.forEach((question) => {
-        const category = question.category || "Autre";
-        if (!questionsByCategory[category]) {
-            questionsByCategory[category] = [];
-        }
-        questionsByCategory[category].push(question);
-    });
-    
-    // ========== 4. 从每个主题中选题 ==========
-    const themeRequirements = {
-        "Grandes périodes et personnages historiques": 7,
-        "Territoires et géographie": 7,
-        "Patrimoine français": 6
-    };
-    
-    selectedQuestions = [];
-    let totalSelected = 0;
-    
-    for (const [theme, requiredCount] of Object.entries(themeRequirements)) {
-        const available = questionsByCategory[theme] || [];
-        if (available.length === 0) {
-            console.warn(`⚠️ 主题 "${theme}" 没有题目！`);
-            continue;
-        }
-        
-        const shuffled = shuffleArray([...available]);
-        const toAdd = shuffled.slice(0, Math.min(requiredCount, available.length));
-        selectedQuestions.push(...toAdd);
-        totalSelected += toAdd.length;
-        console.log(`✅ "${theme}" 选中 ${toAdd.length} 题 (共 ${available.length} 题)`);
-    }
-    
-    console.log(`📊 已选 ${totalSelected} 题`);
-    
-    // ========== 5. 如果不够 20 题，从允许的主题中补充（关键修改） ==========
-    if (totalSelected < 20) {
-        const needed = 20 - totalSelected;
-        const selectedSet = new Set(selectedQuestions);
-        const extraPool = [];
-        
-        // 🔥 只从允许的主题中补充
-        for (const theme of ALLOWED_THEMES) {
-            const available = (questionsByCategory[theme] || []).filter(q => !selectedSet.has(q));
-            extraPool.push(...available);
-        }
-        
-        if (extraPool.length > 0) {
-            const shuffled = shuffleArray(extraPool);
-            const toAdd = shuffled.slice(0, Math.min(needed, extraPool.length));
-            selectedQuestions.push(...toAdd);
-            totalSelected += toAdd.length;
-            console.log(`🔄 从允许主题补充了 ${toAdd.length} 题`);
-        }
-    }
-    
-    // ========== 6. 如果还是不够，从所有题目中强行补足（紧急情况） ==========
-    if (totalSelected < 20) {
-        const needed = 20 - totalSelected;
-        const selectedSet = new Set(selectedQuestions);
-        const allAvailable = allQuestions.filter(q => !selectedSet.has(q));
-        if (allAvailable.length > 0) {
-            const shuffled = shuffleArray(allAvailable);
-            const toAdd = shuffled.slice(0, Math.min(needed, allAvailable.length));
-            selectedQuestions.push(...toAdd);
-            console.warn(`⚠️ 紧急：从所有题目补充了 ${toAdd.length} 题（可能混入其他主题）`);
-        }
-    }
-    
-    // ========== 7. 截取前 20 题 ==========
-    if (selectedQuestions.length > 20) {
-        selectedQuestions = selectedQuestions.slice(0, 20);
-    }
-    
-    // ========== 8. 打乱顺序 ==========
-    selectedQuestions = shuffleArray(selectedQuestions);
-    
-    console.log(`🎯 最终选择 ${selectedQuestions.length} 题`);
-    
-    // ========== 9. 打印选中的主题分布 ==========
-    const finalThemes = {};
-    selectedQuestions.forEach(q => {
-        const t = q.category || "Autre";
-        finalThemes[t] = (finalThemes[t] || 0) + 1;
-    });
-    console.log("📋 选中的主题分布:", finalThemes);
-    
-    // ========== 10. 添加标签 ==========
-    selectedQuestions = selectedQuestions.map((question) => {
-        const category = question.category || "Autre";
-        let tags = [];
-        
-        if (category.includes("historiques") || category.includes("personnages")) {
-            tags.push("Histoire");
-        } else if (category.includes("géographie") || category.includes("Territoires")) {
-            tags.push("Géographie");
-        } else if (category.includes("Patrimoine") || category.includes("culture")) {
-            tags.push("Patrimoine");
-        } else {
-            tags.push(category);
-        }
-        
-        if (question.difficulté) tags.push(question.difficulté);
-        if (question.typeQuestion) tags.push(question.typeQuestion);
-        
-        return {
-            ...question,
-            customTags: tags,
-            theme: category
-        };
-    });
-    
-    console.log("========== 选题完成 ==========");
-}
-// Fisher-Yates 洗牌算法
+
+
+// Fisher-Yates 洗牌
 function shuffleArray(array) {
     const newArray = [...array];
     for (let i = newArray.length - 1; i > 0; i--) {
@@ -1870,118 +1602,73 @@ function shuffleArray(array) {
     return newArray;
 }
 
-// ==================== 显示题目 - 修改为一道题一道题的交互模式 ====================
+// ==================== 初始化测试 ====================
+function initializeTest() {
+    currentQuestionIndex = 0;
+    userAnswers = new Array(selectedQuestions.length).fill(null);
+    answeredQuestions.clear();
+    currentAnswerSubmitted = false;
+    
+    document.getElementById('totalQuestions').textContent = selectedQuestions.length;
+    showQuestion(currentQuestionIndex);
+    updateQuestionCounter();
+    window.scrollTo(0, 0);
+}
+
+// ==================== 显示题目（只显示主题标签） ====================
 function showQuestion(index) {
-    if (!selectedQuestions[index]) {
-        console.error("题目不存在:", index);
-        return;
-    }
-    
     const question = selectedQuestions[index];
-    
-    // 重置当前题目状态
     currentAnswerSubmitted = answeredQuestions.has(index);
     
-    // 显示题目元数据标签 - 只显示一份
+    // 元数据标签：只显示一个主题标签 (category)
     const questionMeta = document.getElementById('questionMeta');
     questionMeta.innerHTML = '';
     
-    // 添加主题标签（只显示一个主要标签）
-    const theme = question.theme || question.category || "Autre";
-    
-    // 根据主题判断显示哪个标签
-    let mainTag = '';
-    if (theme.includes("Laïcité")) {
-        mainTag = 'Laïcité';
-    } else if (theme.includes("Devise") || theme.includes("symboles")) {
-        mainTag = 'Symboles';
-    } else if (theme.includes("Mises en situation") || (question.id && question.id.toLowerCase().startsWith("si"))) {
-        mainTag = 'Situation';
-    } else {
-        mainTag = theme;
-    }
-    
-    // 添加主题标签
+    const theme = question.category || "Autre";
     const themeTag = document.createElement('span');
     themeTag.className = 'question-tag tag-theme';
-    themeTag.innerHTML = `<i class="fas fa-tag"></i> ${mainTag}`;
+    themeTag.innerHTML = `<i class="fas fa-tag"></i> ${theme}`;
     questionMeta.appendChild(themeTag);
     
-    // 添加难度标签（如果存在）
-    if (question.difficulté) {
-        const difficultyTag = document.createElement('span');
-        difficultyTag.className = 'question-tag tag-difficulty';
-        difficultyTag.innerHTML = `<i class="fas fa-chart-line"></i> ${question.difficulté}`;
-        questionMeta.appendChild(difficultyTag);
-    }
-    
-    // 添加类型标签（如果存在）
-    if (question.typeQuestion) {
-        const typeTag = document.createElement('span');
-        typeTag.className = 'question-tag tag-type';
-        typeTag.innerHTML = `<i class="fas fa-question-circle"></i> ${question.typeQuestion}`;
-        questionMeta.appendChild(typeTag);
-    }
-    
-    // 显示题目文本
     document.getElementById('questionText').textContent = `${index + 1}. ${question.question}`;
     
     const optionsContainer = document.getElementById('optionsContainer');
     optionsContainer.innerHTML = '';
     
-    if (!question.options || question.options.length === 0) {
-        console.error("题目选项为空:", question);
-        return;
-    }
-    
-    // 为选项分配ABCD标签
     const optionLetters = ['A', 'B', 'C', 'D'];
-    
-    question.options.forEach((option, optionIndex) => {
+    question.options.forEach((option, optIndex) => {
         const optionDiv = document.createElement('div');
         optionDiv.className = 'option';
         
-        // 如果已经回答了这道题，显示答案状态
         if (currentAnswerSubmitted) {
-            if (optionIndex === question.answer) {
-                optionDiv.classList.add('correct');
-            }
-            if (optionIndex === userAnswers[index] && optionIndex !== question.answer) {
-                optionDiv.classList.add('incorrect');
-            }
-        } else if (userAnswers[index] === optionIndex) {
+            if (optIndex === question.answer) optionDiv.classList.add('correct');
+            if (optIndex === userAnswers[index] && optIndex !== question.answer) optionDiv.classList.add('incorrect');
+        } else if (userAnswers[index] === optIndex) {
             optionDiv.classList.add('selected');
         }
         
-        // 创建选项字母标签
         const letterSpan = document.createElement('span');
         letterSpan.className = 'option-letter';
-        letterSpan.textContent = optionLetters[optionIndex];
+        letterSpan.textContent = optionLetters[optIndex];
         
-        // 隐藏的radio input
         const input = document.createElement('input');
         input.type = 'radio';
         input.name = 'question';
-        input.id = `option${index}_${optionIndex}`;
-        input.value = optionIndex;
-        if (userAnswers[index] === optionIndex) {
-            input.checked = true;
-        }
+        input.id = `option${index}_${optIndex}`;
+        input.value = optIndex;
+        if (userAnswers[index] === optIndex) input.checked = true;
         
         const label = document.createElement('label');
-        label.htmlFor = `option${index}_${optionIndex}`;
-        
-        // 添加选项内容
+        label.htmlFor = `option${index}_${optIndex}`;
         label.appendChild(letterSpan);
         label.appendChild(document.createTextNode(option));
         
         optionDiv.appendChild(input);
         optionDiv.appendChild(label);
         
-        // 如果还没有提交答案，可以点击选择
         if (!currentAnswerSubmitted) {
             optionDiv.addEventListener('click', () => {
-                userAnswers[index] = optionIndex;
+                userAnswers[index] = optIndex;
                 showQuestion(index);
                 document.getElementById('submitBtn').style.display = 'block';
             });
@@ -1990,24 +1677,13 @@ function showQuestion(index) {
         optionsContainer.appendChild(optionDiv);
     });
     
-    // 显示或隐藏提交按钮
-    document.getElementById('submitBtn').style.display = 
-        (!currentAnswerSubmitted && userAnswers[index] !== null) ? 'block' : 'none';
-    
-    // 显示或隐藏下一题按钮
-    document.getElementById('nextQuestionBtn').style.display = 
-        (currentAnswerSubmitted) ? 'block' : 'none';
-    
-    // 显示或隐藏完成测试按钮（最后一题）
-    document.getElementById('finishTestBtn').style.display = 
-        (index === selectedQuestions.length - 1 && answeredQuestions.size === selectedQuestions.length) ? 'block' : 'none';
-    
+    document.getElementById('submitBtn').style.display = (!currentAnswerSubmitted && userAnswers[index] !== null) ? 'block' : 'none';
+    document.getElementById('nextQuestionBtn').style.display = currentAnswerSubmitted ? 'block' : 'none';
+    document.getElementById('finishTestBtn').style.display = (index === selectedQuestions.length - 1 && answeredQuestions.size === selectedQuestions.length) ? 'block' : 'none';
     document.getElementById('prevBtn').disabled = index === 0;
     
-    // 更新导航按钮状态
     updateNavigationButtons();
     
-    // 显示答案反馈（如果已经提交）
     if (currentAnswerSubmitted) {
         showAnswerFeedback(index);
     } else {
@@ -2023,166 +1699,70 @@ function showAnswerFeedback(index) {
     const feedbackDiv = document.getElementById('answerFeedback');
     
     feedbackDiv.className = `answer-feedback ${isCorrect ? 'correct' : 'incorrect'}`;
-    
-    const feedbackHTML = `
+    feedbackDiv.innerHTML = `
         <div class="feedback-header">
             <div class="feedback-icon ${isCorrect ? 'correct' : 'incorrect'}">
                 ${isCorrect ? '<i class="fas fa-check-circle"></i>' : '<i class="fas fa-times-circle"></i>'}
             </div>
-            <div class="feedback-title">
-                ${isCorrect ? 'Correct!' : 'Incorrect!'}
-            </div>
+            <div class="feedback-title">${isCorrect ? 'Correct!' : 'Incorrect!'}</div>
         </div>
-        ${question.explanation ? `
-            <div class="feedback-explanation">
-                <strong>Explication :</strong> ${question.explanation}
-            </div>
-        ` : ''}
+        ${question.explanation ? `<div class="feedback-explanation"><strong>Explication :</strong> ${question.explanation}</div>` : ''}
     `;
-    
-    feedbackDiv.innerHTML = feedbackHTML;
     feedbackDiv.style.display = 'block';
     
-    // 滚动到反馈区域
-    setTimeout(() => {
-        feedbackDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }, 300);
+    setTimeout(() => feedbackDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 300);
 }
 
-// ==================== 提交当前题目答案 ====================
+// ==================== 提交当前题目 ====================
 function submitCurrentQuestion() {
     if (userAnswers[currentQuestionIndex] === null) {
         showAlert("Sélection requise", "Veuillez sélectionner une réponse avant de valider.", 'warning');
         return;
     }
-    
-    // 标记此题已提交
     answeredQuestions.add(currentQuestionIndex);
     currentAnswerSubmitted = true;
-    
-    // 显示答案反馈
     showAnswerFeedback(currentQuestionIndex);
-    
-    // 更新界面
     showQuestion(currentQuestionIndex);
     updateQuestionCounter();
-    
-    // 如果是最后一题，显示完成测试按钮
     if (currentQuestionIndex === selectedQuestions.length - 1) {
         document.getElementById('finishTestBtn').style.display = 'block';
     }
 }
 
-// ==================== 创建题目地图 ====================
-function createQuestionMap() {
-    const questionMap = document.getElementById('questionMap');
-    questionMap.innerHTML = '';
-    
-    for (let i = 0; i < selectedQuestions.length; i++) {
-        const mapItem = document.createElement('div');
-        mapItem.className = 'map-item';
-        mapItem.textContent = i + 1;
-        
-        // 设置状态
-        if (!answeredQuestions.has(i)) {
-            mapItem.classList.add('unanswered');
-        } else {
-            const isCorrect = userAnswers[i] === selectedQuestions[i].answer;
-            if (isCorrect) {
-                mapItem.classList.add('correct');
-            } else {
-                mapItem.classList.add('incorrect');
-            }
-        }
-        
-        // 添加点击事件
-        mapItem.addEventListener('click', () => {
-            showQuestionReview(i);
-        });
-        
-        questionMap.appendChild(mapItem);
+// ==================== 导航 ====================
+function nextQuestion() {
+    if (currentQuestionIndex < selectedQuestions.length - 1) {
+        currentQuestionIndex++;
+        showQuestion(currentQuestionIndex);
+        updateQuestionCounter();
     }
 }
 
-// ==================== 显示题目回顾 ====================
-function showQuestionReview(index) {
-    const questionReview = document.getElementById('questionReview');
-    const question = selectedQuestions[index];
-    const userAnswerIndex = userAnswers[index];
-    const isCorrect = userAnswerIndex === question.answer;
-    const optionLetters = ['A', 'B', 'C', 'D'];
-    
-    let reviewHTML = `
-        <div class="review-header">
-            <h4>Question ${index + 1} - ${question.theme || question.category || "Autre"}</h4>
-            <span style="color: ${isCorrect ? 'var(--green)' : 'var(--red)'}; font-weight: 600;">
-                ${isCorrect ? '✓ Correcte' : '✗ Incorrecte'}
-            </span>
-        </div>
-        <div class="review-question">${question.question}</div>
-        <div class="review-options">
-    `;
-    
-    // 显示所有选项
-    question.options.forEach((option, optionIndex) => {
-        let optionClass = 'review-option';
-        let badgeText = '';
-        
-        if (optionIndex === question.answer) {
-            optionClass += ' correct-answer';
-            badgeText = 'Réponse correcte';
-        }
-        
-        if (optionIndex === userAnswerIndex) {
-            optionClass += ' user-answer';
-            if (optionIndex !== question.answer) {
-                optionClass += ' incorrect';
-                badgeText = 'Votre réponse (incorrecte)';
-            } else {
-                badgeText = 'Votre réponse (correcte)';
-            }
-        }
-        
-        reviewHTML += `
-            <div class="${optionClass}">
-                <span class="review-option-label">${optionLetters[optionIndex]}</span>
-                <div class="review-option-text">${option}</div>
-                ${badgeText ? `<span class="review-option-badge">${badgeText}</span>` : ''}
-            </div>
-        `;
-    });
-    
-    reviewHTML += `
-        </div>
-    `;
-    
-    // 添加解释
-    if (question.explanation) {
-        reviewHTML += `
-            <div class="review-explanation">
-                <h5>Explication</h5>
-                <p>${question.explanation}</p>
-            </div>
-        `;
+function previousQuestion() {
+    if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        showQuestion(currentQuestionIndex);
+        updateQuestionCounter();
     }
-    
-    questionReview.innerHTML = reviewHTML;
-    questionReview.classList.add('active');
-    
-    // 滚动到回顾区域
-    questionReview.scrollIntoView({ behavior: 'smooth' });
 }
 
-// ==================== 提交和评分 ====================
+function updateQuestionCounter() {
+    const answeredCount = answeredQuestions.size;
+    const percent = Math.round((answeredCount / selectedQuestions.length) * 100);
+    document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
+    document.getElementById('progressPercent').textContent = percent + '%';
+    document.getElementById('progressFill').style.width = percent + '%';
+}
+
+function updateNavigationButtons() {
+    document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
+}
+
+// ==================== 提交测试 ====================
 function submitTest() {
-    // 检查是否所有题目都已回答
     if (answeredQuestions.size < selectedQuestions.length) {
         const unanswered = selectedQuestions.length - answeredQuestions.size;
-        showAlert("Questions non répondues", 
-            `${unanswered} question(s) non répondues. Souhaitez-vous soumettre quand même?`, 
-            'warning');
-        
-        // 创建一个确认按钮
+        showAlert("Questions non répondues", `${unanswered} question(s) non répondues. Souhaitez-vous soumettre quand même?`, 'warning');
         setTimeout(() => {
             const alertBtns = document.querySelector('.alert-btns');
             alertBtns.innerHTML = `
@@ -2192,7 +1772,6 @@ function submitTest() {
         }, 100);
         return;
     }
-    
     proceedWithSubmission();
 }
 
@@ -2229,7 +1808,7 @@ async function recordMistakesToDatabase() {
                         studentInfo,
                         questionToSave,
                         userAnswer,
-                        'culture_francaise'  // 测试类型标识
+                        'annales_officielles'  // 测试类型标识
                     );
                     if (result) {
                         recordedCount++;
@@ -2247,16 +1826,16 @@ async function recordMistakesToDatabase() {
     }
 }
 
+// 修改 proceedWithSubmission 函数
 function proceedWithSubmission() {
     calculateScore();
     
-    // 🔥 构建成绩数据
     const testResult = {
         score: currentScore,
         total: selectedQuestions.length,
         percentage: currentPercentage,
         passed: currentScore >= 16,
-        testType: 'culture_francaise',
+        testType: 'annales_officielles',
         duration: 0,
         questions: selectedQuestions.map((q, i) => ({
             id: q.id || q.question_id || i,
@@ -2268,7 +1847,7 @@ function proceedWithSubmission() {
     
     console.log('📊 准备记录成绩:', testResult);
     
-    // 🔥 保存成绩到 Supabase
+    // 保存成绩
     if (window.supabaseAuth && window.supabaseAuth.recordTestScore) {
         window.supabaseAuth.recordTestScore(studentInfo, testResult)
             .then(result => {
@@ -2306,7 +1885,7 @@ function saveScoreToLocalOnly(testResult) {
         const record = {
             id: `local_${Date.now()}`,
             student_name: studentInfo.name || 'Étudiant',
-            test_type: testResult.testType || 'culture_francaise',
+            test_type: testResult.testType || 'annales_officielles',
             score: testResult.score,
             total: testResult.total,
             percentage: testResult.percentage,
@@ -2324,80 +1903,108 @@ function saveScoreToLocalOnly(testResult) {
         return null;
     }
 }
-
 function calculateScore() {
     let correct = 0;
-    
-    selectedQuestions.forEach((question, index) => {
-        if (userAnswers[index] === question.answer) {
-            correct++;
-        }
-    });
-    
+    selectedQuestions.forEach((q, idx) => { if (userAnswers[idx] === q.answer) correct++; });
     currentScore = correct;
     currentPercentage = Math.round((correct / selectedQuestions.length) * 100);
-    
-    // 显示通过/不通过，同时显示具体分数
-    const passed = correct >= 16; // 80% of 20 = 16
-    
-    // 添加烟花或心碎效果
+    const passed = correct >= 16;
     if (passed) {
         currentScoreText = `🎉 Félicitations! Vous avez réussi le test! 🎉`;
     } else {
         currentScoreText = `💔 Désolé, vous n'avez pas réussi le test. 💔`;
     }
-    
-    // 添加分数详情
     currentScoreText += `\nScore: ${correct}/20 (${currentPercentage}%)`;
 }
 
 function displayResults() {
     document.getElementById('testContainer').style.display = 'none';
-    
-    // 显示分数
-    document.getElementById('scoreDisplay').style.display = 'block';
     document.getElementById('scoreDisplay').textContent = `${currentScore}/20`;
-    
     document.getElementById('scoreText').textContent = currentScoreText;
-    document.getElementById('scoreText').style.fontSize = '1.5rem';
-    document.getElementById('scoreText').style.fontWeight = 'bold';
-    document.getElementById('scoreText').style.marginTop = '10px';
-    document.getElementById('scoreText').style.marginBottom = '20px';
     document.getElementById('scoreText').style.whiteSpace = 'pre-line';
+    if (currentScoreText.includes("🎉")) document.getElementById('scoreText').classList.add('fireworks');
+    else if (currentScoreText.includes("💔")) document.getElementById('scoreText').classList.add('heartbreak');
     
-    // 应用动画效果
-    if (currentScoreText.includes("🎉")) {
-        document.getElementById('scoreText').classList.add('fireworks');
-    } else if (currentScoreText.includes("💔")) {
-        document.getElementById('scoreText').classList.add('heartbreak');
-    }
-    
-    // 显示进度条
-    document.querySelector('.score-bar').style.display = 'block';
-    setTimeout(() => {
-        document.getElementById('scoreFill').style.width = currentPercentage + '%';
-    }, 300);
+    setTimeout(() => document.getElementById('scoreFill').style.width = currentPercentage + '%', 300);
     
     // 创建题目地图
-    createQuestionMap();
+    const questionMap = document.getElementById('questionMap');
+    questionMap.innerHTML = '';
+    for (let i = 0; i < selectedQuestions.length; i++) {
+        const mapItem = document.createElement('div');
+        mapItem.className = 'map-item';
+        mapItem.textContent = i + 1;
+        if (!answeredQuestions.has(i)) mapItem.classList.add('unanswered');
+        else {
+            const isCorrect = userAnswers[i] === selectedQuestions[i].answer;
+            mapItem.classList.add(isCorrect ? 'correct' : 'incorrect');
+        }
+        mapItem.addEventListener('click', () => showQuestionReview(i));
+        questionMap.appendChild(mapItem);
+    }
     
     document.getElementById('resultsContainer').classList.add('show');
+    setTimeout(() => document.getElementById('resultsContainer').scrollIntoView({ behavior: 'smooth' }), 500);
+}
+
+// ==================== 回顾题目 ====================
+function showQuestionReview(index) {
+    const question = selectedQuestions[index];
+    const userAnswerIndex = userAnswers[index];
+    const isCorrect = userAnswerIndex === question.answer;
+    const optionLetters = ['A', 'B', 'C', 'D'];
     
-    // 滚动到结果区域
-    setTimeout(() => {
-        document.getElementById('resultsContainer').scrollIntoView({ behavior: 'smooth' });
-    }, 500);
+    let reviewHTML = `
+        <div class="review-header">
+            <h4>Question ${index + 1} - ${question.category || "Autre"}</h4>
+            <span style="color: ${isCorrect ? 'var(--green)' : 'var(--red)'}; font-weight: 600;">
+                ${isCorrect ? '✓ Correcte' : '✗ Incorrecte'}
+            </span>
+        </div>
+        <div class="review-question">${question.question}</div>
+        <div class="review-options">
+    `;
+    
+    question.options.forEach((opt, optIdx) => {
+        let optClass = 'review-option';
+        let badgeText = '';
+        if (optIdx === question.answer) {
+            optClass += ' correct-answer';
+            badgeText = 'Réponse correcte';
+        }
+        if (optIdx === userAnswerIndex) {
+            optClass += ' user-answer';
+            if (optIdx !== question.answer) {
+                optClass += ' incorrect';
+                badgeText = 'Votre réponse (incorrecte)';
+            } else {
+                badgeText = 'Votre réponse (correcte)';
+            }
+        }
+        reviewHTML += `
+            <div class="${optClass}">
+                <span class="review-option-label">${optionLetters[optIdx]}</span>
+                <div class="review-option-text">${opt}</div>
+                ${badgeText ? `<span class="review-option-badge">${badgeText}</span>` : ''}
+            </div>
+        `;
+    });
+    
+    reviewHTML += `</div>`;
+    if (question.explanation) {
+        reviewHTML += `<div class="review-explanation"><h5>Explication</h5><p>${question.explanation}</p></div>`;
+    }
+    
+    document.getElementById('questionReview').innerHTML = reviewHTML;
+    document.getElementById('questionReview').classList.add('active');
+    document.getElementById('questionReview').scrollIntoView({ behavior: 'smooth' });
 }
 
 // ==================== 其他功能 ====================
 function restartTest() {
-    showAlert("Recommencer le test", 
-        "Voulez-vous vraiment recommencer le test? Vos réponses actuelles seront perdues.", 
-        'warning');
-    
+    showAlert("Recommencer le test", "Voulez-vous vraiment recommencer? Vos réponses actuelles seront perdues.", 'warning');
     setTimeout(() => {
-        const alertBtns = document.querySelector('.alert-btns');
-        alertBtns.innerHTML = `
+        document.querySelector('.alert-btns').innerHTML = `
             <button class="btn" onclick="closeAlert();">Annuler</button>
             <button class="btn btn-primary" onclick="closeAlert(); proceedWithRestart();">Recommencer</button>
         `;
@@ -2405,149 +2012,80 @@ function restartTest() {
 }
 
 function proceedWithRestart() {
-    // 重新根据学生类型加载题库
-    if (studentInfo.type === 'm') {
-        // 四年居留：只用 question_multia
-        allQuestions = [...question_multi];
-        console.log("重新加载四年居留题库：", allQuestions.length);
-    } else if (studentInfo.type === 'r') {
-        // 十年居留：使用 question_multia + question_resident
-        allQuestions = [...question_multi];
-        if (typeof question_resident !== 'undefined' && question_resident.length > 0) {
-            allQuestions = allQuestions.concat(question_resident);
-            console.log("重新加载十年居留题库：", allQuestions.length);
-        }
-    } else if (studentInfo.type === 'n') {
-        // 法国入籍：使用 question_multia + question_resident + question_nat
-        allQuestions = [...question_multi];
-        if (typeof question_resident !== 'undefined' && question_resident.length > 0) {
-            allQuestions = allQuestions.concat(question_resident);
-        }
-        if (typeof question_nat !== 'undefined' && question_nat.length > 0) {
-            allQuestions = allQuestions.concat(question_nat);
-            console.log("重新加载法国入籍题库：", allQuestions.length);
-        }
-    } else {
-        // 完全访问：使用所有题库
-        allQuestions = [...question_multi];
-        if (typeof question_resident !== 'undefined' && question_resident.length > 0) {
-            allQuestions = allQuestions.concat(question_resident);
-        }
-        if (typeof question_nat !== 'undefined' && question_nat.length > 0) {
-            allQuestions = allQuestions.concat(question_nat);
-        }
-        console.log("重新加载完全访问题库：", allQuestions.length);
-    }
-    
-    // 完全重新初始化
-    currentQuestionIndex = 0;
-    answeredQuestions.clear();
-    currentAnswerSubmitted = false;
-    
     document.getElementById('resultsContainer').classList.remove('show');
     document.getElementById('questionReview').classList.remove('active');
     document.getElementById('testContainer').style.display = 'block';
     
-    // 重新选择题目
-    selectQuestionsByTheme();
+    // 重新根据学生类型筛选题目
+    if (studentInfo.type === 'm') {
+        allQuestions = [...question_multi];
+    } else if (studentInfo.type === 'r') {
+        allQuestions = [...question_multi];
+        if (typeof question_resident !== 'undefined' && question_resident.length > 0) {
+            allQuestions = allQuestions.concat(question_resident);
+        }
+    } else if (studentInfo.type === 'n') {
+        allQuestions = [...question_multi];
+        if (typeof question_resident !== 'undefined' && question_resident.length > 0) {
+            allQuestions = allQuestions.concat(question_resident);
+        }
+        if (typeof question_nat !== 'undefined' && question_nat.length > 0) {
+            allQuestions = allQuestions.concat(question_nat);
+        }
+    } else {
+        allQuestions = [...question_multi];
+        if (typeof question_resident !== 'undefined' && question_resident.length > 0) {
+            allQuestions = allQuestions.concat(question_resident);
+        }
+        if (typeof question_nat !== 'undefined' && question_nat.length > 0) {
+            allQuestions = allQuestions.concat(question_nat);
+        }
+    }
+    
+    const originalQuestions = allQuestions.filter(q => q.typeQuestion === "examen original");
+    selectedQuestions = shuffleArray(originalQuestions).slice(0, 20);
     userAnswers = new Array(selectedQuestions.length).fill(null);
+    answeredQuestions.clear();
+    currentQuestionIndex = 0;
+    currentAnswerSubmitted = false;
     
     document.getElementById('totalQuestions').textContent = selectedQuestions.length;
-    
     showQuestion(currentQuestionIndex);
     updateQuestionCounter();
-    
     window.scrollTo(0, 0);
 }
 function showInstructions() {
-    showAlert("Instructions du test",
-        "TEST DES VALEURS RÉPUBLICAINES ET LAÏCITÉ\n\n" +
-        "1. 20 questions à choix multiples\n" +
+    showAlert("Instructions", 
+        "ENTRAÎNEMENT AUX ANNALES\n\n" +
+        "1. 20 questions à choix multiples issues d'examens originaux\n" +
         "2. Pas de limite de temps\n" +
         "3. Cliquez sur une réponse pour la sélectionner\n" +
         "4. Cliquez sur 'Valider la réponse' pour voir la correction\n" +
         "5. Utilisez le bouton 'Question suivante' pour continuer\n" +
-        "6. Cliquez sur 'Terminer le test' quand vous avez fini\n" +
-        "7. Seuil de réussite : 16/20 (80%)\n\n" +
+        "6. Seuil de réussite : 16/20 (80%)\n\n" +
         "Bonne chance!", 'info');
 }
 
 function goBackToHome() {
-    showAlert("Quitter le test", 
-        "Êtes-vous sûr de vouloir quitter? Votre progression sera perdue.", 
-        'warning');
-    
+    showAlert("Quitter le test", "Êtes-vous sûr de vouloir quitter? Votre progression sera perdue.", 'warning');
     setTimeout(() => {
-        const alertBtns = document.querySelector('.alert-btns');
-        alertBtns.innerHTML = `
+        document.querySelector('.alert-btns').innerHTML = `
             <button class="btn" onclick="closeAlert();">Annuler</button>
             <button class="btn btn-primary" onclick="window.location.href='examen-civique.html';">Quitter</button>
         `;
     }, 100);
 }
 
-// ==================== 导航函数 ====================
-function nextQuestion() {
-    if (currentQuestionIndex < selectedQuestions.length - 1) {
-        currentQuestionIndex++;
-        showQuestion(currentQuestionIndex);
-        updateQuestionCounter();
-    }
-}
-
-function previousQuestion() {
-    if (currentQuestionIndex > 0) {
-        currentQuestionIndex--;
-        showQuestion(currentQuestionIndex);
-        updateQuestionCounter();
-    }
-}
-
-function updateQuestionCounter() {
-    const answeredCount = answeredQuestions.size;
-    const answeredPercent = Math.round((answeredCount / selectedQuestions.length) * 100);
-    
-    document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
-    document.getElementById('progressPercent').textContent = answeredPercent + '%';
-    document.getElementById('progressFill').style.width = answeredPercent + '%';
-}
-
-function updateNavigationButtons() {
-    document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
-}
-
-// ==================== 初始化 ====================
-function initializeTest() {
-    // 重置所有状态
-    currentQuestionIndex = 0;
-    userAnswers = [];
-    answeredQuestions.clear();
-    currentAnswerSubmitted = false;
-    
-    // 根据主题分布选择题目
-    selectQuestionsByTheme();
-    
-    // 初始化用户答案数组
-    userAnswers = new Array(selectedQuestions.length).fill(null);
-    
-    // 更新界面
-    document.getElementById('totalQuestions').textContent = selectedQuestions.length;
-    
-    showQuestion(currentQuestionIndex);
-    updateQuestionCounter();
-    
-    window.scrollTo(0, 0);
-}
-
+// ==================== 页面加载完成 ====================
+// ==================== 页面加载完成 ====================
 document.addEventListener('DOMContentLoaded', function() {
-    console.log("页面加载完成");
+    console.log("Page annales chargée");
     
     // 从URL获取参数
     const urlParams = new URLSearchParams(window.location.search);
     const token = urlParams.get('token');
-    const type = urlParams.get('type');
     
-    console.log("URL参数:", { token, type });
+    console.log("URL参数:", { token });
     
     if (token) {
         try {
@@ -2563,19 +2101,29 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log("使用旧方式解析token成功:", userData);
             }
             
-            // 填充学生信息
-            studentInfo = {
-                name: userData.name || userData.userId || "Étudiant",
-                testDate: new Date().toLocaleString('fr-FR'),
-                type: type || userData.type || "t",
-                daysLeft: userData.daysLeft || -1
-            };
-            
-            console.log("学生信息:", studentInfo);
-            
-     
-            // 直接显示培训信息窗口
-            showTrainingInfo();
+            // 确保 userData 存在且有数据
+            if (userData) {
+                // 获取用户类型，默认为 't'
+                let userType = userData.type || 't';
+                
+                console.log("从token解析出的用户类型:", userType);
+                
+                // 填充学生信息
+                studentInfo = {
+                    name: userData.name || userData.userId || "Étudiant",
+                    testDate: new Date().toLocaleString('fr-FR'),
+                    type: userType,
+                    daysLeft: userData.daysLeft || -1
+                };
+                
+                console.log("学生信息:", studentInfo);
+                console.log("用户类型:", studentInfo.type);
+                
+                // 直接显示培训信息窗口
+                showTrainingInfo();
+            } else {
+                throw new Error("无法解析用户数据");
+            }
             
         } catch (e) {
             console.error("Token解析失败:", e);
@@ -2583,12 +2131,12 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // 使用默认访客信息
             studentInfo = {
-                name: "Visiteur",
+                name: "Admin",
                 testDate: new Date().toLocaleString('fr-FR'),
                 type: "t",
                 daysLeft: -1
             };
-
+            
             showTrainingInfo();
         }
     } else {
@@ -2602,18 +2150,8 @@ document.addEventListener('DOMContentLoaded', function() {
             daysLeft: -1
         };
         
-   
-        
         showTrainingInfo();
     }
-    
-    // 保留回车键监听（但登录框已隐藏，可以删除）
-    // document.getElementById('studentPassword').addEventListener('keypress', function(e) {
-    //     if (e.key === 'Enter') {
-    //         e.preventDefault();
-    //         validateLogin();
-    //     }
-    // });
 });
 </script>
 </body>
