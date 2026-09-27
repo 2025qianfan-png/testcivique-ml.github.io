@@ -1105,6 +1105,162 @@ FR : Faux Les bâtiments scolaires ne sont pas obligatoirement des lieux officie
     answer: 1,
     explanation: "❌ A. Religieux - Faux. L'État français n'est pas religieux.\n中：错误。法国国家不是宗教性的。\n\n✅ B. Neutre - Correct ! L'État français est neutre sur le plan religieux (principe de laïcité).\n中：正确。法国国家在宗教问题上保持中立（世俗原则）。\n\n❌ C. Confessionnel - Faux. L'État français n'est pas confessionnel.\n中：错误。法国不是宗教国家。\n\n❌ D. Monarchique - Faux. La France est une République, pas une monarchie.\n中：错误。法国是共和国，不是君主制。"
   },
+  // ==================== 四年卡 Laïcité 补充 ====================
+
+{
+  id: "la0041",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "En France, la laïcité permet à chacun :",
+  options: [
+    "De pratiquer la religion de son choix ou de ne pas en pratiquer",
+    "De pratiquer uniquement la religion catholique",
+    "De ne pratiquer aucune religion, c'est obligatoire",
+    "De pratiquer sa religion uniquement à la maison"
+  ],
+  answer: 0,
+  explanation: `✅ A. De pratiquer la religion de son choix ou de ne pas en pratiquer
+FR : Correct ! La laïcité garantit la liberté de conscience.
+中：正确！世俗原则保障信仰自由。
+
+❌ B. De pratiquer uniquement la religion catholique
+FR : Faux. La France n'a pas de religion officielle.
+中：错误。法国没有官方宗教。
+
+❌ C. De ne pratiquer aucune religion, c'est obligatoire
+FR : Faux. La laïcité ne force personne à être athée.
+中：错误。世俗原则不强迫任何人成为无神论者。
+
+❌ D. De pratiquer sa religion uniquement à la maison
+FR : Faux. La liberté religieuse s'exerce aussi dans l'espace public.
+中：错误。宗教自由也在公共空间行使。`
+},
+
+{
+  id: "la0042",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Les agents du service public en France doivent :",
+  options: [
+    "Afficher leurs croyances religieuses",
+    "Rester neutres vis-à-vis des usagers",
+    "Favoriser les usagers de leur religion",
+    "Refuser de servir les non-croyants"
+  ],
+  answer: 1,
+  explanation: `❌ A. Afficher leurs croyances religieuses
+FR : Faux. La neutralité est obligatoire.
+中：错误。必须保持中立。
+
+✅ B. Rester neutres vis-à-vis des usagers
+FR : Correct ! Les agents publics doivent être neutres.
+中：正确！公职人员必须对使用者保持中立。
+
+❌ C. Favoriser les usagers de leur religion
+FR : Faux. La neutralité interdit tout favoritisme.
+中：错误。中立禁止任何偏袒。
+
+❌ D. Refuser de servir les non-croyants
+FR : Faux. Le service public est accessible à tous.
+中：错误。公共服务对所有人开放。`
+},
+
+{
+  id: "la0043",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "En France, peut-on changer de religion librement ?",
+  options: [
+    "Oui, la liberté de conscience le permet",
+    "Non, c'est interdit",
+    "Oui, mais seulement avec l'accord de la mairie",
+    "Oui, mais seulement une fois dans sa vie"
+  ],
+  answer: 0,
+  explanation: `✅ A. Oui, la liberté de conscience le permet
+FR : Correct ! Chacun est libre de changer de religion.
+中：正确！每个人都可以自由改变宗教信仰。
+
+❌ B. Non, c'est interdit
+FR : Faux. La liberté de conscience protège ce droit.
+中：错误。良心自由保护这项权利。
+
+❌ C. Oui, mais seulement avec l'accord de la mairie
+FR : Faux. Aucune autorisation n'est nécessaire.
+中：错误。不需要任何许可。
+
+❌ D. Oui, mais seulement une fois dans sa vie
+FR : Faux. On peut changer de religion à tout moment.
+中：错误。可以随时改变宗教。`
+},
+
+{
+  id: "la0044",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "La laïcité en France signifie que l'État :",
+  options: [
+    "Favorise la religion catholique",
+    "Ne favorise ni ne combat aucune religion",
+    "Interdit toutes les religions",
+    "Oblige les citoyens à être athées"
+  ],
+  answer: 1,
+  explanation: `❌ A. Favorise la religion catholique
+FR : Faux. L'État ne favorise aucune religion.
+中：错误。国家不偏袒任何宗教。
+
+✅ B. Ne favorise ni ne combat aucune religion
+FR : Correct ! L'État est neutre vis-à-vis des religions.
+中：正确！国家对宗教保持中立。
+
+❌ C. Interdit toutes les religions
+FR : Faux. La laïcité garantit la liberté religieuse.
+中：错误。世俗原则保障宗教自由。
+
+❌ D. Oblige les citoyens à être athées
+FR : Faux. La laïcité ne force personne.
+中：错误。世俗原则不强迫任何人。`
+},
+
+{
+  id: "la0045",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "À l'école publique française, les élèves :",
+  options: [
+    "Doivent apprendre une religion",
+    "Doivent respecter la neutralité et la laïcité",
+    "Peuvent imposer leur religion aux autres",
+    "Ne peuvent parler d'aucune religion"
+  ],
+  answer: 1,
+  explanation: `❌ A. Doivent apprendre une religion
+FR : Faux. L'école publique n'enseigne pas de religion.
+中：错误。公立学校不教授宗教。
+
+✅ B. Doivent respecter la neutralité et la laïcité
+FR : Correct ! L'école publique est un espace laïc.
+中：正确！公立学校是世俗空间。
+
+❌ C. Peuvent imposer leur religion aux autres
+FR : Faux. Cela est contraire au respect de la liberté de conscience.
+中：错误。这违背了尊重信仰自由。
+
+❌ D. Ne peuvent parler d'aucune religion
+FR : Faux. Les discussions sur la religion sont possibles dans le respect de la laïcité.
+中：错误。在尊重世俗原则的前提下，可以讨论宗教。`
+},
   {
     id: "si0001",
     type: "carte multi",
@@ -1217,22 +1373,23 @@ FR : Faux Les bâtiments scolaires ne sont pas obligatoirement des lieux officie
     answer: 1,
     explanation: "❌ A. Oui - Faux. Brûler publiquement le drapeau français constitue une atteinte aux symboles de la République et est interdit par la loi.\n中：错误。公开焚烧法国国旗属于对共和国象征的侮辱，法律禁止这种行为。\n\n✅ B. Non - Correct ! La loi française protège les symboles nationaux, dont le drapeau, et interdit de les dégrader ou de les brûler publiquement.\n中：正确。法国法律保护国家象征，包括国旗，禁止公开破坏或焚烧国旗。\n\n❌ C. Oui, seulement dans certaines régions - Faux. L'interdiction est valable sur tout le territoire français, sans exception régionale.\n中：错误。禁止行为在全法国范围内适用，没有地区例外。\n\n❌ D. Oui, si on est citoyen - Faux. Être citoyen français ne donne pas le droit de brûler le drapeau.\n中：错误。成为法国公民也不能公开焚烧国旗。"
   },
-  {
-    id: "si0008",
-    type: "carte multi",
-    category: "Mises en situation",
-    difficulté: "simple",
-    typeQuestion: "question simulée", // 无o标志
-    question: "Madame X et Madame Y sont des étrangères résidant en France. Elles souhaitent créer une association d'aide aux étrangers.",
-    options: [
-      "Elles peuvent la créer, mais doivent la déclarer à la préfecture",
-      "Elles ne peuvent pas créer d'association parce qu'elles ne sont pas de nationalité française.",
-      "Elles peuvent créer une association, mais seulement après avoir adhéré à une autre association.",
-      "Elles peuvent créer librement une association, sans condition de nationalité particulière."
-    ],
-    answer: 0,
-    explanation: "✅ A. Elles peuvent la créer, mais doivent la déclarer à la préfecture - Correct ! En France, toute personne, française ou étrangère résidant légalement, peut créer une association. Selon la loi de 1901, la plupart des associations doivent être déclarées à la préfecture pour obtenir la personnalité juridique et la capacité de recevoir des subventions ou de gérer un compte bancaire.\n中：正确。在法国，任何合法居留的人员，无论国籍，都可以创建协会。根据1901年的法律，大多数协会需向省政府（préfecture）登记，以获得法人资格，并能够接受补助或开设银行账户。\n\n❌ B. Elles ne peuvent pas créer d'association parce qu'elles ne sont pas de nationalité française - Faux. La nationalité française n'est pas un prérequis pour créer une association.\n中：错误。创建协会不要求拥有法国国籍。\n\n❌ C. Elles peuvent créer une association, mais seulement après avoir adhéré à une autre association - Faux. Il n'y a aucune obligation de rejoindre une autre association avant d'en créer une.\n中：错误。创建协会前不需要加入其他协会。\n\n❌ D. Elles peuvent créer librement une association, sans condition de nationalité particulière - Faux. Bien que la nationalité ne soit pas une condition, la création doit être déclarée à la préfecture pour être légalement reconnue. La formulation \"librement, sans condition\" ignore cette obligation légale.\n中：错误。虽然国籍不是限制条件，但协会要获得法律承认，必须向省政府登记。\"自由创建，无条件\"这一说法忽略了这一法律要求。"
-  },
+{
+  id: "si0008",
+  type: "carte multi",
+  category: "Mises en situation",
+  difficulté: "simple",
+  typeQuestion: "question simulée", // 无o标志
+  question: "Madame X et Madame Y sont des étrangères résidant en France. Elles souhaitent créer une association d'aide aux étrangers.",
+  options: [
+    "Elles peuvent la créer, mais doivent la déclarer à la préfecture",
+    "Elles ne peuvent pas créer d'association parce qu'elles ne sont pas de nationalité française.",
+    "Elles peuvent créer une association, mais seulement après avoir adhéré à une autre association.",
+    "Elles peuvent créer librement une association sans aucune formalité administrative."
+  ],
+  answer: 0,
+  explanation: "✅ A. Elles peuvent la créer, mais doivent la déclarer à la préfecture - Correct ! En France, toute personne, française ou étrangère résidant légalement, peut créer une association. Selon la loi de 1901, la plupart des associations doivent être déclarées à la préfecture pour obtenir la personnalité juridique et la capacité de recevoir des subventions ou de gérer un compte bancaire.\n中：正确。在法国，任何合法居留的人员，无论国籍，都可以创建协会。根据1901年的法律，大多数协会需向省政府（préfecture）登记，以获得法人资格，并能够接受补助或开设银行账户。\n\n❌ B. Elles ne peuvent pas créer d'association parce qu'elles ne sont pas de nationalité française - Faux. La nationalité française n'est pas un prérequis pour créer une association.\n中：错误。创建协会不要求拥有法国国籍。\n\n❌ C. Elles peuvent créer une association, mais seulement après avoir adhéré à une autre association - Faux. Il n'y a aucune obligation de rejoindre une autre association avant d'en créer une.\n中：错误。创建协会前不需要加入其他协会。\n\n❌ D. Elles peuvent créer librement une association sans aucune formalité administrative - Faux. Même si la nationalité n'est pas une condition, la création d'une association reconnue juridiquement nécessite une déclaration à la préfecture.\n中：错误。虽然国籍不是条件，但要使协会具有法律效力，仍需向省政府申报。"
+}
+,
   {
     id: "si0009",
     type: "carte multi",
@@ -2458,32 +2615,22 @@ FR : Faux Les bâtiments scolaires ne sont pas obligatoirement des lieux officie
 ❌ D. Élire - Faux. Le gouvernement n'élit pas les représentants.
 中：错误。政府不选举代表。`
   },
-  {
-    id: "in0032",
-    type: "carte multi",
-    category: "Institutions",
-    difficulté: "simple",
-    typeQuestion: "question simulée",
-    question: "Nombre de régions en France ?",
-    options: [
-      "12",
-      "13", 
-      "15",
-      "18"
-    ],
-    answer: 1,
-    explanation: `❌ A. 12 - Faux. Ce n'est pas le bon chiffre.
-中：错误。不是正确数字。
-
-❌ B. 13 - Faux. La France métropolitaine compte 13 régions.
-中：正确。法国本土共有13个大区。
-
-❌ C. 15 - Faux. Ce n'est pas le bon chiffre.
-中：错误。不是正确数字。
-
-✅ D. 18 - Correct. 18 inclut les régions d’outre-mer.
-中：正确。18包括海外大区。`
-  },
+ {
+  id: "in0032",
+  type: "carte multi",
+  category: "Institutions",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+ question: "Nombre de régions en France ?",
+  options: [
+    "12",
+    "13",
+    "15",
+    "18"
+  ],
+  "answer": 3,
+  "explanation": "❌ A. 12\nFR : Faux. La France ne compte pas 12 régions.\n中：错误。法国不是12个大区。\n\n❌ B. 13\nFR : Faux. 13 correspond aux régions de la France métropolitaine uniquement, mais la France compte également les régions d’outre-mer.\n中：错误。13指的是法国本土大区，但法国还包括海外大区。\n\n❌ C. 15\nFR : Faux. Ce nombre ne correspond pas à l’organisation administrative actuelle.\n中：错误。这个数字不符合当前法国的行政区划。\n\n✅ D. 18\nFR : Correct. La France compte 18 régions au total : 13 en métropole et 5 en outre-mer.\n中：正确。法国总共有18个大区：13个本土大区和5个海外大区。"
+},
   {
     id: "in0033",
     type: "carte multi",
@@ -3398,32 +3545,22 @@ FR : Faux Les bâtiments scolaires ne sont pas obligatoirement des lieux officie
 ❌ D. 14 juillet - Faux. Le 14 juillet est la fête nationale française.
 中：错误。7月14日是法国国庆日。`
   },
-  {
-    id: "ue0006",
-    type: "carte multi",
-    category: "UnionEuropéenne",
-    difficulté: "simple",
-    typeQuestion: "examen original",
-    question: "Depuis quand l'euro est monnaie unique ?",
-    options: [
-      "1999",
-      "2000",
-      "2002",
-      "2005"
-    ],
-    answer: 0, // A
-    explanation: `✅ A. 1999 - Correct ! L'euro est monnaie unique depuis 1999, même si les billets et pièces sont entrés en circulation en 2002.
-中：正确。欧元自1999年成为统一货币，2002年开始流通。
-
-❌ B. 2000 - Faux. 2000 n'est pas une date clé pour l'euro.
-中：错误。2000年不是欧元关键年份。
-
-❌ C. 2002 - Faux. 2002 marque l'entrée en circulation des billets et pièces, pas la création de la monnaie unique.
-中：错误。2002年是欧元流通年，但不是统一货币开始年份。
-
-❌ D. 2005 - Faux. 2005 est trop tard.
-中：错误。2005年不是欧元开始年份。`
-  },
+{
+id: "ue0006",
+type: "carte multi",
+ category: "UnionEuropéenne",
+  difficulté: "simple",
+  typeQuestion: "examen original",
+ question: "Depuis quand l'euro est monnaie unique ?",
+  options: [
+    "1999",
+    "2000",
+    "2002",
+    "2005"
+  ],
+  "answer": 2,
+  "explanation": "❌ A. 1999\nFR : Faux. En 1999, l’euro était uniquement utilisé pour les transactions électroniques et bancaires, pas en billets et pièces.\n中：错误。1999年欧元只用于电子和银行交易，还没有纸币和硬币流通。\n\n❌ B. 2000\nFR : Faux. L’euro n’a pas été introduit en espèces cette année-là.\n中：错误。2000年欧元还未作为现金使用。\n\n✅ C. 2002\nFR : Correct. L’euro est devenu monnaie unique physique avec l’introduction des billets et pièces en janvier 2002.\n中：正确。欧元自2002年1月开始以纸币和硬币形式成为统一货币。\n\n❌ D. 2005\nFR : Faux. Cette date ne correspond à aucun événement lié à l’introduction de l’euro.\n中：错误。2005年与欧元的引入无关。"
+},
   {
     id: "ue0007",
     type: "carte multi",
@@ -10930,6 +11067,607 @@ FR : Faux Les bâtiments scolaires ne sont pas obligatoirement des lieux officie
     explanation: "❌ A. Légal - Faux. Sans consentement clair, c'est une violence sexuelle possible.\n中：错误。没有明确同意可能构成性暴力。\n\n✅ B. Une violence sexuelle possible - Correct ! Une personne inconsciente ou fortement alcoolisée ne peut pas consentir.\n中：正确。醉酒无法同意，可能构成性侵。\n\n❌ C. Un consentement implicite - Faux. L'alcool empêche le consentement.\n中：错误。不能视为默认同意。\n\n❌ D. Une obligation - Faux. Ce n'est pas une obligation.\n中：错误。不是义务。"
   },
 
+{
+id: "si0119",
+type: "carte multi",
+category: "Mises en situation",
+difficulté: "simple",
+typeQuestion: "examen original",
+question: "Un couple veut marier sa fille de 13 ans avec son consentement. Que dit la loi française ?",
+options: [
+"C’est possible, car elle est d’accord",
+"Ce n’est pas possible, car elle est mineure",
+"C’est possible avec accord spécial du maire",
+"Elle peut se marier si ses parents signent"
+],
+answer: 1,
+explanation: `❌ A. C’est possible, car elle est d’accord
+FR : Faux. Le mariage d’un mineur est interdit en France, même avec son consentement.
+中：错误。即使孩子同意，未成年人结婚在法国是非法的。
+
+✅ B. Ce n’est pas possible, car elle est mineure
+FR : Correct. L’âge légal pour se marier en France est 18 ans.
+中：正确。法国法定结婚年龄为18岁。
+
+❌ C. C’est possible avec accord spécial du maire
+FR : Faux. Le maire ne peut pas autoriser un mariage de mineur sans respecter la loi.
+中：错误。市长不能违反法律批准未成年人结婚。
+
+❌ D. Elle peut se marier si ses parents signent
+FR : Faux. Le mariage des mineurs est interdit même avec le consentement parental.
+中：错误。即使父母同意，未成年人结婚仍然违法。`
+},
+{
+id: "si0120",
+type: "carte multi",
+category: "Mises en situation",
+difficulté: "moyen",
+typeQuestion: "examen original",
+question: "Dans quel cas un journaliste peut-il être puni pour un reportage ?",
+options: [
+"Décrire une enquête d’entreprise",
+"Dire qu’un voisin ne paie pas ses impôts sans preuve",
+"Se moquer du président",
+"Faire des commentaires politiques en général"
+],
+answer: 1,
+explanation: `❌ A. Décrire une enquête d’entreprise
+FR : Faux. Les enquêtes journalistiques objectives sont légales.
+中：错误。客观报道企业调查是合法的。
+
+✅ B. Dire qu’un voisin ne paie pas ses impôts sans preuve
+FR : Correct. Publier des accusations non fondées constitue une diffamation et peut entraîner des sanctions.
+中：正确。无证据指控邻居逃税属于诽谤，可依法处罚。
+
+❌ C. Se moquer du président
+FR : Faux. La satire politique est protégée par la liberté d’expression en France.
+中：错误。讽刺总统属于受保护的政治言论。
+
+❌ D. Faire des commentaires politiques en général
+FR : Faux. Les opinions politiques exprimées légalement ne sont pas punissables.
+中：错误。合法表达政治观点不受处罚。`
+},
+{
+id: "si0121",
+type: "carte multi",
+category: "Mises en situation",
+difficulté: "moyen",
+typeQuestion: "examen original",
+question: "Une personne filme quelqu’un et publie la vidéo sur Internet.",
+options: [
+"Ce n’est pas permis sans le consentement de la personne filmée",
+"Il faut l’accord de la police",
+"Il ne peut filmer que des célébrités",
+"Il peut le faire si c’est pour un usage privé"
+],
+answer: 0,
+explanation: `✅ A. Ce n’est pas permis sans le consentement de la personne filmée
+FR : Correct. Publier l’image de quelqu’un sans autorisation viole le droit à l’image.
+中：正确。未经他人同意拍摄并发布视频侵犯肖像权。
+
+❌ B. Il faut l’accord de la police
+FR : Faux. La police ne délivre pas d’autorisation pour publier une vidéo privée.
+中：错误。警方不需要批准私人视频发布。
+
+❌ C. Il ne peut filmer que des célébrités
+FR : Faux. Même les célébrités ont des droits à l’image.
+中：错误。名人也享有肖像权。
+
+❌ D. Il peut le faire si c’est pour un usage privé
+FR : Faux. Même pour un usage privé sur Internet, la publication publique est interdite sans consentement.
+中：错误。即便是私人使用，上传到网络公开传播也需征得同意。`
+},
+{
+id: "si0122",
+type: "carte multi",
+category: "Mises en situation",
+difficulté: "moyen",
+typeQuestion: "examen original",
+question: "Une personne se rend à une administration et on lui demande d’enlever son couvre-chef religieux pour vérification d’identité, elle refuse.",
+options: [
+"Ce n’est pas permis de changer la procédure publique à cause de la religion",
+"C’est possible, c’est sa liberté de croyance",
+"Il doit enlever son couvre-chef en toutes circonstances",
+"Il peut refuser et annuler le service"
+],
+answer: 0,
+explanation: `✅ A. Ce n’est pas permis de changer la procédure publique à cause de la religion
+FR : Correct. La procédure administrative doit rester neutre, mais la liberté religieuse de l’usager est protégée.
+中：正确。行政程序不能因宗教改变，但服务对象的宗教自由受到保护。
+
+❌ B. C’est possible, c’est sa liberté de croyance
+FR : Faux. La liberté religieuse ne permet pas de modifier la procédure administrative unilatéralement.
+中：错误。宗教自由不允许单方面改变行政程序。
+
+❌ C. Il doit enlever son couvre-chef en toutes circonstances
+FR : Faux. La neutralité s’applique surtout aux agents, pas aux usagers.
+中：错误。中立原则主要约束工作人员，而非服务对象。
+
+❌ D. Il peut refuser et annuler le service
+FR : Faux. Refuser le service pour cause religieuse est illégal.
+中：错误。因宗教原因拒绝服务是违法的。`
+},
+{
+id: "si0123",
+type: "carte multi",
+category: "Mises en situation",
+difficulté: "moyen",
+typeQuestion: "examen original",
+question: "Une personne porte une croix visible lors d’une démarche administrative.",
+options: [
+"Le personnel peut lui demander de l’enlever",
+"La police doit intervenir",
+"Comme usager, il peut ne pas l’enlever, c’est sa liberté",
+"Il peut le porter seulement avec accord d’un responsable religieux"
+],
+answer: 2,
+explanation: `❌ A. Le personnel peut lui demander de l’enlever
+FR : Faux. La neutralité s’applique surtout aux agents, pas aux usagers.
+中：错误。中立原则约束工作人员，不约束服务对象。
+
+❌ B. La police doit intervenir
+FR : Faux. Il n’y a pas d’intervention nécessaire pour un usager portant un signe religieux.
+中：错误。佩戴宗教标志的服务对象不需要警方介入。
+
+✅ C. Comme usager, il peut ne pas l’enlever, c’est sa liberté
+FR : Correct. Les usagers peuvent porter des signes religieux lors des démarches administratives.
+中：正确。服务对象可以佩戴宗教标志，这是个人自由。
+
+❌ D. Il peut le porter seulement avec accord d’un responsable religieux
+FR : Faux. Aucun accord n’est nécessaire pour les usagers.
+中：错误。服务对象不需要宗教负责人批准。`
+},
+
+{
+id: "si0124",
+type: "carte multi",
+category: "Mises en situation",
+difficulté: "simple",
+typeQuestion: "examen original",
+question: "Un restaurant affiche « Interdit de porter des signes religieux ».",
+options: [
+"Le patron peut l’exiger",
+"Le patron ne peut pas le faire, c’est une discrimination",
+"Le patron ne peut pas l’exiger mais peut refuser le service",
+"Le patron peut le faire s’il ferme le restaurant"
+],
+answer: 1,
+explanation: `❌ A. Le patron peut l’exiger
+FR : Faux. Refuser un client pour motif religieux est illégal.
+中：错误。基于宗教理由拒绝顾客违法。
+
+✅ B. Le patron ne peut pas le faire, c’est une discrimination
+FR : Correct. La loi interdit la discrimination envers les clients.
+中：正确。法律禁止对顾客的宗教歧视。
+
+❌ C. Le patron ne peut pas l’exiger mais peut refuser le service
+FR : Faux. Refuser un service pour ce motif est également interdit.
+中：错误。基于宗教标志拒绝服务也是违法的。
+
+❌ D. Le patron peut le faire s’il ferme le restaurant
+FR : Faux. La fermeture ne légalise pas la discrimination.
+中：错误。关店也不能使歧视合法。`
+},
+{
+id: "si0125",
+type: "carte multi",
+category: "Mises en situation",
+difficulté: "moyen",
+typeQuestion: "examen original",
+question: "Vous avez rendez-vous avec un agent immobilier pour visiter un logement. Après avoir soumis votre dossier, l’agent refuse votre candidature. Quel motif est légal ?",
+options: [
+"Votre couleur de peau ou nationalité",
+"Votre capacité financière ou solvabilité",
+"Votre orientation sexuelle",
+"Votre religion"
+],
+answer: 1,
+explanation: `❌ A. Votre couleur de peau ou nationalité
+FR : Faux. La discrimination raciale est interdite par la loi française.
+中：错误。基于种族或国籍拒绝是违法的。
+
+✅ B. Votre capacité financière ou solvabilité
+FR : Correct. L’agent peut refuser un dossier pour motif financier (loyer non assuré, garanties insuffisantes).
+中：正确。中介可以因经济能力或担保不足拒绝租赁申请，这是合法理由。
+
+❌ C. Votre orientation sexuelle
+FR : Faux. La discrimination fondée sur l’orientation sexuelle est interdite.
+中：错误。基于性取向拒绝是违法的。
+
+❌ D. Votre religion
+FR : Faux. La religion ne peut pas être un motif de refus légal.
+中：错误。宗教信仰不能作为拒绝的合法理由。`
+},
+{
+id: "si0126",
+type: "carte multi",
+category: "Mises en situation",
+difficulté: "simple",
+typeQuestion: "examen original",
+question: "Monsieur X remplace la batterie de sa voiture. Où doit-il jeter l’ancienne batterie ?",
+options: [
+"Dans la poubelle normale",
+"Chez un commerçant ou centre de recyclage spécialisé",
+"Sur la voie publique",
+"Dans le jardin"
+],
+answer: 1,
+explanation: `❌ A. Dans la poubelle normale
+FR : Faux. Les batteries contiennent des substances toxiques et ne peuvent pas être jetées dans les ordures ménagères.
+中：错误。电瓶含有有毒物质，不能丢进普通垃圾桶。
+
+✅ B. Chez un commerçant ou centre de recyclage spécialisé
+FR : Correct. Les batteries doivent être rapportées à un point de collecte ou centre de recyclage.
+中：正确。电瓶必须送到回收点或专门回收中心处理。
+
+❌ C. Sur la voie publique
+FR : Faux. Déposer une batterie sur la voie publique est interdit et dangereux.
+中：错误。将电瓶丢在公共道路上是违法且危险的。
+
+❌ D. Dans le jardin
+FR : Faux. Enterrer une batterie pollue l’environnement et est interdit.
+中：错误。埋入土壤会污染环境，是违法的。`
+},
+{
+id: "si0127",
+type: "carte multi",
+category: "Mises en situation",
+difficulté: "difficile",
+typeQuestion: "examen original",
+question: "Madame X demande à Madame Y de se prostituer. Madame Y a-t-elle le droit de refuser ? Pourquoi ?",
+options: [
+"Non, elle doit accepter",
+"Oui, elle a le droit de refuser",
+"Elle doit accepter si elle reçoit de l’argent",
+"Elle peut accepter seulement si elle signe un contrat"
+],
+answer: 1,
+explanation: `❌ A. Non, elle doit accepter
+FR : Faux. La prostitution forcée est illégale et constitue une atteinte à la liberté individuelle.
+中：错误。强迫卖淫是违法的，侵犯个人自由。
+
+✅ B. Oui, elle a le droit de refuser
+FR : Correct. La loi protège la liberté et l’intégrité corporelle de chacun.
+中：正确。法律保护每个人的自由和身体完整权，拒绝是合法的。
+
+❌ C. Elle doit accepter si elle reçoit de l’argent
+FR : Faux. L’argent ne justifie pas la contrainte ou l’atteinte à la liberté.
+中：错误。有报酬也不能强迫卖淫。
+
+❌ D. Elle peut accepter seulement si elle signe un contrat
+FR : Faux. La prostitution forcée reste interdite, contrat ou non.
+中：错误。强迫卖淫始终违法，签合同也不能合法化。`
+},
+{
+id: "si0128",
+type: "carte multi",
+category: "Mises en situation",
+difficulté: "moyen",
+typeQuestion: "examen original",
+question: "Le frère de Madame Y exige qu’elle participe à un événement familial religieux. Peut-elle refuser ? Pourquoi ?",
+options: [
+"Non, elle doit suivre la famille",
+"Oui, elle peut refuser",
+"Elle doit demander l’autorisation du gouvernement",
+"Elle peut être punie par la famille"
+],
+answer: 1,
+explanation: `❌ A. Non, elle doit suivre la famille
+FR : Faux. La liberté de religion et de conscience interdit toute obligation.
+中：错误。宗教自由和良心自由禁止强制参加宗教活动。
+
+✅ B. Oui, elle peut refuser
+FR : Correct. Chaque personne a la liberté de croire ou de ne pas croire, et de ne pas participer à des rites religieux.
+中：正确。每个人有信仰自由，可以拒绝参加宗教活动。
+
+❌ C. Elle doit demander l’autorisation du gouvernement
+FR : Faux. Le gouvernement n’a pas compétence sur la participation à des événements familiaux.
+中：错误。政府无权干涉家庭宗教活动的参与。
+
+❌ D. Elle peut être punie par la famille
+FR : Faux. La loi protège sa liberté, aucune sanction familiale n’a de valeur légale.
+中：错误。法律保护其自由，家庭处罚不具法律效力。`
+},
+{
+  id: "si0129",
+  type: "carte multi",
+  category: "Mises en situation",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "Concernant les démarches médicales en France, laquelle est correcte ?",
+  options: [
+    "On peut consulter un cardiologue sans passer par son médecin traitant",
+    "Il faut une ordonnance pour faire une radiologie",
+    "On peut se rendre au labo sans ordonnance pour faire une prise de sang",
+    "On peut choisir librement tous les examens sans ordonnance"
+  ],
+  answer: 1, // ⚠️ 改为B
+  explanation: `❌ A. On peut consulter un cardiologue sans passer par son médecin traitant
+FR : Faux. La consultation d'un cardiologue nécessite généralement une prescription du médecin traitant, sauf cas exceptionnels (urgence, renouvellement simple). Sans cette prescription, le remboursement par l'Assurance maladie est moins élevé (parcours de soins non coordonné).
+中：错误。看心脏病科医生通常需要家庭医生的处方，除非特殊情况（紧急情况、简单续方）。没有处方，医疗保险报销会更低（非协调医疗路径）。
+
+✅ B. Il faut une ordonnance pour faire une radiologie
+FR : Correct ! En France, toute radiologie (radio, scanner, IRM, échographie) nécessite une prescription médicale. Cette règle vise à protéger le patient contre les expositions inutiles aux rayonnements et à garantir la pertinence de l'examen.
+中：正确！在法国，所有放射检查（X光、CT、MRI、超声波）都需要医生处方。这条规则旨在保护患者免受不必要的辐射暴露，并确保检查的必要性。
+
+❌ C. On peut se rendre au labo sans ordonnance pour faire une prise de sang
+FR : Faux. La plupart des analyses de sang nécessitent une prescription médicale, à l'exception de certains tests spécifiques (dépistage du VIH, test COVID, etc.). Il est donc faux de dire que l'on peut se rendre au laboratoire sans ordonnance pour toute prise de sang.
+中：错误。大多数血液检查需要医生处方，除了某些特定检查（HIV筛查、COVID检测等）。因此，说可以无处方去化验室做任何血液检查是错误的。
+
+❌ D. On peut choisir librement tous les examens sans ordonnance
+FR : Faux. La loi française encadre strictement les examens médicaux. La plupart des examens nécessitent une prescription médicale pour garantir la sécurité du patient et éviter les abus et les dérives.
+中：错误。法国法律严格规范医疗检查。大多数检查需要医生处方，以保障患者安全，防止滥用和不当行为。`
+},
+{
+id: "si0130",
+type: "carte multi",
+category: "Mises en situation",
+difficulté: "moyen",
+typeQuestion: "examen original",
+question: "Un employé veut participer à une activité religieuse pendant les heures de travail. Que doit-il faire et que peut décider l’entreprise ?",
+options: [
+"Il peut partir sans prévenir",
+"Il doit demander un congé ou une autorisation spéciale",
+"Il doit prier discrètement à son poste",
+"Il n’a pas le droit de participer à une activité religieuse"
+],
+answer: 1,
+explanation: `❌ A. Il peut partir sans prévenir
+FR : Faux. L’employé doit suivre les règles internes de l’entreprise et le droit du travail.
+中：错误。员工不能擅自离岗，需要遵守公司规定和劳动法。
+
+✅ B. Il doit demander un congé ou une autorisation spéciale
+FR : Correct. L’employé doit demander un congé ou une autorisation et l’employeur peut l’accepter ou non selon les règles de l’entreprise.
+中：正确。员工需请假或申请授权，公司可根据内部规定批准。
+
+❌ C. Il doit prier discrètement à son poste
+FR : Faux. Les activités religieuses sur le lieu de travail doivent respecter la neutralité et le règlement intérieur.
+中：错误。工作场所的宗教活动必须遵守中立原则和公司规定。
+
+❌ D. Il n’a pas le droit de participer à une activité religieuse
+FR : Faux. Le droit au repos ou congé pour raison religieuse est protégé dans certaines limites.
+中：错误。在一定范围内，员工有休假或请假参加宗教活动的权利。`
+},
+{
+id: "si0131",
+type: "carte multi",
+category: "Mises en situation",
+difficulté: "moyen",
+typeQuestion: "examen original",
+question: "Une presse écrit un article critiquant la politique du gouvernement. Est-ce légal ?",
+options: [
+"Non, la critique politique est interdite",
+"Oui, mais la publication est interdite",
+"Oui, c’est légal et le journal peut être vendu",
+"Non, sauf si l’autorité gouvernementale l’approuve"
+],
+answer: 2,
+explanation: `❌ A. Non, la critique politique est interdite
+FR : Faux. La liberté de la presse protège la critique politique, tant qu’elle n’est pas diffamatoire.
+中：错误。只要不构成诽谤，政治批评受新闻自由保护。
+
+❌ B. Oui, mais la publication est interdite
+FR : Faux. Les journaux peuvent publier des articles critiques légalement.
+中：错误。报纸可以合法地发表批评文章。
+
+✅ C. Oui, c’est légal et le journal peut être vendu
+FR : Correct. La liberté de presse permet de publier et vendre ces articles.
+中：正确。新闻自由允许出版并售卖批评性文章。
+
+❌ D. Non, sauf si l’autorité gouvernementale l’approuve
+FR : Faux. Le gouvernement ne peut pas censurer la presse de manière préventive.
+中：错误。政府不能事先审查报纸内容。`
+},
+{
+id: "si0132",
+type: "carte multi",
+category: "Mises en situation",
+difficulté: "moyen",
+typeQuestion: "examen original",
+question: "Vous découvrez que votre voisin frappe son enfant. Que devez-vous faire ?",
+options: [
+"Ignorer la situation",
+"Intervenir physiquement pour punir le voisin",
+"Signaler la situation aux services compétents (police ou protection de l’enfance)",
+"Critiquer le voisin devant ses enfants"
+],
+answer: 2,
+explanation: `❌ A. Ignorer la situation
+FR : Faux. L’enfant est en danger, il faut agir.
+中：错误。孩子处于危险中，不能忽视。
+
+❌ B. Intervenir physiquement pour punir le voisin
+FR : Faux. Cela est dangereux et illégal.
+中：错误。直接动手干预是危险且违法的。
+
+✅ C. Signaler la situation aux services compétents (police ou protection de l’enfance)
+FR : Correct. La loi protège les enfants et oblige à signaler les mauvais traitements.
+中：正确。法律要求报告虐待儿童行为以保护儿童。
+
+❌ D. Critiquer le voisin devant les enfants
+FR : Faux. Cela ne protège pas l’enfant et peut aggraver la situation.
+中：错误。公开指责邻居不会保护孩子，可能加剧问题。`
+},
+{
+id: "si0133",
+type: "carte multi",
+category: "Mises en situation",
+difficulté: "moyen",
+typeQuestion: "examen original",
+question: "Deux collégiens discutent de religion dans leur cours. Est-ce permis ?",
+options: [
+"Non, toute discussion religieuse est interdite à l’école",
+"Oui, tant que c’est dans le cadre pédagogique",
+"Non, sauf avec autorisation parentale",
+"Oui, mais uniquement en dehors de l’école"
+],
+answer: 1,
+explanation: `❌ A. Non, toute discussion religieuse est interdite à l’école
+FR : Faux. L’école doit respecter la liberté d’expression encadrée et la laïcité.
+中：错误。学校必须尊重受控的言论自由和世俗原则。
+
+✅ B. Oui, tant que c’est dans le cadre pédagogique
+FR : Correct. Les discussions religieuses sont autorisées dans le cadre éducatif et respectueux.
+中：正确。在教育课堂上、遵守规则的宗教讨论是允许的。因为在法国公立学校，宗教本身可以作为教学内容进行讨论，例如历史、地理、哲学或公民教育课程中；但这不等于可以进行宗教宣传或传教（prosélytisme）。
+
+❌ C. Non, sauf avec autorisation parentale
+FR : Faux. Les discussions encadrées ne nécessitent pas toujours l’autorisation des parents.
+中：错误。课堂讨论在受控范围内通常不需要家长同意。
+
+❌ D. Oui, mais uniquement en dehors de l’école
+FR : Faux. L’école peut organiser des discussions pédagogiques sur la religion.
+中：错误。学校可以在课程中安排宗教教育讨论。`
+},
+{
+id: "si0134",
+type: "carte multi",
+category: "Mises en situation",
+difficulté: "simple",
+typeQuestion: "examen original",
+question: "Lors d’une démarche administrative, quelle langue devez-vous utiliser à la mairie en France ?",
+options: [
+"N’importe quelle langue est acceptable",
+"Français",
+"Anglais",
+"La langue de votre choix si l’employé est bilingue"
+],
+answer: 1,
+explanation: `❌ A. N’importe quelle langue est acceptable
+FR : Faux. Les documents officiels et échanges se font en français.
+中：错误。官方文件和交流必须使用法语。
+
+✅ B. Français
+FR : Correct. Le français est la langue officielle pour les démarches administratives.
+中：正确。法语是办理行政事务的官方语言。
+
+❌ C. Anglais
+FR : Faux. L’anglais n’est pas reconnu pour les démarches officielles.
+中：错误。英语不被官方认可用于行政事务。
+
+❌ D. La langue de votre choix si l’employé est bilingue
+FR : Faux. Même si le personnel comprend, les échanges officiels doivent rester en français.
+中：错误。即使工作人员能听懂，也必须使用法语。`
+},
+{
+id: "si0135",
+type: "carte multi",
+category: "Mises en situation",
+difficulté: "moyen",
+typeQuestion: "examen original",
+question: "Si un employé est victime de discrimination ou de harcèlement au travail, où peut-il se tourner pour obtenir de l’aide ?",
+options: [
+"Il ne peut rien faire",
+"Seul devant le juge",
+"Inspection du travail, Défenseur des droits, syndicats",
+"Seulement auprès de ses collègues"
+],
+answer: 2,
+explanation: `❌ A. Il ne peut rien faire
+FR : Faux. La loi protège les employés contre la discrimination et le harcèlement.
+中：错误。法律保护员工不受歧视和骚扰。
+
+❌ B. Seul devant le juge
+FR : Faux. Il existe des organismes spécialisés pour l’accompagner.
+中：错误。可以求助专门机构，而非单独上法庭。
+
+✅ C. Inspection du travail, Défenseur des droits, syndicats
+FR : Correct. Ces institutions peuvent recevoir les plaintes et offrir un accompagnement légal.
+中：正确。劳动监察、权利保护机构和工会可受理投诉并提供法律支持。
+
+❌ D. Seulement auprès de ses collègues
+FR : Faux. Les collègues ne sont pas compétents légalement.
+中：错误。同事无法提供法律帮助。`
+},
+{
+id: "si0136",
+type: "carte multi",
+category: "Mises en situation",
+difficulté: "simple",
+typeQuestion: "examen original",
+question: "À quoi sert le médecin traitant (médecin généraliste) en France ?",
+options: [
+"À diagnostiquer, soigner, orienter vers des spécialistes si nécessaire",
+"Seulement à prescrire des médicaments",
+"À représenter l’employé devant l’administration",
+"À s’occuper uniquement des enfants"
+],
+answer: 0,
+explanation: `✅ A. À diagnostiquer, soigner, orienter vers des spécialistes si nécessaire
+FR : Correct. Le médecin traitant coordonne le parcours de soins et assure le suivi médical.
+中：正确。家庭医生负责诊断、治疗并根据需要转诊，同时管理医疗跟进。
+
+❌ B. Seulement à prescrire des médicaments
+FR : Faux. Son rôle dépasse la simple prescription.
+中：错误。家庭医生的职责不只是开药。
+
+❌ C. À représenter l’employé devant l’administration
+FR : Faux. Ce n’est pas sa fonction.
+中：错误。家庭医生不代表员工处理行政事务。
+
+❌ D. À s’occuper uniquement des enfants
+FR : Faux. Il prend en charge tous les patients.
+中：错误。家庭医生服务对象不限于儿童。`
+},
+{
+id: "si0137",
+type: "carte multi",
+category: "Mises en situation",
+difficulté: "moyen",
+typeQuestion: "examen original",
+question: "Vous trouvez que la jupe de votre collègue est trop courte. Que pouvez-vous faire ?",
+options: [
+"L’insulter ou la critiquer devant les autres",
+"Lui faire des remarques respectueuses en privé si c’est lié à la sécurité ou règlement interne",
+"Partager son image sur les réseaux sociaux",
+"Informer le patron pour qu’il lui inflige une amende ou une sanction financière"
+],
+answer: 1,
+explanation: `❌ A. L’insulter ou la critiquer devant les autres
+FR : Faux. Cela constitue du harcèlement ou une atteinte à la dignité.
+中：错误。公开辱骂或批评属于骚扰或侵犯尊严。
+
+✅ B. Lui faire des remarques respectueuses en privé si c’est lié à la sécurité ou règlement interne
+FR : Correct. Les observations doivent être faites avec respect et justification objective (ex : sécurité ou règlement).
+中：正确。仅在尊重的情况下、出于安全或公司规定目的，可私下提醒。
+
+❌ C. Partager son image sur les réseaux sociaux
+FR : Faux. Cela constitue une atteinte à la vie privée.
+中：错误。在社交媒体分享属于侵犯隐私。
+
+❌ D. Informer le patron pour qu’il lui inflige une amende ou une sanction financière
+FR : Faux. Le règlement interne ne prévoit pas de sanction financière pour la tenue vestimentaire d’un collègue et cela constituerait une atteinte à sa dignité.
+中：错误。公司规定不允许因穿着对同事罚款，这属于侵犯尊严。`
+},
+{
+id: "si0138",
+type: "carte multi",
+category: "Mises en situation",
+difficulté: "simple",
+typeQuestion: "examen original",
+question: "Un professeur souhaite prier avant de commencer son cours. Est-ce possible ?",
+options: [
+"Oui, à condition que ce soit privé et ne perturbe pas les élèves",
+"Non, l’école doit rester laïque",
+"Oui, devant tous les élèves",
+"Oui, mais seulement après avoir demandé l’autorisation à chaque élève"
+],
+answer: 1,
+explanation: `❌ A. Oui, à condition que ce soit privé et ne perturbe pas les élèves
+FR : Faux. Dans l’école publique, toute pratique religieuse doit rester strictement séparée de l’enseignement.
+中：错误。在公立学校中，任何宗教活动都必须严格与教学分离。
+
+✅ B. Non, l’école doit rester laïque
+FR : Correct. La loi impose la neutralité religieuse dans les établissements scolaires publics.
+中：正确。法律要求公立学校保持宗教中立，禁止在课堂上进行祈祷等宗教活动。
+
+❌ C. Oui, devant tous les élèves
+FR : Faux. La laïcité interdit d’imposer une pratique religieuse aux élèves.
+中：错误。世俗原则禁止强迫学生参与宗教活动。
+
+❌ D. Oui, mais seulement après avoir demandé l’autorisation à chaque élève
+FR : Faux. Même avec autorisation, l’école publique doit rester laïque.
+中：错误。即使征求学生同意，公立学校也必须保持世俗中立。`
+},
   {
     id: "pf0001",
     type: "carte multi",
@@ -14014,17 +14752,22 @@ FR : Faux Les bâtiments scolaires ne sont pas obligatoirement des lieux officie
     answer: 2,
     explanation: `❌ A. La monarchie constitutionnelle - Faux. La monarchie constitutionnelle est abolie en 1792.\n中：错误。1792年废除君主立宪制。\n\n❌ B. Le Consulat - Faux. Le Consulat est instauré en 1799.\n中：错误。执政府成立于1799年。\n\n✅ C. La Première République - Correct ! En septembre 1792, la Première République est proclamée.\n中：正确！1792年9月宣布第一共和国成立。\n\n❌ D. Le Premier Empire - Faux. Le Premier Empire commence en 1804 avec Napoléon.\n中：错误。第一帝国从1804年开始。`
   },
-  {
-    id: "gh0042",
-    type: "carte multi",
-    category: "Grandes périodes et personnages historiques",
-    difficulté: "moyen",
-    typeQuestion: "examen original",
-    question: "Quel régime suit directement la Première République ?",
-    options: ["Le Premier Empire", "La Restauration", "Le Consulat", "La Monarchie de Juillet"],
-    answer: 0,
-    explanation: `✅ A. Le Premier Empire - Correct ! La Première République est suivie par le Premier Empire en 1804.\n中：正确！第一共和国之后直接进入第一帝国（1804年）。\n\n❌ B. La Restauration - Faux. La Restauration arrive après la chute de Napoléon en 1814.\n中：错误。复辟在拿破仑失败后（1814年）才开始。\n\n❌ C. Le Consulat - Faux. Le Consulat précède le Premier Empire (1799-1804).\n中：错误。执政府在第一帝国之前。\n\n❌ D. La Monarchie de Juillet - Faux. Elle commence en 1830, bien plus tard.\n中：错误。七月王朝始于1830年。`
-  },
+ {
+  id: "gh0042",
+  type: "carte multi",
+  category: "Grandes périodes et personnages historiques",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "Quel régime suit directement la Première République ?",
+  options: [
+    "Le Premier Empire",
+    "La Restauration",
+    "La Monarchie de Juillet",
+    "Une autre République"
+  ],
+  "answer": 0,
+  "explanation": "✅ A. Le Premier Empire\nFR : Correct ! La Première République est suivie par le Premier Empire en 1804.\n中：正确！第一共和国之后直接进入第一帝国（1804年）。\n\n❌ B. La Restauration\nFR : Faux. La Restauration arrive après la chute de Napoléon en 1814.\n中：错误。复辟在拿破仑失败后（1814年）才开始。\n\n❌ C. La Monarchie de Juillet\nFR : Faux. Elle commence en 1830, bien plus tard.\n中：错误。七月王朝始于1830年。\n\n❌ D. Une autre République\nFR : Faux. La Première République est suivie directement par l’Empire, pas par une autre République.\n中：错误。第一共和国之后直接进入帝国，而不是另一共和国。"
+},
   {
     id: "gh0043",
     type: "carte multi",
@@ -15996,8 +16739,8 @@ FR : Faux Les bâtiments scolaires ne sont pas obligatoirement des lieux officie
     "18 ans",
     "12 ans"
   ],
-  answer: 1,
-  explanation: "❌ A. 14 ans - Faux. 14 ans est possible seulement pour des travaux légers pendant les vacances scolaires, avec autorisation.\n中：错误。14岁只允许在假期进行轻工作并需授权。\n\n✅ B. 16 ans - Correct ! L’âge minimum pour travailler en France est généralement 16 ans (travail normal, sous conditions).\n中：正确！法国常规工作最低年龄通常为16岁（在符合条件的情况下）。\n\n❌ C. 18 ans - Faux, parce que 18 ans est l’âge adulte, pas l’âge minimum pour travailler.\n中：错误，因为不是最低年龄。\n\n❌ D. 12 ans - Faux, parce que 12 ans est trop jeune et interdit pour travailler.\n中：错误，因为12 岁不允许工作。"
+  "answer": 1,
+  "explanation": "❌ A. 14 ans\nFR : Faux. 14 ans est possible seulement pour des travaux légers pendant les vacances scolaires, avec autorisation.\n中：错误。14岁只允许在假期进行轻工作并需授权。\n\n✅ B. 16 ans\nFR : Correct ! L’âge minimum pour travailler en France est généralement 16 ans (travail normal, sous conditions).\n中：正确！法国常规工作最低年龄通常为16岁（在符合条件的情况下）。\n\n❌ C. 18 ans\nFR : Faux, parce que 18 ans est l’âge adulte, pas l’âge minimum pour travailler.\n中：错误，因为不是最低年龄。\n\n❌ D. 12 ans\nFR : Faux, parce que 12 ans est trop jeune et interdit pour travailler.\n中：错误，因为12 岁不允许工作。"
 }
 ,
   {
@@ -17712,14 +18455,14 @@ FR : Faux Les bâtiments scolaires ne sont pas obligatoirement des lieux officie
     typeQuestion: "examen original", // 有"5o"
     question: "Quand faut-il déclarer son enfant au service d'état civil de la mairie ?",
     options: [
-      "Dans les 3 jours",
+      "Dans les 5 jours",
       "Dans le mois",
       "À la fin de l'année",
       "À l'école maternelle"
     ],
     answer: 0,
-    explanation: `✅ A. Dans les 3 jours - Correct ! La loi impose de déclarer la naissance dans les 3 jours suivant l'accouchement.
-    中：正确！法律规定孩子出生后3天内必须在市政府申报。
+    explanation: `✅ A. Dans les 5 jours - Correct ! La loi impose de déclarer la naissance dans les 5 jours suivant l'accouchement.
+    中：正确！法律规定孩子出生后5天内必须在市政府申报。
     
     ❌ B. Dans le mois - Faux. Ce délai est trop long et non conforme à la loi.
     中：错误。一个月已超过法定期限。
@@ -17835,20 +18578,20 @@ FR : Faux Les bâtiments scolaires ne sont pas obligatoirement des lieux officie
     中：错误。医院只出具医学证明，法律登记必须在市政府完成。`
   },
 {
-  id: "ir0010",
-  type: "carte multi",
-  category: "S'installer et résider en France",
+id: "ir0010",
+type: "carte multi",
+ category: "S'installer et résider en France",
   difficulté: "simple",
   typeQuestion: "examen original",
-  question: "À quel âge peut-on conduire seul après avoir obtenu le permis B ?",
+ question: "À quel âge peut-on conduire seul après avoir obtenu le permis B ?",
   options: [
-    "Avoir 16 ans",
-    "Avoir suivi la formation obligatoire et réussir l’examen",
-    "Payer une amende",
-    "Avoir un véhicule ancien"
+    "16 ans",
+    "17 ans",
+    "18 ans",
+    "21 ans"
   ],
-  answer: 1,
-  explanation: "✅ B. Avoir suivi la formation obligatoire et réussir l’examen - Correct ! Pour conduire seul en France, il faut avoir suivi toute la formation obligatoire et avoir réussi l'examen du permis B.\n中：正确！在法国，要独自驾驶，必须完成规定培训并通过驾照考试。\n\n❌ A. Avoir 16 ans - Faux. À 17 ans, on peut commencer certaines formations et passer l’examen classique du permis B.\n中：错误。16岁还不能独自驾驶，17岁可以开始学习并参加普通驾照考试。\n\n❌ C. Payer une amende - Faux. Payer une amende n’a aucun rapport avec l’âge légal pour conduire.\n中：错误。支付罚款与法定驾驶年龄无关。\n\n❌ D. Avoir un véhicule ancien - Faux. Le type de véhicule ne change pas l’âge légal.\n中：错误。车辆类型不影响法定驾驶年龄。"
+  "answer": 1,
+  "explanation": "❌ A. 16 ans\nFR : Faux. À 17 ans, on peut commencer certaines formations et passer l’examen classique du permis B.\n中：错误。16岁还不能独立驾驶，17岁才能开始培训并参加驾照考试。\n\n✅ B. 17 ans\nFR : Correct ! C’est l’âge légal pour conduire seul après avoir obtenu le permis B et réussi la formation obligatoire.\n中：正确！完成培训并通过考试后，17岁可以独立驾驶。\n\n❌ C. 18 ans\nFR : Faux. Bien que 18 ans soit l’âge légal pour la majorité, on peut conduire seul dès 17 ans avec le permis B.\n中：错误。虽然18岁是成年年龄，但17岁即可独立驾驶。\n\n❌ D. 21 ans\nFR : Faux. L’âge de 21 ans n’est pas requis pour obtenir le permis B.\n中：错误。驾驶B类驾照不需要等到21岁。"
 }
 ,
   {
@@ -18803,8 +19546,4478 @@ FR : Faux Les bâtiments scolaires ne sont pas obligatoirement des lieux officie
     
     ❌ D. Déclarer ses revenus - Faux, parce que la déclaration de revenus est une démarche différente.
     中：错误，因为报税不是结婚的目的。`
-  }
-];
+  },
+{
+    id: "in0065",
+    type: "naturalisation",
+    category: "Institutions",
+    difficulté: "moyen",
+    typeQuestion: "examen original",
+    question: "Qui peut se présenter aux élections présidentielles ?",
+    options: [
+      "Tout citoyen français majeur",
+      "Tout citoyen français majeur ayant 500 parrainages d'élus",
+      "Tout citoyen européen résidant en France",
+      "Tout membre du gouvernement"
+    ],
+    answer: 1,
+    explanation: `❌ A) Tout citoyen français majeur
+FR : Faux. La nationalité française et la majorité sont nécessaires mais pas suffisantes. La Constitution exige également de recueillir 500 parrainages d'élus (maires, députés, sénateurs, etc.) provenant d'au moins 30 départements ou collectivités d'outre-mer différents, sans qu'aucun parrainage ne dépasse 10% du total. Cette règle vise à garantir un soutien minimum et à éviter les candidatures fantaisistes.
+中：错误。法国国籍和成年是必要条件但不充分。宪法还要求获得500名民选官员（市长、议员、参议员等）的推荐，这些推荐必须来自至少30个不同的省份或海外领地，且单个省份的推荐不得超过总数的10%。这一规定旨在确保候选人获得最低限度的支持，并防止轻率的候选资格。
+
+✅ B) Tout citoyen français majeur ayant 500 parrainages d'élus
+FR : Correct ! Pour être candidat à l'élection présidentielle française, il faut : être de nationalité française, être âgé d'au moins 18 ans, être inscrit sur les listes électorales, et surtout recueillir 500 signatures (parrainages) d'élus. Ces parrainages sont rendus publics par le Conseil constitutionnel, garantissant ainsi la transparence du processus. Depuis 2016, les parrainages sont publiés intégralement sur le site du Conseil constitutionnel.
+中：正确。要成为法国总统候选人，必须满足：具有法国国籍、年满18周岁、在选民名单上登记，最重要的是获得500名民选官员的联名支持。这些推荐由宪法委员会公开，确保过程的透明度。自2016年起，所有推荐都完整公布在宪法委员会网站上。
+
+❌ C) Tout citoyen européen résidant en France
+FR : Faux. Les citoyens européens peuvent voter aux élections municipales et européennes en France, et même se présenter aux élections municipales, mais ne peuvent pas se présenter à l'élection présidentielle, qui est réservée aux citoyens français. La présidence de la République incarne la souveraineté nationale française, qui ne peut être exercée que par un citoyen français.
+中：错误。欧盟公民可以在法国参加市镇选举和欧洲选举投票，甚至可以参加市镇选举竞选，但不能参加总统选举，这是保留给法国公民的。共和国总统职位体现法国国家主权，只能由法国公民行使。
+
+❌ D) Tout membre du gouvernement
+FR : Faux. Être membre du gouvernement ne donne aucun droit automatique à se présenter. Les ministres doivent démissionner du gouvernement s'ils souhaitent être candidats, et doivent remplir toutes les conditions légales comme tout autre citoyen (parrainages, nationalité, etc.). Aucune dispense n'est accordée aux membres du gouvernement.
+中：错误。政府成员身份并不自动赋予参选资格。部长如果希望参选必须辞去政府职务，并且必须像其他公民一样满足所有法律条件（推荐、国籍等）。政府成员没有任何豁免特权。`
+  },
+  {
+    id: "in0066",
+    type: "naturalisation",
+    category: "Institutions",
+    difficulté: "simple",
+    typeQuestion: "examen original",
+    question: "Qui est élu lors des élections municipales ?",
+    options: [
+      "Le préfet",
+      "Les conseillers municipaux",
+      "Les députés",
+      "Le président du conseil départemental"
+    ],
+    answer: 1,
+    explanation: `❌ A) Le préfet
+FR : Faux. Le préfet est un haut fonctionnaire nommé par décret du Président de la République en Conseil des ministres. Il représente l'État dans le département et n'est pas élu par les citoyens. Il assure le contrôle de légalité des actes des collectivités territoriales et est responsable de l'ordre public.
+中：错误。省长是由总统在部长会议上通过法令任命的高级公务员。他在省内代表国家，不由公民选举产生。他负责监督地方行政单位行为的合法性，并负责公共秩序。
+
+✅ B) Les conseillers municipaux
+FR : Correct ! Lors des élections municipales, les citoyens élisent les conseillers municipaux pour un mandat de 6 ans. Ces conseillers formeront ensuite le conseil municipal, qui élira le maire parmi ses membres. Le nombre de conseillers varie selon la taille de la commune : de 7 pour les plus petites communes à 69 pour Paris, Lyon et Marseille.
+中：正确。在市镇选举中，公民选举市议会议员，任期6年。这些议员组成市议会，然后由市议会从成员中选举产生市长。议员人数根据市镇规模而定：最小市镇7人，巴黎、里昂、马赛等大城市69人。
+
+❌ C) Les députés
+FR : Faux. Les députés sont élus lors des élections législatives, qui ont lieu généralement après l'élection présidentielle. Ils siègent à l'Assemblée nationale et votent les lois. Les élections législatives se déroulent dans 577 circonscriptions, chaque circonscription élisant un député.
+中：错误。议员是在立法选举中产生的，通常在大选之后举行。他们在国民议会任职并投票通过法律。立法选举在577个选区进行，每个选区选举一名议员。
+
+❌ D) Le président du conseil départemental
+FR : Faux. Le président du conseil départemental est élu par les conseillers départementaux, après les élections départementales. Il n'est pas élu directement par les citoyens lors des élections municipales. Les élections départementales (anciennement cantonales) élisent les conseillers départementaux pour 6 ans.
+中：错误。省议会主席是在省选举之后由省议员选举产生的，不是由公民在市镇选举中直接选举。省选举（原称县选举）选举省议员，任期6年。`
+  },
+  {
+    id: "in0067",
+    type: "naturalisation",
+    category: "Institutions",
+    difficulté: "simple",
+    typeQuestion: "examen original",
+    question: "Quelles sont les fonctions du maire ?",
+    options: [
+      "Il dirige les services de l'État dans un département",
+      "Il dirige les services de proximité de la commune et exerce des fonctions d'état civil",
+      "Il vote les lois au Parlement",
+      "Il contrôle l'action du gouvernement"
+    ],
+    answer: 1,
+    explanation: `❌ A) Il dirige les services de l'État dans un département
+FR : Faux. C'est le préfet qui dirige les services de l'État dans le département. Le préfet est le représentant direct de l'État et garantit l'ordre public et l'application des lois au niveau départemental. Il est nommé par décret du Président de la République.
+中：错误。领导省级国家服务机构的是省长。省长是国家的直接代表，在省级层面保障公共秩序和法律执行。他由总统法令任命。
+
+✅ B) Il dirige les services de proximité de la commune et exerce des fonctions d'état civil
+FR : Correct ! Le maire a une double casquette : il est à la fois exécutif de la commune (gestion des services municipaux, urbanisme, écoles municipales) et agent de l'État (tenue des registres d'état civil, organisation des élections, police municipale, publication des lois et règlements). Il est élu par le conseil municipal pour 6 ans.
+中：正确。市长具有双重身份：既是市镇的执行官（管理市政服务、城市规划、市镇学校），也是国家公务员（负责民事登记、组织选举、市镇警察、公布法律法规）。他由市议会选举产生，任期6年。
+
+❌ C) Il vote les lois au Parlement
+FR : Faux. Ce sont les parlementaires (députés et sénateurs) qui votent les lois. Le maire, même s'il est une personnalité politique locale importante, n'a pas de pouvoir législatif national. Les lois sont votées par l'Assemblée nationale et le Sénat après navette parlementaire.
+中：错误。法律由议员（国民议会议员和参议员）投票通过。市长虽然是重要的地方政治人物，但没有国家立法权。法律由国民议会和参议院在两院穿梭审议后投票通过。
+
+❌ D) Il contrôle l'action du gouvernement
+FR : Faux. Le contrôle du gouvernement est exercé par le Parlement (questions au gouvernement, motions de censure, commissions d'enquête). Le maire n'a pas ce pouvoir de contrôle au niveau national. Les citoyens peuvent voter aux élections nationales pour influencer la composition du gouvernement.
+中：错误。监督政府是议会的职能（向政府提问、不信任动议、调查委员会）。市长没有国家层面的监督权。公民通过国家选举投票来影响政府的组成。`
+  },
+  {
+    id: "in0068",
+    type: "naturalisation",
+    category: "Institutions",
+    difficulté: "simple",
+    typeQuestion: "examen original",
+    question: "Comment sont désignés les députés ?",
+    options: [
+      "Par scrutin proportionnel intégral national",
+      "Par scrutin majoritaire à deux tours",
+      "Par tirage au sort",
+      "Par les sénateurs"
+    ],
+    answer: 1,
+    explanation: `❌ A) Par scrutin proportionnel intégral national
+FR : Faux. La France n'utilise pas le scrutin proportionnel pour les élections législatives. Ce système est utilisé pour les élections européennes. Le scrutin proportionnel pourrait donner une représentation plus fidèle des petits partis mais fragiliserait la majorité gouvernementale et la stabilité politique. Certains pays européens l'utilisent, mais pas la France pour les législatives.
+中：错误。法国立法选举不使用比例代表制。这个制度用于欧洲选举。比例代表制可能使小党派获得更准确的代表性，但会削弱政府多数派和政治稳定性。一些欧洲国家使用该制度，但法国立法选举不使用。
+
+✅ B) Par scrutin majoritaire à deux tours
+FR : Correct ! Les députés sont élus au scrutin uninominal majoritaire à deux tours dans 577 circonscriptions législatives. Pour être élu au premier tour, un candidat doit obtenir la majorité absolue des suffrages exprimés (plus de 50%) et un nombre de voix au moins égal à 25% des électeurs inscrits. Au second tour, la majorité relative suffit. Ce système favorise la stabilité gouvernementale.
+中：正确。议员通过两轮单记名多数制在577个立法选区中选举产生。要在第一轮当选，候选人必须获得绝对多数票（超过50%）且得票数至少达到登记选民数的25%。第二轮相对多数即可当选。这个制度有利于政府稳定。
+
+❌ C) Par tirage au sort
+FR : Faux. Le tirage au sort n'est pas utilisé en France pour désigner les représentants politiques. Il est parfois utilisé pour les jurys d'assises ou certaines consultations citoyennes locales (conventions citoyennes), mais jamais pour les élections nationales. La démocratie représentative française est fondée sur l'élection.
+中：错误。抽签在法国不用于产生政治代表。有时用于重罪法庭陪审团或某些地方公民咨询（公民大会），但从不用于国家选举。法国的代议制民主基于选举。
+
+❌ D) Par les sénateurs
+FR : Faux. Les députés sont élus directement par le peuple, pas par les sénateurs. Les sénateurs sont d'ailleurs élus au suffrage universel indirect par un collège électoral qui comprend notamment les députés, les conseillers régionaux, départementaux et les délégués des conseils municipaux. C'est l'inverse du système proposé.
+中：错误。议员由人民直接选举产生，不是由参议员选举。参议员本身是由包括议员、大区议员、省议员和市议会代表在内的选举团通过间接普选产生的。这与提议的制度正好相反。`
+  },
+  {
+    id: "in0069",
+    type: "naturalisation",
+    category: "Institutions",
+    difficulté: "simple",
+    typeQuestion: "examen original",
+    question: "Qui vote les lois ?",
+    options: [
+      "Le Président de la République",
+      "Le Gouvernement",
+      "Le Parlement",
+      "Le Conseil constitutionnel"
+    ],
+    answer: 2,
+    explanation: `❌ A) Le Président de la République
+FR : Faux. Le Président promulgue les lois (les rend officielles) mais ne les vote pas. Il peut demander une nouvelle délibération ou saisir le Conseil constitutionnel avant promulgation, mais le pouvoir législatif appartient exclusivement au Parlement. Le Président peut aussi soumettre certains projets de loi au référendum (article 11).
+中：错误。总统颁布法律（使其正式生效）但不投票表决。他可以在颁布前要求重新审议或提交宪法委员会审查，但立法权专属议会。总统也可以将某些法案提交全民公投（宪法第11条）。
+
+❌ B) Le Gouvernement
+FR : Faux. Le Gouvernement propose des projets de loi et peut participer aux débats parlementaires, mais il ne vote pas les lois. Les ministres ne sont pas membres du Parlement (sauf exception du cas particulier du Premier ministre qui peut être invité). Le Gouvernement peut opposer la question de confiance pour faire adopter un texte sans vote (49.3), mais c'est une procédure exceptionnelle.
+中：错误。政府提出法案并可以参加议会辩论，但不投票表决。部长不是议会议员（特殊情况除外，如总理可能被邀请）。政府可以动用质询信任程序不经投票通过文本（49.3条），但这是例外程序。
+
+✅ C) Le Parlement
+FR : Correct ! Le Parlement, composé de l'Assemblée nationale (577 députés élus au suffrage direct) et du Sénat (348 sénateurs élus au suffrage indirect), vote les lois. Une loi doit être adoptée dans les mêmes termes par les deux chambres pour être promulguée. En cas de désaccord, une commission mixte paritaire peut être réunie, et l'Assemblée nationale a le dernier mot.
+中：正确。议会由国民议会（577名直选议员）和参议院（348名间接选举参议员）组成，负责投票表决法律。一项法律必须由两院以相同文本通过才能颁布。如有分歧，可召集混合委员会，国民议会有最终决定权。
+
+❌ D) Le Conseil constitutionnel
+FR : Faux. Le Conseil constitutionnel contrôle la conformité des lois à la Constitution avant leur promulgation. Il peut être saisi par le Président, le Premier ministre, les présidents des assemblées ou 60 députés/sénateurs. Il ne vote pas les lois. Composé de 9 membres nommés pour 9 ans, il est le gardien de la Constitution.
+中：错误。宪法委员会在法律颁布前审查其是否符合宪法。它可由总统、总理、议长或60名议员提请审查。它不投票表决法律。由9名任期9年的成员组成，是宪法的守护者。`
+  },
+  {
+    id: "in0070",
+    type: "naturalisation",
+    category: "Institutions",
+    difficulté: "simple",
+    typeQuestion: "examen original",
+    question: "Quelles sont les durées du mandat du conseil municipal et du maire ?",
+    options: [
+      "4 ans",
+      "5 ans",
+      "6 ans",
+      "7 ans"
+    ],
+    answer: 2,
+    explanation: `❌ A) 4 ans
+FR : Faux. Le mandat de 4 ans n'existe pas pour les élus municipaux en France. Cette durée existe pour certains mandats dans d'autres pays (États-Unis pour le président) ou pour d'autres institutions (les membres du CESE sont nommés pour 4 ans).
+中：错误。法国市镇议员没有4年任期。这个任期存在于其他国家（美国总统）或其他机构（经济社会环境委员会成员任期4年）。
+
+❌ B) 5 ans
+FR : Faux. Le mandat de 5 ans (quinquennat) est celui du Président de la République et des députés, pas des élus municipaux. Cette durée a été choisie pour aligner les élections présidentielles et législatives et éviter la cohabitation.
+中：错误。5年任期是总统和议员的任期，不是市镇议员。这个时长是为了使总统和立法选举同步，避免共治。
+
+✅ C) 6 ans
+FR : Correct ! Le mandat du conseil municipal et du maire est de 6 ans. Les élections municipales ont lieu tous les 6 ans pour renouveler l'ensemble des conseils municipaux de France (environ 35 000 communes). La durée du mandat est fixée par le code électoral. Les dernières élections ont eu lieu en 2020, les prochaines en 2026.
+中：正确。市议会和市长的任期为6年。市镇选举每6年举行一次，更新法国所有市议会（约35,000个市镇）。任期由选举法规定。上次选举在2020年，下次在2026年。
+
+❌ D) 7 ans
+FR : Faux. Le mandat de 7 ans (septennat) était celui du Président de la République avant le référendum de 2000 qui a instauré le quinquennat. Cette durée n'a jamais été appliquée aux élus municipaux. Le septennat a été créé en 1873 sous la IIIe République.
+中：错误。7年任期是2000年公投改为5年任期前总统的任期。这个任期从未适用于市镇议员。七年制始于1873年第三共和国。`
+  },
+  {
+    id: "in0071",
+    type: "naturalisation",
+    category: "Institutions",
+    difficulté: "simple",
+    typeQuestion: "examen original",
+    question: "Quelle est la durée du mandat du Président de la République française ?",
+    options: [
+      "5 ans",
+      "6 ans",
+      "7 ans",
+      "4 ans"
+    ],
+    answer: 0,
+    explanation: `✅ A) 5 ans
+FR : Correct ! Le mandat présidentiel est de 5 ans (quinquennat) depuis le référendum du 24 septembre 2000. Cette réforme visait à aligner la durée du mandat présidentiel sur celui des députés pour éviter la cohabitation (situations où le Président et le Premier ministre sont de camps politiques opposés). Le quinquennat a été appliqué pour la première fois à l'élection de 2002, réélisant Jacques Chirac.
+中：正确。自2000年9月24日公投后，法国总统任期为5年（五年任期制）。这项改革旨在使总统任期与议员任期一致，以避免共治（总统和总理来自不同政治阵营的情况）。五年制首次应用于2002年选举，雅克·希拉克连任。
+
+❌ B) 6 ans
+FR : Faux. Le mandat de 6 ans n'a jamais été appliqué en France pour la présidence. C'est la durée du mandat des sénateurs (depuis 2004) et des conseillers municipaux. Les sénateurs sont renouvelés par moitié tous les 3 ans.
+中：错误。法国总统从未有过6年任期。这是参议员（自2004年起）和市议员的任期。参议员每3年改选一半。
+
+❌ C) 7 ans
+FR : Faux. Le septennat (7 ans) était en vigueur de 1873 à 2002 (sauf interruption). Instauré sous la IIIe République, il a été maintenu sous la IVe et la Ve République jusqu'à la réforme de 2000. Il a été critiqué pour sa longueur et le risque de cohabitation. Depuis 2002, le mandat est de 5 ans.
+中：错误。七年制从1873年到2002年实行（除中断外）。始于第三共和国，在第四和第五共和国保持到2000年改革。因其时长和共治风险而受到批评。自2002年起任期为5年。
+
+❌ D) 4 ans
+FR : Faux. Le mandat de 4 ans n'existe pas en France pour les élections nationales. C'est la durée du mandat des membres du Conseil économique, social et environnemental (CESE), une assemblée consultative. Aux États-Unis, le président est élu pour 4 ans.
+中：错误。法国国家选举没有4年任期。这是经济社会环境委员会成员的任期，这是一个咨询性机构。在美国，总统任期4年。`
+  },
+  {
+    id: "in0072",
+    type: "naturalisation",
+    category: "Institutions",
+    difficulté: "simple",
+    typeQuestion: "examen original",
+    question: "Quelle est la durée du mandat des députés ?",
+    options: [
+      "4 ans",
+      "5 ans",
+      "6 ans",
+      "7 ans"
+    ],
+    answer: 1,
+    explanation: `❌ A) 4 ans
+FR : Faux. Les députés français ne sont pas élus pour 4 ans. Cette durée existe pour les représentants au Parlement européen, qui sont élus pour 5 ans également (et non 4). Dans certains pays comme les États-Unis, les représentants sont élus pour 2 ans seulement.
+中：错误。法国议员不是4年任期。欧洲议会议员也是5年任期（不是4年）。在美国等国家，众议员任期仅为2年。
+
+✅ B) 5 ans
+FR : Correct ! Les députés sont élus pour 5 ans lors des élections législatives. Toutefois, l'Assemblée nationale peut être dissoute par le Président de la République (article 12 de la Constitution), ce qui provoque des élections anticipées et écourte le mandat. Cette dissolution est un pouvoir propre du Président, sans contreseing du Premier ministre.
+中：正确。议员在立法选举中当选，任期5年。但国民议会可被总统解散（宪法第12条），导致提前选举，缩短任期。解散是总统的特有权力，无需总理副署。
+
+❌ C) 6 ans
+FR : Faux. Le mandat de 6 ans est celui des sénateurs (renouvelés par moitié tous les 3 ans) et des conseillers municipaux. Les sénateurs représentent les collectivités territoriales et sont élus au suffrage indirect.
+中：错误。6年任期是参议员（每3年改选一半）和市议员的任期。参议员代表地方行政单位，通过间接选举产生。
+
+❌ D) 7 ans
+FR : Faux. Le mandat de 7 ans était celui du Président de la République avant 2002, jamais celui des députés. Sous la IIIe République, les députés étaient élus pour 4 ans. Sous la IVe République, pour 5 ans également. La Ve République a maintenu le quinquennat pour les députés.
+中：错误。7年任期是2002年前总统的任期，从未是议员任期。在第三共和国，议员任期4年。在第四共和国，也是5年。第五共和国保持了议员5年任期。`
+  },
+  {
+    id: "in0073",
+    type: "naturalisation",
+    category: "Institutions",
+    difficulté: "simple",
+    typeQuestion: "examen original",
+    question: "Quelle est la durée du mandat des sénateurs ?",
+    options: [
+      "4 ans",
+      "5 ans",
+      "6 ans",
+      "9 ans"
+    ],
+    answer: 2,
+    explanation: `❌ A) 4 ans
+FR : Faux. Les sénateurs n'ont jamais été élus pour 4 ans en France. Cette durée n'a jamais été appliquée au Sénat, qui a toujours eu un mandat plus long que celui des députés pour assurer la stabilité et la continuité des institutions.
+中：错误。法国参议员从未有过4年任期。这个时长从未应用于参议院，参议院的任期一直比众议院长，以确保机构的稳定性和连续性。
+
+❌ B) 5 ans
+FR : Faux. Le mandat de 5 ans est celui des députés et du Président, pas des sénateurs. La différence de durée entre les deux chambres (Assemblée nationale et Sénat) est voulue pour assurer une certaine stabilité et éviter que les deux assemblées soient renouvelées en même temps.
+中：错误。5年任期是议员和总统的，不是参议员。两院（国民议会和参议院）任期差异是有意设计的，以确保一定的稳定性，避免两院同时更新。
+
+✅ C) 6 ans
+FR : Correct ! Les sénateurs sont élus pour 6 ans depuis la réforme de 2004 (loi constitutionnelle du 30 juillet 2004). Avant cette réforme, leur mandat était de 9 ans. Le Sénat est renouvelé par moitié tous les 3 ans (série 1 et série 2). Cette réforme visait à moderniser le Sénat tout en préservant son rôle de représentation des collectivités territoriales.
+中：正确。自2004年改革（2004年7月30日宪法性法律）以来，参议员任期为6年。改革前为9年。参议院每3年改选一半（第一系列和第二系列）。这项改革旨在实现参议院现代化，同时保持其代表地方行政单位的角色。
+
+❌ D) 9 ans
+FR : Faux. Cette durée existait avant la réforme de 2004. Le mandat de 9 ans était critiqué car il rendait le Sénat trop éloigné de l'évolution politique et peu représentatif des changements sociétaux. Depuis 2004, le mandat est de 6 ans, avec un renouvellement par moitié tous les 3 ans.
+中：错误。9年任期是2004年改革之前。9年任期曾被批评使参议院脱离政治发展，不能很好代表社会变化。自2004年起任期为6年，每3年改选一半。`
+  },
+  {
+    id: "in0074",
+    type: "naturalisation",
+    category: "Institutions",
+    difficulté: "simple",
+    typeQuestion: "examen original",
+    question: "Qui dirige l'action du gouvernement ?",
+    options: [
+      "Le Président de la République",
+      "Le Premier ministre",
+      "Le ministre de l'Intérieur",
+      "Le Parlement"
+    ],
+    answer: 1,
+    explanation: `❌ A) Le Président de la République
+FR : Faux. Le Président nomme le Premier ministre et préside le Conseil des ministres, mais il ne dirige pas l'action quotidienne du gouvernement. En période de cohabitation, cette distinction est encore plus nette : le Président voit son rôle réduit aux domaines régaliens (défense, diplomatie) tandis que le Premier ministre gouverne. L'article 20 de la Constitution confie la direction du gouvernement au Premier ministre.
+中：错误。总统任命总理并主持部长会议，但不负责政府日常工作的领导。在共治时期，这种区别更为明显：总统的角色限于主权领域（国防、外交），而总理治理国家。宪法第20条将政府领导权交给总理。
+
+✅ B) Le Premier ministre
+FR : Correct ! Selon l'article 21 de la Constitution, le Premier ministre dirige l'action du gouvernement. Il est responsable de la défense nationale, assure l'exécution des lois, et peut déléguer certains pouvoirs aux ministres. Il coordonne l'action des ministres, arbitre les conflits entre eux, et engage la responsabilité du gouvernement devant l'Assemblée nationale.
+中：正确。根据宪法第21条，总理领导政府工作。他负责国防，确保法律执行，并可向部长委派某些权力。他协调部长们的工作，仲裁部长间的冲突，并对国民议会承担政府责任。
+
+❌ C) Le ministre de l'Intérieur
+FR : Faux. Le ministre de l'Intérieur dirige son ministère (sécurité intérieure, collectivités territoriales, cultes, organisation des élections) mais n'a pas autorité sur l'ensemble du gouvernement. Il est l'un des ministres les plus importants, mais il n'a pas de pouvoir hiérarchique sur ses collègues.
+中：错误。内政部长只负责其部门（国内安全、地方行政、宗教事务、组织选举），不对整个政府有领导权。他是最重要的部长之一，但对其他部长没有等级权力。
+
+❌ D) Le Parlement
+FR : Faux. Le Parlement vote les lois et contrôle l'action du gouvernement (questions au gouvernement, commissions d'enquête, motions de censure), mais il ne le dirige pas. La séparation des pouvoirs interdit au législatif de diriger l'exécutif. Le gouvernement est responsable devant le Parlement, mais c'est le Premier ministre qui le dirige.
+中：错误。议会负责立法和监督政府（向政府提问、调查委员会、不信任动议），但不领导政府。三权分立禁止立法权领导行政权。政府对议会负责，但领导政府的是总理。`
+  },
+  {
+    id: "in0075",
+    type: "naturalisation",
+    category: "Institutions",
+    difficulté: "moyen",
+    typeQuestion: "examen original",
+    question: "Qui sanctionne l'auteur d'un vol ?",
+    options: [
+      "La justice civile",
+      "La justice pénale",
+      "La justice administrative",
+      "La justice constitutionnelle"
+    ],
+    answer: 1,
+    explanation: `❌ A) La justice civile
+FR : Faux. La justice civile règle les conflits entre personnes privées (divorce, héritage, contrat, voisinage, consommation). Elle ne sanctionne pas les infractions pénales comme le vol, mais peut traiter des demandes de dommages-intérêts après que la faute a été établie par la justice pénale. Les tribunaux civils sont les tribunaux judiciaires, les conseils de prud'hommes, les tribunaux de commerce.
+中：错误。民事司法处理私人之间的纠纷（离婚、继承、合同、邻里关系、消费）。它不制裁盗窃等刑事犯罪，但可以在刑事司法确认过错后处理损害赔偿请求。民事法院包括司法法院、劳资调解委员会、商事法院。
+
+✅ B) La justice pénale
+FR : Correct. Le vol est une infraction pénale, définie et punie par le Code pénal (article 311-1 et suivants). Il est jugé par la justice pénale selon sa gravité : tribunal de police pour les contraventions, tribunal correctionnel pour les délits (vol simple), cour d'assises pour les crimes (vol avec violence ayant entraîné la mort). Les peines peuvent être l'amende, l'emprisonnement, ou des travaux d'intérêt général.
+中：正确。盗窃是刑事犯罪，由刑法典（第311-1条及后续）定义和惩处。根据严重程度由刑事司法审理：违警罪法庭审理违警罪，轻罪法庭审理轻罪（普通盗窃），重罪法庭审理重罪（导致死亡的暴力盗窃）。刑罚可以是罚款、监禁或社区服务。
+
+❌ C) La justice administrative
+FR : Faux. La justice administrative traite les conflits entre les citoyens et l'administration (annulation d'un arrêté préfectoral, litige fiscal, responsabilité d'un service public, urbanisme). Elle est rendue par les tribunaux administratifs, les cours administratives d'appel et le Conseil d'État. Elle ne juge pas les auteurs de vols, sauf si le voleur est un agent public dans l'exercice de ses fonctions (détournement de fonds publics).
+中：错误。行政司法处理公民与行政机关之间的纠纷（撤销省政令、税务纠纷、公共服务责任、城市规划）。由行政法庭、行政上诉法院和国家行政法院审理。它不审判盗窃犯，除非盗窃者是执行公务的公务员（挪用公款）。
+
+❌ D) La justice constitutionnelle
+FR : Faux. La justice constitutionnelle contrôle la conformité des lois à la Constitution. Elle est exercée par le Conseil constitutionnel, composé de 9 membres nommés pour 9 ans et des anciens présidents de la République. Elle ne juge pas les individus, mais la conformité des normes juridiques. Elle peut être saisie avant la promulgation d'une loi ou par voie de question prioritaire de constitutionnalité (QPC).
+中：错误。宪法司法负责审查法律是否符合宪法。由宪法委员会行使，由9名任期9年的成员和共和国前总统组成。它不审判个人，而是审查法律规范的合宪性。可以在法律颁布前或通过优先合宪性问题程序提请审查。`
+  },
+  {
+    id: "in0076",
+    type: "naturalisation",
+    category: "Institutions",
+    difficulté: "simple",
+    typeQuestion: "examen original",
+    question: "Qui gère les collèges publics ?",
+    options: [
+      "La commune",
+      "Le département",
+      "La région",
+      "L'État"
+    ],
+    answer: 1,
+    explanation: `❌ A) La commune
+FR : Faux. La commune gère les écoles primaires et maternelles (maternelle et élémentaire). Elle est responsable des bâtiments scolaires, de la restauration scolaire, du matériel pédagogique de base, et du personnel communal (ATSEM, agents d'entretien). Les communes peuvent aussi gérer des écoles de musique ou des crèches.
+中：错误。市镇负责小学和幼儿园。它负责校舍、学校餐饮、基本教学设备和市镇工作人员（幼儿教育助理、维护人员）。市镇也可以管理音乐学校或托儿所。
+
+✅ B) Le département
+FR : Correct ! Depuis les lois de décentralisation de 1982-1983 (lois Defferre), le département est responsable de la gestion des collèges publics : construction, reconstruction, extension, grosses réparations, équipement, fonctionnement, restauration, et personnel technicien et d'entretien (TOS - techniciens et ouvriers de service, transférés de l'État aux départements). Le président du conseil départemental est l'ordonnateur des dépenses du collège.
+中：正确。自1982-1983年权力下放法（德费尔法）以来，省负责公立初中的管理：建设、重建、扩建、大修、设备、运行、餐饮以及技术人员和维护人员（TOS，从国家转移到省）。省议会主席是初中开支的审批者。
+
+❌ C) La région
+FR : Faux. La région gère les lycées publics, les établissements d'éducation spéciale et la formation professionnelle. Cette compétence lui a été transférée par les lois de décentralisation. La région est également responsable des transports régionaux (TER) et du développement économique.
+中：错误。大区负责公立高中、特殊教育机构和职业培训。这项权限通过权力下放法转移给大区。大区还负责区域交通（TER）和经济发展。
+
+❌ D) L'État
+FR : Faux. L'État fixe les programmes scolaires (ministère de l'Éducation nationale), recrute et paie les enseignants (professeurs certifiés, agrégés), et délivre les diplômes nationaux (brevet, baccalauréat). La gestion matérielle des collèges a été transférée aux départements. L'État garde un rôle de contrôle pédagogique et d'inspection.
+中：错误。国家制定教学大纲（国民教育部）、招聘和支付教师工资（持有证书或教师资格的教师）、颁发国家文凭（初中毕业证书、高中毕业会考）。初中的物质管理已转移给省。国家保留教学控制和督导的角色。`
+  },
+  {
+    id: "in0077",
+    type: "naturalisation",
+    category: "Institutions",
+    difficulté: "simple",
+    typeQuestion: "examen original",
+    question: "Qui gère les écoles primaires et maternelles publiques ?",
+    options: [
+      "La région",
+      "Le département",
+      "L'État",
+      "La commune"
+    ],
+    answer: 3,
+    explanation: `❌ A) La région
+FR : Faux. La région s'occupe des lycées, de la formation professionnelle, des transports régionaux (TER) et du développement économique. Elle n'a pas compétence sur les écoles primaires. Les régions ont été créées en tant que collectivités territoriales en 1982 et leurs compétences ont été renforcées par les lois NOTRe de 2015.
+中：错误。大区负责高中、职业培训、区域交通（TER）和经济发展。它不负责小学。大区作为地方行政单位成立于1982年，2015年NOTRe法案加强了其权限。
+
+❌ B) Le département
+FR : Faux. Le département gère les collèges, les routes départementales, l'action sociale (RSA, aide sociale à l'enfance, personnes âgées) et les services de PMI (protection maternelle et infantile). Les écoles primaires relèvent des communes. Les départements ont été créés en 1789 et sont les collectivités historiques.
+中：错误。省负责初中、省级道路、社会事务（RSA、儿童社会救助、老年人）和母婴保护服务。小学属于市镇管辖。省成立于1789年，是历史悠久的行政单位。
+
+❌ C) L'État
+FR : Faux. L'État fixe les programmes nationaux, recrute et paie les enseignants (fonctionnaires d'État), et délivre les diplômes. Mais la gestion matérielle des écoles (bâtiments, cantine, matériel, personnel communal) revient à la commune. Cette répartition date des lois de décentralisation de Jules Ferry (XIXe siècle) pour les écoles.
+中：错误。国家负责国家课程、招聘和支付教师工资（国家公务员）、颁发文凭。但学校的物质管理（校舍、食堂、设备、市镇工作人员）属于市镇。这种分工可追溯到朱尔·费里的权力下放法（19世纪）。
+
+✅ D) La commune
+FR : Correct ! La commune est responsable des écoles primaires et maternelles publiques depuis les lois de décentralisation du XIXe siècle et confirmé par les lois de 1982-1983. Elle gère les bâtiments, le matériel, la cantine, les activités périscolaires, et le personnel communal (ATSEM, agents d'entretien, personnel de cantine). C'est la collectivité de proximité par excellence, la plus proche des administrés.
+中：正确。自19世纪权力下放法以来，市镇负责公立小学和幼儿园，并在1982-1983年的法律中得到确认。它管理校舍、设备、食堂、课外活动和市镇工作人员（幼儿教育助理、维护人员、食堂工作人员）。市镇是最贴近民众的地方行政单位。`
+  },
+  {
+    id: "in0078",
+    type: "naturalisation",
+    category: "Institutions",
+    difficulté: "moyen",
+    typeQuestion: "examen original",
+    question: "Comment sont désignés les maires ?",
+    options: [
+      "Élus directement par les citoyens",
+      "Nommés par le préfet",
+      "Élus par le conseil municipal",
+      "Désignés par le Président"
+    ],
+    answer: 2,
+    explanation: `❌ A) Élus directement par les citoyens
+FR : Faux. Les citoyens élisent les conseillers municipaux lors des élections municipales au suffrage universel direct. Ce sont ensuite ces conseillers qui élisent le maire parmi eux. Le maire n'est donc pas élu au suffrage universel direct, contrairement au Président ou aux députés. C'est un scrutin indirect à deux degrés.
+中：错误。公民在市镇选举中通过直接普选选举市议会议员。然后由这些议员从他们中选举产生市长。因此市长不像总统或议员那样由直接普选产生。这是两级间接选举。
+
+❌ B) Nommés par le préfet
+FR : Faux. Le préfet est un représentant de l'État, il n'a pas le pouvoir de nommer les maires, qui sont des élus locaux. Le préfet peut seulement suspendre un maire en cas de manquement grave pour une durée maximale d'un mois (article L2122-16 du CGCT). Il peut aussi déférer ses actes au tribunal administratif s'ils sont illégaux.
+中：错误。省长是国家代表，无权任命作为地方民选官员的市长。省长只能在市长严重失职时暂停其职务，最长一个月（地方行政法典L2122-16条）。如果市长行为违法，省长可以将其提交行政法庭。
+
+✅ C) Élus par le conseil municipal
+FR : Correct ! Après l'élection du conseil municipal (au complet), le conseil se réunit dans les 8 jours suivant la proclamation des résultats pour élire le maire et ses adjoints. Le maire est élu à bulletins secrets, à la majorité absolue des conseillers aux deux premiers tours, ou à la majorité relative au troisième tour. En cas d'égalité, le plus âgé l'emporte.
+中：正确。市议会（全体）选举后，议会在结果公布后8天内开会选举市长和副市长。市长以无记名投票方式选举产生，前两轮需获得绝对多数，第三轮相对多数即可当选。票数相等时，年长者当选。
+
+❌ D) Désignés par le Président
+FR : Faux. Le Président de la République n'intervient pas dans la désignation des maires, qui relève de la démocratie locale. Le Président peut seulement décorer certains maires (Légion d'honneur, Ordre national du Mérite) pour leurs services à la collectivité. La désignation des maires est strictement encadrée par le code électoral et le code général des collectivités territoriales.
+中：错误。共和国总统不参与市长任命，这属于地方民主事务。总统只能表彰某些市长（荣誉军团勋章、国家功绩勋章）对社区的贡献。市长的产生严格受选举法和地方行政总法典约束。`
+  },
+  {
+    id: "in0079",
+    type: "naturalisation",
+    category: "Institutions",
+    difficulté: "simple",
+    typeQuestion: "examen original",
+    question: "Quelle collectivité territoriale est responsable des transports régionaux ?",
+    options: [
+      "La commune",
+      "Le département",
+      "La région",
+      "L'État"
+    ],
+    answer: 2,
+    explanation: `❌ A) La commune
+FR : Faux. La commune gère les transports urbains locaux (bus municipaux, tramway, métro) en collaboration avec les intercommunalités (métropoles, communautés d'agglomération, communautés de communes). Elle n'a pas compétence sur les transports régionaux comme les TER (Trains Express Régionaux) qui traversent plusieurs communes et départements.
+中：错误。市镇与市镇联合体（大都会、城市圈共同体、市镇共同体）合作管理城市内部交通（市镇公交、有轨电车、地铁）。它不负责跨越多个市镇和省份的区域交通，如TER。
+
+❌ B) Le département
+FR : Faux. Le département s'occupe surtout des routes départementales, du transport scolaire (c'est l'autorité organisatrice de la mobilité pour les transports scolaires) et des collèges. Mais depuis les lois NOTRe de 2015, les transports régionaux (TER, cars interurbains) ont été transférés aux régions.
+中：错误。省主要负责省级道路、校车运输（是校车运输的组织机构）和初中。但自2015年NOTRe法案以来，区域交通（TER、城际大巴）已转移给大区。
+
+✅ C) La région
+FR : Correct ! Depuis les lois de décentralisation et notamment la loi NOTRe de 2015, la région est devenue l'autorité organisatrice unique des transports régionaux : TER (Trains Express Régionaux), cars interurbains, et transport scolaire (en lien avec les départements pour l'organisation). Elle est également responsable des ports fluviaux et aéroports régionaux.
+中：正确。自权力下放法以来，特别是2015年NOTRe法案，大区成为区域交通的唯一组织机构：TER、城际大巴和校车运输（与省合作组织）。大区还负责内河港口和区域机场。
+
+❌ D) L'État
+FR : Faux. L'État définit la politique nationale des transports, fixe les normes de sécurité, et gère les grands réseaux nationaux (autoroutes concédées, SNCF Réseau pour les infrastructures ferroviaires nationales, aéroports internationaux). Mais la gestion des transports régionaux a été décentralisée aux régions depuis 1982, avec un renforcement en 2015.
+中：错误。国家制定国家交通政策，制定安全标准，管理国家主要网络（特许高速公路、国家铁路基础设施网络SNCF Réseau、国际机场）。但自1982年以来，区域交通管理已下放给大区，并在2015年得到加强。`
+  },
+    {
+  id: "la0060",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "En France, la laïcité s'applique-t-elle aux usagers des services publics ?",
+  options: [
+    "Oui, les usagers doivent être neutres comme les agents",
+    "Non, la laïcité s'impose principalement aux agents publics dans l'exercice de leurs fonctions",
+    "Oui, les usagers ne peuvent pas porter de signes religieux",
+    "Non, les usagers sont libres de tout et peuvent imposer leurs croyances"
+  ],
+  answer: 1,
+  explanation: `❌ A. Oui, les usagers doivent être neutres comme les agents
+FR : Faux. La laïcité s'applique surtout aux agents publics, pas aux usagers. Les usagers conservent leur liberté de conscience et peuvent exprimer leurs convictions personnelles, tant que cela ne trouble pas l'ordre public.
+中：错误。世俗原则主要适用于公职人员，而不是服务使用者。服务使用者保留其信仰自由，可以在不扰乱公共秩序的情况下表达个人信仰。
+
+✅ B. Non, la laïcité s'impose principalement aux agents publics dans l'exercice de leurs fonctions
+FR : Correct ! La laïcité impose aux agents publics une obligation de neutralité dans l'exercice de leurs fonctions. Les usagers, quant à eux, conservent leurs libertés fondamentales, y compris la liberté de conscience et la liberté d'expression de leurs convictions.
+中：正确。世俗原则要求公职人员在执行公务时保持中立。而服务使用者则保留其基本自由，包括信仰自由和表达信念的自由。
+
+❌ C. Oui, les usagers ne peuvent pas porter de signes religieux
+FR : Faux. Les usagers peuvent porter des signes religieux dans les services publics, sauf si cela perturbe le bon fonctionnement du service ou l'ordre public. La loi ne leur impose pas la neutralité.
+中：错误。服务使用者可以在公共服务场所佩戴宗教标志，除非这干扰了服务的正常运作或公共秩序。法律并不要求他们保持中立。
+
+❌ D. Non, les usagers sont libres de tout et peuvent imposer leurs croyances
+FR : Faux. La liberté des usagers a des limites : ils ne peuvent pas imposer leurs croyances aux autres, troubler l'ordre public ou entraver le fonctionnement du service public. Leurs droits s'exercent dans le respect de la loi et des droits d'autrui.
+中：错误。服务使用者的自由是有限度的：他们不能将自己的信仰强加于他人、扰乱公共秩序或妨碍公共服务的运作。他们的权利必须在尊重法律和他人权利的前提下行使。`
+},
+
+{
+  id: "la0061",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "La laïcité en France est-elle une valeur absolue sans aucune limite ?",
+  options: [
+    "Oui, la laïcité est absolue et s'applique partout",
+    "Non, elle doit être conciliée avec d'autres droits et libertés",
+    "Oui, elle prime sur tous les autres droits",
+    "Non, elle est facultative et peut être contournée"
+  ],
+  answer: 1,
+  explanation: `❌ A. Oui, la laïcité est absolue et s'applique partout
+FR : Faux. La laïcité n'est pas une valeur absolue. Elle doit être mise en balance avec d'autres droits et libertés fondamentaux, comme la liberté d'expression, la liberté de conscience et le droit à la vie privée. Son application dépend du contexte et de la situation.
+中：错误。世俗原则不是绝对价值。它必须与其他基本权利和自由（如言论自由、信仰自由和隐私权）进行平衡。其适用取决于具体情境。
+
+✅ B. Non, elle doit être conciliée avec d'autres droits et libertés
+FR : Correct ! La laïcité est un principe fondamental, mais elle doit être conciliée avec d'autres libertés comme la liberté de conscience et la liberté d'expression. Cette conciliation est assurée par la loi et par le juge qui veille à l'équilibre entre les différents droits en présence.
+中：正确。世俗原则是一项基本原则，但必须与其他自由（如信仰自由和言论自由）相协调。这种协调由法律和法官保障，法官负责平衡各种权利。
+
+❌ C. Oui, elle prime sur tous les autres droits
+FR : Faux. Aucun droit ou principe n'est absolu en droit français. La laïcité est importante, mais elle ne prime pas systématiquement sur tous les autres droits. Le Conseil constitutionnel veille à cet équilibre.
+中：错误。在法国法律中，没有任何权利或原则是绝对的。世俗原则固然重要，但并不系统性地凌驾于所有其他权利之上。宪法委员会负责维护这种平衡。
+
+❌ D. Non, elle est facultative et peut être contournée
+FR : Faux. La laïcité est un principe constitutionnel et légal obligatoire. Elle ne peut pas être contournée ou ignorée, même si elle doit être appliquée de manière proportionnée et raisonnable.
+中：错误。世俗原则是宪法和法律规定的强制性原则。它不能被规避或忽视，即使必须以相称和合理的方式加以适用。`
+},
+
+{
+  id: "la0062",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Un agent public peut-il exprimer ses opinions religieuses pendant son service ?",
+  options: [
+    "Oui, il a la liberté d'expression",
+    "Non, il doit rester neutre et réservé",
+    "Oui, s'il ne fait pas de prosélytisme",
+    "Non, sauf pendant les pauses"
+  ],
+  answer: 1,
+  explanation: `❌ A. Oui, il a la liberté d'expression
+FR : Faux. Bien que l'agent public ait une liberté d'expression en tant que citoyen, il doit faire preuve de réserve et de neutralité dans l'exercice de ses fonctions. Il ne peut pas exprimer ses opinions religieuses ou politiques pendant son service, car cela pourrait compromettre l'impartialité du service public.
+中：错误。虽然公职人员作为公民享有言论自由，但在执行公务时必须保持克制和中立。他不能在服务期间表达宗教或政治观点，因为这可能损害公共服务的公正性。
+
+✅ B. Non, il doit rester neutre et réservé
+FR : Correct ! L'agent public a une obligation de neutralité et de réserve dans l'exercice de ses fonctions. Il ne doit pas manifester ses opinions religieuses, politiques ou philosophiques pendant son service, afin de garantir l'égalité de traitement de tous les usagers.
+中：正确。公职人员在执行公务时有义务保持中立和克制。他不得在服务期间表达宗教、政治或哲学观点，以确保对所有服务使用者一视同仁。
+
+❌ C. Oui, s'il ne fait pas de prosélytisme
+FR : Faux. Même sans prosélytisme actif, l'expression d'opinions religieuses par un agent public pendant son service est incompatible avec son devoir de neutralité. La simple manifestation de ses convictions personnelles peut être perçue comme un manquement à son obligation.
+中：错误。即使没有主动传教，公职人员在服务期间表达宗教观点也与其中立义务不相容。仅仅表达个人信仰就可能被视为违反其义务。
+
+❌ D. Non, sauf pendant les pauses
+FR : Faux. Pendant les pauses, l'agent public reste identifiable comme agent public et doit conserver une attitude compatible avec ses fonctions. Même en dehors du service actif, il doit éviter tout comportement qui pourrait nuire à l'image ou à la neutralité du service public.
+中：错误。即使在休息时间，公职人员仍被认定为公职人员，必须保持与其职责相符的态度。即使在非工作时间，也应避免任何可能损害公共服务形象或中立性的行为。`
+},
+
+{
+  id: "la0063",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Que doit faire un agent public si un usager lui demande de respecter ses croyances religieuses ?",
+  options: [
+    "Accéder à la demande pour respecter la liberté de conscience",
+    "Refuser car la laïcité impose la neutralité",
+    "Examiner la demande et appliquer la loi de manière équitable",
+    "Ignorer la demande car elle est irrecevable"
+  ],
+  answer: 2,
+  explanation: `❌ A. Accéder à la demande pour respecter la liberté de conscience
+FR : Faux. L'agent public ne peut pas accéder automatiquement à toutes les demandes fondées sur des croyances religieuses. Il doit respecter la loi et les principes du service public, sans favoriser ni discriminer quiconque pour des raisons religieuses.
+中：错误。公职人员不能自动满足所有基于宗教信仰的请求。他必须遵守法律和公共服务原则，不得因宗教原因偏袒或歧视任何人。
+
+❌ B. Refuser car la laïcité impose la neutralité
+FR : Faux. L'agent public ne peut pas refuser systématiquement toutes les demandes liées à la religion. Il doit examiner chaque situation au cas par cas, en respectant la loi, et trouver des solutions qui concilient les droits de l'usager avec les exigences du service public.
+中：错误。公职人员不能系统性地拒绝所有与宗教相关的请求。他必须逐案审查，在尊重法律的前提下寻找兼顾使用者权利和公共服务要求的解决方案。
+
+✅ C. Examiner la demande et appliquer la loi de manière équitable
+FR : Correct ! L'agent public doit examiner chaque demande avec attention et appliquer la loi de manière équitable, sans discrimination. Il doit trouver un équilibre entre le respect des croyances de l'usager et les exigences du service public, tout en respectant les principes de laïcité et d'égalité.
+中：正确。公职人员必须认真审查每个请求，并公平地适用法律，不得歧视。他必须在尊重使用者信仰与公共服务要求之间找到平衡，同时遵守世俗原则和平等原则。
+
+❌ D. Ignorer la demande car elle est irrecevable
+FR : Faux. L'agent public ne peut pas ignorer une demande d'un usager au seul motif qu'elle est fondée sur des croyances religieuses. Il doit y répondre de manière professionnelle, en expliquant les règles applicables et les limites légales.
+中：错误。公职人员不能仅仅因为请求基于宗教信仰就置之不理。他必须以专业方式回应，解释适用的规则和法律限制。`
+},
+
+{
+  id: "la0064",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "La loi de 1905 sur la séparation des Églises et de l'État a été promulguée sous quelle République ?",
+  options: [
+    "La IIIe République",
+    "La IVe République",
+    "La Ve République",
+    "La IIe République"
+  ],
+  answer: 0,
+  explanation: `✅ A. La IIIe République
+FR : Correct ! La loi du 9 décembre 1905 a été promulguée sous la IIIe République. Elle constitue le fondement de la laïcité française et a été votée après de longues discussions parlementaires, dans un contexte de tensions entre l'État et l'Église catholique. Elle est toujours en vigueur aujourd'hui.
+中：正确。1905年12月9日的法律是在第三共和国时期颁布的。它是法国世俗原则的基础，是在国家和天主教会关系紧张的背景下，经过长期议会讨论后通过的。该法至今仍然有效。
+
+❌ B. La IVe République
+FR : Faux. La IVe République a été établie en 1946, bien après la promulgation de la loi de 1905. La IVe République a confirmé et renforcé la laïcité, mais n'a pas créé la loi de 1905.
+中：错误。第四共和国成立于1946年，远在1905年法律颁布之后。第四共和国确认并加强了世俗原则，但并没有制定1905年法律。
+
+❌ C. La Ve République
+FR : Faux. La Ve République a été établie en 1958, soit 53 ans après la loi de 1905. La Constitution de 1958 a inscrit la laïcité dans son article 1er, mais elle n'est pas à l'origine de la loi de 1905.
+中：错误。第五共和国成立于1958年，即1905年法律颁布后53年。1958年宪法在第1条中写入了世俗原则，但不是1905年法律的起源。
+
+❌ D. La IIe République
+FR : Faux. La IIe République a existé de 1848 à 1852, bien avant la loi de 1905. À cette époque, la question de la séparation des Églises et de l'État n'était pas encore à l'ordre du jour.
+中：错误。第二共和国存在于1848年至1852年，远早于1905年法律。当时政教分离的问题尚未提上日程。`
+},
+{
+  id: "ds0123",
+  type: "carte multi",
+  category: "Devise et symboles de la République",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Le bonnet phrygien porté par Marianne est un symbole de :",
+  options: [
+    "La monarchie française",
+    "La liberté et l'émancipation",
+    "La religion catholique",
+    "L'armée française"
+  ],
+  answer: 1,
+  explanation: `❌ A. La monarchie française
+FR : Faux. Le bonnet phrygien est un symbole de la liberté et de l'émancipation, pas de la monarchie. Il était porté par les esclaves affranchis dans l'Antiquité et a été repris pendant la Révolution française comme symbole de libération.
+中：错误。弗里吉亚帽是自由和解放的象征，不是君主制的象征。在古代它由获得自由的奴隶佩戴，并在法国大革命期间被重新采用作为解放的象征。
+
+✅ B. La liberté et l'émancipation
+FR : Correct ! Le bonnet phrygien est un symbole de la liberté et de l'émancipation. Il est porté par Marianne, allégorie de la République, sur de nombreuses représentations officielles. Il rappelle l'engagement des révolutionnaires pour la liberté.
+中：正确。弗里吉亚帽是自由和解放的象征。在许多官方形象中，它被玛丽安娜（共和国的寓言形象）佩戴。它象征着革命者对自由的追求。
+
+❌ C. La religion catholique
+FR : Faux. Le bonnet phrygien n'a aucun lien avec la religion catholique. Il s'agit d'un symbole politique et républicain, qui s'inscrit dans la tradition de la Révolution française et des valeurs laïques.
+中：错误。弗里吉亚帽与天主教没有任何关系。它是一个政治和共和象征，植根于法国大革命传统和世俗价值观。
+
+❌ D. L'armée française
+FR : Faux. Le bonnet phrygien n'est pas un symbole militaire. Bien qu'il ait été utilisé pendant la Révolution par les sans-culottes, il ne représente pas l'armée française mais plutôt les idéaux de liberté et de citoyenneté.
+中：错误。弗里吉亚帽不是军事象征。虽然在大革命期间被无套裤汉使用，但它不代表法国军队，而是代表自由和公民精神。`
+},
+{
+  id: "la0065",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Quand la loi de séparation des Églises et de l'État a-t-elle été votée en France ?",
+  options: [
+    "1789",
+    "1881",
+    "1905",
+    "1946"
+  ],
+  answer: 2,
+  explanation: `❌ A. 1789
+FR : Faux. 1789 est l'année de la Révolution française et de la Déclaration des droits de l'homme, mais pas de la loi de séparation.
+中：错误。1789年是法国大革命和《人权宣言》的年份，但不是政教分离法的年份。
+
+❌ B. 1881
+FR : Faux. 1881 est l'année des lois Ferry sur l'école gratuite, mais pas de la séparation des Églises et de l'État.
+中：错误。1881年是费里关于免费教育的法律年份，但不是政教分离法的年份。
+
+✅ C. 1905
+FR : Correct ! La loi de séparation des Églises et de l'État a été votée le 9 décembre 1905. Elle est le fondement de la laïcité française.
+中：正确。政教分离法于1905年12月9日通过。它是法国世俗原则的基础。
+
+❌ D. 1946
+FR : Faux. 1946 est l'année de la Constitution de la IVe République, qui confirme la laïcité, mais ne crée pas la loi de séparation.
+中：错误。1946年是第四共和国宪法颁布的年份，该宪法确认了世俗原则，但并不是政教分离法的起源。`
+},
+
+{
+  id: "la0066",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "La laïcité en France garantit-elle le droit de ne pas avoir de religion ?",
+  options: [
+    "Oui, elle protège également le droit de ne pas croire",
+    "Non, elle protège uniquement les religions",
+    "Oui, mais seulement pour les adultes",
+    "Non, car la France est un pays catholique"
+  ],
+  answer: 0,
+  explanation: `✅ A. Oui, elle protège également le droit de ne pas croire
+FR : Correct ! La laïcité garantit la liberté de conscience, qui inclut le droit de croire, de ne pas croire, ou de changer de religion. La liberté de conscience est un droit fondamental protégé par la Constitution.
+中：正确。世俗原则保障信仰自由，其中包括信仰、不信仰或改变信仰的权利。信仰自由是受宪法保护的基本权利。
+
+❌ B. Non, elle protège uniquement les religions
+FR : Faux. La laïcité protège toutes les convictions, religieuses ou non. Elle garantit aussi bien le droit de pratiquer une religion que le droit de ne pas en avoir.
+中：错误。世俗原则保护所有信仰，无论宗教性或非宗教性。它既保障信仰宗教的权利，也保障不信仰的权利。
+
+❌ C. Oui, mais seulement pour les adultes
+FR : Faux. La liberté de conscience s'applique à toutes les personnes, sans distinction d'âge. Les enfants aussi ont droit à la liberté de conscience, même si elle est exercée sous la responsabilité des parents.
+中：错误。信仰自由适用于所有人，不分年龄。儿童也享有信仰自由，尽管是在父母的责任下行使。
+
+❌ D. Non, car la France est un pays catholique
+FR : Faux. La France est un État laïque qui ne reconnaît aucune religion officielle. La République ne favorise ni ne combat aucune religion, conformément à la loi de 1905.
+中：错误。法国是世俗国家，不承认任何官方宗教。根据1905年法律，共和国既不偏袒也不打击任何宗教。`
+},
+{
+  id: "ds0126",
+  type: "carte multi",
+  category: "Devise et symboles de la République",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Que symbolise le faisceau de licteur sur les documents officiels français ?",
+  options: [
+    "La justice et l'unité de la République",
+    "La monarchie française",
+    "La religion catholique",
+    "L'armée française"
+  ],
+  answer: 0,
+  explanation: `❌ A. La justice et l'unité de la République
+FR : Correct ! Le faisceau de licteur, qui apparaît sur les documents officiels français, symbolise la justice et l'unité de la République. Il rappelle l'autorité de l'État et la force de la loi.
+中：正确。出现在法国官方文件上的扈从束棒象征着共和国的正义和统一。它提醒人们国家权威和法律的力量。
+
+❌ B. La monarchie française
+FR : Faux. Le faisceau de licteur est un symbole républicain, pas monarchique. Il a été adopté par la République pour marquer sa rupture avec l'Ancien Régime.
+中：错误。扈从束棒是共和象征，不是君主制象征。它被共和国采用，以标志与旧制度的决裂。
+
+❌ C. La religion catholique
+FR : Faux. Le faisceau de licteur n'a aucun lien avec la religion. Il s'agit d'un symbole politique hérité de la Rome antique, représentant l'autorité de l'État.
+中：错误。扈从束棒与宗教无关。它是一个源于古罗马的政治象征，代表国家权威。
+
+❌ D. L'armée française
+FR : Faux. Le faisceau de licteur ne représente pas l'armée, mais l'autorité de l'État et de la justice. Il est utilisé sur les documents officiels pour rappeler la force de la loi.
+中：错误。扈从束棒不代表军队，而是代表国家和司法的权威。它在官方文件中提醒人们法律的力量。`
+},
+
+{
+  id: "ds0127",
+  type: "carte multi",
+  category: "Devise et symboles de la République",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Le sceau de la République française représente Marianne assise sur :",
+  options: [
+    "Un trône",
+    "Des livres",
+    "Un char",
+    "Un rocher"
+  ],
+  answer: 1,
+  explanation: `❌ A. Un trône
+FR : Faux. Le sceau de la République ne représente pas Marianne assise sur un trône, car le trône est un symbole monarchique. La République a voulu se démarquer des symboles de la monarchie.
+中：错误。共和国国玺没有将玛丽安娜坐在王座上，因为王座是君主制的象征。共和国希望区别于君主制的象征。
+
+✅ B. Des livres
+FR : Correct ! Sur le sceau de la République française, Marianne est assise sur des livres qui symbolisent le savoir et la République. Derrière elle, on voit une rame et un coq gaulois, symboles de l'unité et du travail.
+中：正确。在法国共和国国玺上，玛丽安娜坐在象征知识和共和国的书籍上。在她身后，可以看到代表团结和劳动的船桨和高卢雄鸡。
+
+❌ C. Un char
+FR : Faux. Le sceau ne représente pas Marianne sur un char. Cette représentation n'apparaît pas dans l'iconographie républicaine officielle.
+中：错误。国玺没有将玛丽安娜放在战车上。这种形象不出现在官方共和图像中。
+
+❌ D. Un rocher
+FR : Faux. Le rocher n'est pas un élément du sceau de la République. Cette représentation n'est pas utilisée dans l'iconographie républicaine officielle.
+中：错误。岩石不是共和国国玺的一部分。这种形象不出现在官方共和图像中。`
+},
+{
+  id: "si0193",
+  type: "carte multi",
+  category: "Mises en situation",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Un ami vous demande de lui prêter votre carte d'identité pour une démarche administrative. Que devez-vous faire ?",
+  options: [
+    "Lui prêter car c'est un ami",
+    "Refuser car les documents d'identité sont personnels",
+    "Lui prêter si c'est pour un motif sérieux",
+    "Lui donner une photocopie"
+  ],
+  answer: 1,
+  explanation: `❌ A. Lui prêter car c'est un ami
+FR : Faux. Prêter sa carte d'identité est interdit, même à un ami. Les documents d'identité sont personnels et ne peuvent pas être utilisés par une autre personne.
+中：错误。出借身份证是不允许的，即使是给朋友也不行。身份证是个人证件，不能由他人使用。
+
+✅ B. Refuser car les documents d'identité sont personnels
+FR : Correct ! Les documents d'identité sont strictement personnels et ne peuvent pas être prêtés. Leur utilisation par une autre personne pourrait constituer un délit d'usurpation d'identité. Vous devez refuser et expliquer à votre ami qu'il doit utiliser ses propres documents.
+中：正确。身份证严格来说是个人证件，不能出借。由他人使用可能构成盗用身份罪。您应该拒绝并向朋友解释他必须使用自己的证件。
+
+❌ C. Lui prêter si c'est pour un motif sérieux
+FR : Faux. Le motif n'a pas d'importance. Prêter des documents d'identité est interdit dans tous les cas, quel que soit le motif invoqué.
+中：错误。理由不重要。在任何情况下出借身份证都是不允许的，无论什么理由。
+
+❌ D. Lui donner une photocopie
+FR : Faux. Une photocopie peut être utile dans certains cas, mais elle ne remplace pas le document original. Votre ami doit utiliser ses propres documents officiels. De plus, la photocopie de votre carte ne lui sera d'aucune utilité pour une démarche officielle, car elle n'a pas de valeur juridique.
+中：错误。复印件在某些情况下可能有用，但不能代替原件。您的朋友必须使用自己的官方证件。此外，您的身份证复印件对官方手续没有任何用处，因为它没有法律效力。`
+},
+
+{
+  id: "si0194",
+  type: "carte multi",
+  category: "Mises en situation",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Vous êtes témoin d'un accident de la route. Quelle est la première chose à faire ?",
+  options: [
+    "Prendre des photos",
+    "Appeler les secours (15, 17 ou 18)",
+    "Partir pour ne pas être embêté",
+    "Attendre qu'un professionnel arrive"
+  ],
+  answer: 1,
+  explanation: `❌ A. Prendre des photos
+FR : Faux. Prendre des photos n'est pas la priorité. La première chose à faire est de porter secours et d'appeler les secours. Prendre des photos peut être utile plus tard pour les constatations, mais jamais avant d'avoir aidé les victimes.
+中：错误。拍照不是首要任务。第一件事是救助伤员并呼叫急救。拍照可能在后续处理中有用，但绝不能在帮助受害者之前进行。
+
+✅ B. Appeler les secours (15, 17 ou 18)
+FR : Correct ! En cas d'accident, il faut immédiatement appeler les secours : le 15 pour le SAMU (urgences médicales), le 18 pour les pompiers ou le 17 pour la police. Il faut également sécuriser les lieux et porter assistance aux victimes dans la mesure de ses moyens.
+中：正确。发生事故时，应立即呼叫急救：15（SAMU医疗急救）、18（消防）或17（警察）。还应在能力范围内保护现场并救助受害者。
+
+❌ C. Partir pour ne pas être embêté
+FR : Faux. Partir sans porter secours constitue un délit de non-assistance à personne en danger, passible de sanctions pénales. Vous avez le devoir légal d'aider les victimes dans la mesure de vos possibilités.
+中：错误。不救助就离开构成见危不救罪，可受刑事处罚。您有法律义务在力所能及的范围内帮助受害者。
+
+❌ D. Attendre qu'un professionnel arrive
+FR : Faux. Attendre sans agir peut être dangereux pour les victimes. Vous devez appeler les secours et, dans la mesure de vos compétences, prodiguer les premiers soins en attendant l'arrivée des secours professionnels.
+中：错误。不采取行动地等待可能对受害者造成危险。您必须呼叫急救，并在力所能及的范围内，在专业救援到达之前提供急救。`
+},
+
+{
+  id: "si0195",
+  type: "carte multi",
+  category: "Mises en situation",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Vous recevez une lettre vous annonçant que vous avez gagné une importante somme d'argent, à condition de fournir vos coordonnées bancaires. Que devez-vous faire ?",
+  options: [
+    "Fournir vos coordonnées pour recevoir l'argent",
+    "Ignorer cette lettre et ne pas répondre",
+    "Appeler le numéro indiqué pour vérifier",
+    "Contacter la police immédiatement"
+  ],
+  answer: 1,
+  explanation: `❌ A. Fournir vos coordonnées pour recevoir l'argent
+FR : Faux. Il s'agit très probablement d'une tentative d'arnaque. Ne communiquez jamais vos coordonnées bancaires à des personnes que vous ne connaissez pas ou à des organismes non vérifiés.
+中：错误。这极有可能是诈骗企图。切勿向不认识的人或未经核实的机构透露您的银行信息。
+
+✅ B. Ignorer cette lettre et ne pas répondre
+FR : Correct ! La meilleure chose à faire face à ce type d'arnaque est de ne pas répondre et de ne fournir aucune information personnelle. Si vous avez un doute, vous pouvez contacter la plateforme gouvernementale "Info escroqueries" pour signaler ce type de courrier.
+中：正确。面对这类诈骗，最好的做法是不回复、不提供任何个人信息。如有疑问，您可联系政府平台"诈骗信息"举报此类信件。
+
+❌ C. Appeler le numéro indiqué pour vérifier
+FR : Faux. Appeler le numéro indiqué vous mettrait directement en contact avec les fraudeurs. Ils chercheront à vous convaincre par des arguments pour obtenir vos informations. Il ne faut jamais contacter les numéros fournis dans ce type de courrier.
+中：错误。拨打所给号码会让您直接与诈骗者联系。他们会设法说服您提供信息。切勿联系此类信件中提供的号码。
+
+❌ D. Contacter la police immédiatement
+FR : Faux. Contacter la police n'est pas la première action à prendre. Il faut d'abord ne pas répondre et ne pas fournir vos coordonnées. Si vous voulez signaler l'arnaque, vous pouvez le faire ensuite via la plateforme gouvernementale dédiée.
+中：错误。立即联系警察不是首要行动。首先不应回复也不应提供信息。如果您想举报诈骗，之后可通过专门的政府平台进行。`
+},
+{
+  id: "de0107",
+  type: "carte multi",
+  category: "Démocratie et droit de vote",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Les élections européennes en France ont lieu tous les :",
+  options: [
+    "3 ans",
+    "4 ans",
+    "5 ans",
+    "6 ans"
+  ],
+  answer: 2,
+  explanation: `❌ A. 3 ans
+FR : Faux. Les élections européennes n'ont pas lieu tous les 3 ans. Les sénateurs sont renouvelés par moitié tous les 3 ans, mais ce n'est pas le cas des élections européennes.
+中：错误。欧洲议会选举不是每3年举行一次。参议员每3年改选一半，但欧洲议会选举不是这样。
+
+❌ B. 4 ans
+FR : Faux. Les élections européennes ont lieu tous les 5 ans, pas tous les 4 ans.
+中：错误。欧洲议会选举每5年举行一次，不是每4年。
+
+✅ C. 5 ans
+FR : Correct ! Les élections européennes ont lieu tous les 5 ans au suffrage universel direct. Les citoyens des États membres de l'Union européenne élisent leurs députés au Parlement européen pour un mandat de 5 ans.
+中：正确。欧洲议会选举每5年以直接普选方式举行一次。欧盟成员国的公民选举欧洲议会议员，任期5年。
+
+❌ D. 6 ans
+FR : Faux. Les élections européennes n'ont pas lieu tous les 6 ans. Cette durée correspond au mandat des sénateurs et des conseillers municipaux.
+中：错误。欧洲议会选举不是每6年举行一次。这个期限对应的是参议员和市议员的任期。`
+},
+
+{
+  id: "de0108",
+  type: "carte multi",
+  category: "Démocratie et droit de vote",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Dans une démocratie, le pluralisme politique signifie :",
+  options: [
+    "Un seul parti politique peut gouverner",
+    "Plusieurs partis politiques peuvent exister et s'exprimer",
+    "Les partis politiques sont interdits",
+    "Seuls les partis politiques sont autorisés à s'exprimer"
+  ],
+  answer: 1,
+  explanation: `❌ A. Un seul parti politique peut gouverner
+FR : Faux. Le pluralisme politique signifie qu'il existe plusieurs partis politiques qui peuvent s'exprimer et concourir aux élections. Un système à parti unique est contraire aux principes démocratiques.
+中：错误。政治多元化意味着存在多个政党可以表达意见并参加选举。一党制违背民主原则。
+
+✅ B. Plusieurs partis politiques peuvent exister et s'exprimer
+FR : Correct ! Le pluralisme politique est une caractéristique essentielle de la démocratie. Il garantit que plusieurs partis politiques peuvent coexister, exprimer leurs idées et se présenter aux élections, offrant ainsi un choix aux citoyens.
+中：正确。政治多元化是民主的本质特征。它保障多个政党可以共存、表达意见和参加选举，从而为公民提供选择。
+
+❌ C. Les partis politiques sont interdits
+FR : Faux. Dans une démocratie, les partis politiques sont autorisés et jouent un rôle fondamental dans la vie politique. Leur interdiction serait contraire à la liberté d'association et au pluralisme.
+中：错误。在民主制度中，政党被允许并在政治生活中发挥基本作用。禁止政党将违背结社自由和多元化。
+
+❌ D. Seuls les partis politiques sont autorisés à s'exprimer
+FR : Faux. Les citoyens, les associations, les syndicats et les médias ont également le droit de s'exprimer dans une démocratie. La parole n'est pas réservée aux seuls partis politiques.
+中：错误。公民、协会、工会和媒体在民主制度中也有权表达意见。言论不仅限于政党。`
+},
+{
+  id: "in0119",
+  type: "carte multi",
+  category: "Institutions",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Le ministre des Finances est nommé par :",
+  options: [
+    "Le Parlement",
+    "Le Premier ministre et le Président",
+    "Le peuple par élection directe",
+    "Le Conseil constitutionnel"
+  ],
+  answer: 1,
+  explanation: `❌ A. Le Parlement
+FR : Faux. Le Parlement vote les lois et contrôle l'action du gouvernement, mais il ne nomme pas les ministres. Les ministres sont choisis par le Président de la République sur proposition du Premier ministre.
+中：错误。议会投票通过法律并监督政府行动，但不任命部长。部长由共和国总统根据总理提名任命。
+
+✅ B. Le Premier ministre et le Président
+FR : Correct ! Les ministres sont nommés par décret du Président de la République sur proposition du Premier ministre. Le Président a le pouvoir de les nommer et de les révoquer, après consultation du Premier ministre pour les ministres les plus importants.
+中：正确。部长由共和国总统根据总理提名以法令形式任命。总统有权在咨询总理后任命和罢免部长，尤其是最重要的部长职位。
+
+❌ C. Le peuple par élection directe
+FR : Faux. Les ministres ne sont pas élus par le peuple. Ils sont nommés par les plus hautes autorités de l'État. Seuls certains représentants (députés, conseillers municipaux, etc.) sont élus par le peuple.
+中：错误。部长不是由人民选举产生的。他们由国家最高权力机构任命。只有某些代表（议员、市议员等）由人民选举产生。
+
+❌ D. Le Conseil constitutionnel
+FR : Faux. Le Conseil constitutionnel contrôle la conformité des lois à la Constitution, mais il ne participe pas à la nomination des ministres. Cette nomination relève du pouvoir exécutif.
+中：错误。宪法委员会审查法律是否符合宪法，但不参与部长的任命。这项任命属于行政权。`
+},
+
+{
+  id: "in0120",
+  type: "carte multi",
+  category: "Institutions",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Les régions françaises ont été créées en tant que collectivités territoriales en :",
+  options: [
+    "1960",
+    "1972",
+    "1982",
+    "2003"
+  ],
+  answer: 2,
+  explanation: `❌ A. 1960
+FR : Faux. Les régions n'ont pas été créées comme collectivités territoriales en 1960. Elles étaient alors de simples circonscriptions administratives.
+中：错误。大区在1960年还没有作为地方行政单位创建。当时它们只是简单的行政区划。
+
+❌ B. 1972
+FR : Faux. 1972 correspond à une étape où les régions sont devenues des établissements publics, mais elles n'avaient pas encore le statut de collectivités territoriales.
+中：错误。1972年大区成为了公共机构，但还没有获得地方行政单位的地位。
+
+✅ C. 1982
+FR : Correct ! Les régions ont été créées en tant que collectivités territoriales par les lois de décentralisation de 1982 (lois Defferre). Elles sont devenues des collectivités à part entière, avec un conseil régional élu au suffrage universel.
+中：正确。大区是根据1982年权力下放法作为地方行政单位创建的。它们成为了具有完整地位的地方行政单位，由大区议会以普选方式选举产生。
+
+❌ D. 2003
+FR : Faux. 2003 est l'année où la révision constitutionnelle a renforcé la décentralisation, mais les régions existaient déjà depuis 1982 comme collectivités territoriales.
+中：错误。2003年是宪法修订加强权力下放的年份，但大区自1982年起就以地方行政单位的身份存在了。`
+},
+{
+  id: "od0088",
+  type: "carte multi",
+  category: "Obligations et devoirs des personnes résidant en France",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "En France, le port de la ceinture de sécurité à l'avant d'un véhicule est :",
+  options: [
+    "Obligatoire uniquement sur autoroute",
+    "Obligatoire pour tous les passagers",
+    "Obligatoire seulement pour le conducteur",
+    "Facultatif"
+  ],
+  answer: 1,
+  explanation: `❌ A. Obligatoire uniquement sur autoroute
+FR : Faux. Le port de la ceinture de sécurité est obligatoire sur toutes les routes, pas seulement sur les autoroutes. Cette obligation s'applique dans tous les types de circulation.
+中：错误。系安全带在所有道路上都是强制性的，不仅仅是在高速公路上。这一义务适用于所有类型的交通。
+
+✅ B. Obligatoire pour tous les passagers
+FR : Correct ! Le port de la ceinture de sécurité est obligatoire pour tous les occupants du véhicule, à l'avant comme à l'arrière. Le conducteur est responsable du non-port de la ceinture par ses passagers.
+中：正确。系安全带对车辆所有乘员都是强制性的，无论是前排还是后排。驾驶员对乘客不系安全带负有责任。
+
+❌ C. Obligatoire seulement pour le conducteur
+FR : Faux. La ceinture de sécurité est obligatoire non seulement pour le conducteur, mais aussi pour tous les passagers du véhicule. Cette règle vise à protéger la vie de tous les occupants.
+中：错误。安全带不仅对驾驶员是强制性的，对车上所有乘客也是强制性的。这条规则旨在保护所有乘员的生命。
+
+❌ D. Facultatif
+FR : Faux. Le port de la ceinture de sécurité n'est pas facultatif en France. C'est une obligation légale dont le non-respect est sanctionné par une amende.
+中：错误。在法国系安全带不是可选的。这是一项法律义务，违反者将被处以罚款。`
+},
+
+{
+  id: "od0089",
+  type: "carte multi",
+  category: "Obligations et devoirs des personnes résidant en France",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "L'assurance habitation est-elle obligatoire pour les locataires en France ?",
+  options: [
+    "Oui, pour couvrir les risques locatifs",
+    "Non, elle est facultative",
+    "Oui, mais seulement pour les appartements",
+    "Non, seule l'assurance du propriétaire est obligatoire"
+  ],
+  answer: 0,
+  explanation: `✅ A. Oui, pour couvrir les risques locatifs
+FR : Correct ! L'assurance habitation est obligatoire pour les locataires en France. Elle doit couvrir les risques locatifs (incendie, dégât des eaux, explosion, etc.) pour protéger le logement et les biens du propriétaire.
+中：正确。在法国，租房保险对租客是强制性的。它必须覆盖租赁风险（火灾、水损、爆炸等），以保护住房和房东的财产。
+
+❌ B. Non, elle est facultative
+FR : Faux. L'assurance habitation n'est pas facultative pour les locataires. La loi l'impose pour garantir la responsabilité du locataire en cas de dommages causés au logement.
+中：错误。租房保险对租客不是可选的。法律强制要求投保，以确保租客对住房造成的损坏承担责任。
+
+❌ C. Oui, mais seulement pour les appartements
+FR : Faux. L'assurance habitation est obligatoire pour tous les types de logements loués, qu'il s'agisse d'appartements ou de maisons individuelles.
+中：错误。租房保险对所有类型的租赁住房都是强制性的，无论是公寓还是独立房屋。
+
+❌ D. Non, seule l'assurance du propriétaire est obligatoire
+FR : Faux. L'assurance du propriétaire protège le bâtiment, mais elle ne couvre pas la responsabilité du locataire. Le locataire doit avoir sa propre assurance habitation pour couvrir les risques locatifs.
+中：错误。房东的保险保护建筑物，但不覆盖租客的责任。租客必须有自己
+
+的租房保险来覆盖租赁风险。`
+},
+{
+  id: "dr1026",
+  type: "carte multi",
+  category: "Droits fondamentaux",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Le droit à la vie privée en France protège notamment :",
+  options: [
+    "Les conversations téléphoniques et les données personnelles",
+    "Les informations professionnelles uniquement",
+    "Les secrets d'État",
+    "Les biens matériels des citoyens"
+  ],
+  answer: 0,
+  explanation: `✅ A. Les conversations téléphoniques et les données personnelles
+FR : Correct ! Le droit à la vie privée protège les conversations téléphoniques, les correspondances, les données personnelles et l'image des personnes. Toute intrusion dans la vie privée doit être justifiée par la loi et proportionnée.
+中：正确。隐私权保护电话交谈、通信、个人数据和人物形象。任何对隐私的侵犯都必须有法律依据且相称。
+
+❌ B. Les informations professionnelles uniquement
+FR : Faux. Le droit à la vie privée ne se limite pas aux informations professionnelles. Il protège l'ensemble de la vie personnelle, y compris la vie familiale, le domicile, les communications et les données personnelles.
+中：错误。隐私权不仅限于职业信息。它保护整个个人生活，包括家庭生活、住所、通信和个人数据。
+
+❌ C. Les secrets d'État
+FR : Faux. Les secrets d'État relèvent du secret défense, pas du droit à la vie privée. Le droit à la vie privée protège les citoyens, pas les secrets de l'État.
+中：错误。国家机密属于国防机密，不属于隐私权。隐私权保护公民，不保护国家机密。
+
+❌ D. Les biens matériels des citoyens
+FR : Faux. Le droit à la vie privée ne protège pas les biens matériels. La protection des biens est garantie par le droit de propriété, qui est un droit distinct.
+中：错误。隐私权不保护物质财产。财产的保护由财产权保障，这是一项不同的权利。`
+},
+
+{
+  id: "dr1027",
+  type: "carte multi",
+  category: "Droits fondamentaux",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Le droit à un procès équitable signifie que toute personne :",
+  options: [
+    "Peut être jugée sans avocat",
+    "A droit à une procédure juste et contradictoire",
+    "Peut être condamnée sans preuve",
+    "Doit être jugée rapidement sans procédure"
+  ],
+  answer: 1,
+  explanation: `❌ A. Peut être jugée sans avocat
+FR : Faux. Le droit à un procès équitable implique le droit d'être assisté par un avocat. La présence d'un avocat est une garantie fondamentale pour assurer la défense des intérêts de la personne jugée.
+中：错误。公正审判权意味着有权获得律师协助。律师的存在是确保被审判者利益得到辩护的基本保障。
+
+✅ B. A droit à une procédure juste et contradictoire
+FR : Correct ! Le droit à un procès équitable garantit que toute personne a droit à une procédure juste, contradictoire et publique, dans un délai raisonnable. Ce droit est protégé par la Convention européenne des droits de l'homme.
+中：正确。公正审判权保障每个人有权在合理期限内获得公正、对抗性和公开的程序。这项权利受到《欧洲人权公约》的保护。
+
+❌ C. Peut être condamnée sans preuve
+FR : Faux. Le droit à un procès équitable exige que la culpabilité soit prouvée au-delà de tout doute raisonnable. Personne ne peut être condamné sans preuve, car cela violerait le principe fondamental de la présomption d'innocence.
+中：错误。公正审判权要求有罪必须在排除一切合理怀疑的情况下被证明。任何人都不能在无证据的情况下被定罪，否则将违反无罪推定的基本原则。
+
+❌ D. Doit être jugée rapidement sans procédure
+FR : Faux. Le droit à un procès équitable garantit une procédure dans un délai raisonnable, mais pas sans procédure. La procédure est essentielle pour garantir le respect des droits de la défense et l'équité du jugement.
+中：错误。公正审判权保障在合理期限内的程序，但不是没有程序。程序对于保障辩护权的尊重和审判的公正至关重要。`
+},
+{
+  id: "tg0119",
+  type: "carte multi",
+  category: "Territoires et géographie",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Quel est le plus haut sommet des Pyrénées françaises ?",
+  options: [
+    "Le Mont Blanc",
+    "Le Vignemale",
+    "Le Pic du Midi",
+    "Le Canigou"
+  ],
+  answer: 1,
+  explanation: `❌ A. Le Mont Blanc
+FR : Faux. Le Mont Blanc est le plus haut sommet des Alpes, pas des Pyrénées. Il culmine à 4 808 mètres d'altitude et se situe à la frontière entre la France et l'Italie.
+中：错误。勃朗峰是阿尔卑斯山的最高峰，不是比利牛斯山的。它海拔4808米，位于法国和意大利边境。
+
+✅ B. Le Vignemale
+FR : Correct ! Le Vignemale est le plus haut sommet des Pyrénées françaises, culminant à 3 298 mètres d'altitude. Il se situe dans le département des Hautes-Pyrénées, près de la frontière espagnole.
+中：正确。维涅马勒峰是法国比利牛斯山的最高峰，海拔3298米。它位于上比利牛斯省，靠近西班牙边境。
+
+❌ C. Le Pic du Midi
+FR : Faux. Le Pic du Midi, dans les Hautes-Pyrénées, culmine à 2 877 mètres. C'est un sommet célèbre pour son observatoire astronomique, mais il n'est pas le plus haut des Pyrénées françaises.
+中：错误。位于上比利牛斯省的米迪峰海拔2877米。它以其天文观测站而闻名，但不是法国比利牛斯山的最高峰。
+
+❌ D. Le Canigou
+FR : Faux. Le Canigou est un sommet des Pyrénées-Orientales, culminant à 2 784 mètres. C'est un sommet emblématique de la Catalogne française, mais il n'est pas le plus haut des Pyrénées françaises.
+中：错误。卡尼古山是东比利牛斯省的一座山峰，海拔2784米。它是法国加泰罗尼亚的标志性山峰，但不是法国比利牛斯山的最高峰。`
+},
+
+{
+  id: "tg0120",
+  type: "carte multi",
+  category: "Territoires et géographie",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "La Corse est située dans :",
+  options: [
+    "L'océan Atlantique",
+    "La mer Méditerranée",
+    "La mer du Nord",
+    "L'océan Indien"
+  ],
+  answer: 1,
+  explanation: `❌ A. L'océan Atlantique
+FR : Faux. La Corse n'est pas située dans l'océan Atlantique. L'océan Atlantique borde la côte ouest de la France métropolitaine, mais la Corse se trouve dans la mer Méditerranée.
+中：错误。科西嘉岛不在大西洋。大西洋位于法国本土西海岸，但科西嘉岛位于地中海。
+
+✅ B. La mer Méditerranée
+FR : Correct ! La Corse est une île située dans la mer Méditerranée, au sud-est de la France métropolitaine. Elle est la quatrième plus grande île de la Méditerranée après la Sicile, la Sardaigne et Chypre.
+中：正确。科西嘉岛是位于地中海的一座岛屿，在法国本土的东南部。它是地中海第四大岛，仅次于西西里岛、撒丁岛和塞浦路斯。
+
+❌ C. La mer du Nord
+FR : Faux. La mer du Nord se situe au nord de la France, près des côtes des Hauts-de-France. La Corse se trouve à l'opposé, au sud-est de la France.
+中：错误。北海位于法国北部，靠近上法兰西大区的海岸。科西嘉岛在相反的方向，位于法国东南部。
+
+❌ D. L'océan Indien
+FR : Faux. L'océan Indien est situé entre l'Afrique, l'Asie et l'Australie. La Corse est beaucoup trop proche de l'Europe pour se trouver dans l'océan Indien. Ce sont plutôt des îles comme La Réunion ou Mayotte qui s'y trouvent.
+中：错误。印度洋位于非洲、亚洲和澳大利亚之间。科西嘉岛离欧洲太近，不可能在印度洋。像留尼汪岛或马约特岛这样的岛屿才在印度洋。`
+},
+{
+  id: "pf0071",
+  type: "carte multi",
+  category: "Patrimoine français",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Le château de Chambord est situé dans la région :",
+  options: [
+    "Île-de-France",
+    "Centre-Val de Loire",
+    "Bretagne",
+    "Provence-Alpes-Côte d'Azur"
+  ],
+  answer: 1,
+  explanation: `❌ A. Île-de-France
+FR : Faux. Le château de Chambord n'est pas situé en Île-de-France. Il se trouve dans la région Centre-Val de Loire, comme la plupart des châteaux de la Loire.
+中：错误。香波尔城堡不在法兰西岛大区。它位于中央-卢瓦尔河谷大区，就像大多数卢瓦尔河城堡一样。
+
+✅ B. Centre-Val de Loire
+FR : Correct ! Le château de Chambord est situé dans la région Centre-Val de Loire, dans le département du Loir-et-Cher. Il est l'un des plus célèbres châteaux de la Loire et a été construit sous François Ier.
+中：正确。香波尔城堡位于中央-卢瓦尔河谷大区的卢瓦-谢尔省。它是卢瓦尔河最著名的城堡之一，建于弗朗索瓦一世时期。
+
+❌ C. Bretagne
+FR : Faux. Le château de Chambord n'est pas situé en Bretagne. Il se trouve dans la région Centre-Val de Loire, bien loin de la Bretagne qui se situe dans l'ouest de la France.
+中：错误。香波尔城堡不在布列塔尼。它位于中央-卢瓦尔河谷大区，距离位于法国西部的布列塔尼很远。
+
+❌ D. Provence-Alpes-Côte d'Azur
+FR : Faux. Le château de Chambord n'est pas situé en région PACA. Il se trouve dans la région Centre-Val de Loire. Les châteaux de la région PACA sont plutôt des châteaux provençaux comme le château des Baux ou le palais des Papes à Avignon.
+中：错误。香波尔城堡不在普罗旺斯-阿尔卑斯-蓝色海岸大区。它位于中央-卢瓦尔河谷大区。PACA地区的城堡主要是普罗旺斯城堡，如莱博城堡或阿维尼翁的教皇宫。`
+},
+
+{
+  id: "pf0072",
+  type: "carte multi",
+  category: "Patrimoine français",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Les alignements de Carnac sont situés en :",
+  options: [
+    "Bretagne",
+    "Normandie",
+    "Pays de la Loire",
+    "Occitanie"
+  ],
+  answer: 0,
+  explanation: `✅ A. Bretagne
+FR : Correct ! Les alignements de Carnac sont situés en Bretagne, dans le département du Morbihan. Ce sont des mégalithes datant du Néolithique, constitués de plusieurs milliers de menhirs alignés sur plusieurs kilomètres.
+中：正确。卡纳克巨石阵位于布列塔尼的莫尔比昂省。它们是新石器时代的巨石，由绵延数公里的数千块竖立巨石排列而成。
+
+❌ B. Normandie
+FR : Faux. Les alignements de Carnac ne sont pas situés en Normandie. Ils se trouvent en Bretagne, qui est une région voisine de la Normandie, mais distincte. La Normandie possède d'autres sites mégalithiques, comme les menhirs de la région de Coutances.
+中：错误。卡纳克巨石阵不在诺曼底。它们在布列塔尼，布列塔尼是与诺曼底相邻但不同的地区。诺曼底有其他巨石遗址，如库唐斯地区的竖石。
+
+❌ C. Pays de la Loire
+FR : Faux. Les alignements de Carnac ne sont pas situés dans les Pays de la Loire. Ils se trouvent en Bretagne. La région des Pays de la Loire possède également des mégalithes, comme les menhirs du Maine-et-Loire, mais pas les alignements de Carnac.
+中：错误。卡纳克巨石阵不在卢瓦尔河地区大区。它们在布列塔尼。卢瓦尔河地区大区也有巨石，如曼恩-卢瓦尔省的竖石，但不是卡纳克巨石阵。
+
+❌ D. Occitanie
+FR : Faux. Les alignements de Carnac ne sont pas situés en Occitanie. Ils se trouvent en Bretagne, dans le nord-ouest de la France. L'Occitanie est une région du sud de la France, très éloignée de la Bretagne.
+中：错误。卡纳克巨石阵不在奥克西塔尼大区。它们在法国西北部的布列塔尼。奥克西塔尼是法国南部的大区，离布列塔尼很远。`
+},
+{
+  id: "tr0073",
+  type: "carte multi",
+  category: "Travail",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Les congés payés en France donnent droit à :",
+  options: [
+    "2 semaines de congé par an",
+    "4 semaines de congé par an",
+    "5 semaines de congé par an",
+    "6 semaines de congé par an"
+  ],
+  answer: 2,
+  explanation: `❌ A. 2 semaines de congé par an
+FR : Faux. Les congés payés en France donnent droit à plus de 2 semaines par an. Le droit minimum est de 2,5 jours ouvrables par mois travaillé, ce qui correspond à 5 semaines de congés par an.
+中：错误。法国的带薪休假每年不止2周。最低权利是每月工作2.5个工作日，相当于每年5周假期。
+
+❌ B. 4 semaines de congé par an
+FR : Faux. En France, les congés payés donnent droit à 5 semaines de congés, pas 4 semaines. Cette durée est un minimum légal qui s'applique à tous les salariés, quel que soit le secteur d'activité.
+中：错误。在法国，带薪休假是5周，不是4周。这个期限是适用于所有雇员的最低法律规定，无论行业如何。
+
+✅ C. 5 semaines de congé par an
+FR : Correct ! En France, les salariés ont droit à 5 semaines de congés payés par an, soit 25 jours ouvrables (ou 30 jours ouvrés selon la convention collective). Ce droit est acquis pour toute année de travail accomplie.
+中：正确。在法国，雇员每年有权享受5周带薪休假，即25个工作日（或根据行业协议30天）。这个权利是在完成一整年工作后获得的。
+
+❌ D. 6 semaines de congé par an
+FR : Faux. 6 semaines de congés payés ne sont pas le minimum légal en France. Certaines conventions collectives peuvent prévoir un nombre de jours de congé supérieur, mais la loi ne garantit que 5 semaines.
+中：错误。6周带薪休假不是法国的法定最低标准。某些行业协议可能规定更多的休假天数，但法律只保障5周。`
+},
+
+{
+  id: "tr0074",
+  type: "carte multi",
+  category: "Travail",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Le contrat d'apprentissage est réservé aux jeunes âgés de :",
+  options: [
+    "14 à 18 ans",
+    "16 à 25 ans",
+    "16 à 29 ans",
+    "18 à 30 ans"
+  ],
+  answer: 2,
+  explanation: `❌ A. 14 à 18 ans
+FR : Faux. Le contrat d'apprentissage n'est pas réservé aux 14-18 ans. Cette tranche d'âge est trop restrictive. L'apprentissage est possible dès 16 ans, mais la limite d'âge est plus élevée.
+中：错误。学徒合同不限于14-18岁。这个年龄段过于严格。学徒制从16岁开始，但年龄上限更高。
+
+❌ B. 16 à 25 ans
+FR : Faux. Le contrat d'apprentissage n'est pas limité à 25 ans. Depuis la loi du 5 septembre 2018, la limite d'âge a été repoussée à 29 ans pour favoriser l'accès à l'apprentissage.
+中：错误。学徒合同不限于25岁。自2018年9月5日法律以来，年龄限制已推迟到29岁，以促进学徒制的普及。
+
+✅ C. 16 à 29 ans
+FR : Correct ! Le contrat d'apprentissage est accessible aux jeunes âgés de 16 à 29 ans. Cette limite d'âge a été étendue à 29 ans révolus pour permettre à un plus grand nombre de jeunes d'accéder à cette voie de formation.
+中：正确。学徒合同面向16至29岁的年轻人。这个年龄限制已扩展到29岁，以便让更多年轻人有机会接受这种培训途径。
+
+❌ D. 18 à 30 ans
+FR : Faux. Le contrat d'apprentissage n'est pas réservé aux 18-30 ans. Il est accessible dès 16 ans et jusqu'à 29 ans. Les personnes de moins de 16 ans peuvent également signer un contrat d'apprentissage dans certaines conditions, avec dérogation.
+中：错误。学徒合同不限于18-30岁。它从16岁开始，到29岁结束。在某些条件下，16岁以下的人也可以在特殊情况下签订学徒合同。`
+},{
+  id: "ap0068",
+  type: "carte multi",
+  category: "Autorité parentale et système éducatif",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "En France, les parents sont responsables des actes de leurs enfants jusqu'à :",
+  options: [
+    "16 ans",
+    "18 ans",
+    "21 ans",
+    "25 ans"
+  ],
+  answer: 1,
+  explanation: `❌ A. 16 ans
+FR : Faux. La responsabilité parentale ne s'arrête pas à 16 ans. Les parents sont responsables de leurs enfants jusqu'à leur majorité, c'est-à-dire jusqu'à 18 ans.
+中：错误。父母责任不限于16岁。父母对孩子负责直到其成年，即直到18岁。
+
+✅ B. 18 ans
+FR : Correct ! En France, les parents sont responsables de leurs enfants jusqu'à leur majorité, fixée à 18 ans. Cette responsabilité inclut l'obligation de subvenir à leurs besoins, de les éduquer et de les protéger.
+中：正确。在法国，父母对孩子负责直到成年，即18岁。这种责任包括满足他们的需求、教育和保护他们的义务。
+
+❌ C. 21 ans
+FR : Faux. La majorité en France est fixée à 18 ans depuis la loi du 5 juillet 1974. Les parents ne sont donc plus responsables de leurs enfants après 18 ans, sauf en cas de prolongation de l'autorité parentale dans des cas particuliers.
+中：错误。自1974年7月5日法律以来，法国的成年年龄为18岁。因此，父母在子女18岁后不再负责，除非在特殊情况下延长父母权力。
+
+❌ D. 25 ans
+FR : Faux. La majorité n'est pas à 25 ans en France. Les parents ne sont pas responsables de leurs enfants jusqu'à 25 ans, même si dans la pratique, ils continuent souvent à les aider financièrement pendant leurs études.
+中：错误。法国不是25岁成年。父母不对孩子负责到25岁，尽管在实践中，他们通常会在孩子学习期间继续提供经济支持。`
+},
+
+{
+  id: "ap0069",
+  type: "carte multi",
+  category: "Autorité parentale et système éducatif",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "En France, l'école est obligatoire pour les enfants de 3 à 16 ans depuis :",
+  options: [
+    "1882",
+    "1959",
+    "2019",
+    "2022"
+  ],
+  answer: 2,
+  explanation: `❌ A. 1882
+FR : Faux. 1882 est l'année des lois Ferry qui ont rendu l'école gratuite, laïque et obligatoire, mais à cette époque l'obligation était de 6 à 13 ans. L'abaissement de l'âge de l'obligation à 3 ans est plus récent.
+中：错误。1882年是费里法律使学校免费、世俗和义务化的年份，但当时义务教育是6到13岁。将义务教育年龄降低到3岁是更近期的。
+
+❌ B. 1959
+FR : Faux. 1959 correspond à la loi Berthoin qui a prolongé l'obligation scolaire jusqu'à 16 ans, mais n'a pas abaissé l'âge de début à 3 ans. L'obligation restait alors de 6 à 16 ans.
+中：错误。1959年是贝尔图万法律将义务教育延长到16岁的年份，但没有将开始年龄降低到3岁。当时的义务教育仍然是6到16岁。
+
+✅ C. 2019
+FR : Correct ! Depuis la loi du 26 juillet 2019 "pour une école de la confiance", l'instruction est obligatoire pour les enfants de 3 à 16 ans. Cette mesure vise à renforcer la lutte contre les inégalités et à favoriser la socialisation précoce.
+中：正确。自2019年7月26日"为了信任的学校"法律以来，3至16岁儿童的教育是强制性的。这项措施旨在加强反对不平等的斗争，促进早期社会化。
+
+❌ D. 2022
+FR : Faux. L'obligation scolaire de 3 à 16 ans a été instaurée en 2019, pas en 2022. 2022 est une année trop récente pour cette réforme qui était déjà en vigueur.
+中：错误。3至16岁的义务教育于2019年实施，不是2022年。2022年对于这项已经生效的改革来说太晚了。`
+},
+{
+  id: "ir0063",
+  type: "carte multi",
+  category: "S'installer et résider en France",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Pour louer un logement en France, le propriétaire peut demander au locataire :",
+  options: [
+    "Un justificatif de domicile de plus de 6 mois",
+    "Un contrat de travail et une caution éventuelle",
+    "Un passeport uniquement",
+    "Un certificat médical"
+  ],
+  answer: 1,
+  explanation: `❌ A. Un justificatif de domicile de plus de 6 mois
+FR : Faux. Pour louer un logement, le propriétaire peut demander un justificatif de domicile récent (généralement de moins de 3 mois), pas de plus de 6 mois. Il s'agit de vérifier que le candidat habite à l'adresse indiquée.
+中：错误。租赁住房时，房东可以要求提供近期的住址证明（通常少于3个月），而不是超过6个月。这是为了核实申请人是否居住在所提供的地址。
+
+✅ B. Un contrat de travail et une caution éventuelle
+FR : Correct ! Pour louer un logement, le propriétaire peut demander des justificatifs de revenus (contrat de travail, bulletin de salaire, avis d'imposition) et éventuellement une caution (garantie) pour couvrir le paiement du loyer en cas de défaut de paiement.
+中：正确。租赁住房时，房东可以要求提供收入证明（劳动合同、工资单、税单）以及可能的担保金，以在租客拖欠租金时保障租金支付。
+
+❌ C. Un passeport uniquement
+FR : Faux. Un passeport seul ne suffit pas pour louer un logement. Le propriétaire doit s'assurer que le locataire a les moyens financiers de payer le loyer. Il demande donc des justificatifs de revenus et de garantie.
+中：错误。仅凭护照不足以租赁住房。房东必须确保租客有支付租金的经济能力，因此会要求提供收入和担保证明。
+
+❌ D. Un certificat médical
+FR : Faux. Un certificat médical n'est pas requis pour louer un logement. La location ne nécessite pas d'informations sur la santé du candidat, sauf dans des cas très spécifiques non liés à la location.
+中：错误。租赁住房不需要医疗证明。租房不需要有关申请人健康的信息，除非在非常特殊且与租赁无关的情况下。`
+},
+
+{
+  id: "ir0064",
+  type: "carte multi",
+  category: "S'installer et résider en France",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "En France, l'état civil est tenu par :",
+  options: [
+    "Le préfet",
+    "Le maire",
+    "Le tribunal",
+    "La préfecture"
+  ],
+  answer: 1,
+  explanation: `❌ A. Le préfet
+FR : Faux. Le préfet est le représentant de l'État dans le département, mais il ne tient pas l'état civil. L'état civil est géré au niveau communal par les maires et les officiers d'état civil qu'ils désignent.
+中：错误。省长是省内的国家代表，但不负责民事登记。民事登记由市长及其指定的民事登记官员在市镇层面管理。
+
+✅ B. Le maire
+FR : Correct ! En France, l'état civil est tenu par les maires et les officiers d'état civil qu'ils désignent. Les actes d'état civil (naissances, mariages, décès) sont enregistrés à la mairie du lieu de l'événement.
+中：正确。在法国，民事登记由市长及其指定的民事登记官员负责。民事登记文件（出生、婚姻、死亡）在事件发生地的市政厅登记。
+
+❌ C. Le tribunal
+FR : Faux. Le tribunal est une institution judiciaire, mais il ne tient pas l'état civil. Les juges peuvent intervenir dans certains cas (changement de prénom, adoption, etc.), mais la tenue de l'état civil est une compétence municipale.
+中：错误。法院是司法机构，但不负责民事登记。法官可以在某些情况下介入（改名、收养等），但民事登记的保管是市镇的职权。
+
+❌ D. La préfecture
+FR : Faux. La préfecture est l'administration de l'État dans le département, mais elle ne tient pas l'état civil. Le rôle de la préfecture est plutôt de gérer les titres de séjour, les cartes grises, etc. Les actes d'état civil sont gérés par les mairies.
+中：错误。省政府是省内的国家行政机关，但不负责民事登记。省政府的角色是管理居留证、车辆登记证等。民事登记文件由市政厅管理。`
+},
+{
+  id: "so0066",
+  type: "carte multi",
+  category: "Accès aux soins",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Le remboursement des soins par l'Assurance maladie en France se fait en fonction :",
+  options: [
+    "De la mutuelle uniquement",
+    "D'un tarif de base fixé par l'Assurance maladie",
+    "Du prix librement fixé par le médecin",
+    "De la situation géographique du patient"
+  ],
+  answer: 1,
+  explanation: `❌ A. De la mutuelle uniquement
+FR : Faux. Le remboursement de base est effectué par l'Assurance maladie, pas uniquement par la mutuelle. La mutuelle complète ce remboursement, mais elle ne constitue pas le remboursement de base.
+中：错误。基本报销由医疗保险进行，不仅限于补充保险。补充保险补充这个报销，但不是基本报销。
+
+✅ B. D'un tarif de base fixé par l'Assurance maladie
+FR : Correct ! L'Assurance maladie rembourse les soins sur la base d'un tarif de référence (le tarif de convention) qu'elle fixe. Le patient peut consulter un médecin qui pratique des dépassements d'honoraires, mais le remboursement sera toujours calculé sur la base de ce tarif de référence.
+中：正确。医疗保险根据其设定的参考费率（协议费率）报销医疗费用。患者可以咨询收取超额费用的医生，但报销始终基于该参考费率。
+
+❌ C. Du prix librement fixé par le médecin
+FR : Faux. L'Assurance maladie ne rembourse pas sur la base du prix librement fixé par le médecin. Si le médecin pratique des dépassements d'honoraires, le surplus n'est pas remboursé par l'Assurance maladie, sauf si le patient a une mutuelle qui le couvre.
+中：错误。医疗保险不根据医生自由设定的价格进行报销。如果医生收取超额费用，超出部分不由医疗保险报销，除非患者有覆盖该费用的补充保险。
+
+❌ D. De la situation géographique du patient
+FR : Faux. Le remboursement des soins par l'Assurance maladie ne dépend pas de la situation géographique du patient. Les tarifs de base sont les mêmes sur tout le territoire, même si certaines aides peuvent être attribuées en fonction des ressources du patient.
+中：错误。医疗保险的报销不取决于患者的地理位置。参考费率在全国范围内是相同的，尽管某些补助可能根据患者的收入发放。`
+},
+
+{
+  id: "so0067",
+  type: "carte multi",
+  category: "Accès aux soins",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "En France, une personne peut consulter directement un spécialiste (sans passer par son médecin traitant) :",
+  options: [
+    "Oui, mais le remboursement sera moins élevé",
+    "Non, c'est interdit",
+    "Oui, le remboursement est identique",
+    "Oui, mais uniquement pour les ophtalmologues"
+  ],
+  answer: 0,
+  explanation: `✅ A. Oui, mais le remboursement sera moins élevé
+FR : Correct ! En France, vous pouvez consulter directement un spécialiste, mais vous serez moins bien remboursé si vous ne respectez pas le parcours de soins coordonné. L'Assurance maladie vous rembourse moins cher et la mutuelle peut aussi limiter sa participation.
+中：正确。在法国，您可以直接看专科医生，但如果您不遵守协调医疗路径，您的报销会更少。医疗保险会减少报销，补充保险也可能限制其参与。
+
+❌ B. Non, c'est interdit
+FR : Faux. Il n'est pas interdit de consulter directement un spécialiste en France, mais le remboursement est moins favorable. Le parcours de soins coordonné est encouragé, mais pas obligatoire.
+中：错误。在法国直接看专科医生并不是被禁止的，但报销不那么有利。协调医疗路径受到鼓励，但不是强制性的。
+
+❌ C. Oui, le remboursement est identique
+FR : Faux. Le remboursement n'est pas identique si vous consultez directement un spécialiste sans passer par votre médecin traitant. Le parcours de soins coordonné permet un meilleur remboursement.
+中：错误。如果您不通过家庭医生直接看专科医生，报销是不一样的。协调医疗路径可以获得更好的报销。
+
+❌ D. Oui, mais uniquement pour les ophtalmologues
+FR : Faux. Cette règle ne s'applique pas uniquement aux ophtalmologues. Elle s'applique à tous les spécialistes. Cependant, pour les ophtalmologues, un accès direct est souvent recommandé en raison des besoins fréquents de renouvellement d'ordonnances.
+中：错误。这条规则不仅适用于眼科医生。它适用于所有专科医生。然而，对于眼科医生，由于经常需要续处方，直接就诊通常是推荐的。`
+},
+{
+  id: "ue0055",
+  type: "carte multi",
+  category: "UnionEuropéenne",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "L'Union européenne a été créée par le traité de :",
+  options: [
+    "Rome (1957)",
+    "Maastricht (1992)",
+    "Lisbonne (2007)",
+    "Paris (1951)"
+  ],
+  answer: 1,
+  explanation: `❌ A. Rome (1957)
+FR : Faux. Le traité de Rome (1957) a créé la Communauté économique européenne (CEE), qui était une organisation économique. L'Union européenne a été créée plus tard par le traité de Maastricht.
+中：错误。罗马条约（1957）创建了欧洲经济共同体，这是一个经济组织。欧盟是由马斯特里赫特条约在更晚的时期创建的。
+
+✅ B. Maastricht (1992)
+FR : Correct ! L'Union européenne a été créée par le traité de Maastricht, signé le 7 février 1992 et entré en vigueur le 1er novembre 1993. Ce traité a transformé les Communautés européennes en Union européenne et a introduit la citoyenneté européenne.
+中：正确。欧盟由1992年2月7日签署、1993年11月1日生效的马斯特里赫特条约创建。该条约将欧洲共同体转变为欧盟，并引入了欧洲公民身份。
+
+❌ C. Lisbonne (2007)
+FR : Faux. Le traité de Lisbonne (2007) a réformé le fonctionnement de l'Union européenne, mais il ne l'a pas créée. L'Union européenne existait déjà depuis 1993.
+中：错误。里斯本条约（2007）改革了欧盟的运作，但没有创建它。欧盟自1993年以来就已存在。
+
+❌ D. Paris (1951)
+FR : Faux. Le traité de Paris (1951) a créé la Communauté européenne du charbon et de l'acier (CECA), une des premières organisations européennes, mais pas l'Union européenne. L'UE est née bien plus tard.
+中：错误。巴黎条约（1951）创建了欧洲煤钢共同体，这是最早的欧洲组织之一，但不是欧盟。欧盟在更晚的时期才诞生。`
+},
+
+{
+  id: "ue0056",
+  type: "carte multi",
+  category: "UnionEuropéenne",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "La Banque centrale européenne a son siège à :",
+  options: [
+    "Bruxelles",
+    "Francfort",
+    "Strasbourg",
+    "Luxembourg"
+  ],
+  answer: 1,
+  explanation: `❌ A. Bruxelles
+FR : Faux. La Banque centrale européenne n'a pas son siège à Bruxelles. Bruxelles est le siège de la Commission européenne et du Conseil de l'Union européenne.
+中：错误。欧洲中央银行总部不在布鲁塞尔。布鲁塞尔是欧盟委员会和欧盟理事会的所在地。
+
+✅ B. Francfort
+FR : Correct ! La Banque centrale européenne (BCE) a son siège à Francfort-sur-le-Main, en Allemagne. Elle est responsable de la politique monétaire de la zone euro et de la stabilité des prix.
+中：正确。欧洲中央银行总部位于德国美因河畔法兰克福。它负责欧元区的货币政策和价格稳定。
+
+❌ C. Strasbourg
+FR : Faux. La Banque centrale européenne n'a pas son siège à Strasbourg. Strasbourg est le siège du Parlement européen pour les sessions plénières.
+中：错误。欧洲中央银行总部不在斯特拉斯堡。斯特拉斯堡是欧洲议会全体会议的所在地。
+
+❌ D. Luxembourg
+FR : Faux. La Banque centrale européenne n'a pas son siège au Luxembourg. Luxembourg accueille la Cour de justice de l'Union européenne, la Cour des comptes européenne et le secrétariat du Parlement européen, mais pas la BCE.
+中：错误。欧洲中央银行总部不在卢森堡。卢森堡设有欧盟法院、欧洲审计院和欧洲议会秘书处，但没有欧洲央行。`
+},
+{
+  id: "si0196",
+  type: "carte multi",
+  category: "Mises en situation",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Monsieur Y. souhaite faire pratiquer une excision à sa fille. Est-ce que cela est autorisé en France ?",
+  options: [
+    "Oui, c'est une tradition familiale",
+    "Oui, avec l'accord des parents",
+    "Non, c'est interdit par la loi française",
+    "Oui, si elle est majeure"
+  ],
+  answer: 2,
+  explanation: `❌ A. Oui, c'est une tradition familiale
+FR : Faux. Les traditions familiales ne peuvent pas justifier une pratique interdite par la loi française.
+中：错误。家庭传统不能为法国法律禁止的行为辩护。
+
+❌ B. Oui, avec l'accord des parents
+FR : Faux. L'accord des parents ne rend pas une pratique illégale autorisée.
+中：错误。父母的同意并不能使非法行为合法化。
+
+✅ C. Non, c'est interdit par la loi française
+FR : Correct ! L'excision est interdite en France et constitue une infraction pénale grave.
+中：正确。割礼在法国被禁止，构成严重刑事犯罪。
+
+❌ D. Oui, si elle est majeure
+FR : Faux. L'âge ne change rien, l'excision est interdite pour toute personne en France.
+中：错误。年龄改变不了什么，割礼在法国对任何人都是禁止的。`
+},
+
+{
+  id: "si0197",
+  type: "carte multi",
+  category: "Mises en situation",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Monsieur Y est recruteur dans une entreprise. Peut-il écrire sur une offre d'emploi qu'il recherche uniquement un homme de race blanche ?",
+  options: [
+    "Oui, c'est son droit en tant qu'employeur",
+    "Oui, si le poste l'exige",
+    "Non, c'est une discrimination interdite",
+    "Oui, avec l'accord du candidat"
+  ],
+  answer: 2,
+  explanation: `❌ A. Oui, c'est son droit en tant qu'employeur
+FR : Faux. L'employeur n'a pas le droit de discriminer à l'embauche.
+中：错误。雇主无权在招聘中歧视。
+
+❌ B. Oui, si le poste l'exige
+FR : Faux. La race ou le sexe ne sont jamais des exigences professionnelles légitimes.
+中：错误。种族或性别从来不是合法的职业要求。
+
+✅ C. Non, c'est une discrimination interdite
+FR : Correct ! La discrimination à l'embauche fondée sur le sexe ou la race est interdite par la loi française.
+中：正确。基于性别或种族的招聘歧视是法国法律禁止的。
+
+❌ D. Oui, avec l'accord du candidat
+FR : Faux. Même avec l'accord du candidat, la discrimination reste illégale.
+中：错误。即使候选人同意，歧视仍然是非法的。`
+},
+
+{
+  id: "si0198",
+  type: "carte multi",
+  category: "Mises en situation",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Madame X souhaite avorter. A-t-elle besoin de l'accord de ses parents si elle est mineure ?",
+  options: [
+    "Oui, elle doit avoir l'accord de ses parents",
+    "Non, elle peut être accompagnée d'un adulte de son choix",
+    "Oui, mais seulement si elle a moins de 15 ans",
+    "Non, elle peut avorter seule sans aucune condition"
+  ],
+  answer: 1,
+  explanation: `❌ A. Oui, elle doit avoir l'accord de ses parents
+FR : Faux. La loi française permet aux mineures d'avorter sans consentement parental.
+中：错误。法国法律允许未成年人在没有父母同意的情况下堕胎。
+
+✅ B. Non, elle peut être accompagnée d'un adulte de son choix
+FR : Correct ! Une mineure peut avorter sans le consentement de ses parents, mais doit être accompagnée d'un adulte de son choix.
+中：正确。未成年人可以在没有父母同意的情况下堕胎，但必须由她自己选择的成年人陪同。
+
+❌ C. Oui, mais seulement si elle a moins de 15 ans
+FR : Faux. L'âge n'est pas un critère pour l'obligation du consentement parental.
+中：错误。年龄不是父母同意的标准。
+
+❌ D. Non, elle peut avorter seule sans aucune condition
+FR : Faux. Une mineure doit être accompagnée d'un adulte de son choix.
+中：错误。未成年人必须由她自己选择的成年人陪同。`
+},
+
+{
+  id: "si0199",
+  type: "carte multi",
+  category: "Mises en situation",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Un couple de même sexe souhaite se marier en France. Que doit-il faire ?",
+  options: [
+    "Se marier à l'étranger car la France ne permet pas le mariage homosexuel",
+    "Se marier à la mairie comme tout autre couple",
+    "Demander une autorisation spéciale au maire",
+    "Attendre une loi spéciale"
+  ],
+  answer: 1,
+  explanation: `❌ A. Se marier à l'étranger car la France ne permet pas le mariage homosexuel
+FR : Faux. Le mariage homosexuel est légal en France depuis 2013.
+中：错误。同性婚姻在法国自2013年起就是合法的。
+
+✅ B. Se marier à la mairie comme tout autre couple
+FR : Correct ! Le mariage homosexuel est légal en France, ils peuvent se marier à la mairie comme tous les couples.
+中：正确。同性婚姻在法国是合法的，他们可以像所有夫妻一样在市政府结婚。
+
+❌ C. Demander une autorisation spéciale au maire
+FR : Faux. Aucune autorisation spéciale n'est nécessaire, le mariage est un droit.
+中：错误。不需要特别许可，结婚是一项权利。
+
+❌ D. Attendre une loi spéciale
+FR : Faux. La loi sur le mariage pour tous a déjà été adoptée en 2013.
+中：错误。关于所有人婚姻平等的法律已于2013年通过。`
+},
+
+{
+  id: "si0200",
+  type: "carte multi",
+  category: "Mises en situation",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Un restaurant affiche un panneau interdisant l'entrée des personnes de religion musulmane. Cette pratique est :",
+  options: [
+    "Légale, le restaurateur est libre de choisir sa clientèle",
+    "Illégale, c'est une discrimination",
+    "Légale, s'il est juif",
+    "Illégale, seulement si le restaurant est public"
+  ],
+  answer: 1,
+  explanation: `❌ A. Légale, le restaurateur est libre de choisir sa clientèle
+FR : Faux. Les commerçants ne peuvent pas refuser une clientèle pour des motifs religieux.
+中：错误。商家不能因宗教原因拒绝顾客。
+
+✅ B. Illégale, c'est une discrimination
+FR : Correct ! Refuser une personne pour sa religion est une discrimination interdite par la loi.
+中：正确。因宗教原因拒绝他人是法律禁止的歧视。
+
+❌ C. Légale, s'il est juif
+FR : Faux. La loi s'applique à tous, quelle que soit la religion.
+中：错误。法律适用于所有人，无论宗教。
+
+❌ D. Illégale, seulement si le restaurant est public
+FR : Faux. La discrimination est interdite dans tous les lieux accueillant du public, qu'ils soient publics ou privés.
+中：错误。歧视在所有接待公众的场所都是被禁止的，无论公共还是私人。`
+},
+
+{
+  id: "si0201",
+  type: "carte multi",
+  category: "Mises en situation",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Monsieur X est fonctionnaire à la préfecture. Il souhaite porter un signe religieux visible pendant son service. Peut-il le faire ?",
+  options: [
+    "Oui, la liberté religieuse est un droit fondamental",
+    "Non, les fonctionnaires doivent respecter la neutralité",
+    "Oui, avec l'accord de son supérieur",
+    "Non, seulement s'il est en contact avec le public"
+  ],
+  answer: 1,
+  explanation: `❌ A. Oui, la liberté religieuse est un droit fondamental
+FR : Faux. Les fonctionnaires ont une obligation de neutralité pendant leur service.
+中：错误。公职人员在执行公务时有中立义务。
+
+✅ B. Non, les fonctionnaires doivent respecter la neutralité
+FR : Correct ! Les agents publics ne peuvent pas porter de signes religieux visibles pendant leur service pour respecter le principe de neutralité.
+中：正确。公职人员在工作期间不能佩戴明显宗教标志，以遵守中立原则。
+
+❌ C. Oui, avec l'accord de son supérieur
+FR : Faux. La neutralité est une obligation légale, elle ne peut pas être levée par un supérieur.
+中：错误。中立是法定义务，不能由上级免除。
+
+❌ D. Non, seulement s'il est en contact avec le public
+FR : Faux. L'obligation de neutralité s'applique à tous les agents publics, quelle que soit leur fonction.
+中：错误。中立义务适用于所有公职人员，无论其职能如何。`
+},
+// ==================== 十年卡补充题目 ====================
+
+// ==================== Laïcité 补充（2题）====================
+
+{
+  id: "la0074",
+  type: "carte resident",
+  category: "Laïcité",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "Une école publique peut-elle organiser une fête religieuse ?",
+  options: [
+    "Oui, si tous les parents sont d'accord",
+    "Non, l'école publique doit rester neutre",
+    "Oui, si c'est une religion majoritaire",
+    "Oui, avec l'accord du maire"
+  ],
+  answer: 1,
+  explanation: `❌ A. Oui, si tous les parents sont d'accord
+FR : Faux. Même avec l'accord des parents, l'école publique ne peut pas organiser de fête religieuse car elle doit respecter la neutralité.
+中：错误。即使所有家长同意，公立学校也不能组织宗教活动，因为必须保持中立。
+
+✅ B. Non, l'école publique doit rester neutre
+FR : Correct ! L'école publique est laïque et ne peut pas organiser d'activités religieuses.
+中：正确。公立学校是世俗的，不能组织宗教活动。
+
+❌ C. Oui, si c'est une religion majoritaire
+FR : Faux. La laïcité interdit toute faveur à une religion, même majoritaire.
+中：错误。世俗原则禁止偏袒任何宗教，即使是多数宗教。
+
+❌ D. Oui, avec l'accord du maire
+FR : Faux. Le maire ne peut pas autoriser une activité religieuse dans une école publique.
+中：错误。市长不能授权在公立学校举行宗教活动。`
+},
+
+{
+  id: "la0075",
+  type: "carte resident",
+  category: "Laïcité",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "Un agent public peut-il refuser de travailler le vendredi pour des raisons religieuses ?",
+  options: [
+    "Oui, s'il demande un aménagement",
+    "Non, le service public doit fonctionner pour tous",
+    "Oui, il a le droit de refuser",
+    "Non, sauf s'il est fonctionnaire"
+  ],
+  answer: 1,
+  explanation: `❌ A. Oui, s'il demande un aménagement
+FR : Faux. Le service public doit fonctionner pour tous les usagers. L'agent public ne peut pas refuser de travailler pour des raisons religieuses, même s'il demande un aménagement.
+中：错误。公共服务必须对所有使用者开放。公职人员不能因宗教原因拒绝工作，即使请求调整也不行。
+
+✅ B. Non, le service public doit fonctionner pour tous
+FR : Correct ! Le service public doit garantir la continuité du service. Un agent public ne peut pas refuser de servir les usagers pour des raisons religieuses.
+中：正确。公共服务必须保证连续性。公职人员不能因宗教原因拒绝为使用者提供服务。
+
+❌ C. Oui, il a le droit de refuser
+FR : Faux. Un agent public ne peut pas refuser de servir pour des raisons religieuses.
+中：错误。公职人员不能因宗教原因拒绝服务。
+
+❌ D. Non, sauf s'il est fonctionnaire
+FR : Faux. La règle s'applique à tous les agents publics, qu'ils soient fonctionnaires ou non.
+中：错误。规则适用于所有公职人员，无论是否为公务员。`
+},
+
+// ==================== Droits fondamentaux 补充（2题）====================
+
+{
+  id: "dr1035",
+  type: "carte resident",
+  category: "Droits fondamentaux",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "En France, une personne peut-elle être détenue sans motif valable ?",
+  options: [
+    "Oui, la police peut détenir qui elle veut",
+    "Non, toute détention doit être justifiée par la loi",
+    "Oui, en cas d'enquête préliminaire",
+    "Non, sauf si la personne est étrangère"
+  ],
+  answer: 1,
+  explanation: `❌ A. Oui, la police peut détenir qui elle veut
+FR : Faux. La police ne peut pas détenir une personne sans motif légal.
+中：错误。警察不能在没有合法理由的情况下拘留一个人。
+
+✅ B. Non, toute détention doit être justifiée par la loi
+FR : Correct ! En France, toute détention ou privation de liberté doit être justifiée par la loi et respecter les droits de la personne.
+中：正确。在法国，任何拘留或剥夺自由的行为都必须有法律依据并尊重个人权利。
+
+❌ C. Oui, en cas d'enquête préliminaire
+FR : Faux. Même en cas d'enquête, toute détention doit respecter le cadre légal.
+中：错误。即使在调查期间，任何拘留也必须遵守法律框架。
+
+❌ D. Non, sauf si la personne est étrangère
+FR : Faux. La loi s'applique à toutes les personnes sur le territoire français, quelle que soit leur nationalité.
+中：错误。法律适用于法国领土上的所有人，无论国籍。`
+},
+
+{
+  id: "dr1036",
+  type: "carte resident",
+  category: "Droits fondamentaux",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "Le droit à la vie privée protège-t-il les données personnelles sur Internet ?",
+  options: [
+    "Non, tout est public sur Internet",
+    "Oui, les données personnelles sont protégées par la loi",
+    "Oui, mais seulement pour les citoyens français",
+    "Non, les entreprises peuvent tout utiliser"
+  ],
+  answer: 1,
+  explanation: `❌ A. Non, tout est public sur Internet
+FR : Faux. Les données personnelles sur Internet sont protégées par la loi (RGPD, loi Informatique et Libertés).
+中：错误。互联网上的个人数据受法律保护（GDPR、信息与自由法）。
+
+✅ B. Oui, les données personnelles sont protégées par la loi
+FR : Correct ! Le droit à la vie privée protège les données personnelles, y compris sur Internet. Les sites doivent respecter la confidentialité des données.
+中：正确。隐私权保护个人数据，包括互联网上的数据。网站必须遵守数据保密规定。
+
+❌ C. Oui, mais seulement pour les citoyens français
+FR : Faux. La protection des données s'applique à toute personne sur le territoire français.
+中：错误。数据保护适用于法国领土上的所有人。
+
+❌ D. Non, les entreprises peuvent tout utiliser
+FR : Faux. Les entreprises doivent respecter la loi et ne peuvent pas utiliser les données personnelles sans consentement.
+中：错误。企业必须遵守法律，不能未经同意使用个人数据。`
+},
+
+// ==================== Institutions 补充（2题）====================
+
+{
+  id: "in0128",
+  type: "carte resident",
+  category: "Institutions",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "L'Assemblée nationale et le Sénat forment ensemble :",
+  options: [
+    "Le gouvernement",
+    "Le Parlement",
+    "Le Conseil constitutionnel",
+    "Le Conseil d'État"
+  ],
+  answer: 1,
+  explanation: `❌ A. Le gouvernement
+FR : Faux. Le gouvernement est composé du Premier ministre et des ministres.
+中：错误。政府由总理和部长组成。
+
+✅ B. Le Parlement
+FR : Correct ! L'Assemblée nationale et le Sénat forment ensemble le Parlement.
+中：正确。国民议会和参议院共同组成议会。
+
+❌ C. Le Conseil constitutionnel
+FR : Faux. Le Conseil constitutionnel est une institution distincte qui contrôle la conformité des lois à la Constitution.
+中：错误。宪法委员会是独立机构，负责审查法律是否符合宪法。
+
+❌ D. Le Conseil d'État
+FR : Faux. Le Conseil d'État est la plus haute juridiction administrative.
+中：错误。国家行政法院是最高行政司法机构。`
+},
+
+{
+  id: "in0129",
+  type: "carte resident",
+  category: "Institutions",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "Les lois sont promulguées par :",
+  options: [
+    "Le Premier ministre",
+    "Le Président de la République",
+    "Le président de l'Assemblée nationale",
+    "Le président du Sénat"
+  ],
+  answer: 1,
+  explanation: `❌ A. Le Premier ministre
+FR : Faux. Le Premier ministre ne promulgue pas les lois.
+中：错误。总理不颁布法律。
+
+✅ B. Le Président de la République
+FR : Correct ! Le Président de la République promulgue les lois dans les 15 jours suivant leur adoption.
+中：正确。共和国总统在法律通过后15天内颁布法律。
+
+❌ C. Le président de l'Assemblée nationale
+FR : Faux. Le président de l'Assemblée nationale ne promulgue pas les lois.
+中：错误。国民议会议长不颁布法律。
+
+❌ D. Le président du Sénat
+FR : Faux. Le président du Sénat ne promulgue pas les lois.
+中：错误。参议院议长不颁布法律。`
+},
+
+// ==================== Démocratie et droit de vote 补充（2题）====================
+
+{
+  id: "de0115",
+  type: "carte resident",
+  category: "Démocratie et droit de vote",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "Les citoyens de l'Union européenne résidant en France peuvent-ils voter aux élections municipales ?",
+  options: [
+    "Oui, s'ils sont inscrits sur les listes électorales",
+    "Non, seuls les citoyens français peuvent voter",
+    "Oui, mais seulement aux élections européennes",
+    "Non, ils doivent attendre 5 ans de résidence"
+  ],
+  answer: 0,
+  explanation: `✅ A. Oui, s'ils sont inscrits sur les listes électorales
+FR : Correct ! Les citoyens européens résidant en France peuvent voter aux élections municipales s'ils s'inscrivent sur les listes électorales de leur commune.
+中：正确。居住在法国的欧盟公民如果在其市镇选民名单上登记，可以参加市镇选举投票。
+
+❌ B. Non, seuls les citoyens français peuvent voter
+FR : Faux. Les citoyens européens peuvent voter aux élections municipales en France.
+中：错误。欧盟公民可以在法国参加市镇选举投票。
+
+❌ C. Oui, mais seulement aux élections européennes
+FR : Faux. Ils peuvent voter à la fois aux élections municipales et européennes.
+中：错误。他们可以同时参加市镇选举和欧洲选举投票。
+
+❌ D. Non, ils doivent attendre 5 ans de résidence
+FR : Faux. Il n'y a pas de condition de durée de résidence minimale pour voter aux élections municipales.
+中：错误。参加市镇选举投票没有最低居住期限的条件。`
+},
+
+{
+  id: "de0116",
+  type: "carte resident",
+  category: "Démocratie et droit de vote",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "En France, l'élection du Président de la République se fait :",
+  options: [
+    "Au suffrage universel direct",
+    "Au suffrage universel indirect",
+    "Par l'Assemblée nationale",
+    "Par le Conseil constitutionnel"
+  ],
+  answer: 0,
+  explanation: `✅ A. Au suffrage universel direct
+FR : Correct ! Le Président de la République est élu au suffrage universel direct depuis le référendum de 1962.
+中：正确。自1962年公投以来，共和国总统由直接普选产生。
+
+❌ B. Au suffrage universel indirect
+FR : Faux. Le président n'est pas élu au suffrage indirect, contrairement aux sénateurs.
+中：错误。总统不像参议员那样由间接选举产生。
+
+❌ C. Par l'Assemblée nationale
+FR : Faux. L'Assemblée nationale n'élit pas le président.
+中：错误。国民议会不选举总统。
+
+❌ D. Par le Conseil constitutionnel
+FR : Faux. Le Conseil constitutionnel ne participe pas à l'élection du président.
+中：错误。宪法委员会不参与总统选举。`
+},
+
+// ==================== Obligations et devoirs 补充（2题）====================
+
+{
+  id: "od0094",
+  type: "carte resident",
+  category: "Obligations et devoirs des personnes résidant en France",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "Une personne résidant en France a-t-elle le devoir de porter secours à une personne en danger ?",
+  options: [
+    "Oui, c'est un devoir légal",
+    "Non, c'est seulement un conseil moral",
+    "Oui, mais uniquement si la personne est un proche",
+    "Non, c'est facultatif"
+  ],
+  answer: 0,
+  explanation: `✅ A. Oui, c'est un devoir légal
+FR : Correct ! Le non-assistance à personne en danger est un délit pénal prévu par l'article 223-6 du Code pénal.
+中：正确。见危不救是刑法典第223-6条规定的刑事犯罪。
+
+❌ B. Non, c'est seulement un conseil moral
+FR : Faux. En France, porter secours à une personne en danger n'est pas seulement un devoir moral, c'est aussi une obligation légale.
+中：错误。在法国，救助处于危险中的人不仅是道德义务，也是法律义务。
+
+❌ C. Oui, mais uniquement si la personne est un proche
+FR : Faux. L'obligation de porter secours s'applique à toute personne en danger, pas seulement aux proches.
+中：错误。救助义务适用于任何处于危险中的人，不仅限于亲属。
+
+❌ D. Non, c'est facultatif
+FR : Faux. Ce n'est pas facultatif, c'est une obligation légale qui peut être sanctionnée.
+中：错误。这不是可选的，而是一项可能受到制裁的法律义务。`
+},
+
+{
+  id: "od0095",
+  type: "carte resident",
+  category: "Obligations et devoirs des personnes résidant en France",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "En France, la déclaration de revenus est :",
+  options: [
+    "Obligatoire pour tous les résidents",
+    "Facultative pour les personnes sans emploi",
+    "Obligatoire uniquement pour les salariés",
+    "Facultative pour les retraités"
+  ],
+  answer: 0,
+  explanation: `✅ A. Obligatoire pour tous les résidents
+FR : Correct ! Toute personne majeure résidant en France doit déclarer ses revenus chaque année, même si ses revenus sont faibles ou nuls.
+中：正确。所有居住在法国的成年人都必须每年申报收入，即使收入很低或为零。
+
+❌ B. Facultative pour les personnes sans emploi
+FR : Faux. Même sans emploi, il faut déclarer ses revenus (ou l'absence de revenus).
+中：错误。即使没有工作，也必须申报收入（或无收入）。
+
+❌ C. Obligatoire uniquement pour les salariés
+FR : Faux. Tous les résidents doivent déclarer, pas seulement les salariés.
+中：错误。所有居民都必须申报，不仅限于雇员。
+
+❌ D. Facultative pour les retraités
+FR : Faux. Les retraités doivent également déclarer leurs revenus.
+中：错误。退休人员也必须申报收入。`
+},
+
+// ==================== Patrimoine français 补充（2题）====================
+
+{
+  id: "pf0077",
+  type: "carte resident",
+  category: "Patrimoine français",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "Qui était Victor Hugo ?",
+  options: [
+    "Un peintre",
+    "Un écrivain",
+    "Un musicien",
+    "Un sculpteur"
+  ],
+  answer: 1,
+  explanation: `❌ A. Un peintre
+FR : Faux. Victor Hugo n'était pas peintre, mais écrivain.
+中：错误。维克多·雨果不是画家，而是作家。
+
+✅ B. Un écrivain
+FR : Correct ! Victor Hugo est un écrivain français célèbre, auteur de "Les Misérables" et de "Notre-Dame de Paris".
+中：正确。维克多·雨果是法国著名作家，《悲惨世界》和《巴黎圣母院》的作者。
+
+❌ C. Un musicien
+FR : Faux. Victor Hugo n'était pas musicien.
+中：错误。维克多·雨果不是音乐家。
+
+❌ D. Un sculpteur
+FR : Faux. Victor Hugo n'était pas sculpteur.
+中：错误。维克多·雨果不是雕塑家。`
+},
+
+{
+  id: "pf0078",
+  type: "carte resident",
+  category: "Patrimoine français",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "Auguste Rodin était un célèbre :",
+  options: [
+    "Peintre",
+    "Sculpteur",
+    "Écrivain",
+    "Compositeur"
+  ],
+  answer: 1,
+  explanation: `❌ A. Peintre
+FR : Faux. Rodin était sculpteur, pas peintre.
+中：错误。罗丹是雕塑家，不是画家。
+
+✅ B. Sculpteur
+FR : Correct ! Auguste Rodin est un célèbre sculpteur français, auteur du "Penseur" et du "Baiser".
+中：正确。奥古斯特·罗丹是法国著名雕塑家，《思想者》和《吻》的作者。
+
+❌ C. Écrivain
+FR : Faux. Rodin n'était pas écrivain.
+中：错误。罗丹不是作家。
+
+❌ D. Compositeur
+FR : Faux. Rodin n'était pas compositeur.
+中：错误。罗丹不是作曲家。`
+},
+
+// ==================== Territoires et géographie 补充（2题）====================
+
+{
+  id: "tg0125",
+  type: "carte resident",
+  category: "Territoires et géographie",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "Quelle mer sépare la France du Royaume-Uni ?",
+  options: [
+    "La mer Méditerranée",
+    "La mer du Nord",
+    "La Manche",
+    "L'océan Atlantique"
+  ],
+  answer: 2,
+  explanation: `❌ A. La mer Méditerranée
+FR : Faux. La Méditerranée est au sud de la France.
+中：错误。地中海在法国南部。
+
+❌ B. La mer du Nord
+FR : Faux. La mer du Nord est au nord-est de la France.
+中：错误。北海在法国东北部。
+
+✅ C. La Manche
+FR : Correct ! La Manche sépare la France du Royaume-Uni.
+中：正确。英吉利海峡分隔法国和英国。
+
+❌ D. L'océan Atlantique
+FR : Faux. L'océan Atlantique est à l'ouest de la France.
+中：错误。大西洋在法国西部。`
+},
+
+
+
+// ==================== Travail 补充（2题）====================
+
+{
+  id: "tr0079",
+  type: "carte resident",
+  category: "Travail",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "En France, à partir de quel âge un mineur peut-il travailler avec l'accord des parents ?",
+  options: [
+    "14 ans",
+    "15 ans",
+    "16 ans",
+    "17 ans"
+  ],
+  answer: 0,
+  explanation: `✅ A. 14 ans
+FR : Correct ! Un mineur peut travailler à partir de 14 ans, dans certaines conditions, avec l'accord des parents et dans le respect des règles sur le travail des jeunes.
+中：正确。未成年人在满足一定条件、经父母同意并遵守青年劳动规则的情况下，从14岁起可以工作。
+
+❌ B. 15 ans
+FR : Faux. L'âge minimum légal est 14 ans, pas 15 ans.
+中：错误。法定最低年龄是14岁，不是15岁。
+
+❌ C. 16 ans
+FR : Faux. Bien que 16 ans soit l'âge le plus courant, le minimum légal est 14 ans.
+中：错误。虽然16岁是最常见的年龄，但法定最低年龄是14岁。
+
+❌ D. 17 ans
+FR : Faux. L'âge légal est plus bas.
+中：错误。法定年龄更低。`
+},
+
+{
+  id: "tr0080",
+  type: "carte resident",
+  category: "Travail",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "Une femme enceinte peut-elle être licenciée en raison de sa grossesse en France ?",
+  options: [
+    "Oui, l'employeur peut licencier pour n'importe quelle raison",
+    "Non, c'est interdit par la loi",
+    "Oui, si elle est en période d'essai",
+    "Non, seulement si elle travaille dans le secteur public"
+  ],
+  answer: 1,
+  explanation: `❌ A. Oui, l'employeur peut licencier pour n'importe quelle raison
+FR : Faux. La grossesse ne peut pas être un motif de licenciement.
+中：错误。怀孕不能成为解雇的理由。
+
+✅ B. Non, c'est interdit par la loi
+FR : Correct ! La loi interdit de licencier une femme enceinte en raison de sa grossesse. La salariée bénéficie d'une protection spéciale.
+中：正确。法律禁止因怀孕解雇女性。女雇员享有特殊保护。
+
+❌ C. Oui, si elle est en période d'essai
+FR : Faux. Même en période d'essai, le licenciement ne peut pas être motivé par la grossesse.
+中：错误。即使在试用期，解雇也不能以怀孕为由。
+
+❌ D. Non, seulement si elle travaille dans le secteur public
+FR : Faux. La protection s'applique à tous les secteurs, publics comme privés.
+中：错误。这种保护适用于所有行业，包括公共和私营部门。`
+},
+
+// ==================== Accès aux soins 补充（2题）====================
+
+{
+  id: "so0072",
+  type: "carte resident",
+  category: "Accès aux soins",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "Qu'est-ce que la carte Vitale en France ?",
+  options: [
+    "Une carte de crédit",
+    "Une carte pour s'identifier et faciliter les remboursements de santé",
+    "Une carte de transport",
+    "Une carte d'identité obligatoire"
+  ],
+  answer: 1,
+  explanation: `❌ A. Une carte de crédit
+FR : Faux. La carte Vitale n'est pas une carte de crédit, elle sert pour la santé.
+中：错误。Vitale卡不是信用卡，它用于医疗。
+
+✅ B. Une carte pour s'identifier et faciliter les remboursements de santé
+FR : Correct ! La carte Vitale permet d'identifier l'assuré social et de faciliter le remboursement des soins par l'Assurance maladie.
+中：正确。Vitale卡用于识别参保人身份，并方便医疗保险报销。
+
+❌ C. Une carte de transport
+FR : Faux. La carte Vitale n'est pas une carte de transport.
+中：错误。Vitale卡不是交通卡。
+
+❌ D. Une carte d'identité obligatoire
+FR : Faux. La carte Vitale n'est pas une carte d'identité.
+中：错误。Vitale卡不是身份证。`
+},
+
+{
+  id: "so0073",
+  type: "carte resident",
+  category: "Accès aux soins",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "Le tiers payant en France permet au patient :",
+  options: [
+    "De ne pas avancer les frais remboursés par l'Assurance maladie",
+    "De payer moins d'impôts",
+    "De consulter un médecin sans rendez-vous",
+    "D'obtenir des médicaments sans ordonnance"
+  ],
+  answer: 0,
+  explanation: `✅ A. De ne pas avancer les frais remboursés par l'Assurance maladie
+FR : Correct ! Le tiers payant permet au patient de ne pas payer les frais pris en charge par l'Assurance maladie.
+中：正确。第三方支付允许患者不支付医疗保险承担的费用。
+
+❌ B. De payer moins d'impôts
+FR : Faux. Le tiers payant n'a aucun lien avec les impôts.
+中：错误。第三方支付与税收无关。
+
+❌ C. De consulter un médecin sans rendez-vous
+FR : Faux. Le tiers payant ne facilite pas la prise de rendez-vous.
+中：错误。第三方支付不便于预约。
+
+❌ D. D'obtenir des médicaments sans ordonnance
+FR : Faux. Le tiers payant ne dispense pas de l'ordonnance pour les médicaments qui en nécessitent une.
+中：错误。第三方支付不能免除需要处方的药物。`
+},
+
+// ==================== Mises en situation 补充（2题）====================
+
+{
+  id: "si0207",
+  type: "carte resident",
+  category: "Mises en situation",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "Un propriétaire refuse de louer son appartement à un couple parce qu'ils ne sont pas mariés. Cette pratique est :",
+  options: [
+    "Légale, le propriétaire est libre",
+    "Illégale, c'est une discrimination",
+    "Légale, si le couple a moins de 25 ans",
+    "Illégale, seulement si le logement est meublé"
+  ],
+  answer: 1,
+  explanation: `❌ A. Légale, le propriétaire est libre
+FR : Faux. La liberté du propriétaire n'est pas absolue et ne permet pas la discrimination.
+中：错误。业主的自由不是绝对的，不允许歧视。
+
+✅ B. Illégale, c'est une discrimination
+FR : Correct ! Refuser un logement à un couple non marié constitue une discrimination fondée sur la situation familiale, interdite par la loi.
+中：正确。因未婚拒绝租房给一对夫妻构成基于家庭状况的歧视，这是法律禁止的。
+
+❌ C. Légale, si le couple a moins de 25 ans
+FR : Faux. L'âge n'est pas un critère autorisé pour refuser une location.
+中：错误。年龄不是允许拒绝租房的合法标准。
+
+❌ D. Illégale, seulement si le logement est meublé
+FR : Faux. L'interdiction de discrimination s'applique à tous les logements, meublés ou non.
+中：错误。反歧视禁令适用于所有住房，无论是否带家具。`
+},
+
+{
+  id: "si0208",
+  type: "carte resident",
+  category: "Mises en situation",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "Un élève ne parle pas français à son arrivée en France. L'école doit-elle l'accueillir ?",
+  options: [
+    "Non, il doit d'abord apprendre le français",
+    "Oui, l'école doit l'accueillir et lui proposer un enseignement adapté",
+    "Oui, mais seulement s'il a moins de 10 ans",
+    "Non, il doit aller dans une école privée"
+  ],
+  answer: 1,
+  explanation: `❌ A. Non, il doit d'abord apprendre le français
+FR : Faux. L'école ne peut pas refuser un enfant parce qu'il ne parle pas français.
+中：错误。学校不能因为孩子不会说法语而拒绝他。
+
+✅ B. Oui, l'école doit l'accueillir et lui proposer un enseignement adapté
+FR : Correct ! L'école doit accueillir tous les enfants et proposer un enseignement du français comme langue seconde pour faciliter leur intégration.
+中：正确。学校必须接待所有儿童，并提供法语作为第二语言的教学，以促进他们的融入。
+
+❌ C. Oui, mais seulement s'il a moins de 10 ans
+FR : Faux. L'obligation d'accueil s'applique à tous les enfants d'âge scolaire.
+中：错误。接待义务适用于所有学龄儿童。
+
+❌ D. Non, il doit aller dans une école privée
+FR : Faux. L'école publique doit accueillir tous les enfants, quelle que soit leur langue maternelle.
+中：错误。公立学校必须接待所有儿童，无论其母语是什么。`
+},
+
+// ==================== Union européenne 补充（2题）====================
+
+{
+  id: "ue0058",
+  type: "carte resident",
+  category: "UnionEuropéenne",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "Un citoyen espagnol veut travailler en France. Est-ce possible ?",
+  options: [
+    "Non, il faut un visa de travail",
+    "Oui, il peut travailler librement",
+    "Oui, mais seulement pour 3 mois",
+    "Non, car la France n'accepte pas les Espagnols"
+  ],
+  answer: 1,
+  explanation: `❌ A. Non, il faut un visa de travail
+FR : Faux. Dans l'UE, les citoyens de pays membres n'ont pas besoin de visa pour travailler dans un autre État membre.
+中：错误。欧盟成员国公民在其他成员国工作不需要工作签证。
+
+✅ B. Oui, il peut travailler librement
+FR : Correct ! Grâce à la libre circulation des travailleurs, un Espagnol peut travailler en France comme un Français.
+中：正确。依靠欧盟人员自由流动，西班牙公民可以在法国自由工作。
+
+❌ C. Oui, mais seulement pour 3 mois
+FR : Faux. La libre circulation permet de travailler sans limite de durée (sous certaines conditions).
+中：错误。自由流动不是只限3个月。
+
+❌ D. Non, car la France n'accepte pas les Espagnols
+FR : Faux. Ce n'est pas vrai.
+中：错误。这不是事实。`
+},
+
+{
+  id: "ue0059",
+  type: "carte resident",
+  category: "UnionEuropéenne",
+  difficulté: "moyen",
+  typeQuestion: "examen original",
+  question: "Combien d'États font partie de l'Union européenne en 2025 ?",
+  options: [
+    "26",
+    "27",
+    "28",
+    "30"
+  ],
+  answer: 1,
+  explanation: `❌ A. 26 - Faux. En 2025, l'UE compte 27 États membres.
+中：错误。2025年欧盟有27个成员国。
+
+✅ B. 27 - Correct ! En 2025, l'Union européenne compte 27 États membres.
+中：正确。2025年欧盟共有27个成员国。
+
+❌ C. 28 - Faux. 28 était le nombre avant le Brexit (quand le Royaume-Uni était encore membre).
+中：错误。28是英国脱欧前的数量。
+
+❌ D. 30 - Faux. L'UE n'a pas 30 membres en 2025.
+中：错误。2025年欧盟成员国不可能达到30个。`
+},
+// ==================== Laïcité 补充题目（多年卡）- 修改版 ====================
+
+{
+  id: "la0080",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "La laïcité en France est un principe qui garantit :",
+  options: [
+    "La neutralité de l'État et la liberté de conscience",
+    "L'obligation de pratiquer une religion",
+    "L'interdiction totale des religions",
+    "La promotion d'une religion d'État"
+  ],
+  answer: 0,
+  explanation: `✅ A. La neutralité de l'État et la liberté de conscience - Correct ! La laïcité garantit à la fois la neutralité de l'État vis-à-vis des religions et la liberté de conscience pour chaque citoyen.
+中：正确。世俗原则既保障国家面对宗教时的中立性，也保障每个公民的信仰自由。
+
+❌ B. L'obligation de pratiquer une religion - Faux. La laïcité ne force personne à pratiquer une religion.
+中：错误。世俗原则不强制任何人信仰宗教。
+
+❌ C. L'interdiction totale des religions - Faux. La laïcité ne supprime pas les religions, elle garantit leur libre exercice dans le respect des lois.
+中：错误。世俗原则不消灭宗教，而是保障其在法律框架内的自由实践。
+
+❌ D. La promotion d'une religion d'État - Faux. La France ne reconnaît aucune religion officielle.
+中：错误。法国不承认任何官方宗教。`
+},
+
+{
+  id: "la0081",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Dans une école publique, les enseignants doivent respecter :",
+  options: [
+    "Leur liberté de prosélytisme",
+    "Le principe de neutralité religieuse",
+    "L'obligation d'enseigner une religion particulière",
+    "Le droit d'imposer leurs croyances"
+  ],
+  answer: 1,
+  explanation: `✅ B. Le principe de neutralité religieuse - Correct ! Dans les écoles publiques, les enseignants doivent respecter la neutralité religieuse.
+中：正确。在公立学校，教师必须尊重宗教中立原则。
+
+❌ A. Leur liberté de prosélytisme - Faux. Les enseignants ne peuvent pas faire de prosélytisme à l'école.
+中：错误。教师不能在公立学校进行宗教宣传。
+
+❌ C. L'obligation d'enseigner une religion particulière - Faux. Les enseignants n'ont pas à enseigner une religion particulière.
+中：错误。教师不需要教授特定宗教。
+
+❌ D. Le droit d'imposer leurs croyances - Faux. Les enseignants ne peuvent imposer leurs croyances aux élèves.
+中：错误。教师不能将自己的信仰强加给学生。`
+},
+
+{
+  id: "la0082",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "La loi de 1905 en France établit :",
+  options: [
+    "La séparation des Églises et de l'État",
+    "L'obligation de pratiquer le catholicisme",
+    "L'interdiction de toute religion",
+    "La création d'une religion d'État"
+  ],
+  answer: 0,
+  explanation: `✅ A. La séparation des Églises et de l'État - Correct ! La loi du 9 décembre 1905 établit la séparation des Églises et de l'État en France.
+中：正确。1905年12月9日法律确立了法国政教分离的原则。
+
+❌ B. L'obligation de pratiquer le catholicisme - Faux. La France n'impose aucune religion.
+中：错误。法国不强制任何宗教。
+
+❌ C. L'interdiction de toute religion - Faux. La loi garantit la liberté de conscience et de religion.
+中：错误。法律保障信仰自由。
+
+❌ D. La création d'une religion d'État - Faux. La loi de 1905 interdit toute religion d'État.
+中：错误。1905年法律禁止任何国教。`
+},
+
+{
+  id: "la0083",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Un agent public dans une mairie doit :",
+  options: [
+    "Afficher ses convictions religieuses",
+    "Rester neutre vis-à-vis des usagers",
+    "Favoriser les usagers de sa religion",
+    "Refuser de servir les non-croyants"
+  ],
+  answer: 1,
+  explanation: `✅ B. Rester neutre vis-à-vis des usagers - Correct ! Les agents publics doivent respecter le principe de neutralité et traiter tous les usagers de manière égale.
+中：正确。公职人员必须遵守中立原则，平等对待所有使用者。
+
+❌ A. Afficher ses convictions religieuses - Faux. Les agents publics ne doivent pas afficher leurs convictions religieuses pendant leur service.
+中：错误。公职人员在执行公务时不得展示个人宗教信仰。
+
+❌ C. Favoriser les usagers de sa religion - Faux. La neutralité interdit tout favoritisme religieux.
+中：错误。中立原则禁止任何宗教偏袒。
+
+❌ D. Refuser de servir les non-croyants - Faux. Le service public est accessible à tous sans discrimination.
+中：错误。公共服务对所有人员开放，不得歧视。`
+},
+
+{
+  id: "la0084",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Dans une école publique, les élèves peuvent :",
+  options: [
+    "Porter des signes religieux ostensibles",
+    "Porter des signes religieux discrets",
+    "Imposer leurs convictions religieuses aux autres élèves",
+    "Refuser certains enseignements pour des raisons religieuses"
+  ],
+  answer: 1,
+  explanation: `✅ B. Porter des signes religieux discrets - Correct ! Les élèves peuvent porter des signes religieux discrets. Les signes ostentatoires sont interdits par la loi de 2004.
+中：正确。学生可以佩戴低调的宗教标志。2004年法律禁止佩戴明显的宗教标志。
+
+❌ A. Porter des signes religieux ostensibles - Faux. La loi du 15 mars 2004 interdit les signes religieux ostentatoires dans les écoles publiques.
+中：错误。2004年3月15日法律禁止在公立学校佩戴明显宗教标志。
+
+❌ C. Imposer leurs convictions religieuses aux autres élèves - Faux. La laïcité garantit le respect de toutes les croyances.
+中：错误。世俗原则保障所有信仰的尊重。
+
+❌ D. Refuser certains enseignements pour des raisons religieuses - Faux. L'enseignement est obligatoire et commun à tous les élèves.
+中：错误。教学对所有学生都是必修的。`
+},
+
+{
+  id: "la0085",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "La liberté de conscience en France permet :",
+  options: [
+    "De croire ou de ne pas croire en une religion",
+    "De pratiquer toutes les religions en même temps",
+    "De ne pas respecter les lois pour des raisons religieuses",
+    "D'imposer sa religion à sa famille"
+  ],
+  answer: 0,
+  explanation: `✅ A. De croire ou de ne pas croire en une religion - Correct ! La liberté de conscience garantit le droit de croire, de ne pas croire, ou de changer de religion.
+中：正确。良心自由保障信仰、不信仰或改变信仰的权利。
+
+❌ B. De pratiquer toutes les religions en même temps - Faux. La liberté de conscience permet le choix, elle n'oblige pas à pratiquer plusieurs religions.
+中：错误。良心自由允许选择，而非强制实践多种宗教。
+
+❌ C. De ne pas respecter les lois pour des raisons religieuses - Faux. La loi s'impose à tous, quelle que soit la religion.
+中：错误。法律对所有人都具有约束力，无论宗教信仰如何。
+
+❌ D. D'imposer sa religion à sa famille - Faux. La liberté de conscience est individuelle.
+中：错误。良心自由是个人的权利。`
+},
+
+{
+  id: "la0086",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Quelle affirmation concernant la laïcité est correcte ?",
+  options: [
+    "La laïcité interdit toutes les religions dans l'espace public",
+    "La laïcité garantit la liberté de religion et la neutralité de l'État",
+    "La laïcité oblige les citoyens à être athées",
+    "La laïcité favorise une religion par rapport aux autres"
+  ],
+  answer: 1,
+  explanation: `✅ B. La laïcité garantit la liberté de religion et la neutralité de l'État - Correct ! La laïcité assure à la fois la liberté de conscience pour les citoyens et la neutralité de l'État.
+中：正确。世俗原则既保障公民的信仰自由，又保障国家对宗教的中立性。
+
+❌ A. La laïcité interdit toutes les religions dans l'espace public - Faux. La laïcité ne vise pas à interdire les religions.
+中：错误。世俗原则不是要禁止公共场所的宗教活动。
+
+❌ C. La laïcité oblige les citoyens à être athées - Faux. La laïcité ne force personne à être athée.
+中：错误。世俗原则不强迫任何人成为无神论者。
+
+❌ D. La laïcité favorise une religion par rapport aux autres - Faux. L'État est neutre et ne favorise aucune religion.
+中：错误。国家保持中立，不偏袒任何宗教。`
+},
+
+{
+  id: "la0087",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "En France, les agents publics peuvent-ils porter des signes religieux ostensibles pendant leur service ?",
+  options: [
+    "Oui, la liberté religieuse est absolue",
+    "Non, ils doivent respecter le principe de neutralité",
+    "Oui, avec l'autorisation de leur supérieur",
+    "Oui, s'ils ne parlent pas de leur religion aux usagers"
+  ],
+  answer: 1,
+  explanation: `✅ B. Non, ils doivent respecter le principe de neutralité - Correct ! Les agents publics doivent respecter le principe de neutralité religieuse dans l'exercice de leurs fonctions.
+中：正确。公职人员在执行公务时必须遵守宗教中立原则。
+
+❌ A. Oui, la liberté religieuse est absolue - Faux. La liberté religieuse a des limites, notamment la neutralité du service public.
+中：错误。宗教自由有其限制，尤其是公共服务的中立性。
+
+❌ C. Oui, avec l'autorisation de leur supérieur - Faux. La neutralité est une obligation légale qui ne peut pas être levée.
+中：错误。中立是法定义务，不能由上级免除。
+
+❌ D. Oui, s'ils ne parlent pas de leur religion aux usagers - Faux. Le port de signes ostensibles est interdit, quelle que soit l'attitude envers les usagers.
+中：错误。佩戴明显宗教标志是被禁止的，无论对使用者的态度如何。`
+},
+
+{
+  id: "la0088",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "La laïcité en France s'applique-t-elle aux entreprises privées ?",
+  options: [
+    "Oui, les entreprises privées doivent être neutres comme l'État",
+    "Non, la laïcité s'impose principalement à l'État et aux services publics",
+    "Oui, les employés ne peuvent pas porter de signes religieux",
+    "Non, les entreprises privées peuvent imposer une religion"
+  ],
+  answer: 1,
+  explanation: `✅ B. Non, la laïcité s'impose principalement à l'État et aux services publics - Correct ! La laïcité est un principe qui s'applique à l'État et aux services publics. Les entreprises privées sont soumises au droit du travail, qui encadre notamment la liberté religieuse des salariés.
+中：正确。世俗原则主要适用于国家和公共服务。私营企业受劳动法约束，劳动法对员工的宗教自由有相应规定。
+
+❌ A. Oui, les entreprises privées doivent être neutres comme l'État - Faux. La neutralité n'est pas imposée aux entreprises privées.
+中：错误。私营企业不被要求像国家一样保持中立。
+
+❌ C. Oui, les employés ne peuvent pas porter de signes religieux - Faux. Dans les entreprises privées, cette question est régie par le règlement intérieur et le droit du travail.
+中：错误。在私营企业中，此问题由内部规章和劳动法规定。
+
+❌ D. Non, les entreprises privées peuvent imposer une religion - Faux. Les entreprises ne peuvent pas imposer de religion à leurs employés.
+中：错误。企业不能强制员工信仰宗教。`
+},
+
+{
+  id: "la0089",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "La laïcité en France s'applique-t-elle aux usagers des services publics ?",
+  options: [
+    "Oui, les usagers doivent être neutres comme les agents",
+    "Non, la laïcité s'impose principalement aux agents publics dans l'exercice de leurs fonctions",
+    "Oui, les usagers ne peuvent pas porter de signes religieux",
+    "Non, les usagers sont libres de tout et peuvent imposer leurs croyances"
+  ],
+  answer: 1,
+  explanation: `✅ B. Non, la laïcité s'impose principalement aux agents publics dans l'exercice de leurs fonctions - Correct ! La laïcité s'applique surtout aux agents publics. Les usagers conservent leur liberté de conscience, dans le respect des lois et de l'ordre public.
+中：正确。世俗原则主要适用于公职人员。服务使用者保留其信仰自由，但需在法律和公共秩序允许的范围内行使。
+
+❌ A. Oui, les usagers doivent être neutres comme les agents - Faux. La neutralité n'est pas imposée aux usagers.
+中：错误。不要求使用者保持中立。
+
+❌ C. Oui, les usagers ne peuvent pas porter de signes religieux - Faux. Les usagers peuvent porter des signes religieux dans les services publics.
+中：错误。使用者可以在公共服务场所佩戴宗教标志。
+
+❌ D. Non, les usagers sont libres de tout et peuvent imposer leurs croyances - Faux. La liberté des usagers s'exerce dans le respect des lois et des droits d'autrui.
+中：错误。使用者的自由必须在尊重法律和他人权利的前提下行使。`
+},
+
+{
+  id: "la0090",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "La neutralité de l'État selon la laïcité signifie :",
+  options: [
+    "L'État favorise financièrement les religions",
+    "L'État ne favorise ni ne combat aucune religion",
+    "L'État choisit quelle religion soutenir",
+    "L'État subventionne les religions les plus anciennes"
+  ],
+  answer: 1,
+  explanation: `✅ B. L'État ne favorise ni ne combat aucune religion - Correct ! La neutralité de l'État signifie qu'il doit rester impartial vis-à-vis de toutes les religions, sans en favoriser ni en discriminer aucune.
+中：正确。国家中立意味着对所有宗教保持公正，既不偏袒也不歧视任何宗教。
+
+❌ A. L'État favorise financièrement les religions - Faux. L'État ne favorise pas financièrement les religions.
+中：错误。国家不偏袒任何宗教。
+
+❌ C. L'État choisit quelle religion soutenir - Faux. L'État ne soutient aucune religion.
+中：错误。国家不支持任何宗教。
+
+❌ D. L'État subventionne les religions les plus anciennes - Faux. L'ancienneté d'une religion n'est pas un critère.
+中：错误。宗教的古老程度不是标准。`
+},
+// ==================== Laïcité 模拟情景题（多年卡）la0091 ~ la0100（修改版） ====================
+
+{
+  id: "la0091",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Madame X est enseignante dans un collège public. Elle souhaite porter un voile pendant ses cours. Que dit la loi ?",
+  options: [
+    "Elle peut le porter, car la liberté religieuse est un droit fondamental",
+    "Elle ne peut pas le porter, car les enseignants doivent respecter la neutralité religieuse",
+    "Elle peut le porter, mais seulement avec l'accord du chef d'établissement",
+    "Elle peut le porter, à condition qu'il soit de couleur neutre"
+  ],
+  answer: 1,
+  explanation: `✅ B. Elle ne peut pas le porter, car les enseignants doivent respecter la neutralité religieuse - Correct ! Les enseignants des établissements publics sont soumis au principe de neutralité dans l'exercice de leurs fonctions. Ils ne peuvent pas porter de signes religieux pendant leur service.
+中：正确。公立学校的教师在执行公务时受中立原则约束，不得佩戴宗教标志。
+
+❌ A. Elle peut le porter, car la liberté religieuse est un droit fondamental - Faux. La liberté religieuse existe, mais elle est limitée par la neutralité du service public pour les agents publics.
+中：错误。宗教自由存在，但对于公职人员来说，受到公共服务中立性的限制。
+
+❌ C. Elle peut le porter, mais seulement avec l'accord du chef d'établissement - Faux. La neutralité est une obligation légale, elle ne peut pas être levée par un supérieur.
+中：错误。中立是法定义务，不能由上级免除。
+
+❌ D. Elle peut le porter, à condition qu'il soit de couleur neutre - Faux. La neutralité interdit tout signe religieux pour les enseignants, quelle que soit sa couleur.
+中：错误。中立原则禁止教师佩戴任何宗教标志，无论颜色如何。`
+},
+
+{
+  id: "la0092_new",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Madame X est infirmière dans un hôpital public. Elle souhaite porter un voile pendant son service. Que dit la loi ?",
+  options: [
+    "Oui, car elle est libre de pratiquer sa religion pendant son service",
+    "Non, car les agents des hôpitaux publics doivent respecter la neutralité",
+    "Oui, mais seulement dans les chambres des patients",
+    "Oui, car les soignants sont des professionnels libéraux"
+  ],
+  answer: 1,
+  explanation: `✅ B. Non, car les agents des hôpitaux publics doivent respecter la neutralité - Correct ! Les agents des hôpitaux publics, comme les autres agents publics, doivent respecter le principe de neutralité religieuse dans l'exercice de leurs fonctions.
+中：正确。公立医院的员工和其他公职人员一样，在执行公务时必须遵守宗教中立原则。
+
+❌ A. Oui, car elle est libre de pratiquer sa religion pendant son service - Faux. La liberté religieuse des agents publics est limitée par leur obligation de neutralité.
+中：错误。公职人员的宗教自由受到中立义务的限制。
+
+❌ C. Oui, mais seulement dans les chambres des patients - Faux. La neutralité s'applique à tout le service, pas seulement dans certaines zones.
+中：错误。中立原则适用于整个服务过程，不仅限于某些区域。
+
+❌ D. Oui, car les soignants sont des professionnels libéraux - Faux. Dans un hôpital public, les soignants sont des agents publics.
+中：错误。在公立医院，医护人员是公职人员。`
+},
+
+{
+  id: "la0093",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Madame Z, élève dans un lycée public, souhaite porter un petit bracelet avec un symbole religieux. Est-ce autorisé ?",
+  options: [
+    "Non, tout signe religieux est interdit à l'école",
+    "Oui, car les élèves ne sont pas soumis à la neutralité comme les enseignants",
+    "Oui, les signes religieux discrets sont autorisés pour les élèves",
+    "Non, les élèves doivent être neutres comme les enseignants"
+  ],
+  answer: 2,
+  explanation: `✅ C. Oui, les signes religieux discrets sont autorisés pour les élèves - Correct ! Les élèves peuvent porter des signes religieux discrets. La loi de 2004 interdit uniquement les signes ostentatoires. Les élèves n'ont pas d'obligation de neutralité, mais le port de signes religieux est encadré par la loi.
+中：正确。学生可以佩戴低调的宗教标志。2004年法律仅禁止明显的宗教标志。学生没有中立义务，但佩戴宗教标志受法律规范。
+
+❌ A. Non, tout signe religieux est interdit à l'école - Faux. Seuls les signes ostentatoires sont interdits, pas les signes discrets.
+中：错误。只有明显的宗教标志被禁止，低调的标志是允许的。
+
+❌ B. Oui, car les élèves ne sont pas soumis à la neutralité comme les enseignants - Faux. Les élèves n'ont pas d'obligation de neutralité, mais cela ne signifie pas que tous les signes sont autorisés sans limite.
+中：错误。学生没有中立义务，但这并不意味着所有标志都可以无限制佩戴。
+
+❌ D. Non, les élèves doivent être neutres comme les enseignants - Faux. La neutralité s'impose aux agents publics, pas aux élèves.
+中：错误。中立原则适用于公职人员，不适用于学生。`
+},
+
+{
+  id: "la0094_new",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Monsieur X est un agent public qui travaille dans un service d'état civil. Il refuse de célébrer le mariage d'un couple de religion différente de la sienne. Cette situation est :",
+  options: [
+    "Légale, car il peut invoquer sa liberté de conscience",
+    "Illégale, car il doit exercer ses fonctions de manière neutre et impartiale",
+    "Légale, si le couple accepte de changer de maire",
+    "Illégale, seulement si le couple est de religion musulmane"
+  ],
+  answer: 1,
+  explanation: `✅ B. Illégale, car il doit exercer ses fonctions de manière neutre et impartiale - Correct ! Les agents publics doivent exercer leurs fonctions avec neutralité et impartialité. Ils ne peuvent pas refuser un service pour des raisons religieuses personnelles. La liberté de conscience de l'agent public est limitée par son devoir de neutralité dans l'exercice de ses fonctions.
+中：正确。公职人员必须以中立和公正的方式行使职能。他们不能因个人宗教原因拒绝提供服务。公职人员的良心自由在执行公务时受到中立义务的限制。
+
+❌ A. Légale, car il peut invoquer sa liberté de conscience - Faux. La liberté de conscience de l'agent public est limitée par son devoir de neutralité dans l'exercice de ses fonctions.
+中：错误。公职人员的良心自由在执行公务时受到中立义务的限制。
+
+❌ C. Légale, si le couple accepte de changer de maire - Faux. Le refus est illégal, quelle que soit la solution alternative proposée.
+中：错误。无论提出什么替代方案，拒绝服务都是非法的。
+
+❌ D. Illégale, seulement si le couple est de religion musulmane - Faux. L'interdiction s'applique à toutes les religions, sans distinction.
+中：错误。禁令适用于所有宗教，不加区分。`
+},
+
+{
+  id: "la0095",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Madame Y travaille dans une entreprise privée. Son employeur souhaite limiter le port de signes religieux. Dans quelles conditions cette restriction peut-elle être légale ?",
+  options: [
+    "Cette restriction est toujours illégale, car la liberté religieuse est absolue",
+    "Elle peut être légale si elle est prévue par le règlement intérieur et si elle est justifiée et proportionnée",
+    "Cette restriction est toujours légale, car l'employeur décide des règles dans son entreprise",
+    "Elle peut être légale uniquement si tous les employés sont d'accord"
+  ],
+  answer: 1,
+  explanation: `✅ B. Elle peut être légale si elle est prévue par le règlement intérieur et si elle est justifiée et proportionnée - Correct ! Dans le secteur privé, une restriction à la liberté religieuse doit respecter les conditions prévues par le droit du travail et être justifiée et proportionnée.
+中：正确。在私营部门，对宗教自由的限制必须符合劳动法规定的条件，并且是合理且相称的。
+
+❌ A. Cette restriction est toujours illégale, car la liberté religieuse est absolue - Faux. La liberté religieuse n'est pas absolue, y compris dans le secteur privé.
+中：错误。宗教自由并非绝对，即使在私营部门也是如此。
+
+❌ C. Cette restriction est toujours légale, car l'employeur décide des règles dans son entreprise - Faux. L'employeur doit respecter le droit du travail et les libertés fondamentales.
+中：错误。雇主必须遵守劳动法和基本自由。
+
+❌ D. Elle peut être légale uniquement si tous les employés sont d'accord - Faux. L'accord des employés n'est pas une condition légale pour une restriction justifiée.
+中：错误。员工的同意不是合理限制的法律条件。`
+},
+
+{
+  id: "la0096",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "difficile",
+  typeQuestion: "question simulée",
+  question: "Monsieur Z, agent public, refuse de servir un usager car il porte un symbole religieux qu'il n'apprécie pas. Quelle est la position de la loi ?",
+  options: [
+    "Monsieur Z a raison, il peut refuser pour des raisons personnelles",
+    "Monsieur Z a tort, il doit servir tous les usagers sans discrimination",
+    "Monsieur Z a raison, car la laïcité protège les agents publics",
+    "Monsieur Z peut refuser, mais seulement après avoir consulté son supérieur"
+  ],
+  answer: 1,
+  explanation: `✅ B. Monsieur Z a tort, il doit servir tous les usagers sans discrimination - Correct ! Les agents publics doivent servir tous les usagers de manière égale et impartiale, sans discrimination fondée sur la religion. La laïcité impose la neutralité aux agents, elle ne les autorise pas à discriminer les usagers.
+中：正确。公职人员必须平等、公正地服务所有使用者，不得基于宗教进行歧视。世俗原则要求公职人员保持中立，不授权他们歧视使用者。
+
+❌ A. Monsieur Z a raison, il peut refuser pour des raisons personnelles - Faux. Les agents publics ne peuvent pas refuser de servir pour des raisons personnelles ou religieuses.
+中：错误。公职人员不能因个人或宗教原因拒绝服务。
+
+❌ C. Monsieur Z a raison, car la laïcité protège les agents publics - Faux. La laïcité impose la neutralité aux agents, elle ne les autorise pas à discriminer les usagers.
+中：错误。世俗原则要求公职人员保持中立，不授权他们歧视使用者。
+
+❌ D. Monsieur Z peut refuser, mais seulement après avoir consulté son supérieur - Faux. Même avec l'avis d'un supérieur, le refus de service pour motif religieux est illégal.
+中：错误。即使有上级的意见，以宗教为由拒绝服务也是违法的。`
+},
+
+{
+  id: "la0097_new",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Une école publique peut-elle organiser une activité culturelle autour des traditions de Noël ?",
+  options: [
+    "Non, car Noël est une fête religieuse",
+    "Oui, si cette activité a un caractère culturel et respecte le principe de neutralité",
+    "Non, car l'école doit être totalement neutre et ne peut faire aucune référence religieuse",
+    "Oui, uniquement si tous les élèves sont chrétiens"
+  ],
+  answer: 1,
+  explanation: `✅ B. Oui, si cette activité a un caractère culturel et respecte le principe de neutralité - Correct ! Dans les écoles publiques, les activités autour des fêtes traditionnelles peuvent être organisées si elles sont présentées comme des événements culturels et si elles respectent le principe de neutralité.
+中：正确。在公立学校，围绕传统节日的活动可以作为文化活动组织，前提是保持中立原则。
+
+❌ A. Non, car Noël est une fête religieuse - Faux. Noël est aussi une fête culturelle et familiale en France, et peut être abordée dans un cadre pédagogique.
+中：错误。圣诞节在法国也是文化和家庭节日，可以在教育框架内讨论。
+
+❌ C. Non, car l'école doit être totalement neutre et ne peut faire aucune référence religieuse - Faux. La neutralité ne signifie pas l'absence totale de toute référence culturelle, y compris celles ayant une dimension religieuse, lorsqu'elles sont traitées de manière pédagogique.
+中：错误。中立不意味着完全没有文化参考，包括具有宗教维度的内容，只要以教学方式处理即可。
+
+❌ D. Oui, uniquement si tous les élèves sont chrétiens - Faux. L'école publique accueille des élèves de toutes confessions.
+中：错误。公立学校接待各种信仰的学生。`
+},
+
+{
+  id: "la0098",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Monsieur Y, fonctionnaire, souhaite ne pas travailler le vendredi après-midi pour des raisons religieuses. Que dit la loi ?",
+  options: [
+    "Il peut refuser, car la liberté religieuse est absolue",
+    "Il doit respecter ses obligations professionnelles, mais il peut demander un aménagement de ses horaires",
+    "Il peut refuser, car il est fonctionnaire",
+    "Il doit quitter son poste définitivement"
+  ],
+  answer: 1,
+  explanation: `✅ B. Il doit respecter ses obligations professionnelles, mais il peut demander un aménagement de ses horaires - Correct ! Les agents publics doivent respecter leurs obligations professionnelles. Ils peuvent demander des aménagements, mais une demande d'aménagement n'est pas automatiquement acceptée : elle dépend notamment des nécessités du service.
+中：正确。公职人员必须遵守其职业义务。他们可以申请调整，但调整请求不会自动被接受，取决于服务需要。
+
+❌ A. Il peut refuser, car la liberté religieuse est absolue - Faux. La liberté religieuse n'est pas absolue dans le cadre du service public.
+中：错误。在公共服务框架内，宗教自由不是绝对的。
+
+❌ C. Il peut refuser, car il est fonctionnaire - Faux. Être fonctionnaire ne donne pas le droit de refuser de travailler.
+中：错误。公务员身份不赋予拒绝工作的权利。
+
+❌ D. Il doit quitter son poste définitivement - Faux. Il existe des solutions intermédiaires comme les aménagements d'horaires.
+中：错误。存在中间解决方案，如时间调整。`
+},
+
+{
+  id: "la0099_new",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Un élève peut-il refuser systématiquement un enseignement obligatoire pour des raisons religieuses ?",
+  options: [
+    "Oui, la liberté religieuse permet de refuser tout enseignement",
+    "Non, les convictions religieuses ne permettent pas de se soustraire automatiquement aux obligations scolaires",
+    "Oui, si les parents en font la demande écrite",
+    "Non, sauf si l'enseignement est en contradiction avec sa religion"
+  ],
+  answer: 1,
+  explanation: `✅ B. Non, les convictions religieuses ne permettent pas de se soustraire automatiquement aux obligations scolaires - Correct ! L'enseignement est obligatoire et commun à tous les élèves. Les convictions religieuses ne permettent pas de refuser systématiquement un enseignement. Des aménagements peuvent être envisagés au cas par cas, mais ils ne sont pas automatiques.
+中：正确。教育对所有学生都是义务且共同的。宗教信仰不能成为系统性地拒绝某门课程的理由。可以根据具体情况考虑调整，但不是自动的。
+
+❌ A. Oui, la liberté religieuse permet de refuser tout enseignement - Faux. La liberté religieuse ne permet pas de refuser les obligations scolaires.
+中：错误。宗教自由不能成为拒绝学校义务的理由。
+
+❌ C. Oui, si les parents en font la demande écrite - Faux. Une demande écrite ne rend pas automatiquement valable un refus d'enseignement.
+中：错误。书面申请不能自动使拒绝课程变得合法。
+
+❌ D. Non, sauf si l'enseignement est en contradiction avec sa religion - Faux. Même en cas de contradiction alléguée, le refus systématique n'est pas automatiquement justifié.
+中：错误。即使声称存在矛盾，系统性拒绝也不自动成立。`
+},
+
+{
+  id: "la0100",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "difficile",
+  typeQuestion: "question simulée",
+  question: "Monsieur X, employé d'une entreprise privée, porte une grande croix autour du cou. Son employeur souhaite limiter le port de signes religieux dans l'entreprise. Dans quelles conditions cette restriction peut-elle être légale ?",
+  options: [
+    "Cette restriction est toujours illégale, car la liberté religieuse est absolue",
+    "Elle peut être légale si elle est prévue par le règlement intérieur et si elle est justifiée et proportionnée",
+    "Cette restriction est toujours légale, car l'employeur décide des règles dans son entreprise",
+    "Elle peut être légale uniquement si le salarié est en contact avec la clientèle"
+  ],
+  answer: 1,
+  explanation: `✅ B. Elle peut être légale si elle est prévue par le règlement intérieur et si elle est justifiée et proportionnée - Correct ! Dans le secteur privé, une restriction à la liberté religieuse doit respecter les conditions prévues par le droit du travail et être justifiée et proportionnée. Le motif "cela pourrait déplaire aux clients" ne suffit pas à justifier une restriction.
+中：正确。在私营部门，对宗教自由的限制必须符合劳动法规定的条件，并且是合理且相称的。"客户可能不喜欢"这一理由本身不足以证明限制的合理性。
+
+❌ A. Cette restriction est toujours illégale, car la liberté religieuse est absolue - Faux. La liberté religieuse n'est pas absolue, y compris dans le secteur privé.
+中：错误。宗教自由并非绝对，即使在私营部门也是如此。
+
+❌ C. Cette restriction est toujours légale, car l'employeur décide des règles dans son entreprise - Faux. L'employeur doit respecter le droit du travail et les libertés fondamentales.
+中：错误。雇主必须遵守劳动法和基本自由。
+
+❌ D. Elle peut être légale uniquement si le salarié est en contact avec la clientèle - Faux. Le contact avec la clientèle peut être un élément à prendre en compte, mais il ne constitue pas à lui seul une condition suffisante.
+中：错误。与顾客接触可能是需要考虑的因素，但单独这一点并不构成充分条件。`
+},
+// ==================== Laïcité 商业/私人场所篇（修改版） ====================
+
+{
+  id: "la0101",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Monsieur X, restaurateur, affiche à l'entrée de son établissement : 'Interdit aux personnes portant un voile'. Cette pratique est :",
+  options: [
+    "Légale, car le restaurateur est libre de choisir sa clientèle",
+    "Illégale, car c'est une discrimination fondée sur la religion",
+    "Légale, si le restaurant est privé",
+    "Illégale, seulement si le restaurant est public"
+  ],
+  answer: 1,
+  explanation: `✅ B. Illégale, car c'est une discrimination fondée sur la religion - Correct ! Refuser l'accès à un établissement recevant du public en raison de la religion constitue une discrimination interdite par la loi.
+中：正确。因宗教原因拒绝进入接待公众的场所构成法律禁止的歧视。
+
+❌ A. Légale, car le restaurateur est libre de choisir sa clientèle - Faux. Cette liberté est limitée par l'interdiction des discriminations.
+中：错误。这种自由受到禁止歧视的限制。
+
+❌ C. Légale, si le restaurant est privé - Faux. Même un restaurant privé qui reçoit du public ne peut pas discriminer.
+中：错误。即使是接待公众的私人餐厅也不能歧视。
+
+❌ D. Illégale, seulement si le restaurant est public - Faux. L'interdiction de discrimination s'applique à tous les établissements recevant du public.
+中：错误。禁止歧视适用于所有接待公众的场所。`
+},
+
+{
+  id: "la0102",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Madame Y, gérante d'un commerce, refuse de servir un client parce qu'il porte une croix. Que dit la loi ?",
+  options: [
+    "Elle a le droit de refuser, car c'est son commerce",
+    "Elle n'a pas le droit de refuser, car c'est une discrimination",
+    "Elle a le droit de refuser, car la croix est un symbole religieux visible",
+    "Elle n'a pas le droit de refuser, seulement si le client est de religion différente"
+  ],
+  answer: 1,
+  explanation: `✅ B. Elle n'a pas le droit de refuser, car c'est une discrimination - Correct ! Refuser un client en raison de ses convictions religieuses constitue une discrimination interdite.
+中：正确。因宗教信仰拒绝顾客构成禁止的歧视。
+
+❌ A. Elle a le droit de refuser, car c'est son commerce - Faux. Les commerçants ne peuvent pas discriminer les clients.
+中：错误。商家不能歧视顾客。
+
+❌ C. Elle a le droit de refuser, car la croix est un symbole religieux visible - Faux. La visibilité du symbole ne justifie pas une discrimination.
+中：错误。标志的可见性不能成为歧视的理由。
+
+❌ D. Elle n'a pas le droit de refuser, seulement si le client est de religion différente - Faux. L'interdiction s'applique à toutes les religions.
+中：错误。禁令适用于所有宗教。`
+},
+
+{
+  id: "la0103",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Un hôtel refuse de louer une chambre à un couple parce qu'ils pratiquent une religion différente de celle du propriétaire. Cette situation est :",
+  options: [
+    "Légale, car l'hôtel est une propriété privée",
+    "Illégale, car c'est une discrimination religieuse",
+    "Légale, si l'hôtel est complet",
+    "Illégale, seulement si le couple est de religion musulmane"
+  ],
+  answer: 1,
+  explanation: `✅ B. Illégale, car c'est une discrimination religieuse - Correct ! Les hôtels sont des établissements recevant du public. Refuser un client pour des raisons religieuses est interdit.
+中：正确。酒店是接待公众的场所。因宗教原因拒绝顾客是被禁止的。
+
+❌ A. Légale, car l'hôtel est une propriété privée - Faux. La propriété privée n'autorise pas la discrimination.
+中：错误。私有财产不授权歧视。
+
+❌ C. Légale, si l'hôtel est complet - Faux. Si l'hôtel est complet, le refus est justifié par des raisons objectives, mais pas par la religion.
+中：错误。如果酒店已满，拒绝是基于客观原因，但不是宗教原因。
+
+❌ D. Illégale, seulement si le couple est de religion musulmane - Faux. L'interdiction de discrimination ne dépend pas de la religion concernée.
+中：错误。禁止歧视不取决于涉及的宗教。`
+},
+
+{
+  id: "la0104",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Un boulanger refuse de vendre son pain à une femme voilée. Que peut faire la cliente ?",
+  options: [
+    "Elle peut porter plainte pour discrimination",
+    "Elle ne peut rien faire, le boulanger est libre",
+    "Elle doit accepter la décision du boulanger",
+    "Elle peut insulter le boulanger"
+  ],
+  answer: 0,
+  explanation: `✅ A. Elle peut porter plainte pour discrimination - Correct ! Toute personne victime de discrimination peut porter plainte ou saisir le Défenseur des droits.
+中：正确。任何歧视受害者都可以提出申诉或联系权利捍卫者。
+
+❌ B. Elle ne peut rien faire, le boulanger est libre - Faux. Les commerçants ne sont pas libres de discriminer.
+中：错误。商家不能自由歧视。
+
+❌ C. Elle doit accepter la décision du boulanger - Faux. La loi protège contre les discriminations.
+中：错误。法律保护免受歧视。
+
+❌ D. Elle peut insulter le boulanger - Faux. L'insulte est une infraction et ne résout pas le problème.
+中：错误。侮辱是违法行为，不能解决问题。`
+},
+
+{
+  id: "la0105",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Un café affiche : 'Ici, on sert tout le monde, sans distinction de religion'. Cette affiche est :",
+  options: [
+    "Contraire à la loi, car elle est trop visible",
+    "Conforme à la loi, car elle respecte le principe de non-discrimination",
+    "Contraire à la loi, car elle fait de la publicité",
+    "Conforme à la loi, car les cafés sont des lieux privés"
+  ],
+  answer: 1,
+  explanation: `✅ B. Conforme à la loi, car elle respecte le principe de non-discrimination - Correct ! L'affiche rappelle le principe fondamental de non-discrimination, qui s'applique à tous les établissements recevant du public.
+中：正确。这个告示提醒了非歧视的基本原则，适用于所有接待公众的场所。
+
+❌ A. Contraire à la loi, car elle est trop visible - Faux. La visibilité n'est pas un problème.
+中：错误。告示的可见度不是问题。
+
+❌ C. Contraire à la loi, car elle fait de la publicité - Faux. Ce n'est pas de la publicité mais un rappel des règles.
+中：错误。这不是广告，而是规则提醒。
+
+❌ D. Conforme à la loi, car les cafés sont des lieux privés - Faux. Même privés, les établissements recevant du public ne peuvent pas discriminer.
+中：错误。即使是私人场所，接待公众的场所也不能歧视。`
+},
+
+{
+  id: "la0106",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "difficile",
+  typeQuestion: "question simulée",
+  question: "Un restaurateur refuse de servir un client qui porte une croix, car cela pourrait 'déplaire à d'autres clients'. Cette justification est :",
+  options: [
+    "Valable, car le restaurateur doit penser à sa clientèle",
+    "Non valable, car la crainte des réactions ne justifie pas une discrimination",
+    "Valable, si le client peut manger ailleurs",
+    "Non valable, seulement si la croix est très grande"
+  ],
+  answer: 1,
+  explanation: `✅ B. Non valable, car la crainte des réactions ne justifie pas une discrimination - Correct ! La crainte de déplaire à d'autres clients ne peut pas justifier une discrimination religieuse.
+中：正确。担心其他顾客不满不能成为宗教歧视的理由。
+
+❌ A. Valable, car le restaurateur doit penser à sa clientèle - Faux. Penser à sa clientèle ne doit pas se faire au détriment des droits fondamentaux.
+中：错误。考虑顾客不能以牺牲基本权利为代价。
+
+❌ C. Valable, si le client peut manger ailleurs - Faux. Le fait qu'il existe d'autres restaurants ne justifie pas la discrimination.
+中：错误。存在其他餐馆的事实不能成为歧视的理由。
+
+❌ D. Non valable, seulement si la croix est très grande - Faux. La taille du symbole ne change pas le caractère discriminatoire.
+中：错误。标志的大小不改变歧视的性质。`
+},
+
+{
+  id: "la0107",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Madame X, propriétaire d'un salon de coiffure, refuse de coiffer une cliente portant un voile. Cette situation est :",
+  options: [
+    "Légale, car le salon de coiffure est un lieu privé",
+    "Illégale, car c'est une discrimination en raison de la religion",
+    "Légale, si la cliente a les cheveux longs",
+    "Illégale, seulement si la cliente est une femme"
+  ],
+  answer: 1,
+  explanation: `✅ B. Illégale, car c'est une discrimination en raison de la religion - Correct ! Refuser un service en raison de la religion est une discrimination interdite, même dans un salon privé qui reçoit du public.
+中：正确。因宗教原因拒绝服务是禁止的歧视，即使在接待公众的私人美发沙龙也不例外。
+
+❌ A. Légale, car le salon de coiffure est un lieu privé - Faux. Un salon de coiffure est un établissement recevant du public.
+中：错误。美发沙龙是接待公众的场所。
+
+❌ C. Légale, si la cliente a les cheveux longs - Faux. La longueur des cheveux n'est pas un motif valable.
+中：错误。头发长度不是正当理由。
+
+❌ D. Illégale, seulement si la cliente est une femme - Faux. L'interdiction de discrimination s'applique à tous, hommes et femmes.
+中：错误。禁止歧视适用于所有人，无论男女。`
+},
+
+{
+  id: "la0108",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "difficile",
+  typeQuestion: "question simulée",
+  question: "Un gérant de supermarché refuse d'embaucher une candidate parce qu'elle porte un foulard religieux. Que dit la loi ?",
+  options: [
+    "L'employeur peut refuser automatiquement si le poste est en contact avec la clientèle",
+    "Il peut lui demander de retirer son foulard dès qu'il y a un contact avec la clientèle",
+    "L'employeur peut refuser, car il est libre d'embaucher qui il veut",
+    "L'employeur ne peut pas refuser, car c'est une discrimination à l'embauche"
+  ],
+  answer: 3,
+  explanation: `✅ D. L'employeur ne peut pas refuser, car c'est une discrimination à l'embauche - Correct ! Refuser une candidature en raison de la religion est une discrimination à l'embauche interdite par le Code du travail. Le contact avec la clientèle ne justifie pas automatiquement une restriction.
+中：正确。因宗教原因拒绝应聘者是劳动法禁止的招聘歧视。与顾客接触本身不能自动证明限制的合理性。
+
+❌ A. L'employeur peut refuser automatiquement si le poste est en contact avec la clientèle - Faux. Le contact avec la clientèle ne justifie pas automatiquement une discrimination.
+中：错误。与顾客接触不能自动成为歧视的理由。
+
+❌ B. Il peut lui demander de retirer son foulard dès qu'il y a un contact avec la clientèle - Faux. Une telle demande doit être justifiée par des motifs légitimes et proportionnés, ce n'est pas automatique.
+中：错误。这种要求必须有合法且相称的理由，不是自动的。
+
+❌ C. L'employeur peut refuser, car il est libre d'embaucher qui il veut - Faux. La liberté d'embauche est limitée par l'interdiction des discriminations.
+中：错误。招聘自由受到禁止歧视的限制。`
+},
+
+{
+  id: "la0109",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Une discothèque invoque un code vestimentaire général pour refuser l'accès à Monsieur Y qui porte une calotte. Peut-elle refuser l'accès uniquement pour ce motif ?",
+  options: [
+    "Oui, car les discothèques ont des codes vestimentaires",
+    "Non, car c'est une discrimination religieuse",
+    "Oui, si la discothèque est privée",
+    "Non, seulement si Monsieur Y est de religion juive"
+  ],
+  answer: 1,
+  explanation: `✅ B. Non, car c'est une discrimination religieuse - Correct ! Un code vestimentaire général ne peut pas avoir pour effet de discriminer sur la base de la religion. Pour être valable, un code vestimentaire doit être justifié par la nature de l'activité et proportionné au but recherché.
+中：正确。一般着装规定不能产生歧视宗教的效果。有效的着装规定必须由活动性质证明合理，并与追求的目标相称。
+
+❌ A. Oui, car les discothèques ont des codes vestimentaires - Faux. Un code vestimentaire ne peut pas discriminer.
+中：错误。着装规定不能歧视。
+
+❌ C. Oui, si la discothèque est privée - Faux. Même privée, une discothèque est un établissement recevant du public.
+中：错误。即使是私人场所，夜总会也是接待公众的场所。
+
+❌ D. Non, seulement si Monsieur Y est de religion juive - Faux. L'interdiction de discrimination s'applique à toutes les religions.
+中：错误。禁止歧视适用于所有宗教。`
+},
+
+{
+  id: "la0110",
+  type: "carte multi",
+  category: "Laïcité",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Un restaurant affiche : 'Entrée gratuite pour les personnes de religion catholique'. Cette pratique est :",
+  options: [
+    "Légale, car c'est une offre commerciale",
+    "Illégale, car elle favorise une religion par rapport aux autres",
+    "Légale, si le restaurant est catholique",
+    "Illégale, seulement si d'autres religions sont exclues"
+  ],
+  answer: 1,
+  explanation: `✅ B. Illégale, car elle favorise une religion par rapport aux autres - Correct ! Favoriser une religion par rapport aux autres constitue une discrimination, même si elle semble favorable. La loi interdit toute distinction fondée sur la religion.
+中：正确。偏袒某一宗教相对于其他宗教构成歧视，即使看起来是有利的。法律禁止任何基于宗教的区分。
+
+❌ A. Légale, car c'est une offre commerciale - Faux. Une offre commerciale ne peut pas être discriminatoire.
+中：错误。商业优惠不能是歧视性的。
+
+❌ C. Légale, si le restaurant est catholique - Faux. Même si le propriétaire est catholique, l'établissement recevant du public ne peut pas discriminer.
+中：错误。即使业主是天主教徒，接待公众的场所也不能歧视。
+
+❌ D. Illégale, seulement si d'autres religions sont exclues - Faux. Le simple fait de favoriser une religion est déjà discriminatoire.
+中：错误。仅仅是偏袒某一宗教就已经是歧视了。`
+},
+// ==================== Obligations et devoirs - 情景题补充（修改版） ====================
+
+{
+  id: "od0100_new",
+  type: "carte multi",
+  category: "Obligations et devoirs des personnes résidant en France",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Monsieur X trouve un portefeuille dans la rue avec de l'argent et une carte d'identité. Que doit-il faire ?",
+  options: [
+    "Garder l'argent et jeter le portefeuille",
+    "Le rapporter à un commissariat ou à la mairie",
+    "Le garder, car c'est un trésor trouvé",
+    "Le donner à une association caritative"
+  ],
+  answer: 1,
+  explanation: `✅ B. Le rapporter à un commissariat ou à la mairie - Correct ! Un objet trouvé doit être remis aux services compétents afin de permettre sa restitution à son propriétaire.
+中：正确。捡到的物品应交给警察局或市政府，以便归还失主。
+
+❌ A. Garder l'argent et jeter le portefeuille - Faux. Garder un objet trouvé sans le déclarer n'est pas conforme à la loi.
+中：错误。捡到物品不申报是不符合法律规定的。
+
+❌ C. Le garder, car c'est un trésor trouvé - Faux. Un portefeuille avec une carte d'identité n'est pas un trésor, c'est la propriété de quelqu'un.
+中：错误。带有身份证的钱包不是无主之宝，它属于某人。
+
+❌ D. Le donner à une association caritative - Faux. Il doit être restitué ou remis aux autorités.
+中：错误。应归还失主或交给相关部门。`
+},
+
+{
+  id: "od0102_new",
+  type: "carte multi",
+  category: "Obligations et devoirs des personnes résidant en France",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Madame Y voit un incendie dans son immeuble. Des personnes sont encore à l'intérieur. Que doit-elle faire en priorité ?",
+  options: [
+    "Prendre des photos pour les pompiers",
+    "Sortir et appeler immédiatement les pompiers (18)",
+    "Essayer d'éteindre le feu elle-même",
+    "Attendre de voir comment la situation évolue"
+  ],
+  answer: 1,
+  explanation: `✅ B. Sortir et appeler immédiatement les pompiers (18) - Correct ! En cas d'incendie, il faut se mettre en sécurité, appeler les pompiers et suivre leurs instructions. Il est important de ne pas se mettre en danger pour intervenir.
+中：正确。发生火灾时，应立即撤离至安全区域，拨打消防电话18并遵从指示。切勿将自己置于危险之中。
+
+❌ A. Prendre des photos pour les pompiers - Faux. Les photos ne sont pas une priorité. Il faut se mettre en sécurité et alerter.
+中：错误。拍照不是首要任务，应撤离并报警。
+
+❌ C. Essayer d'éteindre le feu elle-même - Faux. Intervenir sans équipement peut être dangereux et aggraver la situation.
+中：错误。在无专业装备的情况下自行灭火可能十分危险，可能加重火势。
+
+❌ D. Attendre de voir comment la situation évolue - Faux. Attendre peut coûter des vies. Il faut réagir immédiatement.
+中：错误。等待可能危及生命，必须立即采取行动。`
+},
+
+{
+  id: "od0103_new",
+  type: "carte multi",
+  category: "Obligations et devoirs des personnes résidant en France",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Monsieur Z voit un collègue harceler un autre employé au travail. Que doit-il faire ?",
+  options: [
+    "Ne rien dire, car cela ne le concerne pas",
+    "Signaler la situation aux RH ou à la direction",
+    "Se joindre aux moqueries",
+    "Menacer le harceleur de représailles"
+  ],
+  answer: 1,
+  explanation: `✅ B. Signaler la situation aux RH ou à la direction - Correct ! Un témoin peut signaler les faits à l'employeur, aux représentants du personnel ou aux services compétents. Signaler une situation de harcèlement permet de protéger la victime et de faire cesser les faits.
+中：正确。证人可以向雇主、员工代表或相关部门报告情况。举报骚扰行为有助于保护受害者并制止该行为。
+
+❌ A. Ne rien dire, car cela ne le concerne pas - Faux. Le harcèlement est interdit par la loi et peut être sanctionné.
+中：错误。骚扰是法律禁止的行为，可能受到处罚。
+
+❌ C. Se joindre aux moqueries - Faux. Participer au harcèlement peut également être sanctionné.
+中：错误。参与骚扰同样可能受到处罚。
+
+❌ D. Menacer le harceleur de représailles - Faux. Les menaces sont interdites et ne résolvent pas le problème.
+中：错误。威胁他人是违法的，不能解决问题。`
+},
+// ==================== Travail - 情景题补充 ====================
+
+{
+  id: "tr0100",
+  type: "carte multi",
+  category: "Travail",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Monsieur X est en CDI depuis 5 ans. Son employeur le licencie sans raison valable. Que peut faire Monsieur X ?",
+  options: [
+    "Accepter la décision car l'employeur est libre",
+    "Contester le licenciement devant le conseil de prud'hommes",
+    "Demander un autre poste dans l'entreprise",
+    "Attendre de trouver un autre emploi"
+  ],
+  answer: 1,
+  explanation: `✅ B. Contester le licenciement devant le conseil de prud'hommes - Correct ! Un licenciement sans cause réelle et sérieuse peut être contesté devant le conseil de prud'hommes.
+中：正确。无真实且重大理由的解雇可以在劳资仲裁法院提出异议。
+
+❌ A. Accepter la décision car l'employeur est libre - Faux. L'employeur doit respecter la loi et les droits du salarié.
+中：错误。雇主必须遵守法律和员工的权利。
+
+❌ C. Demander un autre poste dans l'entreprise - Faux. Cela ne règle pas le problème du licenciement abusif.
+中：错误。这不能解决非法解雇的问题。
+
+❌ D. Attendre de trouver un autre emploi - Faux. Il peut contester la décision et obtenir des dommages-intérêts.
+中：错误。他可以提出异议并获得赔偿。`
+},
+
+{
+  id: "tr0101",
+  type: "carte multi",
+  category: "Travail",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Madame Y travaille depuis 6 mois en CDD. Elle a appris qu'elle est enceinte. L'employeur veut mettre fin à son contrat. Que dit la loi ?",
+  options: [
+    "L'employeur peut la licencier, car elle est en CDD",
+    "L'employeur ne peut pas la licencier en raison de sa grossesse",
+    "L'employeur peut ne pas renouveler son CDD sans justification",
+    "L'employeur doit attendre la fin de son congé maternité"
+  ],
+  answer: 1,
+  explanation: `✅ B. L'employeur ne peut pas la licencier en raison de sa grossesse - Correct ! La grossesse est protégée par la loi, même en CDD. Licencier une femme enceinte pour ce motif est illégal.
+中：正确。怀孕受到法律保护，即使是CDD。因怀孕解雇女性是非法的。
+
+❌ A. L'employeur peut la licencier, car elle est en CDD - Faux. La protection s'applique à tous les types de contrat.
+中：错误。保护适用于所有类型的合同。
+
+❌ C. L'employeur peut ne pas renouveler son CDD sans justification - Faux. Le non-renouvellement ne doit pas être discriminatoire.
+中：错误。不续约不得具有歧视性。
+
+❌ D. L'employeur doit attendre la fin de son congé maternité - Faux. La protection commence dès l'annonce de la grossesse.
+中：错误。保护从宣布怀孕时就开始。`
+},
+
+{
+  id: "tr0102",
+  type: "carte multi",
+  category: "Travail",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Monsieur Z doit travailler 39 heures par semaine alors que la durée légale est de 35 heures. Que dit la loi ?",
+  options: [
+    "Il doit travailler 39 heures sans compensation",
+    "Les heures supplémentaires doivent être payées ou compensées",
+    "Il ne peut pas travailler plus de 35 heures",
+    "L'employeur décide de la durée du travail"
+  ],
+  answer: 1,
+  explanation: `✅ B. Les heures supplémentaires doivent être payées ou compensées - Correct ! Les heures au-delà de 35 heures sont des heures supplémentaires et doivent être rémunérées ou compensées.
+中：正确。超过35小时的工作时间是加班，必须得到补偿或报酬。
+
+❌ A. Il doit travailler 39 heures sans compensation - Faux. Les heures supplémentaires sont obligatoirement compensées.
+中：错误。加班必须得到补偿。
+
+❌ C. Il ne peut pas travailler plus de 35 heures - Faux. Travailler plus est possible, mais avec compensation.
+中：错误。可以工作更长时间，但需有补偿。
+
+❌ D. L'employeur décide de la durée du travail - Faux. L'employeur doit respecter la loi et les conventions collectives.
+中：错误。雇主必须遵守法律和行业协议。`
+},
+// ==================== Accès aux soins - 情景题补充 ====================
+
+{
+  id: "so0080",
+  type: "carte multi",
+  category: "Accès aux soins",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Madame X a mal à la gorge depuis 3 jours. Elle souhaite consulter un médecin. Que doit-elle faire en premier ?",
+  options: [
+    "Se rendre directement aux urgences de l'hôpital",
+    "Prendre rendez-vous avec son médecin traitant",
+    "Aller directement à la pharmacie pour des antibiotiques",
+    "Attendre que la douleur passe"
+  ],
+  answer: 1,
+  explanation: `✅ B. Prendre rendez-vous avec son médecin traitant - Correct ! Pour un problème non urgent, il faut d'abord consulter son médecin traitant.
+中：正确。非紧急情况应先咨询家庭医生。
+
+❌ A. Se rendre directement aux urgences de l'hôpital - Faux. Les urgences sont réservées aux situations graves et urgentes.
+中：错误。急诊只用于严重和紧急情况。
+
+❌ C. Aller directement à la pharmacie pour des antibiotiques - Faux. Les antibiotiques nécessitent une ordonnance.
+中：错误。抗生素需要医生处方。
+
+❌ D. Attendre que la douleur passe - Faux. Consulter un médecin permet d'obtenir un diagnostic et un traitement adapté.
+中：错误。咨询医生可以获得诊断和适当治疗。`
+},
+
+{
+  id: "so0081",
+  type: "carte multi",
+  category: "Accès aux soins",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Monsieur Y vient d'arriver en France. Il n'a pas encore de carte Vitale. Il a besoin de consulter un médecin. Que peut-il faire ?",
+  options: [
+    "Il ne peut pas consulter sans carte Vitale",
+    "Il peut consulter et recevoir une feuille de soins à envoyer à l'Assurance maladie",
+    "Il doit attendre d'avoir sa carte Vitale",
+    "Il doit aller uniquement à l'hôpital"
+  ],
+  answer: 1,
+  explanation: `✅ B. Il peut consulter et recevoir une feuille de soins à envoyer à l'Assurance maladie - Correct ! Même sans carte Vitale, on peut consulter et demander une feuille de soins pour se faire rembourser.
+中：正确。即使没有Vitale卡，也可以就诊并要求医疗费用单以便报销。
+
+❌ A. Il ne peut pas consulter sans carte Vitale - Faux. On peut consulter sans carte Vitale, mais les démarches sont plus longues.
+中：错误。没有Vitale卡也可以就诊，但手续更繁琐。
+
+❌ C. Il doit attendre d'avoir sa carte Vitale - Faux. L'accès aux soins ne doit pas être retardé.
+中：错误。不应推迟就医。
+
+❌ D. Il doit aller uniquement à l'hôpital - Faux. Il peut consulter un médecin en cabinet.
+中：错误。他可以在诊所看医生。`
+},
+
+{
+  id: "so0082",
+  type: "carte multi",
+  category: "Accès aux soins",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Madame Z a besoin de consulter un ophtalmologue. Que doit-elle faire ?",
+  options: [
+    "Prendre directement rendez-vous avec un ophtalmologue",
+    "Passer d'abord par son médecin traitant pour une orientation",
+    "Aller directement à l'hôpital",
+    "Attendre une campagne de dépistage"
+  ],
+  answer: 1,
+  explanation: `✅ B. Passer d'abord par son médecin traitant pour une orientation - Correct ! Le parcours de soins coordonnés recommande de consulter d'abord son médecin traitant pour être orienté vers un spécialiste.
+中：正确。协调医疗路径建议先咨询家庭医生，由他转诊给专科医生。
+
+❌ A. Prendre directement rendez-vous avec un ophtalmologue - Faux. Sans orientation, le remboursement peut être moins élevé.
+中：错误。没有转诊，报销可能会减少。
+
+❌ C. Aller directement à l'hôpital - Faux. Les hôpitaux ne sont pas le premier recours pour une consultation de routine.
+中：错误。医院不是常规咨询的首选。
+
+❌ D. Attendre une campagne de dépistage - Faux. Le dépistage ne remplace pas une consultation médicale.
+中：错误。筛查不能代替医生咨询。`
+},
+
+{
+  id: "so0083",
+  type: "carte multi",
+  category: "Accès aux soins",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Monsieur X a oublié sa carte Vitale chez lui. Le médecin accepte de le consulter. Que doit-il faire après ?",
+  options: [
+    "Rien, le médecin se débrouille avec l'Assurance maladie",
+    "Envoyer sa feuille de soins à l'Assurance maladie pour remboursement",
+    "Retourner chez lui chercher sa carte Vitale",
+    "Payer en espèces et ne pas demander de remboursement"
+  ],
+  answer: 1,
+  explanation: `✅ B. Envoyer sa feuille de soins à l'Assurance maladie pour remboursement - Correct ! Sans carte Vitale, il peut demander une feuille de soins et l'envoyer pour être remboursé.
+中：正确。没有Vitale卡，可以索取医疗费用单并邮寄报销。
+
+❌ A. Rien, le médecin se débrouille avec l'Assurance maladie - Faux. C'est au patient de faire la démarche.
+中：错误。患者需要自己办理报销手续。
+
+❌ C. Retourner chez lui chercher sa carte Vitale - Faux. Il peut consulter sans carte et faire la démarche plus tard.
+中：错误。他可以先就诊，之后再办理手续。
+
+❌ D. Payer en espèces et ne pas demander de remboursement - Faux. Il a droit au remboursement.
+中：错误。他有权获得报销。`
+},
+
+{
+  id: "so0084",
+  type: "carte multi",
+  category: "Accès aux soins",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Madame Y a besoin d'une analyse de sang. Que doit-elle faire pour être remboursée ?",
+  options: [
+    "Aller directement au laboratoire",
+    "Demander une ordonnance à son médecin traitant",
+    "Aller à l'hôpital",
+    "S'inscrire sur un site internet"
+  ],
+  answer: 1,
+  explanation: `✅ B. Demander une ordonnance à son médecin traitant - Correct ! Les analyses de sang nécessitent une prescription médicale pour être remboursées.
+中：正确。血液检查需要医生处方才能报销。
+
+❌ A. Aller directement au laboratoire - Faux. Sans prescription, les analyses ne seront pas remboursées.
+中：错误。没有处方，检查不会报销。
+
+❌ C. Aller à l'hôpital - Faux. Un laboratoire d'analyses est plus adapté pour une prise de sang.
+中：错误。化验室更适合抽血检查。
+
+❌ D. S'inscrire sur un site internet - Faux. Cela ne remplace pas une prescription.
+中：错误。这不能代替处方。`
+},
+
+{
+  id: "so0085",
+  type: "carte multi",
+  category: "Accès aux soins",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Monsieur Z a une douleur soudaine et intense à la poitrine. Que doit-il faire ?",
+  options: [
+    "Attendre que la douleur passe",
+    "Appeler le 15 (SAMU) immédiatement",
+    "Prendre un rendez-vous chez son médecin traitant",
+    "Aller à la pharmacie"
+  ],
+  answer: 1,
+  explanation: `✅ B. Appeler le 15 (SAMU) immédiatement - Correct ! Une douleur intense à la poitrine peut être un signe d'infarctus. Il faut appeler les secours immédiatement.
+中：正确。剧烈胸痛可能是心脏病发作的征兆，应立即呼叫急救。
+
+❌ A. Attendre que la douleur passe - Faux. Attendre peut être dangereux pour la vie.
+中：错误。等待可能危及生命。
+
+❌ C. Prendre un rendez-vous chez son médecin traitant - Faux. Une urgence vitale nécessite une réaction immédiate.
+中：错误。生命危急情况需要立即反应。
+
+❌ D. Aller à la pharmacie - Faux. La pharmacie ne peut pas traiter une urgence cardiaque.
+中：错误。药店不能处理心脏急症。`
+},
+
+{
+  id: "so0086",
+  type: "carte multi",
+  category: "Accès aux soins",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Madame X n'a pas de mutuelle. Elle doit faire des soins dentaires coûteux. Que peut-elle faire ?",
+  options: [
+    "Renoncer aux soins dentaires",
+    "Demander un devis et vérifier si elle peut bénéficier d'aides (Complémentaire santé solidaire)",
+    "Aller à l'étranger pour se faire soigner",
+    "Demander à son dentiste de faire gratuitement"
+  ],
+  answer: 1,
+  explanation: `✅ B. Demander un devis et vérifier si elle peut bénéficier d'aides (Complémentaire santé solidaire) - Correct ! Des aides existent pour les personnes à faibles revenus, comme la Complémentaire santé solidaire.
+中：正确。低收入人群可以获得补助，如团结健康补充保险。
+
+❌ A. Renoncer aux soins dentaires - Faux. Des solutions existent pour faciliter l'accès aux soins.
+中：错误。存在促进就医的解决方案。
+
+❌ C. Aller à l'étranger pour se faire soigner - Faux. Ce n'est pas la première solution et peut présenter des risques.
+中：错误。这不是首选方案，且可能存在风险。
+
+❌ D. Demander à son dentiste de faire gratuitement - Faux. Le dentiste n'est pas obligé de soigner gratuitement.
+中：错误。牙医没有义务免费治疗。`
+},
+
+{
+  id: "so0087",
+  type: "carte multi",
+  category: "Accès aux soins",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Monsieur Y est en vacances dans une autre région de France. Il a besoin de consulter un médecin. Que doit-il faire ?",
+  options: [
+    "Attendre de rentrer chez lui",
+    "Consulter un médecin local et présenter sa carte Vitale",
+    "Retourner chez lui pour voir son médecin traitant",
+    "Aller aux urgences pour une consultation simple"
+  ],
+  answer: 1,
+  explanation: `✅ B. Consulter un médecin local et présenter sa carte Vitale - Correct ! La carte Vitale est valable sur tout le territoire français.
+中：正确。Vitale卡在法国全境有效。
+
+❌ A. Attendre de rentrer chez lui - Faux. On peut consulter un médecin partout en France.
+中：错误。可以在法国任何地方看医生。
+
+❌ C. Retourner chez lui pour voir son médecin traitant - Faux. Ce n'est pas nécessaire pour une consultation ponctuelle.
+中：错误。临时就诊不需要回家。
+
+❌ D. Aller aux urgences pour une consultation simple - Faux. Les urgences sont réservées aux situations graves.
+中：错误。急诊只用于严重情况。`
+},
+
+{
+  id: "so0088",
+  type: "carte multi",
+  category: "Accès aux soins",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Madame Z veut consulter un spécialiste sans passer par son médecin traitant. Quelle conséquence cela peut avoir ?",
+  options: [
+    "Aucune conséquence, le remboursement est identique",
+    "Le remboursement sera moins élevé",
+    "Le spécialiste peut refuser de la consulter",
+    "Elle ne pourra pas être remboursée du tout"
+  ],
+  answer: 1,
+  explanation: `✅ B. Le remboursement sera moins élevé - Correct ! Sans passer par le médecin traitant, le parcours de soins n'est pas coordonné et le remboursement est réduit.
+中：正确。不经过家庭医生，医疗路径不协调，报销会减少。
+
+❌ A. Aucune conséquence, le remboursement est identique - Faux. Le parcours coordonné permet un meilleur remboursement.
+中：错误。协调路径可以获得更好的报销。
+
+❌ C. Le spécialiste peut refuser de la consulter - Faux. Le spécialiste peut consulter sans prescription, mais le remboursement est moindre.
+中：错误。专科医生可以接诊，但报销较少。
+
+❌ D. Elle ne pourra pas être remboursée du tout - Faux. Elle sera remboursée, mais moins.
+中：错误。她会获得报销，但金额较少。`
+},
+
+{
+  id: "so0089",
+  type: "carte multi",
+  category: "Accès aux soins",
+  difficulté: "difficile",
+  typeQuestion: "question simulée",
+  question: "Monsieur X est hospitalisé d'urgence. Il n'a pas sa carte Vitale. Que doit faire l'hôpital ?",
+  options: [
+    "Le refuser, car il n'a pas sa carte Vitale",
+    "L'admettre et lui demander de régulariser sa situation administrative plus tard",
+    "Le garder en observation jusqu'à ce qu'il apporte sa carte",
+    "Lui demander de payer toutes les frais d'avance"
+  ],
+  answer: 1,
+  explanation: `✅ B. L'admettre et lui demander de régulariser sa situation administrative plus tard - Correct ! En cas d'urgence, l'accès aux soins ne peut pas être refusé. La régularisation peut être faite ultérieurement.
+中：正确。紧急情况下不能拒绝就医。行政手续可以之后补办。
+
+❌ A. Le refuser, car il n'a pas sa carte Vitale - Faux. L'accès aux soins urgents ne peut pas être refusé.
+中：错误。紧急就医不能因没有Vitale卡而被拒绝。
+
+❌ C. Le garder en observation jusqu'à ce qu'il apporte sa carte - Faux. Les soins urgents doivent être prodigués immédiatement.
+中：错误。紧急医疗必须立即提供。
+
+❌ D. Lui demander de payer toutes les frais d'avance - Faux. Les hôpitaux publics ne peuvent pas exiger un paiement immédiat pour une urgence.
+中：错误。公立医院不能要求紧急情况立即付款。`
+},
+// ==================== Autorité parentale - 情景题补充 ====================
+
+{
+  id: "ap0080",
+  type: "carte multi",
+  category: "Autorité parentale et système éducatif",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Monsieur X et Madame Y divorcent. Ils ont un enfant de 6 ans. Qui décide de l'école de l'enfant ?",
+  options: [
+    "La mère uniquement",
+    "Le père uniquement",
+    "Les deux parents ensemble, sauf décision contraire du juge",
+    "L'enfant seul"
+  ],
+  answer: 2,
+  explanation: `✅ C. Les deux parents ensemble, sauf décision contraire du juge - Correct ! L'autorité parentale est exercée conjointement par les deux parents, sauf si le juge en décide autrement.
+中：正确。父母双方共同行使监护权，除非法官另有决定。
+
+❌ A. La mère uniquement - Faux. L'autorité parentale est en principe conjointe.
+中：错误。监护权原则上由父母双方共同行使。
+
+❌ B. Le père uniquement - Faux. L'autorité parentale n'est pas réservée au père.
+中：错误。监护权不专属父亲。
+
+❌ D. L'enfant seul - Faux. L'enfant est trop jeune pour décider seul.
+中：错误。孩子太小，不能独自决定。`
+},
+
+{
+  id: "ap0081",
+  type: "carte multi",
+  category: "Autorité parentale et système éducatif",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Madame Z est mère célibataire. Son enfant de 8 ans est malade. Elle doit l'emmener chez le médecin. Que doit-elle faire ?",
+  options: [
+    "Attendre que l'enfant aille mieux",
+    "Prendre rendez-vous chez le médecin traitant",
+    "Aller directement à l'hôpital",
+    "Donner des médicaments sans consulter"
+  ],
+  answer: 1,
+  explanation: `✅ B. Prendre rendez-vous chez le médecin traitant - Correct ! L'enfant a droit à des soins comme tout patient. Le médecin traitant est le premier recours.
+中：正确。孩子和所有患者一样有权获得医疗。家庭医生是首选。
+
+❌ A. Attendre que l'enfant aille mieux - Faux. Les parents doivent assurer la santé de l'enfant.
+中：错误。父母必须保障孩子的健康。
+
+❌ C. Aller directement à l'hôpital - Faux. Les urgences ne sont pas nécessaires pour une maladie non grave.
+中：错误。非严重疾病不需要去急诊。
+
+❌ D. Donner des médicaments sans consulter - Faux. L'automédication peut être dangereuse pour un enfant.
+中：错误。自行用药对孩子可能有危险。`
+},
+
+{
+  id: "ap0082",
+  type: "carte multi",
+  category: "Autorité parentale et système éducatif",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Un enfant de 10 ans manque l'école régulièrement sans justification. Que peuvent faire les autorités ?",
+  options: [
+    "Rien, car l'école n'est pas obligatoire",
+    "Convoquer les parents et les sanctionner si nécessaire",
+    "Exclure l'enfant de l'école",
+    "Laisser l'enfant décider"
+  ],
+  answer: 1,
+  explanation: `✅ B. Convoquer les parents et les sanctionner si nécessaire - Correct ! L'obligation scolaire est légale. Les parents peuvent être convoqués et sanctionnés en cas d'absentéisme injustifié.
+中：正确。义务教育是法律规定的。无故缺勤的家长可能被传唤并受到处罚。
+
+❌ A. Rien, car l'école n'est pas obligatoire - Faux. L'école est obligatoire en France.
+中：错误。法国实行义务教育。
+
+❌ C. Exclure l'enfant de l'école - Faux. L'exclusion ne résout pas le problème d'absentéisme.
+中：错误。开除不能解决缺勤问题。
+
+❌ D. Laisser l'enfant décider - Faux. L'enfant n'a pas le droit de décider seul de ne pas aller à l'école.
+中：错误。孩子不能独自决定不上学。`
+},
+
+{
+  id: "ap0083",
+  type: "carte multi",
+  category: "Autorité parentale et système éducatif",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Madame X veut inscrire son enfant à l'école primaire publique. Où doit-elle s'adresser ?",
+  options: [
+    "À la préfecture",
+    "À la mairie de sa commune",
+    "Au rectorat",
+    "À l'école directement"
+  ],
+  answer: 1,
+  explanation: `✅ B. À la mairie de sa commune - Correct ! L'inscription à l'école primaire publique se fait à la mairie de la commune de résidence.
+中：正确。公立小学入学在居住地的市政府办理。
+
+❌ A. À la préfecture - Faux. La préfecture ne gère pas les inscriptions scolaires.
+中：错误。省政府不负责学校注册。
+
+❌ C. Au rectorat - Faux. Le rectorat gère les établissements secondaires et supérieurs, pas l'inscription primaire.
+中：错误。学区教育局管理中学和高等教育，不负责小学入学。
+
+❌ D. À l'école directement - Faux. Il faut d'abord s'inscrire à la mairie.
+中：错误。需要先在市政府登记。`
+},
+
+{
+  id: "ap0084",
+  type: "carte multi",
+  category: "Autorité parentale et système éducatif",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Monsieur Y et Madame Z sont divorcés. Le père veut emmener l'enfant en vacances à l'étranger. Que doit-il faire ?",
+  options: [
+    "Partir sans rien demander",
+    "Obtenir l'accord de la mère ou une autorisation du juge",
+    "Demander l'autorisation à la mairie",
+    "Laisser l'enfant décider"
+  ],
+  answer: 1,
+  explanation: `✅ B. Obtenir l'accord de la mère ou une autorisation du juge - Correct ! En cas d'autorité parentale conjointe, un parent doit obtenir l'accord de l'autre pour un voyage à l'étranger.
+中：正确。在共同监护的情况下，父母一方带孩子出国旅行需获得另一方同意或法官授权。
+
+❌ A. Partir sans rien demander - Faux. Cela peut être considéré comme un non-respect de l'autorité parentale.
+中：错误。这可能被视为不尊重监护权。
+
+❌ C. Demander l'autorisation à la mairie - Faux. La mairie n'a pas ce pouvoir.
+中：错误。市政府没有这个权力。
+
+❌ D. Laisser l'enfant décider - Faux. L'enfant est trop jeune pour décider seul.
+中：错误。孩子太小，不能独自决定。`
+},
+
+{
+  id: "ap0085",
+  type: "carte multi",
+  category: "Autorité parentale et système éducatif",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Un enfant de 7 ans a des difficultés à l'école. Que doivent faire les parents ?",
+  options: [
+    "Ne rien faire, c'est à l'école de gérer",
+    "Demander un rendez-vous avec l'enseignant pour discuter des difficultés",
+    "Changer l'enfant d'école immédiatement",
+    "Attendre que l'enfant grandisse"
+  ],
+  answer: 1,
+  explanation: `✅ B. Demander un rendez-vous avec l'enseignant pour discuter des difficultés - Correct ! Les parents doivent suivre la scolarité de l'enfant et dialoguer avec les enseignants.
+中：正确。父母应关注孩子的学习并与老师沟通。
+
+❌ A. Ne rien faire, c'est à l'école de gérer - Faux. Les parents sont responsables de l'éducation de l'enfant.
+中：错误。父母对孩子的教育负责。
+
+❌ C. Changer l'enfant d'école immédiatement - Faux. Ce n'est pas la première démarche à entreprendre.
+中：错误。这不是第一步。
+
+❌ D. Attendre que l'enfant grandisse - Faux. Il faut agir rapidement pour aider l'enfant.
+中：错误。应尽快帮助孩子。`
+},
+
+{
+  id: "ap0086",
+  type: "carte multi",
+  category: "Autorité parentale et système éducatif",
+  difficulté: "difficile",
+  typeQuestion: "question simulée",
+  question: "Des parents ne respectent pas l'obligation d'instruction pour leur enfant de 10 ans. Que risque le parent ?",
+  options: [
+    "Rien, car l'instruction est facultative",
+    "Une amende et éventuellement une peine de prison",
+    "Seulement un avertissement",
+    "La perte de l'autorité parentale automatiquement"
+  ],
+  answer: 1,
+  explanation: `✅ B. Une amende et éventuellement une peine de prison - Correct ! Le non-respect de l'obligation scolaire peut être sanctionné par une amende et, dans les cas graves, une peine de prison.
+中：正确。不履行义务教育义务可能被处以罚款，严重时可能被判监禁。
+
+❌ A. Rien, car l'instruction est facultative - Faux. L'instruction est obligatoire.
+中：错误。义务教育是强制性的。
+
+❌ C. Seulement un avertissement - Faux. La loi prévoit des sanctions plus lourdes.
+中：错误。法律规定了更严厉的处罚。
+
+❌ D. La perte de l'autorité parentale automatiquement - Faux. La perte n'est pas automatique, elle est décidée par un juge.
+中：错误。剥夺监护权不是自动的，需要法官决定。`
+},
+
+{
+  id: "ap0087",
+  type: "carte multi",
+  category: "Autorité parentale et système éducatif",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Madame X et Monsieur Y ne sont pas d'accord sur la religion à enseigner à leur enfant. Que dit la loi ?",
+  options: [
+    "Chacun peut imposer sa religion à l'enfant",
+    "Les parents doivent se mettre d'accord dans l'intérêt de l'enfant",
+    "L'enfant décide seul de sa religion",
+    "L'État décide de la religion de l'enfant"
+  ],
+  answer: 1,
+  explanation: `✅ B. Les parents doivent se mettre d'accord dans l'intérêt de l'enfant - Correct ! L'autorité parentale implique que les décisions importantes sont prises ensemble, dans l'intérêt de l'enfant.
+中：正确。监护权意味着重要决定应共同做出，以孩子的利益为重。
+
+❌ A. Chacun peut imposer sa religion à l'enfant - Faux. L'enfant a droit à la liberté de conscience.
+中：错误。孩子有良心自由的权利。
+
+❌ C. L'enfant décide seul de sa religion - Faux. Pour un jeune enfant, c'est aux parents de décider ensemble.
+中：错误。对年幼的孩子，由父母共同决定。
+
+❌ D. L'État décide de la religion de l'enfant - Faux. La France est un État laïque qui ne décide pas de la religion.
+中：错误。法国是世俗国家，不决定宗教。`
+},
+
+{
+  id: "ap0088",
+  type: "carte multi",
+  category: "Autorité parentale et système éducatif",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Un enfant de 12 ans veut changer d'école. Que doivent faire les parents ?",
+  options: [
+    "Accepter automatiquement la demande de l'enfant",
+    "Discuter avec l'enfant et prendre une décision ensemble",
+    "Refuser car l'enfant ne peut pas décider",
+    "Demander l'avis du ministre de l'Éducation"
+  ],
+  answer: 1,
+  explanation: `✅ B. Discuter avec l'enfant et prendre une décision ensemble - Correct ! Les parents doivent écouter l'avis de l'enfant mais décider ensemble dans son intérêt.
+中：正确。父母应倾听孩子的意见，但共同决定以孩子的利益为重。
+
+❌ A. Accepter automatiquement la demande de l'enfant - Faux. L'enfant n'a pas le dernier mot sur ce choix.
+中：错误。孩子对此选择没有最终决定权。
+
+❌ C. Refuser car l'enfant ne peut pas décider - Faux. L'avis de l'enfant doit être pris en compte selon son âge et sa maturité.
+中：错误。应根据孩子的年龄和成熟度考虑其意见。
+
+❌ D. Demander l'avis du ministre de l'Éducation - Faux. Le ministre n'intervient pas dans ce type de décision.
+中：错误。部长不介入这类决定。`
+},
+
+{
+  id: "ap0089",
+  type: "carte multi",
+  category: "Autorité parentale et système éducatif",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Madame Z doit laisser son enfant de 8 ans seul à la maison pour la première fois. Que doit-elle faire ?",
+  options: [
+    "Le laisser seul, car il est responsable",
+    "S'assurer que l'enfant est capable de rester seul et prévoir un contact en cas de problème",
+    "Ne jamais laisser un enfant seul avant 16 ans",
+    "Demander l'autorisation de la mairie"
+  ],
+  answer: 1,
+  explanation: `✅ B. S'assurer que l'enfant est capable de rester seul et prévoir un contact en cas de problème - Correct ! Il n'y a pas d'âge légal, mais les parents doivent évaluer la maturité de l'enfant et prendre les précautions nécessaires.
+中：正确。没有法定年龄，但父母应评估孩子的成熟度并采取必要预防措施。
+
+❌ A. Le laisser seul, car il est responsable - Faux. La responsabilité des parents reste engagée.
+中：错误。父母仍需承担监护责任。
+
+❌ C. Ne jamais laisser un enfant seul avant 16 ans - Faux. Il n'y a pas d'âge légal fixé par la loi.
+中：错误。法律没有规定具体年龄。
+
+❌ D. Demander l'autorisation de la mairie - Faux. La mairie n'a pas à autoriser cela.
+中：错误。市政府不需要授权。`
+},
+// ==================== S'installer et résider - 情景题补充 ====================
+
+{
+  id: "ir0070",
+  type: "carte multi",
+  category: "S'installer et résider en France",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Monsieur X vient d'arriver en France pour travailler. Il doit trouver un logement. Quelle est la première démarche à faire ?",
+  options: [
+    "Acheter un appartement immédiatement",
+    "Chercher un logement et signer un bail",
+    "Dormir dans la rue",
+    "Attendre que son employeur lui trouve un logement"
+  ],
+  answer: 1,
+  explanation: `✅ B. Chercher un logement et signer un bail - Correct ! Pour s'installer en France, il faut trouver un logement et signer un bail.
+中：正确。要在法国定居，需要寻找住房并签订租约。
+
+❌ A. Acheter un appartement immédiatement - Faux. Acheter n'est pas la première démarche pour s'installer.
+中：错误。买房不是定居的第一步。
+
+❌ C. Dormir dans la rue - Faux. Ce n'est pas une démarche légale.
+中：错误。这不是合法步骤。
+
+❌ D. Attendre que son employeur lui trouve un logement - Faux. L'employeur n'est pas obligé de trouver un logement.
+中：错误。雇主没有义务帮助找房。`
+},
+
+{
+  id: "ir0071",
+  type: "carte multi",
+  category: "S'installer et résider en France",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Madame Y vient d'emménager dans un nouvel appartement. Que doit-elle faire pour l'électricité ?",
+  options: [
+    "Ne rien faire, l'électricité est automatique",
+    "Souscrire un contrat d'électricité à son nom",
+    "Demander au propriétaire de payer",
+    "Attendre la première facture"
+  ],
+  answer: 1,
+  explanation: `✅ B. Souscrire un contrat d'électricité à son nom - Correct ! Les nouveaux locataires doivent souscrire un contrat d'électricité à leur nom.
+中：正确。新租户需要以自己的名义签订电费合同。
+
+❌ A. Ne rien faire, l'électricité est automatique - Faux. L'électricité n'est pas fournie automatiquement sans contrat.
+中：错误。没有合同不会自动供电。
+
+❌ C. Demander au propriétaire de payer - Faux. C'est au locataire de payer ses propres charges.
+中：错误。租户应自行支付水电费。
+
+❌ D. Attendre la première facture - Faux. Sans contrat, il n'y aura pas de facture à son nom.
+中：错误。没有合同，不会有以他名义的账单。`
+},
+
+{
+  id: "ir0072",
+  type: "carte multi",
+  category: "S'installer et résider en France",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Monsieur Z loue un appartement. Il a des problèmes avec son voisin qui fait du bruit la nuit. Que doit-il faire ?",
+  options: [
+    "Se disputer avec le voisin",
+    "Contacter le propriétaire ou le syndic de l'immeuble",
+    "Déménager immédiatement",
+    "Faire du bruit aussi pour se venger"
+  ],
+  answer: 1,
+  explanation: `✅ B. Contacter le propriétaire ou le syndic de l'immeuble - Correct ! En cas de problèmes de voisinage, il faut d'abord contacter le propriétaire ou le syndic de l'immeuble.
+中：正确。邻里纠纷应首先联系房东或物业管理处。
+
+❌ A. Se disputer avec le voisin - Faux. La confrontation directe peut aggraver la situation.
+中：错误。直接冲突可能使情况恶化。
+
+❌ C. Déménager immédiatement - Faux. Ce n'est pas la première solution.
+中：错误。这不是首选解决方案。
+
+❌ D. Faire du bruit aussi pour se venger - Faux. Cela aggrave la situation et est illégal.
+中：错误。这会加剧问题且违法。`
+},
+
+{
+  id: "ir0073",
+  type: "carte multi",
+  category: "S'installer et résider en France",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Madame X a perdu sa carte d'identité. Que doit-elle faire ?",
+  options: [
+    "Rien, elle peut vivre sans",
+    "Faire une déclaration de perte à la mairie ou au commissariat et demander un duplicata",
+    "Attendre qu'elle soit retrouvée",
+    "Demander à un ami de lui prêter sa carte"
+  ],
+  answer: 1,
+  explanation: `✅ B. Faire une déclaration de perte à la mairie ou au commissariat et demander un duplicata - Correct ! Une carte d'identité perdue doit être déclarée pour éviter l'usurpation d'identité.
+中：正确。丢失身份证应申报以防身份被盗用。
+
+❌ A. Rien, elle peut vivre sans - Faux. La carte d'identité est un document important.
+中：错误。身份证是重要文件。
+
+❌ C. Attendre qu'elle soit retrouvée - Faux. Il faut agir pour éviter l'usurpation d'identité.
+中：错误。应采取行动防止身份盗用。
+
+❌ D. Demander à un ami de lui prêter sa carte - Faux. Les documents d'identité sont personnels.
+中：错误。身份证是个人证件。`
+},
+
+{
+  id: "ir0074",
+  type: "carte multi",
+  category: "S'installer et résider en France",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Monsieur Y veut ouvrir un compte bancaire. Quels documents doit-il présenter ?",
+  options: [
+    "Un passeport ou une carte d'identité et un justificatif de domicile",
+    "Un permis de conduire seulement",
+    "Un certificat de naissance",
+    "Une photo d'identité seulement"
+  ],
+  answer: 0,
+  explanation: `✅ A. Un passeport ou une carte d'identité et un justificatif de domicile - Correct ! Pour ouvrir un compte, il faut une pièce d'identité et un justificatif de domicile.
+中：正确。开户需要身份证件和住址证明。
+
+❌ B. Un permis de conduire seulement - Faux. Le permis ne suffit pas pour ouvrir un compte.
+中：错误。驾照不足以开户。
+
+❌ C. Un certificat de naissance - Faux. Ce n'est pas le document principal demandé.
+中：错误。这不是主要要求的文件。
+
+❌ D. Une photo d'identité seulement - Faux. Il faut aussi un justificatif d'identité et de domicile.
+中：错误。还需要身份和住址证明。`
+},
+
+{
+  id: "ir0075",
+  type: "carte multi",
+  category: "S'installer et résider en France",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Madame Z est locataire. Son propriétaire veut augmenter le loyer. Que dit la loi ?",
+  options: [
+    "Le propriétaire peut augmenter quand il veut",
+    "L'augmentation est encadrée par la loi et dépend de l'indice de référence des loyers",
+    "Le locataire doit accepter toute augmentation",
+    "Le propriétaire ne peut jamais augmenter le loyer"
+  ],
+  answer: 1,
+  explanation: `✅ B. L'augmentation est encadrée par la loi et dépend de l'indice de référence des loyers - Correct ! L'augmentation du loyer est réglementée et ne peut pas être faite librement.
+中：正确。租金上涨受法律监管，不能随意进行。
+
+❌ A. Le propriétaire peut augmenter quand il veut - Faux. L'augmentation est réglementée.
+中：错误。租金上涨受限制。
+
+❌ C. Le locataire doit accepter toute augmentation - Faux. Le locataire peut contester une augmentation abusive.
+中：错误。租户可以质疑不合理的涨价。
+
+❌ D. Le propriétaire ne peut jamais augmenter le loyer - Faux. L'augmentation est possible, mais dans des conditions précises.
+中：错误。可以在特定条件下涨租。`
+},
+
+{
+  id: "ir0076",
+  type: "carte multi",
+  category: "S'installer et résider en France",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Monsieur X reçoit une convocation du tribunal. Que doit-il faire ?",
+  options: [
+    "Ignorer la convocation",
+    "Se présenter au tribunal ou contacter un avocat",
+    "Envoyer un ami à sa place",
+    "Appeler le président pour annuler"
+  ],
+  answer: 1,
+  explanation: `✅ B. Se présenter au tribunal ou contacter un avocat - Correct ! Une convocation du tribunal doit être prise au sérieux. Il faut s'y rendre ou se faire représenter par un avocat.
+中：正确。法院传票必须认真对待，应出庭或由律师代理。
+
+❌ A. Ignorer la convocation - Faux. Ignorer une convocation peut entraîner des sanctions.
+中：错误。忽视传票可能导致处罚。
+
+❌ C. Envoyer un ami à sa place - Faux. Un ami ne peut pas représenter sans mandat.
+中：错误。没有授权，朋友不能代理。
+
+❌ D. Appeler le président pour annuler - Faux. Le président ne peut pas annuler une convocation par téléphone.
+中：错误。庭长不能通过电话取消传票。`
+},
+
+{
+  id: "ir0077",
+  type: "carte multi",
+  category: "S'installer et résider en France",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Madame Y n'a pas reçu sa carte Vitale. Elle doit consulter un médecin. Que peut-elle faire ?",
+  options: [
+    "Attendre de recevoir sa carte",
+    "Consulter et obtenir une feuille de soins pour se faire rembourser plus tard",
+    "Aller à l'hôpital gratuitement",
+    "Ne pas consulter du tout"
+  ],
+  answer: 1,
+  explanation: `✅ B. Consulter et obtenir une feuille de soins pour se faire rembourser plus tard - Correct ! Sans carte Vitale, on peut obtenir une feuille de soins pour se faire rembourser.
+中：正确。没有Vitale卡，可以索取医疗费用单以便报销。
+
+❌ A. Attendre de recevoir sa carte - Faux. On peut consulter sans attendre.
+中：错误。可以不等待直接就诊。
+
+❌ C. Aller à l'hôpital gratuitement - Faux. Ce n'est pas le bon circuit pour une consultation simple.
+中：错误。这不是常规就诊的正确途径。
+
+❌ D. Ne pas consulter du tout - Faux. L'accès aux soins ne doit pas être retardé.
+中：错误。不应推迟就医。`
+},
+
+{
+  id: "ir0078",
+  type: "carte multi",
+  category: "S'installer et résider en France",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Monsieur Z change de région pour son travail. Que doit-il faire pour ses papiers administratifs ?",
+  options: [
+    "Ne rien changer",
+    "Mettre à jour son adresse auprès des services concernés (CAF, Assurance maladie, impôts, etc.)",
+    "Déclarer son nouveau travail uniquement",
+    "Attendre que les administrations lui écrivent"
+  ],
+  answer: 1,
+  explanation: `✅ B. Mettre à jour son adresse auprès des services concernés (CAF, Assurance maladie, impôts, etc.) - Correct ! En cas de déménagement, il faut informer les administrations de sa nouvelle adresse.
+中：正确。搬家时需告知相关部门新地址。
+
+❌ A. Ne rien changer - Faux. Les administrations doivent connaître la nouvelle adresse.
+中：错误。相关部门需知道新地址。
+
+❌ C. Déclarer son nouveau travail uniquement - Faux. Le changement d'adresse concerne plusieurs services.
+中：错误。地址变更涉及多个部门。
+
+❌ D. Attendre que les administrations lui écrivent - Faux. Les administrations ne sont pas automatiquement informées.
+中：错误。部门不会自动获知地址变更。`
+},
+
+{
+  id: "ir0079",
+  type: "carte multi",
+  category: "S'installer et résider en France",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Madame X veut renouveler son passeport. Où doit-elle s'adresser ?",
+  options: [
+    "À la mairie ou à la préfecture",
+    "À la poste",
+    "À la banque",
+    "Au commissariat seulement"
+  ],
+  answer: 0,
+  explanation: `✅ A. À la mairie ou à la préfecture - Correct ! Le renouvellement du passeport se fait à la mairie ou à la préfecture.
+中：正确。护照换发在市政府或省政府办理。
+
+❌ B. À la poste - Faux. La poste ne délivre pas de passeports.
+中：错误。邮局不签发护照。
+
+❌ C. À la banque - Faux. Les banques ne délivrent pas de passeports.
+中：错误。银行不办理护照。
+
+❌ D. Au commissariat seulement - Faux. Le commissariat n'est pas le seul lieu.
+中：错误。警察局不是唯一地点。`
+},
+// ==================== Démocratie et droit de vote - 情景题补充 ====================
+
+{
+  id: "de0120",
+  type: "carte multi",
+  category: "Démocratie et droit de vote",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Monsieur X vient de déménager et souhaite voter aux prochaines élections. Que doit-il faire en premier ?",
+  options: [
+    "Rien, son inscription est automatique",
+    "S'inscrire sur les listes électorales de sa nouvelle commune",
+    "Demander à son ancienne commune de voter pour lui",
+    "Attendre la prochaine élection"
+  ],
+  answer: 1,
+  explanation: `✅ B. S'inscrire sur les listes électorales de sa nouvelle commune - Correct ! Pour voter, il faut être inscrit sur les listes électorales de sa commune de résidence.
+中：正确。要投票，必须在居住地的选民名单上登记。
+
+❌ A. Rien, son inscription est automatique - Faux. L'inscription n'est pas automatique en cas de déménagement.
+中：错误。搬家后登记不会自动更新。
+
+❌ C. Demander à son ancienne commune de voter pour lui - Faux. Il doit voter dans sa nouvelle commune.
+中：错误。他必须在新居住地投票。
+
+❌ D. Attendre la prochaine élection - Faux. Il peut s'inscrire avant la date limite pour voter.
+中：错误。他可以在截止日期前登记以便投票。`
+},
+
+{
+  id: "de0121",
+  type: "carte multi",
+  category: "Démocratie et droit de vote",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Madame Y est malade le jour des élections et ne peut pas se déplacer. Que peut-elle faire ?",
+  options: [
+    "Rien, elle ne pourra pas voter",
+    "Faire une procuration pour qu'une personne vote à sa place",
+    "Envoyer un SMS pour voter",
+    "Demander à son médecin de voter pour elle"
+  ],
+  answer: 1,
+  explanation: `✅ B. Faire une procuration pour qu'une personne vote à sa place - Correct ! Une personne qui ne peut pas se déplacer peut faire une procuration.
+中：正确。无法出行的人可以委托他人代为投票。
+
+❌ A. Rien, elle ne pourra pas voter - Faux. La procuration permet de voter même en cas d'absence.
+中：错误。委托投票允许在缺席时投票。
+
+❌ C. Envoyer un SMS pour voter - Faux. Le vote par SMS n'existe pas en France.
+中：错误。法国没有短信投票。
+
+❌ D. Demander à son médecin de voter pour elle - Faux. Seule une procuration officielle est valable.
+中：错误。只有正式委托才有效。`
+},
+
+{
+  id: "de0122",
+  type: "carte multi",
+  category: "Démocratie et droit de vote",
+  difficulté: "difficile",
+  typeQuestion: "question simulée",
+  question: "Monsieur Z souhaite se présenter aux élections municipales. Quelles conditions doit-il remplir ?",
+  options: [
+    "Être citoyen français et avoir plus de 30 ans",
+    "Être majeur et inscrit sur les listes électorales de la commune",
+    "Être propriétaire d'un bien dans la commune",
+    "Avoir un diplôme universitaire"
+  ],
+  answer: 1,
+  explanation: `✅ B. Être majeur et inscrit sur les listes électorales de la commune - Correct ! Pour être candidat aux élections municipales, il faut être majeur et être inscrit sur les listes électorales de la commune.
+中：正确。参选市镇选举需要年满18岁并在该市镇的选民名单上登记。
+
+❌ A. Être citoyen français et avoir plus de 30 ans - Faux. Les citoyens européens peuvent aussi se présenter, et l'âge minimum est 18 ans.
+中：错误。欧盟公民也可以参选，最低年龄为18岁。
+
+❌ C. Être propriétaire d'un bien dans la commune - Faux. La propriété n'est pas une condition.
+中：错误。拥有房产不是条件。
+
+❌ D. Avoir un diplôme universitaire - Faux. Le diplôme n'est pas une condition.
+中：错误。学历不是条件。`
+},
+
+{
+  id: "de0123",
+  type: "carte multi",
+  category: "Démocratie et droit de vote",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Madame X n'a jamais voté. Elle souhaite voter aux prochaines élections présidentielles. Que doit-elle faire ?",
+  options: [
+    "Attendre le jour de l'élection",
+    "S'inscrire sur les listes électorales avant la date limite",
+    "Acheter un bulletin de vote",
+    "Demander à son employeur"
+  ],
+  answer: 1,
+  explanation: `✅ B. S'inscrire sur les listes électorales avant la date limite - Correct ! Pour voter pour la première fois, il faut s'inscrire sur les listes électorales avant la date limite.
+中：正确。首次投票需在截止日期前在选民名单上登记。
+
+❌ A. Attendre le jour de l'élection - Faux. Il faut s'inscrire avant l'élection.
+中：错误。必须在选举前登记。
+
+❌ C. Acheter un bulletin de vote - Faux. Les bulletins sont fournis gratuitement.
+中：错误。选票是免费提供的。
+
+❌ D. Demander à son employeur - Faux. L'employeur ne gère pas les inscriptions électorales.
+中：错误。雇主不负责选民登记。`
+},
+
+{
+  id: "de0124",
+  type: "carte multi",
+  category: "Démocratie et droit de vote",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Monsieur Y voyage à l'étranger le jour des élections législatives. Que peut-il faire ?",
+  options: [
+    "Ne pas voter",
+    "Voter par procuration",
+    "Voter par internet",
+    "Voter à l'ambassade"
+  ],
+  answer: 1,
+  explanation: `✅ B. Voter par procuration - Correct ! Lorsqu'on est absent, on peut voter par procuration.
+中：正确。缺席时可以委托投票。
+
+❌ A. Ne pas voter - Faux. La procuration permet de voter même à l'étranger.
+中：错误。委托投票允许在国外投票。
+
+❌ C. Voter par internet - Faux. Le vote par internet n'existe pas en France.
+中：错误。法国没有网络投票。
+
+❌ D. Voter à l'ambassade - Faux. Cette possibilité n'existe pas pour les élections législatives.
+中：错误。立法选举没有这个选项。`
+},
+
+{
+  id: "de0125",
+  type: "carte multi",
+  category: "Démocratie et droit de vote",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Madame Z est citoyenne espagnole résidant en France. Peut-elle voter aux élections municipales en France ?",
+  options: [
+    "Non, seuls les Français peuvent voter",
+    "Oui, si elle est inscrite sur les listes électorales",
+    "Oui, mais seulement aux élections européennes",
+    "Non, elle doit attendre 5 ans"
+  ],
+  answer: 1,
+  explanation: `✅ B. Oui, si elle est inscrite sur les listes électorales - Correct ! Les citoyens européens résidant en France peuvent voter aux élections municipales s'ils s'inscrivent sur les listes électorales.
+中：正确。居住在法国的欧盟公民如果在选民名单上登记，可以参加市镇选举投票。
+
+❌ A. Non, seuls les Français peuvent voter - Faux. Les citoyens européens peuvent voter aux élections municipales.
+中：错误。欧盟公民可以参加市镇选举投票。
+
+❌ C. Oui, mais seulement aux élections européennes - Faux. Ils peuvent voter à la fois aux élections municipales et européennes.
+中：错误。他们可以同时参加市镇选举和欧洲选举投票。
+
+❌ D. Non, elle doit attendre 5 ans - Faux. Il n'y a pas de condition de durée minimale.
+中：错误。没有最低居住期限的条件。`
+},
+
+{
+  id: "de0126",
+  type: "carte multi",
+  category: "Démocratie et droit de vote",
+  difficulté: "simple",
+  typeQuestion: "question simulée",
+  question: "Monsieur X a 17 ans. Peut-il voter aux élections ?",
+  options: [
+    "Oui, s'il est citoyen",
+    "Non, il faut avoir 18 ans",
+    "Oui, pour les élections municipales",
+    "Oui, s'il a un travail"
+  ],
+  answer: 1,
+  explanation: `✅ B. Non, il faut avoir 18 ans - Correct ! L'âge minimum pour voter en France est 18 ans.
+中：正确。法国投票最低年龄为18岁。
+
+❌ A. Oui, s'il est citoyen - Faux. Il faut être majeur.
+中：错误。必须成年。
+
+❌ C. Oui, pour les élections municipales - Faux. L'âge minimum est le même pour toutes les élections.
+中：错误。所有选举的最低年龄相同。
+
+❌ D. Oui, s'il a un travail - Faux. Le travail n'est pas une condition.
+中：错误。工作不是条件。`
+},
+
+{
+  id: "de0127",
+  type: "carte multi",
+  category: "Démocratie et droit de vote",
+  difficulté: "difficile",
+  typeQuestion: "question simulée",
+  question: "Madame Y a changé d'adresse mais a oublié de se réinscrire sur les listes électorales. Que peut-elle faire ?",
+  options: [
+    "Elle ne pourra pas voter",
+    "Elle peut voter dans son ancienne commune",
+    "Elle peut s'inscrire jusqu'à la veille de l'élection",
+    "Elle peut voter dans sa nouvelle commune sans inscription"
+  ],
+  answer: 0,
+  explanation: `✅ A. Elle ne pourra pas voter - Correct ! Sans inscription sur les listes électorales de sa commune de résidence, elle ne pourra pas voter.
+中：正确。未在居住地选民名单上登记，将无法投票。
+
+❌ B. Elle peut voter dans son ancienne commune - Faux. Elle doit être inscrite dans sa commune de résidence.
+中：错误。必须在居住地登记。
+
+❌ C. Elle peut s'inscrire jusqu'à la veille de l'élection - Faux. Il y a une date limite fixe pour s'inscrire.
+中：错误。登记有固定截止日期。
+
+❌ D. Elle peut voter dans sa nouvelle commune sans inscription - Faux. L'inscription est obligatoire.
+中：错误。登记是强制性的。`
+},
+
+{
+  id: "de0128",
+  type: "carte multi",
+  category: "Démocratie et droit de vote",
+  difficulté: "moyen",
+  typeQuestion: "question simulée",
+  question: "Monsieur Z veut voter mais il a perdu sa carte d'électeur. Que doit-il faire ?",
+  options: [
+    "Ne pas voter",
+    "Se présenter avec une pièce d'identité",
+    "Demander une nouvelle carte d'électeur le jour même",
+    "Voter sans pièce d'identité"
+  ],
+  answer: 1,
+  explanation: `✅ B. Se présenter avec une pièce d'identité - Correct ! La carte d'électeur n'est pas obligatoire si on peut justifier de son identité.
+中：正确。如果能证明身份，选民卡不是必需的。
+
+❌ A. Ne pas voter - Faux. On peut voter sans carte d'électeur.
+中：错误。没有选民卡也可以投票。
+
+❌ C. Demander une nouvelle carte d'électeur le jour même - Faux. Ce n'est pas possible le jour même.
+中：错误。当天不能补办。
+
+❌ D. Voter sans pièce d'identité - Faux. Il faut prouver son identité.
+中：错误。必须证明身份。`
+},
+
+{
+  id: "de0129",
+  type: "carte multi",
+  category: "Démocratie et droit de vote",
+  difficulté: "difficile",
+  typeQuestion: "question simulée",
+  question: "Madame X est citoyenne belge résidant en France depuis 3 ans. Peut-elle voter aux élections européennes ?",
+  options: [
+    "Non, seul un citoyen français peut voter",
+    "Oui, si elle s'inscrit sur les listes électorales",
+    "Oui, mais seulement pour les élections municipales",
+    "Non, il faut être résident depuis 5 ans"
+  ],
+  answer: 1,
+  explanation: `✅ B. Oui, si elle s'inscrit sur les listes électorales - Correct ! Les citoyens européens résidant en France peuvent voter aux élections européennes s'ils s'inscrivent sur les listes électorales.
+中：正确。居住在法国的欧盟公民如果在选民名单上登记，可以参加欧洲选举投票。
+
+❌ A. Non, seul un citoyen français peut voter - Faux. Les citoyens européens peuvent voter aux élections européennes.
+中：错误。欧盟公民可以参加欧洲选举投票。
+
+❌ C. Oui, mais seulement pour les élections municipales - Faux. Ils peuvent voter à la fois aux élections municipales et européennes.
+中：错误。他们可以同时参加市镇选举和欧洲选举投票。
+
+❌ D. Non, il faut être résident depuis 5 ans - Faux. Il n'y a pas de condition de durée minimale.
+中：错误。没有最低居住期限的条件。`
+},
+
+
+
+
+]
+
 
 
 

@@ -48,7 +48,7 @@
                 <span></span>
             </button>
             <a href="#" class="logo">
-                <img src="/icons/icon-192x192.png" alt="Mille Voiles" style="height: 50px; width: auto; margin-right: 5px;">
+                <img src="icons/icon-192x192.png" alt="Mille Voiles" style="height: 50px; width: auto; margin-right: 5px; display: block;">
                 <span id="logoText">Mille Voiles</span>
             </a>
             <div class="nav-links" id="navLinks">
@@ -72,9 +72,9 @@
                     </button>
                     <div class="user-dropdown" id="userDropdown">
                         <a href="#" onclick="showProfileModal()"><i class="fas fa-user-cog"></i> <span id="profileMenuItem">Mon profil</span></a>
-                      <a href="#" onclick="window.location.href='dashboard-etudiant.html' + window.location.search" class="progress-link">
-    <i class="fas fa-chart-line"></i> <span id="learningProgressMenuItem">📊 Mon apprentissage</span>
-</a>
+                        <a href="#" onclick="window.location.href='dashboard-etudiant.html' + window.location.search" class="progress-link">
+                            <i class="fas fa-chart-line"></i> <span id="learningProgressMenuItem">📊 Mon apprentissage</span>
+                        </a>
                         <div id="roleBasedMenu"></div>
                         <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> <span id="logoutMenuItem">Déconnexion</span></a>
                     </div>
@@ -163,25 +163,64 @@
                     </a>
                 </div>
             </div>
+
+            <!-- ===== PRE-REGISTER BUTTON ===== -->
+            <div class="pre-register-section">
+                <div class="pre-register-content">
+                    <div class="pre-register-icon">
+                        <i class="fas fa-hand-paper"></i>
+                    </div>
+                    <div class="pre-register-text">
+                        <h3 id="preRegisterTitle">📝 Prêt à commencer ?</h3>
+                        <p id="preRegisterDesc">Inscrivez-vous dès maintenant pour réserver votre place dans nos formations civiques et bénéficier d'un suivi personnalisé.</p>
+                    </div>
+                    <a href="preinscrit.html" class="btn btn-pre-register" id="preRegisterBtn">
+                        <i class="fas fa-user-plus"></i> 
+                        <span id="preRegisterBtnText">Je m'inscris maintenant</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- ==================== 学员数据统计 ==================== -->
-    <section class="stats-highlight" id="statsSection">
+    <!-- ==================== KPI 统计栏 + 教学评价 ==================== -->
+    <section class="kpi-feedback-section" id="kpiSection">
         <div class="container">
-            <div class="stats-highlight-grid">
-                <div class="stat-highlight-item">
-                    <div class="stat-highlight-number"><span id="statStudentNumber">0</span></div>
-                    <div class="stat-highlight-label" id="statStudentLabel">👨‍🎓 Élèves</div>
+            <!-- KPI 统计栏 - 卡片式 -->
+            <div class="kpi-cards">
+                <div class="kpi-card">
+                    <div class="kpi-card-icon">👨‍🎓</div>
+                    <div class="kpi-card-number"><span id="statStudentNumber">0</span></div>
+                    <div class="kpi-card-label" id="statStudentLabel">Élèves</div>
                 </div>
-                <div class="stat-highlight-item">
-                    <div class="stat-highlight-number">99<span class="stat-percent">%</span></div>
-                    <div class="stat-highlight-label" id="statSuccessLabel">✅ Taux de réussite</div>
+                <div class="kpi-card">
+                    <div class="kpi-card-icon">✅</div>
+                    <div class="kpi-card-number"><span id="statSuccessRate">0</span><span class="kpi-percent">%</span></div>
+                    <div class="kpi-card-label" id="statSuccessLabel">Taux de réussite <span style="font-size:0.6rem;opacity:0.7;display:block;">(1er passage)</span></div>
                 </div>
-                <div class="stat-highlight-item">
-                    <div class="stat-highlight-number"><span id="statTeacherNumber">0</span><span class="stat-plus">+</span></div>
-                    <div class="stat-highlight-label" id="statTeacherLabel">👨‍🏫 Intervenants</div>
+                <div class="kpi-card">
+                    <div class="kpi-card-icon">⭐</div>
+                    <div class="kpi-card-number"><span id="fbAvgScoreStat">0.0</span></div>
+                    <div class="kpi-card-label" id="fbAvgLabelStat">Évaluations</div>
                 </div>
+            </div>
+
+            <!-- 教学评价列表 -->
+            <div class="feedback-section">
+                <div class="feedback-header">
+                    <div>
+                        <h3 id="feedbackShowcaseTitle">⭐ Avis des étudiants</h3>
+                        <p id="feedbackShowcaseSubtitle">Ce que nos étudiants pensent de nos formations</p>
+                    </div>
+                    <span class="feedback-count" id="feedbackCount">0 avis</span>
+                </div>
+                <div id="feedbackList">
+                    <!-- 由 JavaScript 动态生成 -->
+                </div>
+                <button class="btn load-more-btn" id="loadMoreFeedbackBtn" onclick="loadMoreFeedback()" style="display: none;">
+                    <span id="loadMoreFeedbackText">Voir plus d'avis</span> <i class="fas fa-chevron-down"></i>
+                </button>
             </div>
         </div>
     </section>
@@ -493,6 +532,7 @@
         </div>
     </footer>
 
+    <!-- ==================== 登录模态框 ==================== -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -517,6 +557,7 @@
         </div>
     </div>
 
+    <!-- ==================== 个人资料模态框（含邮箱修改） ==================== -->
     <div id="profileModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -527,21 +568,73 @@
                 <form id="profileForm" class="login-form" onsubmit="updateProfile(event)">
                     <div class="profile-info-section">
                         <h4 id="infoSectionTitle">Informations du compte</h4>
-                        <div class="form-group"><label><i class="fas fa-user-tag"></i><span id="typeLabel">Type</span></label><input type="text" id="profileType" readonly class="readonly-field"></div>
-                        <div class="form-group"><label><i class="fas fa-clock"></i><span id="expiryLabel">Accès jusqu'au</span></label><input type="text" id="profileExpiry" readonly class="readonly-field"></div>
-                        <div class="form-group"><label><i class="fas fa-user"></i><span id="usernameLabel">Nom d'utilisateur</span></label><input type="text" id="profileUsername" readonly class="readonly-field"></div>
+                        <div class="form-group">
+                            <label><i class="fas fa-user-tag"></i> <span id="typeLabel">Type</span></label>
+                            <input type="text" id="profileType" readonly class="readonly-field">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-clock"></i> <span id="expiryLabel">Accès jusqu'au</span></label>
+                            <input type="text" id="profileExpiry" readonly class="readonly-field">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-user"></i> <span id="usernameLabel">Nom d'utilisateur</span></label>
+                            <input type="text" id="profileUsername" readonly class="readonly-field">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> <span id="currentEmailLabel">Email actuel</span></label>
+                            <input type="text" id="profileEmail" readonly class="readonly-field">
+                        </div>
                     </div>
                     <div class="profile-edit-section">
-                        <h4 id="editSectionTitle">Modifier mon mot de passe</h4>
-                        <div class="form-group"><label><i class="fas fa-lock"></i><span id="currentPasswordLabel">Mot de passe actuel</span></label><input type="password" id="currentPassword" required placeholder="Entrez votre mot de passe actuel"></div>
-                        <div class="form-group"><label><i class="fas fa-lock"></i><span id="newPasswordLabel">Nouveau mot de passe</span></label><input type="password" id="newPassword" required placeholder="Entrez votre nouveau mot de passe" minlength="6"></div>
-                        <div class="form-group"><label><i class="fas fa-lock"></i><span id="confirmPasswordLabel">Confirmer le mot de passe</span></label><input type="password" id="confirmPassword" required placeholder="Confirmez votre nouveau mot de passe"></div>
+                        <h4 id="editSectionTitle">Modifier mes informations</h4>
+                        
+                        <div class="form-group">
+                            <label><i class="fas fa-lock"></i> <span id="currentPasswordLabel">Mot de passe actuel</span></label>
+                            <input type="password" id="currentPassword" required placeholder="Entrez votre mot de passe actuel">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> <span id="newEmailLabel">Nouvel email</span></label>
+                            <input type="email" id="newEmail" placeholder="Entrez votre nouvel email">
+                            <small style="color: var(--medium-gray); font-size: 0.8rem; margin-top: 4px;">
+                                <i class="fas fa-info-circle"></i> 
+                                <span id="newEmailHelp">Laissez vide pour ne pas modifier</span>
+                            </small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label><i class="fas fa-lock"></i> <span id="newPasswordLabel">Nouveau mot de passe</span></label>
+                            <input type="password" id="newPassword" placeholder="Entrez votre nouveau mot de passe" minlength="6">
+                            <small style="color: var(--medium-gray); font-size: 0.8rem; margin-top: 4px;">
+                                <i class="fas fa-info-circle"></i> 
+                                <span id="newPasswordHelp">Minimum 6 caractères - Laissez vide pour ne pas modifier</span>
+                            </small>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label><i class="fas fa-lock"></i> <span id="confirmPasswordLabel">Confirmer le mot de passe</span></label>
+                            <input type="password" id="confirmPassword" placeholder="Confirmez votre nouveau mot de passe">
+                        </div>
                     </div>
-                    <div id="profileError" class="login-error" style="display: none;"><i class="fas fa-exclamation-circle"></i><span id="profileErrorMessage"></span></div>
-                    <div id="profileSuccess" class="login-success" style="display: none;"><i class="fas fa-check-circle"></i><span id="profileSuccessMessage">Mot de passe mis à jour avec succès</span></div>
+                    
+                    <div id="profileError" class="login-error" style="display: none;">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span id="profileErrorMessage"></span>
+                    </div>
+                    <div id="profileSuccess" class="login-success" style="display: none;">
+                        <i class="fas fa-check-circle"></i>
+                        <span id="profileSuccessMessage">Informations mises à jour</span>
+                    </div>
+                    
                     <div class="profile-actions">
-                        <button type="submit" class="btn btn-primary" id="updateProfileBtn"><i class="fas fa-save"></i><span id="updateBtnText">Mettre à jour</span></button>
-                        <button type="button" class="btn btn-secondary" onclick="closeProfileModal()" id="cancelBtn"><i class="fas fa-times"></i><span id="cancelBtnText">Annuler</span></button>
+                        <button type="submit" class="btn btn-primary" id="updateProfileBtn">
+                            <i class="fas fa-save"></i>
+                            <span id="updateBtnText">Mettre à jour</span>
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="closeProfileModal()">
+                            <i class="fas fa-times"></i>
+                            <span id="cancelBtnText">Annuler</span>
+                        </button>
                     </div>
                 </form>
             </div>

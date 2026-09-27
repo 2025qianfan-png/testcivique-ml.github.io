@@ -1,16 +1,22 @@
-// supabase-config.js - 修复版
+// ============================================================
+// SUPABASE 配置 v3 - 统一版
+// 用户表: users | 课程表: courses_v2 | 其他表不变
+// ============================================================
+
 const SUPABASE_URL = 'https://pokwxlbntoxoxogptned.supabase.co';
 const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_pu4aBS3wXF2e3ckgENTt4g_9_HvSG_v';
 
-console.log('正在加载Supabase配置...');
+console.log('🚀 正在加载Supabase配置 v3...');
 
-// 单例Supabase客户端
-let supabaseClient = null;
+// ============================================================
+// Supabase 客户端
+// ============================================================
+var supabaseClient = null;
 
-const getSupabaseClient = () => {
+function getSupabaseClient() {
     if (!supabaseClient) {
         supabaseClient = window.supabase.createClient(
-            SUPABASE_URL, 
+            SUPABASE_URL,
             SUPABASE_PUBLISHABLE_KEY,
             {
                 auth: {
@@ -21,427 +27,2456 @@ const getSupabaseClient = () => {
                 global: {
                     headers: {
                         'apikey': SUPABASE_PUBLISHABLE_KEY,
-                        'Authorization': `Bearer ${SUPABASE_PUBLISHABLE_KEY}`
+                        'Authorization': 'Bearer ' + SUPABASE_PUBLISHABLE_KEY
                     }
                 }
             }
         );
-        console.log('Supabase客户端创建成功');
+        console.log('✅ Supabase客户端创建成功');
     }
     return supabaseClient;
-};
+}
 
-// ==================== 学生验证功能 ====================
+// ============================================================
+// 工具函数
+// ============================================================
+function getTypeLabel(type) {
+    var map = {
+        'n': '🇫🇷 DELF',
+        'r': '📘 DALF',
+        'm': '📗 TCF',
+        't': '📙 TCF IRN'
+    };
+    return map[type] || type || '-';
+}
 
-async function validateStudent(name, password) {
+function getTypeClass(type) {
+    var map = {
+        'n': 'type-n',
+        'r': 'type-r',
+        'm': 'type-m',
+        't': 'type-t'
+    };
+    return map[type] || '';
+}
+
+// ============================================================
+// 【模块一】用户管理（统一 users 表）
+// ============================================================
+
+async function validateUser(name, password) {
     try {
-        console.log(`验证学生: ${name}`);
-        const supabase = getSupabaseClient();
-        
-        const { data, error } = await supabase
-            .from('students')
+        console.log('🔍 验证用户: ' + name);
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('users')
             .select('*')
             .eq('name', name)
             .single();
-        
-        if (error) {
-            console.error('查询学生失败:', error.message);
+
+        if (result.error) {
+            console.error('查询用户失败:', result.error.message);
             return null;
         }
-        
-        if (!data) {
-            console.log('学生不存在');
+        if (!result.data) {
+            console.log('用户不存在');
             return null;
         }
-        
-        // 简单密码验证
-        if (data.password !== password) {
+        if (result.data.password !== password) {
             console.log('密码不匹配');
             return null;
         }
-        
-        console.log('学生验证成功:', data.name);
-        return data;
-        
+        console.log('✅ 用户验证成功: ' + result.data.name + ' (' + result.data.role + ')');
+        return result.data;
     } catch (error) {
-        console.error('验证学生异常:', error);
+        console.error('验证用户异常:', error);
         return null;
     }
 }
 
-function checkAccess(student) {
-    if (!student.timer) {
+// 兼容旧名
+function validateStudent(name, password) {
+    return validateUser(name, password);
+}
+function validateFrenchUser(name, password) {
+    return validateUser(name, password);
+}
+
+function checkAccess(user, category) {
+    category = category || 'civique';
+    if (!user) return { valid: false, message: 'Utilisateur non trouvé' };
+
+    var timerField = category === 'francais' ? 'french_timer' : 'timer';
+    var timer = user[timerField];
+
+    if (!timer) {
         return { valid: true, daysLeft: -1 };
     }
-    
-    const expiryDate = new Date(student.timer);
-    const currentDate = new Date();
-    
+    var expiryDate = new Date(timer);
+    var currentDate = new Date();
+
     if (expiryDate < currentDate) {
-        return { 
-            valid: false, 
+        return {
+            valid: false,
             daysLeft: 0,
-            message: `Votre période d'accès a expiré le ${expiryDate.toLocaleDateString('fr-FR')}` 
+            message: 'Votre période d\'accès a expiré le ' + expiryDate.toLocaleDateString('fr-FR')
         };
     } else {
-        const timeDiff = expiryDate - currentDate;
-        const daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
-        
-        return { 
-            valid: true, 
+        var timeDiff = expiryDate - currentDate;
+        var daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+        return {
+            valid: true,
             daysLeft: daysLeft,
             expiryDate: expiryDate
         };
     }
 }
 
-// ==================== 错题集功能 ====================
+function checkFrenchAccess(user) {
+    return checkAccess(user, 'francais');
+}
 
-// 记录错题到数据库
-async function recordMistakeToDB(studentInfo, question, userAnswer, testType) {
-    console.log('开始记录错题:', { student: studentInfo.name, testType, userAnswer });
-    
-    // 确保userAnswer有效
-    if (userAnswer === null || userAnswer === undefined || userAnswer < 0) {
-        console.warn('userAnswer无效，设置为0');
-        userAnswer = 0;
-    }
-    
-    // 确保question对象包含必要字段
-    if (!question || !question.question || !question.options || !Array.isArray(question.options)) {
-        console.error('问题数据不完整:', question);
+async function getUserById(id) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('users')
+            .select('*')
+            .eq('id', id)
+            .single();
+        if (result.error) throw result.error;
+        return result.data;
+    } catch (error) {
+        console.error('获取用户失败:', error);
         return null;
     }
-    
-    // 创建错题记录
-    const mistakeData = {
-        student_name: studentInfo.name,
-        question_id: question.question_id || question.id || `local_${Date.now()}`,
-        question: question.question,
-        category: question.category || question.theme || question.主题 || 'Autre',
-        difficulty: question.难度 || question.difficulty || '中等',
-        options: question.options,
-        correct_answer: question.answer,
-        user_answer: userAnswer,
-        test_type: testType,
-        explanation: question.explanation || question.解释 || '',
-        times_wrong: 1,
-        mastered: false,
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString()
-    };
-    
-    console.log('准备记录的错题数据:', mistakeData);
-    
+}
+
+async function getUsersByRole(role) {
     try {
-        // 首先尝试使用Supabase SDK
-        const supabase = getSupabaseClient();
-        const { data, error } = await supabase
-            .from('mistakes')
-            .insert([mistakeData])
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('users')
+            .select('*')
+            .eq('role', role)
+            .order('name', { ascending: true });
+        if (result.error) throw result.error;
+        return result.data || [];
+    } catch (error) {
+        console.error('获取用户列表失败:', error);
+        return [];
+    }
+}
+
+async function getUsersByModule(module) {
+    try {
+        var supabase = getSupabaseClient();
+        // 手动过滤，不用 .or 或 .contains
+        var result = await supabase
+            .from('users')
+            .select('*')
+            .order('name', { ascending: true });
+        if (result.error) throw result.error;
+        var all = result.data || [];
+        return all.filter(function(u) {
+            return u.modules && u.modules.indexOf(module) !== -1;
+        });
+    } catch (error) {
+        console.error('获取模块用户失败:', error);
+        return [];
+    }
+}
+
+async function getAllUsers() {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('users')
+            .select('*')
+            .order('name', { ascending: true });
+        if (result.error) throw result.error;
+        return result.data || [];
+    } catch (error) {
+        console.error('获取所有用户失败:', error);
+        return [];
+    }
+}
+
+async function getFrenchUsers() {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('users')
+            .select('*')
+            .order('name', { ascending: true });
+        if (result.error) throw result.error;
+        var all = result.data || [];
+        // 手动过滤：有 francais 模块，或者是 stu_fr / stu_all
+        return all.filter(function(u) {
+            var hasModule = u.modules && u.modules.indexOf('francais') !== -1;
+            var isFrenchRole = u.role === 'stu_fr' || u.role === 'stu_all';
+            return hasModule || isFrenchRole;
+        });
+    } catch (error) {
+        console.error('获取法语用户失败:', error);
+        return [];
+    }
+}
+
+async function getFrenchStudents() {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('users')
+            .select('*')
+            .in('role', ['stu_fr', 'stu_all'])
+            .order('name', { ascending: true });
+        if (result.error) throw result.error;
+        return result.data || [];
+    } catch (error) {
+        console.error('获取法语学生失败:', error);
+        return [];
+    }
+}
+
+async function getFrenchTeachers() {
+    try {
+        var users = await getUsersByModule('francais');
+        return users.filter(function(u) { return u.role === 'teacher'; });
+    } catch (error) {
+        console.error('获取法语老师失败:', error);
+        return [];
+    }
+}
+
+async function createUser(userData) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('users')
+            .insert([userData])
             .select()
             .single();
-        
-        if (error) {
-            console.warn('Supabase SDK插入失败，尝试REST API:', error.message);
-            // 降级方案1: 使用REST API
-            return await insertMistakeViaREST(mistakeData, studentInfo.name);
-        }
-        
-        console.log('错题记录成功 (SDK):', data.id);
-        return data.id;
-        
+        if (result.error) throw result.error;
+        return result.data;
     } catch (error) {
-        console.error('记录错题主方案失败:', error);
-        // 降级方案2: 保存到localStorage
-        return saveToLocalStorage(studentInfo.name, mistakeData);
+        console.error('创建用户失败:', error);
+        return null;
+    }
+}
+function createFrenchUser(userData) {
+    return createUser(userData);
+}
+
+async function updateUser(id, userData) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('users')
+            .update(userData)
+            .eq('id', id)
+            .select()
+            .single();
+        if (result.error) throw result.error;
+        return result.data;
+    } catch (error) {
+        console.error('更新用户失败:', error);
+        return null;
+    }
+}
+function updateFrenchUser(id, userData) {
+    return updateUser(id, userData);
+}
+
+async function updateStudentEmail(userId, currentPassword, newEmail) {
+    try {
+        var supabase = getSupabaseClient();
+
+        var fetchResult = await supabase
+            .from('users')
+            .select('password, email, name')
+            .eq('id', userId)
+            .single();
+
+        if (fetchResult.error || !fetchResult.data) {
+            return { success: false, message: 'Utilisateur non trouvé' };
+        }
+        var user = fetchResult.data;
+
+        if (user.password !== currentPassword) {
+            return { success: false, message: 'Mot de passe actuel incorrect' };
+        }
+        if (user.email === newEmail) {
+            return { success: true, data: user, message: 'Email inchangé' };
+        }
+
+        var checkResult = await supabase
+            .from('users')
+            .select('id, email, name')
+            .eq('email', newEmail)
+            .neq('id', userId)
+            .maybeSingle();
+
+        if (checkResult.data) {
+            return { success: false, message: 'Cet email est déjà utilisé' };
+        }
+
+        var updateResult = await supabase
+            .from('users')
+            .update({ email: newEmail })
+            .eq('id', userId)
+            .select()
+            .single();
+
+        if (updateResult.error) {
+            return { success: false, message: 'Erreur lors de la mise à jour' };
+        }
+        return { success: true, data: updateResult.data };
+    } catch (error) {
+        console.error('更新邮箱异常:', error);
+        return { success: false, message: 'Erreur de connexion' };
     }
 }
 
-// 通过REST API插入错题
-async function insertMistakeViaREST(mistakeData, studentName) {
+async function deleteUser(id) {
     try {
-        const response = await fetch(`${SUPABASE_URL}/rest/v1/mistakes`, {
-            method: 'POST',
-            headers: {
-                'apikey': SUPABASE_PUBLISHABLE_KEY,
-                'Authorization': `Bearer ${SUPABASE_PUBLISHABLE_KEY}`,
-                'Content-Type': 'application/json',
-                'Prefer': 'return=representation'
-            },
-            body: JSON.stringify(mistakeData)
-        });
-        
-        if (!response.ok) {
-            const errorText = await response.text();
-            console.error('REST API错误:', errorText);
-            throw new Error(`API错误: ${response.status}`);
-        }
-        
-        const data = await response.json();
-        console.log('错题记录成功 (REST):', data[0]?.id);
-        return data[0]?.id;
-        
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('users')
+            .delete()
+            .eq('id', id);
+        if (result.error) throw result.error;
+        return true;
     } catch (error) {
-        console.error('REST API插入失败:', error);
-        throw error; // 传递错误以便降级处理
+        console.error('删除用户失败:', error);
+        return false;
+    }
+}
+function deleteFrenchUser(id) {
+    return deleteUser(id);
+}
+
+// ============================================================
+// 【模块二】课时管理
+// ============================================================
+
+async function deductCredit(userId, hours, category) {
+    category = category || 'civique';
+    if (!userId || !hours || hours <= 0) return true;
+
+    try {
+        var supabase = getSupabaseClient();
+        var field = category === 'francais' ? 'french_credit' : 'credit';
+
+        var result = await supabase
+            .from('users')
+            .select(field)
+            .eq('id', userId)
+            .single();
+
+        if (result.error) throw result.error;
+        var current = (result.data && result.data[field]) || 0;
+
+        if (current < hours) {
+            throw new Error('Crédits insuffisants (' + current + 'h disponibles, ' + hours + 'h nécessaires)');
+        }
+
+        var updateData = {};
+        updateData[field] = current - hours;
+
+        var updateResult = await supabase
+            .from('users')
+            .update(updateData)
+            .eq('id', userId);
+
+        if (updateResult.error) throw updateResult.error;
+        console.log('✅ 扣课时: ' + category + ' -' + hours + 'h，剩余 ' + (current - hours) + 'h');
+        return true;
+    } catch (error) {
+        console.error('扣课时失败:', error);
+        throw error;
     }
 }
 
-// 保存到本地存储
-function saveToLocalStorage(studentName, mistakeData) {
+async function refundCredit(userId, hours, category) {
+    category = category || 'civique';
+    if (!userId || !hours || hours <= 0) return true;
+
     try {
-        const localKey = `mistakes_${studentName}`;
-        const existing = JSON.parse(localStorage.getItem(localKey) || '[]');
-        
-        const localMistake = {
-            ...mistakeData,
-            id: `local_${studentName}_${Date.now()}`,
-            local_only: true
-        };
-        
-        existing.push(localMistake);
-        localStorage.setItem(localKey, JSON.stringify(existing));
-        console.log('错题保存到本地存储:', localMistake.id);
-        return localMistake.id;
-    } catch (localError) {
-        console.error('本地存储失败:', localError);
+        var supabase = getSupabaseClient();
+        var field = category === 'francais' ? 'french_credit' : 'credit';
+
+        var result = await supabase
+            .from('users')
+            .select(field)
+            .eq('id', userId)
+            .single();
+
+        if (result.error) throw result.error;
+        var current = (result.data && result.data[field]) || 0;
+        var newVal = current + hours;
+
+        var updateData = {};
+        updateData[field] = newVal;
+
+        var updateResult = await supabase
+            .from('users')
+            .update(updateData)
+            .eq('id', userId);
+
+        if (updateResult.error) throw updateResult.error;
+        console.log('✅ 还课时: ' + category + ' +' + hours + 'h，现在 ' + newVal + 'h');
+        return true;
+    } catch (error) {
+        console.error('还课时失败:', error);
+        throw error;
+    }
+}
+
+// ============================================================
+// 【模块三】课程管理（统一 courses_v2 表）
+// ============================================================
+
+async function getCourses(options) {
+    options = options || {};
+    var userId = options.userId;
+    var userRole = options.userRole;
+    var category = options.category;
+
+    try {
+        var supabase = getSupabaseClient();
+        var data = [];
+
+        if (userRole === 'teacher') {
+            // ============================================================
+            // 老师：查自己作为 teacher_id 的所有课（单人 + 小组都有）
+            // ============================================================
+            var tQuery = supabase
+                .from('courses_v2')
+                .select('*')
+                .eq('teacher_id', userId)
+                .order('start_time', { ascending: true });
+
+            if (category) tQuery = tQuery.eq('category', category);
+
+            var tRes = await tQuery;
+            if (tRes.error) throw tRes.error;
+            data = tRes.data || [];
+
+        } else if (userRole === 'stu' || userRole === 'stu_fr' || userRole === 'stu_all') {
+            // ============================================================
+            // 学生：合并「单人课 student_id = 我」+「小组课 course_students 有我」
+            // ============================================================
+
+            // 1) 单人课
+            var soloQuery = supabase
+                .from('courses_v2')
+                .select('*')
+                .eq('student_id', userId)
+                .order('start_time', { ascending: true });
+
+            if (category) soloQuery = soloQuery.eq('category', category);
+
+            var soloRes = await soloQuery;
+            if (soloRes.error) throw soloRes.error;
+            var soloCourses = soloRes.data || [];
+
+            // 2) 小组课：先拿我所在的所有 course_id
+            var csRes = await supabase
+                .from('course_students')
+                .select('course_id')
+                .eq('student_id', userId);
+
+            var csIds = (csRes.data || []).map(function(x) { return x.course_id; });
+
+            var groupCourses = [];
+            if (csIds.length > 0) {
+                var grpQuery = supabase
+                    .from('courses_v2')
+                    .select('*')
+                    .in('id', csIds)
+                    .order('start_time', { ascending: true });
+
+                if (category) grpQuery = grpQuery.eq('category', category);
+
+                var grpRes = await grpQuery;
+                if (!grpRes.error) groupCourses = grpRes.data || [];
+            }
+
+            // 3) 合并去重
+            var allMap = {};
+            soloCourses.concat(groupCourses).forEach(function(c) {
+                allMap[c.id] = c;
+            });
+            data = Object.keys(allMap).map(function(k) { return allMap[k]; });
+            data.sort(function(a, b) {
+                return new Date(a.start_time) - new Date(b.start_time);
+            });
+
+        } else {
+            // ============================================================
+            // 其他角色（admin 等）：拿全部
+            // ============================================================
+            var aQuery = supabase
+                .from('courses_v2')
+                .select('*')
+                .order('start_time', { ascending: true });
+
+            if (category) aQuery = aQuery.eq('category', category);
+
+            var aRes = await aQuery;
+            if (aRes.error) throw aRes.error;
+            data = aRes.data || [];
+        }
+
+        // ============================================================
+        // 关联用户信息（teacher + student + students 数组）
+        // ============================================================
+        if (data.length > 0) {
+            var courseIds = data.map(function(c) { return c.id; });
+
+            // 先收集所有涉及的 user id
+            var userIdsSet = {};
+            data.forEach(function(c) {
+                if (c.teacher_id) userIdsSet[c.teacher_id] = true;
+                if (c.student_id) userIdsSet[c.student_id] = true;
+            });
+
+            // 顺便把小组课的 student_id 也收集起来
+            var csMap = {};   // { courseId: [studentId, ...] }
+            if (courseIds.length > 0) {
+                var csListRes = await supabase
+                    .from('course_students')
+                    .select('course_id, student_id')
+                    .in('course_id', courseIds);
+
+                (csListRes.data || []).forEach(function(cs) {
+                    if (!csMap[cs.course_id]) csMap[cs.course_id] = [];
+                    csMap[cs.course_id].push(cs.student_id);
+                    userIdsSet[cs.student_id] = true;
+                });
+            }
+
+            // 拿所有用户
+            var userIdsArr = Object.keys(userIdsSet);
+            var userMap = {};
+            if (userIdsArr.length > 0) {
+                var usersRes = await supabase
+                    .from('users')
+                    .select('id, name, email')
+                    .in('id', userIdsArr);
+
+                (usersRes.data || []).forEach(function(u) {
+                    userMap[u.id] = u;
+                });
+            }
+
+            // 挂到每门课
+            data.forEach(function(c) {
+                // 老师
+                c.teacher = c.teacher_id ? (userMap[c.teacher_id] || null) : null;
+
+                // 兼容旧代码：c.student = 第一个人
+                c.student = c.student_id ? (userMap[c.student_id] || null) : null;
+
+                // 新增：完整 students 数组（单人 + 小组）
+                c.students = [];
+                if (c.student_id && userMap[c.student_id]) {
+                    c.students.push(userMap[c.student_id]);
+                }
+                (csMap[c.id] || []).forEach(function(sid) {
+                    if (userMap[sid] && !c.students.find(function(s) { return s.id === sid; })) {
+                        c.students.push(userMap[sid]);
+                    }
+                });
+
+                // 如果 c.student 为空但 students 有 → 用第一个
+                if (!c.student && c.students.length > 0) {
+                    c.student = c.students[0];
+                }
+            });
+        }
+
+        return data;
+
+    } catch (error) {
+        console.error('获取课程失败:', error);
+        return [];
+    }
+}
+function getFrenchCourses(userId, userRole) {
+    return getCourses({ userId: userId, userRole: userRole, category: 'francais' });
+}
+
+async function getCourseById(id) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('courses_v2')
+            .select('*')
+            .eq('id', id)
+            .single();
+        if (result.error) throw result.error;
+        return result.data;
+    } catch (error) {
+        console.error('获取课程失败:', error);
         return null;
     }
 }
 
-// 获取学生的错题
-async function getStudentMistakes(studentName) {
+async function createCourse(courseData) {
     try {
-        console.log('获取学生错题:', studentName);
-        
-        const results = {
-            supabase: [],
-            local: []
-        };
-        
-        // 1. 尝试从Supabase获取
-        try {
-            const supabase = getSupabaseClient();
-            const { data, error } = await supabase
-                .from('mistakes')
-                .select('*')
-                .eq('student_name', studentName)
-                .order('created_at', { ascending: false });
-            
-            if (!error && data) {
-                results.supabase = data;
-                console.log('从Supabase获取错题成功:', data.length);
-            }
-        } catch (supabaseError) {
-            console.warn('Supabase获取失败:', supabaseError.message);
+        var supabase = getSupabaseClient();
+        var category = courseData.category || 'civique';
+        var duration = courseData.duration || 2;
+
+        var shouldDeduct = courseData.status === 'scheduled' ||
+                          courseData.status === 'completed' ||
+                          !courseData.status;
+
+        if (shouldDeduct && courseData.student_id) {
+            await deductCredit(courseData.student_id, duration, category);
         }
-        
-        // 2. 从localStorage获取本地错题
-        const localKey = `mistakes_${studentName}`;
-        try {
-            const localData = JSON.parse(localStorage.getItem(localKey) || '[]');
-            results.local = localData;
-            console.log('从本地存储获取错题成功:', localData.length);
-        } catch (localError) {
-            console.warn('本地存储获取失败:', localError);
+
+        var insertData = {};
+        for (var k in courseData) {
+            if (courseData.hasOwnProperty(k)) insertData[k] = courseData[k];
         }
-        
-        // 3. 合并数据，去重（基于question_id）
-        const allMistakes = [...results.local, ...results.supabase];
-        const uniqueMistakes = [];
-        const seenIds = new Set();
-        
-        for (const mistake of allMistakes) {
-            const id = mistake.question_id || mistake.question;
-            if (!seenIds.has(id)) {
-                seenIds.add(id);
-                uniqueMistakes.push(mistake);
-            }
-        }
-        
-        console.log('总错题数（去重后）:', uniqueMistakes.length);
-        return uniqueMistakes;
-        
+        insertData.category = category;
+        insertData.created_at = new Date().toISOString();
+        insertData.updated_at = new Date().toISOString();
+
+        var result = await supabase
+            .from('courses_v2')
+            .insert([insertData])
+            .select()
+            .single();
+
+        if (result.error) throw result.error;
+        console.log('✅ 课程创建成功:', result.data.id);
+        return result.data;
     } catch (error) {
-        console.error('获取错题失败:', error);
-        
-        // 最终降级方案：只返回本地数据
-        const localKey = `mistakes_${studentName}`;
-        try {
-            const localData = JSON.parse(localStorage.getItem(localKey) || '[]');
-            return localData;
-        } catch {
-            return [];
-        }
+        console.error('创建课程失败:', error);
+        throw error;
     }
 }
 
-// 获取错题统计
+async function updateCourse(id, newData) {
+    try {
+        var supabase = getSupabaseClient();
+
+        // ============================================================
+        // 1. 先读出旧课程
+        // ============================================================
+        var fetchResult = await supabase
+            .from('courses_v2')
+            .select('*')
+            .eq('id', id)
+            .maybeSingle();
+
+        if (fetchResult.error || !fetchResult.data) {
+            throw new Error('Cours introuvable');
+        }
+        var oldCourse = fetchResult.data;
+
+        // ============================================================
+        // 2. 收集所有"旧/新"字段
+        // ============================================================
+        var oldCategory = oldCourse.category || 'civique';
+        var newCategory = newData.category || oldCategory;
+
+        var oldStatus = oldCourse.status;
+        var newStatus = newData.status || oldStatus;
+
+        var oldDuration = oldCourse.duration || 2;
+        var newDuration = newData.duration !== undefined ? newData.duration : oldDuration;
+
+        var oldStudentId = oldCourse.student_id || null;
+        var newStudentId = newData.student_id !== undefined ? newData.student_id : oldStudentId;
+
+        // ============================================================
+        // 3. 判断"是否占用 credit"
+        // ============================================================
+        function isConsuming(s) {
+            return s === 'scheduled' || s === 'in_progress' || s === 'completed';
+        }
+
+        var oldConsumes = isConsuming(oldStatus);
+        var newConsumes = isConsuming(newStatus);
+
+        // ============================================================
+        // 4. 处理 credit
+        // ============================================================
+
+        // ---- 情况 A：学生换了 或 category 换了 → 全额退旧的，全额扣新的 ----
+        if (oldStudentId !== newStudentId || oldCategory !== newCategory) {
+
+            if (oldConsumes && oldStudentId) {
+                await refundCredit(oldStudentId, oldDuration, oldCategory);
+            }
+
+            if (newConsumes && newStudentId) {
+                await deductCredit(newStudentId, newDuration, newCategory);
+            }
+
+        }
+        // ---- 情况 B：同学生、同 category → 只处理时长差 ----
+        else {
+
+            if (oldConsumes && !newConsumes) {
+                // 原来占用，现在不占用（比如改成 cancelled） → 退旧的
+                if (oldStudentId) {
+                    await refundCredit(oldStudentId, oldDuration, oldCategory);
+                }
+
+            } else if (!oldConsumes && newConsumes) {
+                // 原来不占用，现在占用（比如从 cancelled 改回 scheduled） → 扣新的
+                if (oldStudentId) {
+                    await deductCredit(oldStudentId, newDuration, newCategory);
+                }
+
+            } else if (oldConsumes && newConsumes) {
+                // 前后都占用 → 只处理时长差
+                var diff = newDuration - oldDuration;
+                if (diff > 0 && oldStudentId) {
+                    await deductCredit(oldStudentId, diff, oldCategory);
+                } else if (diff < 0 && oldStudentId) {
+                    await refundCredit(oldStudentId, -diff, oldCategory);
+                }
+            }
+            // else：前后都不占用 → 什么都不做
+        }
+
+        // ============================================================
+        // 5. 更新数据库
+        // ============================================================
+        var updateData = {};
+        for (var k in newData) {
+            if (newData.hasOwnProperty(k)) {
+                updateData[k] = newData[k];
+            }
+        }
+        updateData.updated_at = new Date().toISOString();
+
+        var result = await supabase
+            .from('courses_v2')
+            .update(updateData)
+            .eq('id', id)
+            .select()
+            .maybeSingle();
+
+        if (result.error) throw result.error;
+        return result.data;
+
+    } catch (error) {
+        console.error('更新课程失败:', error);
+        throw error;
+    }
+}
+
+async function deleteCourse(id) {
+    try {
+        var supabase = getSupabaseClient();
+        var fetchResult = await supabase
+            .from('courses_v2')
+            .select('*')
+            .eq('id', id)
+            .single();
+
+        if (fetchResult.data) {
+            var course = fetchResult.data;
+            var isConsuming = course.status === 'scheduled' ||
+                            course.status === 'in_progress' ||
+                            course.status === 'completed';
+            if (isConsuming && course.student_id && course.duration) {
+                await refundCredit(course.student_id, course.duration, course.category);
+            }
+        }
+
+        var result = await supabase
+            .from('courses_v2')
+            .delete()
+            .eq('id', id);
+
+        if (result.error) throw result.error;
+        return true;
+    } catch (error) {
+        console.error('删除课程失败:', error);
+        return false;
+    }
+}
+function deleteFrenchCourse(id) {
+    return deleteCourse(id);
+}
+function forceDeleteFrenchCourse(id) {
+    return deleteCourse(id);
+}
+
+async function cancelCourse(id, reason) {
+    try {
+        var supabase = getSupabaseClient();
+        var fetchResult = await supabase
+            .from('courses_v2')
+            .select('*')
+            .eq('id', id)
+            .single();
+
+        if (fetchResult.data) {
+            var course = fetchResult.data;
+            var isConsuming = course.status === 'scheduled' ||
+                            course.status === 'in_progress' ||
+                            course.status === 'completed';
+            if (isConsuming && course.student_id && course.duration) {
+                await refundCredit(course.student_id, course.duration, course.category);
+            }
+        }
+
+        var result = await supabase
+            .from('courses_v2')
+            .update({
+                status: 'cancelled',
+                cancel_reason: reason || null,
+                updated_at: new Date().toISOString()
+            })
+            .eq('id', id);
+
+        if (result.error) throw result.error;
+        return true;
+    } catch (error) {
+        console.error('取消课程失败:', error);
+        return false;
+    }
+}
+
+async function getCoursesStats(userId, userRole, category) {
+    try {
+        var courses = await getCourses({ userId: userId, userRole: userRole, category: category });
+        var now = new Date();
+
+        var upcoming = courses.filter(function(c) {
+            return c.status !== 'completed' && c.status !== 'cancelled' && new Date(c.start_time) > now;
+        }).length;
+        var inProgress = courses.filter(function(c) { return c.status === 'in_progress'; }).length;
+        var completed = courses.filter(function(c) { return c.status === 'completed'; }).length;
+        var cancelled = courses.filter(function(c) { return c.status === 'cancelled'; }).length;
+
+        return { total: courses.length, upcoming: upcoming, inProgress: inProgress, completed: completed, cancelled: cancelled };
+    } catch (error) {
+        console.error('获取课程统计失败:', error);
+        return { total: 0, upcoming: 0, inProgress: 0, completed: 0, cancelled: 0 };
+    }
+}
+function getFrenchCoursesStats(userId, userRole) {
+    return getCoursesStats(userId, userRole, 'francais');
+}
+
+// ============================================================
+// 【模块四】老师空闲时间（teacher_availabilities 表不变）
+// ============================================================
+
+async function getTeacherAvailabilities(teacherId, status) {
+    try {
+        var supabase = getSupabaseClient();
+        var query = supabase
+            .from('teacher_availabilities')
+            .select('*')
+            .eq('teacher_id', teacherId)
+            .order('start_time', { ascending: true });
+
+        if (status) query = query.eq('status', status);
+
+        var result = await query;
+        if (result.error) throw result.error;
+        return result.data || [];
+    } catch (error) {
+        console.error('获取教师空闲时间失败:', error);
+        return [];
+    }
+}
+
+async function getAllAvailableSlots(teacherId) {
+    try {
+        var supabase = getSupabaseClient();
+        var query = supabase
+            .from('teacher_availabilities')
+            .select('*')
+            .eq('status', 'available')
+            .gt('start_time', new Date().toISOString())
+            .order('start_time', { ascending: true });
+
+        if (teacherId) query = query.eq('teacher_id', teacherId);
+
+        var result = await query;
+        if (result.error) throw result.error;
+        return result.data || [];
+    } catch (error) {
+        console.error('获取可用时间段失败:', error);
+        return [];
+    }
+}
+
+async function getAllTeachersAvailableSlots() {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('teacher_availabilities')
+            .select('*')
+            .eq('status', 'available')
+            .gt('start_time', new Date().toISOString())
+            .order('start_time', { ascending: true });
+
+        if (result.error) throw result.error;
+        var data = result.data || [];
+
+        if (data.length > 0) {
+            var teacherIds = [];
+            var seen = {};
+            data.forEach(function(s) {
+                if (s.teacher_id && !seen[s.teacher_id]) {
+                    seen[s.teacher_id] = true;
+                    teacherIds.push(s.teacher_id);
+                }
+            });
+
+            if (teacherIds.length > 0) {
+                var usersResult = await supabase
+                    .from('users')
+                    .select('id, name')
+                    .in('id', teacherIds);
+
+                if (usersResult.data) {
+                    var teacherMap = {};
+                    usersResult.data.forEach(function(t) { teacherMap[t.id] = t; });
+                    data.forEach(function(slot) {
+                        slot.teacher = teacherMap[slot.teacher_id] || null;
+                    });
+                }
+            }
+        }
+        return data;
+    } catch (error) {
+        console.error('获取所有教师可用时间段失败:', error);
+        return [];
+    }
+}
+
+async function createTeacherAvailability(availabilityData) {
+    try {
+        var supabase = getSupabaseClient();
+
+        var checkResult = await supabase
+            .from('teacher_availabilities')
+            .select('id, start_time, end_time')
+            .eq('teacher_id', availabilityData.teacher_id)
+            .in('status', ['available', 'booked']);
+        if (checkResult.error) throw checkResult.error;
+        var existing = checkResult.data;
+
+        if (existing && existing.length > 0) {
+            for (var i = 0; i < existing.length; i++) {
+                var slot = existing[i];
+                var slotStart = new Date(slot.start_time);
+                var slotEnd = new Date(slot.end_time);
+                var newStart = new Date(availabilityData.start_time);
+                var newEnd = new Date(availabilityData.end_time);
+                if (newStart < slotEnd && newEnd > slotStart) {
+                    throw new Error('Ce créneau chevauche un créneau existant');
+                }
+            }
+        }
+
+        var insertData = {};
+        for (var k in availabilityData) {
+            if (availabilityData.hasOwnProperty(k)) insertData[k] = availabilityData[k];
+        }
+        insertData.status = 'available';
+        insertData.created_at = new Date().toISOString();
+        insertData.updated_at = new Date().toISOString();
+
+        var result = await supabase
+            .from('teacher_availabilities')
+            .insert([insertData])
+            .select()
+            .single();
+
+        if (result.error) throw result.error;
+        return result.data;
+    } catch (error) {
+        console.error('创建空闲时间段失败:', error);
+        throw error;
+    }
+}
+
+async function deleteTeacherAvailability(id) {
+    try {
+        var supabase = getSupabaseClient();
+
+        var checkResult = await supabase
+            .from('teacher_availabilities')
+            .select('status')
+            .eq('id', id)
+            .maybeSingle();
+
+        if (checkResult.error || !checkResult.data) {
+            throw new Error('Créneau introuvable');
+        }
+        if (checkResult.data.status === 'booked') {
+            throw new Error('Impossible de supprimer un créneau déjà réservé');
+        }
+
+        var result = await supabase
+            .from('teacher_availabilities')
+            .delete()
+            .eq('id', id);
+
+        if (result.error) throw result.error;
+        return true;
+    } catch (error) {
+        console.error('删除空闲时间段失败:', error);
+        return false;
+    }
+}
+
+async function bookTeacherAvailability(slotId, studentId, studentName) {
+    try {
+        var supabase = getSupabaseClient();
+
+        var slotResult = await supabase
+            .from('teacher_availabilities')
+            .select('*')
+            .eq('id', slotId)
+            .maybeSingle();
+
+        if (slotResult.error || !slotResult.data) {
+            throw new Error('Créneau introuvable');
+        }
+        if (slotResult.data.status !== 'available') {
+            throw new Error('Ce créneau n\'est plus disponible');
+        }
+        if (new Date(slotResult.data.start_time) < new Date()) {
+            throw new Error('Ce créneau a déjà expiré');
+        }
+
+        var result = await supabase
+            .from('teacher_availabilities')
+            .update({
+                status: 'booked',
+                student_id: studentId,
+                student_name: studentName,
+                booked_at: new Date().toISOString(),
+                updated_at: new Date().toISOString()
+            })
+            .eq('id', slotId)
+            .eq('status', 'available')
+            .select()
+            .single();
+
+        if (result.error) throw result.error;
+        return result.data;
+    } catch (error) {
+        console.error('预约失败:', error);
+        throw error;
+    }
+}
+
+async function cancelBooking(slotId) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('teacher_availabilities')
+            .update({
+                status: 'available',
+                student_id: null,
+                student_name: null,
+                course_id: null,
+                booked_at: null,
+                updated_at: new Date().toISOString()
+            })
+            .eq('id', slotId)
+            .eq('status', 'booked')
+            .select()
+            .maybeSingle();
+
+        if (result.error) throw result.error;
+        return result.data;
+    } catch (error) {
+        console.error('取消预约失败:', error);
+        return null;
+    }
+}
+
+async function bookSlotAndCreateCourse(slotId, studentId, studentName, courseType, duration, category) {
+    duration = duration || 2;
+    category = category || 'civique';
+
+    try {
+        var supabase = getSupabaseClient();
+        var slotResult = await supabase
+            .from('teacher_availabilities')
+            .select('*')
+            .eq('id', slotId)
+            .maybeSingle();
+
+        if (slotResult.error || !slotResult.data) {
+            throw new Error('Créneau introuvable');
+        }
+        var slot = slotResult.data;
+        if (slot.status !== 'available') throw new Error('Ce créneau n\'est plus disponible');
+        if (new Date(slot.start_time) < new Date()) throw new Error('Ce créneau a déjà expiré');
+
+  
+        var studentResult = await supabase
+            .from('users')
+            .select('credit, french_credit')
+            .eq('id', studentId)
+            .single();
+
+        if (studentResult.error) throw studentResult.error;
+        var field = category === 'francais' ? 'french_credit' : 'credit';
+        var studentCredit = (studentResult.data && studentResult.data[field]) || 0;
+        if (studentCredit < duration) {
+            throw new Error('Crédits insuffisants. Vous avez ' + studentCredit + 'h, besoin de ' + duration + 'h.');
+        }
+
+        var courseData = {
+            category: category,
+            student_id: studentId,
+            teacher_id: slot.teacher_id,
+            course_type: courseType || 'ec',
+            start_time: slot.start_time,
+            duration: duration,
+            status: 'scheduled',
+            source: 'student_booking',
+            created_at: new Date().toISOString()
+        };
+
+        var courseResult = await supabase
+            .from('courses_v2')
+            .insert([courseData])
+            .select()
+            .single();
+
+        if (courseResult.error) throw courseResult.error;
+        var course = courseResult.data;
+
+        var updateCreditData = {};
+        updateCreditData[field] = studentCredit - duration;
+
+        var creditResult = await supabase
+            .from('users')
+            .update(updateCreditData)
+            .eq('id', studentId);
+
+        if (creditResult.error) {
+            await supabase.from('courses_v2').delete().eq('id', course.id);
+            throw creditResult.error;
+        }
+
+        var slotUpdateResult = await supabase
+            .from('teacher_availabilities')
+            .update({
+                status: 'booked',
+                student_id: studentId,
+                student_name: studentName,
+                course_id: course.id,
+                booked_at: new Date().toISOString(),
+                updated_at: new Date().toISOString()
+            })
+            .eq('id', slotId)
+            .eq('status', 'available')
+            .select()
+            .single();
+
+        if (slotUpdateResult.error) {
+            await supabase.from('courses_v2').delete().eq('id', course.id);
+            var rollbackData = {};
+            rollbackData[field] = studentCredit;
+            await supabase.from('users').update(rollbackData).eq('id', studentId);
+            throw slotUpdateResult.error;
+        }
+
+        return { course: course, slot: slotUpdateResult.data };
+    } catch (error) {
+        console.error('预约失败:', error);
+        throw error;
+    }
+}
+
+async function cancelStudentBooking(courseId) {
+    try {
+        var supabase = getSupabaseClient();
+
+        var courseResult = await supabase
+            .from('courses_v2')
+            .select('*')
+            .eq('id', courseId)
+            .maybeSingle();
+
+        if (courseResult.error || !courseResult.data) {
+            throw new Error('Cours introuvable');
+        }
+        var course = courseResult.data;
+        if (course.source !== 'student_booking') throw new Error('Ce cours n\'a pas été créé par une réservation');
+        if (course.status === 'cancelled') throw new Error('Ce cours est déjà annulé');
+
+        var slotResult = await supabase
+            .from('teacher_availabilities')
+            .select('*')
+            .eq('course_id', courseId)
+            .maybeSingle();
+
+        var field = course.category === 'francais' ? 'french_credit' : 'credit';
+        var studentResult = await supabase
+            .from('users')
+            .select(field)
+            .eq('id', course.student_id)
+            .single();
+
+        if (studentResult.data) {
+            var newCredit = (studentResult.data[field] || 0) + (course.duration || 2);
+            var updateData = {};
+            updateData[field] = newCredit;
+            await supabase.from('users').update(updateData).eq('id', course.student_id);
+        }
+
+        var courseUpdateResult = await supabase
+            .from('courses_v2')
+            .update({
+                status: 'cancelled',
+                cancel_reason: 'Annulé par l\'étudiant'
+            })
+            .eq('id', courseId);
+
+        if (courseUpdateResult.error) throw courseUpdateResult.error;
+
+        if (slotResult.data) {
+            await supabase
+                .from('teacher_availabilities')
+                .update({
+                    status: 'available',
+                    student_id: null,
+                    student_name: null,
+                    course_id: null,
+                    booked_at: null,
+                    updated_at: new Date().toISOString()
+                })
+                .eq('id', slotResult.data.id);
+        }
+
+        return true;
+    } catch (error) {
+        console.error('取消预约失败:', error);
+        throw error;
+    }
+}
+
+// ============================================================
+// 【模块五】公民考试 - 错题集（mistakes 表不变）
+// ============================================================
+
+async function recordMistakeToDB(studentInfo, question, userAnswer, testType) {
+    // ============================================================
+    // 1. 校验 question
+    // ============================================================
+    if (!question || !question.question || !question.options || !Array.isArray(question.options)) {
+        console.error('❌ 记录错题失败：问题数据不完整', question);
+        return null;
+    }
+
+    // ============================================================
+    // 2. 把 answer 统一转成数字索引（支持 0-3 数字 / "A"-"D" 字母 / "0"-"3" 字符串）
+    // ============================================================
+    function normalizeAnswer(val) {
+        if (val === null || val === undefined) return null;
+
+        // 已是数字
+        if (typeof val === 'number') {
+            return (val >= 0 && val < question.options.length) ? val : null;
+        }
+
+        // 字符串：可能是 "A" / "a" / "B" ...
+        if (typeof val === 'string') {
+            var s = val.trim();
+            if (s.length === 1) {
+                var code = s.toUpperCase().charCodeAt(0);
+                if (code >= 65 && code <= 68) {  // A-D
+                    var idx = code - 65;
+                    return (idx < question.options.length) ? idx : null;
+                }
+            }
+            // 也可能是 "0" / "1" / "2" / "3"
+            var n = parseInt(s, 10);
+            if (!isNaN(n) && n >= 0 && n < question.options.length) {
+                return n;
+            }
+        }
+
+        return null;
+    }
+
+    var correctAnswer = normalizeAnswer(question.answer);
+    var userAnswerIdx = normalizeAnswer(userAnswer);
+
+    // 用户没选 → 默认 0
+    if (userAnswerIdx === null) {
+        userAnswerIdx = 0;
+    }
+
+    // 正确答案取不到 → 记录但警告
+    if (correctAnswer === null) {
+        console.warn('⚠️ 记录错题：无法解析正确答案', question.answer, '，默认为 0');
+        correctAnswer = 0;
+    }
+
+    // ============================================================
+    // 3. 生成稳定的 question_id（用于去重）
+    // ============================================================
+    var questionId = question.question_id
+        || question.id
+        || ('local_' + studentInfo.name + '_' + (question.question || '').substring(0, 40));
+
+    // ============================================================
+    // 4. 写入数据库
+    // ============================================================
+    try {
+        var supabase = getSupabaseClient();
+
+        // 先查这个学生是否已经错过这道题
+        var findResult = await supabase
+            .from('mistakes')
+            .select('id, times_wrong')
+            .eq('student_name', studentInfo.name)
+            .eq('question_id', questionId)
+            .maybeSingle();
+
+        // 已有记录 → 更新
+        if (findResult.data) {
+            var newTimes = (findResult.data.times_wrong || 0) + 1;
+            var updateResult = await supabase
+                .from('mistakes')
+                .update({
+                    times_wrong: newTimes,
+                    user_answer: userAnswerIdx,
+                    correct_answer: correctAnswer,   // 🔥 顺便纠正
+                    updated_at: new Date().toISOString(),
+                    mastered: false
+                })
+                .eq('id', findResult.data.id)
+                .select('id')
+                .single();
+
+            if (updateResult.error) {
+                console.error('❌ 更新错题失败:', updateResult.error.message);
+                return null;
+            }
+            return updateResult.data.id;
+        }
+
+        // 没有记录 → 插入新错题
+        var mistakeData = {
+            student_name: studentInfo.name,
+            question_id: questionId,
+            question: question.question,
+            category: question.category || question.theme || question['主题'] || 'Autre',
+            difficulty: question['难度'] || question.difficulty || '中等',
+            options: question.options,
+            correct_answer: correctAnswer,
+            user_answer: userAnswerIdx,
+            test_type: testType || null,
+            explanation: question.explanation || question['解释'] || '',
+            times_wrong: 1,
+            mastered: false,
+            created_at: new Date().toISOString(),
+            updated_at: new Date().toISOString()
+        };
+
+        var insertResult = await supabase
+            .from('mistakes')
+            .insert([mistakeData])
+            .select('id')
+            .single();
+
+        if (insertResult.error) {
+            console.error('❌ 插入错题失败:', insertResult.error.message);
+            return null;
+        }
+        return insertResult.data.id;
+
+    } catch (error) {
+        console.error('❌ 记录错题异常:', error);
+        return null;
+    }
+}
+
+async function getStudentMistakes(studentName) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('mistakes')
+            .select('*')
+            .eq('student_name', studentName)
+            .order('created_at', { ascending: false });
+        if (result.error) throw result.error;
+        return result.data || [];
+    } catch (error) {
+        console.error('获取错题失败:', error);
+        return [];
+    }
+}
+
 async function getMistakesStats(studentName) {
     try {
-        const mistakes = await getStudentMistakes(studentName);
-        
-        const total = mistakes.length;
-        const themes = [...new Set(mistakes.map(m => m.category || m.theme || 'Autre'))].length;
-        const mastered = mistakes.filter(m => m.mastered).length;
-        const improvement = total > 0 ? Math.round((mastered / total) * 100) : 0;
-        
-        return {
-            total,
-            themes,
-            improvement
-        };
+        var mistakes = await getStudentMistakes(studentName);
+        var total = mistakes.length;
+        var themesList = [];
+        var seen = {};
+        mistakes.forEach(function(m) {
+            var t = m.category || m.theme || 'Autre';
+            if (!seen[t]) { seen[t] = true; themesList.push(t); }
+        });
+        var mastered = mistakes.filter(function(m) { return m.mastered; }).length;
+        var improvement = total > 0 ? Math.round((mastered / total) * 100) : 0;
+        return { total: total, themes: themesList.length, improvement: improvement };
     } catch (error) {
         console.error('获取错题统计失败:', error);
         return { total: 0, themes: 0, improvement: 0 };
     }
 }
 
-// 删除错题 - 确保返回布尔值
 async function deleteMistake(mistakeId) {
     try {
-        console.log('删除错题:', mistakeId);
-        
-        // 检查是否是本地存储的错题
-        const isLocal = mistakeId.toString().includes('local_');
-        
-        if (isLocal) {
-            // 从本地存储删除
-            const match = mistakeId.match(/local_(.+?)_/);
-            const studentName = match ? match[1] : 'unknown';
-            const localKey = `mistakes_${studentName}`;
-            
-            const localData = JSON.parse(localStorage.getItem(localKey) || '[]');
-            const newData = localData.filter(m => m.id !== mistakeId);
-            
-            localStorage.setItem(localKey, JSON.stringify(newData));
-            console.log('本地错题删除成功');
-            return true;
-        }
-        
-        // 删除Supabase中的记录
-        const supabase = getSupabaseClient();
-        const { error } = await supabase
-            .from('mistakes')
-            .delete()
-            .eq('id', mistakeId);
-        
-        if (error) {
-            console.error('删除错题失败:', error);
-            return false;
-        }
-        
-        console.log('云端错题删除成功');
+        var supabase = getSupabaseClient();
+        var result = await supabase.from('mistakes').delete().eq('id', mistakeId);
+        if (result.error) throw result.error;
         return true;
-        
     } catch (error) {
-        console.error('删除错题异常:', error);
+        console.error('删除错题失败:', error);
         return false;
     }
 }
 
-// 清空学生所有错题 - 确保返回布尔值
 async function clearAllMistakes(studentName) {
     try {
-        console.log('清空所有错题:', studentName);
-        
-        // 1. 清空本地存储
-        localStorage.removeItem(`mistakes_${studentName}`);
-        
-        // 2. 尝试清空Supabase中的记录
-        try {
-            const supabase = getSupabaseClient();
-            const { error } = await supabase
-                .from('mistakes')
-                .delete()
-                .eq('student_name', studentName);
-            
-            if (error) {
-                console.warn('Supabase清空失败（不影响操作）:', error.message);
-            }
-        } catch (supabaseError) {
-            console.warn('Supabase操作异常（不影响操作）:', supabaseError.message);
-        }
-        
-        console.log('所有错题已清空');
+        var supabase = getSupabaseClient();
+        await supabase.from('mistakes').delete().eq('student_name', studentName);
         return true;
-        
     } catch (error) {
-        console.error('清空错题异常:', error);
+        console.error('清空错题失败:', error);
         return false;
     }
 }
 
-// 标记错题为已掌握 - 确保返回布尔值
-async function markMistakeAsMastered(mistakeId, mastered = true) {
+async function markMistakeAsMastered(mistakeId, mastered) {
+    if (mastered === undefined) mastered = true;
     try {
-        console.log('标记错题状态:', { mistakeId, mastered });
-        
-        // 检查是否是本地存储的错题
-        const isLocal = mistakeId.toString().includes('local_');
-        
-        if (isLocal) {
-            // 更新本地存储
-            const match = mistakeId.match(/local_(.+?)_/);
-            const studentName = match ? match[1] : 'unknown';
-            const localKey = `mistakes_${studentName}`;
-            
-            const localData = JSON.parse(localStorage.getItem(localKey) || '[]');
-            const index = localData.findIndex(m => m.id === mistakeId);
-            
-            if (index >= 0) {
-                localData[index].mastered = mastered;
-                localData[index].updated_at = new Date().toISOString();
-                localStorage.setItem(localKey, JSON.stringify(localData));
-                console.log('本地错题状态更新成功');
-                return true;
-            }
-            return false;
-        }
-        
-        // 更新Supabase中的记录
-        const supabase = getSupabaseClient();
-        const { error } = await supabase
+        var supabase = getSupabaseClient();
+        var result = await supabase
             .from('mistakes')
-            .update({
-                mastered: mastered,
-                updated_at: new Date().toISOString()
-            })
+            .update({ mastered: mastered, updated_at: new Date().toISOString() })
             .eq('id', mistakeId);
-        
-        if (error) {
-            console.error('更新错题状态失败:', error);
-            return false;
-        }
-        
-        console.log('云端错题状态更新成功');
+        if (result.error) throw result.error;
         return true;
-        
     } catch (error) {
-        console.error('标记错题状态异常:', error);
+        console.error('标记错题失败:', error);
         return false;
     }
 }
 
-// ==================== 导出所有功能 ====================
+// ============================================================
+// 【模块六】公民考试 - 成绩记录（test_scores 表不变）
+// ============================================================
 
+async function recordTestScore(studentInfo, testResult) {
+    try {
+        var supabase = getSupabaseClient();
+        var scoreRecord = {
+            student_name: studentInfo.name || 'Étudiant',
+            student_id: studentInfo.id || studentInfo.userId || null,
+            test_type: testResult.testType || 'unknown',
+            score: testResult.score || 0,
+            total: testResult.total || 40,
+            percentage: testResult.percentage || 0,
+            passed: testResult.passed || false,
+            test_date: new Date().toISOString(),
+            details: {
+                correct_count: testResult.score || 0,
+                wrong_count: (testResult.total || 40) - (testResult.score || 0),
+                duration: testResult.duration || null,
+                question_count: testResult.questions ? testResult.questions.length : 0
+            }
+        };
+
+        var result = await supabase
+            .from('test_scores')
+            .insert([scoreRecord])
+            .select();
+
+        if (result.error) {
+            console.error('插入成绩失败:', result.error.message);
+            return null;
+        }
+        return result.data ? result.data[0] : null;
+    } catch (error) {
+        console.error('记录成绩失败:', error);
+        return null;
+    }
+}
+
+async function getStudentScores(studentName, testType) {
+    try {
+        var supabase = getSupabaseClient();
+        var query = supabase
+            .from('test_scores')
+            .select('*')
+            .eq('student_name', studentName)
+            .order('test_date', { ascending: false });
+
+        if (testType) query = query.eq('test_type', testType);
+
+        var result = await query;
+        if (result.error) {
+            console.error('获取成绩失败:', result.error);
+            return [];
+        }
+        return result.data || [];
+    } catch (error) {
+        console.error('获取成绩失败:', error);
+        return [];
+    }
+}
+
+async function getScoreStats(studentName) {
+    try {
+        var scores = await getStudentScores(studentName);
+        if (scores.length === 0) {
+            return { total: 0, average: 0, best: 0, worst: 0, passed: 0, failed: 0 };
+        }
+        var percentages = scores.map(function(s) { return s.percentage || 0; });
+        var total = scores.length;
+        var sum = 0;
+        percentages.forEach(function(p) { sum += p; });
+        var average = Math.round(sum / total);
+        var best = Math.max.apply(null, percentages);
+        var worst = Math.min.apply(null, percentages);
+        var passed = scores.filter(function(s) { return s.passed; }).length;
+        return { total: total, average: average, best: best, worst: worst, passed: passed, failed: total - passed };
+    } catch (error) {
+        console.error('获取成绩统计失败:', error);
+        return { total: 0, average: 0, best: 0, worst: 0, passed: 0, failed: 0 };
+    }
+}
+
+// ============================================================
+// 【模块七】法语模块 - 考试 / 资源 / 报名（原有表不变）
+// ============================================================
+
+async function getFrenchExams() {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('french_exams')
+            .select('*')
+            .order('sort_order', { ascending: true });
+        if (result.error) throw result.error;
+        return result.data || [];
+    } catch (error) {
+        console.error('获取法语考试失败:', error);
+        return [];
+    }
+}
+
+async function getFrenchExamById(id) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('french_exams')
+            .select('*')
+            .eq('id', id)
+            .single();
+        if (result.error) throw result.error;
+        return result.data;
+    } catch (error) {
+        console.error('获取法语考试失败:', error);
+        return null;
+    }
+}
+
+async function createFrenchExam(examData) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('french_exams')
+            .insert([examData])
+            .select()
+            .single();
+        if (result.error) throw result.error;
+        return result.data;
+    } catch (error) {
+        console.error('创建法语考试失败:', error);
+        return null;
+    }
+}
+
+async function updateFrenchExam(id, examData) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('french_exams')
+            .update(examData)
+            .eq('id', id)
+            .select()
+            .single();
+        if (result.error) throw result.error;
+        return result.data;
+    } catch (error) {
+        console.error('更新法语考试失败:', error);
+        return null;
+    }
+}
+
+async function deleteFrenchExam(id) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase.from('french_exams').delete().eq('id', id);
+        if (result.error) throw result.error;
+        return true;
+    } catch (error) {
+        console.error('删除法语考试失败:', error);
+        return false;
+    }
+}
+
+async function getFrenchProgress(studentId) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('french_progress')
+            .select('*')
+            .eq('student_id', studentId)
+            .order('created_at', { ascending: false });
+        if (result.error) throw result.error;
+        return result.data || [];
+    } catch (error) {
+        console.error('获取学习进度失败:', error);
+        return [];
+    }
+}
+
+async function createFrenchProgress(progressData) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('french_progress')
+            .insert([progressData])
+            .select()
+            .single();
+        if (result.error) throw result.error;
+        return result.data;
+    } catch (error) {
+        console.error('创建学习进度失败:', error);
+        return null;
+    }
+}
+
+async function updateFrenchProgress(id, progressData) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('french_progress')
+            .update(progressData)
+            .eq('id', id)
+            .select()
+            .single();
+        if (result.error) throw result.error;
+        return result.data;
+    } catch (error) {
+        console.error('更新学习进度失败:', error);
+        return null;
+    }
+}
+
+async function getFrenchRegistrations(studentId) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('french_registrations')
+            .select('*, exam:french_exams(*)')
+            .eq('student_id', studentId);
+        if (result.error) throw result.error;
+        return result.data || [];
+    } catch (error) {
+        console.error('获取考试报名失败:', error);
+        return [];
+    }
+}
+
+async function createFrenchRegistration(registrationData) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('french_registrations')
+            .insert([registrationData])
+            .select()
+            .single();
+        if (result.error) throw result.error;
+        return result.data;
+    } catch (error) {
+        console.error('报名考试失败:', error);
+        return null;
+    }
+}
+
+async function getFrenchResources(level, category) {
+    try {
+        var supabase = getSupabaseClient();
+        var query = supabase
+            .from('french_resources')
+            .select('*')
+            .order('created_at', { ascending: false });
+
+        if (level) query = query.eq('level', level);
+        if (category) query = query.eq('category', category);
+
+        var result = await query;
+        if (result.error) throw result.error;
+        return result.data || [];
+    } catch (error) {
+        console.error('获取学习资源失败:', error);
+        return [];
+    }
+}
+
+// ============================================================
+// 【模块八】写作模块（writing_topics / writing_history）
+// ============================================================
+
+async function getWritingTopics(taskType, level) {
+    try {
+        var supabase = getSupabaseClient();
+        var query = supabase
+            .from('writing_topics')
+            .select('*')
+            .order('sort_order', { ascending: true });
+
+        if (taskType) query = query.eq('task_type', taskType);
+        if (level && level !== 'all') query = query.eq('level', level);
+
+        var result = await query;
+        if (result.error) throw result.error;
+        return result.data || [];
+    } catch (error) {
+        console.error('获取写作题目失败:', error);
+        return [];
+    }
+}
+
+async function getWritingTopicById(id) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('writing_topics')
+            .select('*')
+            .eq('id', id)
+            .single();
+        if (result.error) throw result.error;
+        return result.data;
+    } catch (error) {
+        console.error('获取写作题目失败:', error);
+        return null;
+    }
+}
+
+async function createWritingTopic(topicData) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('writing_topics')
+            .insert([topicData])
+            .select()
+            .single();
+        if (result.error) throw result.error;
+        return result.data;
+    } catch (error) {
+        console.error('创建写作题目失败:', error);
+        return null;
+    }
+}
+
+async function updateWritingTopic(id, topicData) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('writing_topics')
+            .update(topicData)
+            .eq('id', id)
+            .select()
+            .single();
+        if (result.error) throw result.error;
+        return result.data;
+    } catch (error) {
+        console.error('更新写作题目失败:', error);
+        return null;
+    }
+}
+
+async function deleteWritingTopic(id) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase.from('writing_topics').delete().eq('id', id);
+        if (result.error) throw result.error;
+        return true;
+    } catch (error) {
+        console.error('删除写作题目失败:', error);
+        return false;
+    }
+}
+
+async function saveWritingHistory(historyData) {
+    try {
+        var supabase = getSupabaseClient();
+        var insertData = {};
+        for (var k in historyData) {
+            if (historyData.hasOwnProperty(k)) insertData[k] = historyData[k];
+        }
+        insertData.created_at = new Date().toISOString();
+
+        var result = await supabase
+            .from('writing_history')
+            .insert([insertData])
+            .select()
+            .single();
+
+        if (result.error) throw result.error;
+        return result.data;
+    } catch (error) {
+        console.error('保存写作历史失败:', error);
+        return null;
+    }
+}
+
+async function getWritingHistory(userId, userName) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('writing_history')
+            .select('*')
+            .eq('user_id', userId)
+            .order('created_at', { ascending: false });
+        if (result.error) throw result.error;
+        return result.data || [];
+    } catch (error) {
+        console.error('获取写作历史失败:', error);
+        return [];
+    }
+}
+
+async function deleteWritingHistory(id) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase.from('writing_history').delete().eq('id', id);
+        if (result.error) throw result.error;
+        return true;
+    } catch (error) {
+        console.error('删除写作历史失败:', error);
+        return false;
+    }
+}
+
+// ============================================================
+// 【模块九】AI 批改（优先 Mistral，备用 Gemini）
+// ============================================================
+
+async function callMistralAI(prompt, userText) {
+    try {
+        var supabase = getSupabaseClient();
+        var configResult = await supabase
+            .from('app_config')
+            .select('value')
+            .eq('key', 'mistral_api_key')
+            .single();
+
+        if (configResult.error || !configResult.data) {
+            console.warn('⚠️ Mistral API Key 未配置，尝试 Gemini...');
+            return callGeminiAI(prompt, userText);
+        }
+
+        var apiKey = configResult.data.value;
+        var url = 'https://api.mistral.ai/v1/chat/completions';
+
+        var response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + apiKey
+            },
+            body: JSON.stringify({
+                model: 'mistral-small-latest',
+                messages: [
+                    { role: 'system', content: 'Tu es un professeur de français expert DELF, spécialiste en évaluation des niveaux A1 à C2 du CECRL. Réponds toujours en français.' },
+                    { role: 'user', content: prompt + '\n\n' + userText }
+                ],
+                temperature: 0.7,
+                max_tokens: 2048
+            })
+        });
+
+        if (!response.ok) {
+            if (response.status === 429) {
+                return callGeminiAI(prompt, userText);
+            }
+            throw new Error('Mistral API 错误: ' + response.status);
+        }
+
+        var dataResponse = await response.json();
+        var result = (dataResponse.choices && dataResponse.choices[0] && dataResponse.choices[0].message && dataResponse.choices[0].message.content) || '';
+        if (!result) throw new Error('Mistral 未返回有效结果');
+        return result;
+    } catch (error) {
+        console.error('❌ Mistral 调用失败:', error.message);
+        return callGeminiAI(prompt, userText);
+    }
+}
+
+async function callGeminiAI(prompt, userText) {
+    try {
+        var supabase = getSupabaseClient();
+        var configResult = await supabase
+            .from('app_config')
+            .select('value')
+            .eq('key', 'gemini_api_key')
+            .single();
+
+        if (configResult.error || !configResult.data) {
+            throw new Error('没有可用的 AI API Key');
+        }
+
+        var apiKey = configResult.data.value;
+        var MODEL = 'gemini-2.0-flash-lite-001';
+        var url = 'https://generativelanguage.googleapis.com/v1beta/models/' + MODEL + ':generateContent?key=' + apiKey;
+
+        var response = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                contents: [{ parts: [{ text: prompt + '\n\n' + userText }] }],
+                generationConfig: { temperature: 0.7, maxOutputTokens: 2048 }
+            })
+        });
+
+        if (!response.ok) {
+            var errorJson = await response.json().catch(function() { return {}; });
+            throw new Error('Gemini API 错误: ' + ((errorJson.error && errorJson.error.message) || response.status));
+        }
+
+        var dataResponse = await response.json();
+        var result = (dataResponse.candidates && dataResponse.candidates[0] && dataResponse.candidates[0].content && dataResponse.candidates[0].content.parts && dataResponse.candidates[0].content.parts[0] && dataResponse.candidates[0].content.parts[0].text) || '';
+        if (!result) throw new Error('Gemini 未返回有效结果');
+        return result;
+    } catch (error) {
+        console.error('❌ Gemini 调用失败:', error);
+        throw error;
+    }
+}
+
+function getWritingPrompt(taskType, topicTitle, wordMin, wordMax) {
+    var basePrompt = 'Tu es un professeur de français expert DELF.\n\n' +
+        '📌 SUJET : ' + topicTitle + '\n' +
+        '📏 NOMBRE DE MOTS : ' + wordMin + '-' + wordMax + ' mots\n\n' +
+        'À la fin, indique le niveau CECRL estimé (A1-C2) avec justification.\n\n' +
+        'RÉPONDS EN FRANÇAIS :\n\n' +
+        '📝 Évaluation\n' +
+        '✅ Ce qui est bien\n' +
+        '🔧 À améliorer\n' +
+        '💡 Conseils\n' +
+        '📄 Proposition de correction\n' +
+        '📊 Niveau CECRL estimé\n\n' +
+        '---\n\nTEXTE DE L\'ÉLÈVE :';
+
+    return basePrompt;
+}
+
+// ============================================================
+// 【模块十】语法模块
+// ============================================================
+
+async function getGrammarTopics(level) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('grammar_topics')
+            .select('*')
+            .eq('level', level)
+            .order('sort_order', { ascending: true });
+        if (result.error) throw result.error;
+        return result.data || [];
+    } catch (error) {
+        console.error('获取语法知识点失败:', error);
+        return [];
+    }
+}
+
+async function getGrammarExercises(level, topicId) {
+    try {
+        var supabase = getSupabaseClient();
+        var query = supabase
+            .from('grammar_exercises')
+            .select('*')
+            .eq('level', level)
+            .order('sort_order', { ascending: true });
+        if (topicId) query = query.eq('topic_id', topicId);
+        var result = await query;
+        if (result.error) throw result.error;
+        return result.data || [];
+    } catch (error) {
+        console.error('获取语法习题失败:', error);
+        return [];
+    }
+}
+
+async function getGrammarQuizzes(level) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('grammar_quizzes')
+            .select('*')
+            .eq('level', level)
+            .order('sort_order', { ascending: true });
+        if (result.error) throw result.error;
+        return result.data || [];
+    } catch (error) {
+        console.error('获取语法测验失败:', error);
+        return [];
+    }
+}
+
+async function getQuizQuestions(quizId) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('grammar_quiz_questions')
+            .select('exercise_id, sort_order, grammar_exercises (*)')
+            .eq('quiz_id', quizId)
+            .order('sort_order', { ascending: true });
+        if (result.error) throw result.error;
+        return (result.data || []).map(function(item) {
+            var ex = item.grammar_exercises || {};
+            var out = {};
+            for (var k in ex) {
+                if (ex.hasOwnProperty(k)) out[k] = ex[k];
+            }
+            out.quiz_id = quizId;
+            return out;
+        });
+    } catch (error) {
+        console.error('获取测验题目失败:', error);
+        return [];
+    }
+}
+
+async function saveGrammarProgress(progressData) {
+    try {
+        var supabase = getSupabaseClient();
+        var key = progressData.topic_id ? 'topic_id' : 'exercise_id';
+        var val = progressData.topic_id || progressData.exercise_id || progressData.quiz_id;
+
+        var checkResult = await supabase
+            .from('grammar_progress')
+            .select('id')
+            .eq('user_id', progressData.user_id)
+            .eq(key, val)
+            .maybeSingle();
+
+        if (checkResult.data) {
+            var updateResult = await supabase
+                .from('grammar_progress')
+                .update({
+                    status: progressData.status,
+                    score: progressData.score || 0,
+                    attempts: 1,
+                    last_attempt_at: new Date().toISOString(),
+                    updated_at: new Date().toISOString()
+                })
+                .eq('id', checkResult.data.id);
+            if (updateResult.error) throw updateResult.error;
+        } else {
+            var insertResult = await supabase
+                .from('grammar_progress')
+                .insert([{
+                    user_id: progressData.user_id,
+                    topic_id: progressData.topic_id || null,
+                    exercise_id: progressData.exercise_id || null,
+                    quiz_id: progressData.quiz_id || null,
+                    status: progressData.status,
+                    score: progressData.score || 0,
+                    attempts: 1,
+                    last_attempt_at: new Date().toISOString(),
+                    created_at: new Date().toISOString(),
+                    updated_at: new Date().toISOString()
+                }]);
+            if (insertResult.error) throw insertResult.error;
+        }
+        return true;
+    } catch (error) {
+        console.error('保存语法进度失败:', error);
+        return false;
+    }
+}
+
+async function getGrammarProgress(userId) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('grammar_progress')
+            .select('*')
+            .eq('user_id', userId);
+        if (result.error) throw result.error;
+        return result.data || [];
+    } catch (error) {
+        console.error('获取语法进度失败:', error);
+        return [];
+    }
+}
+
+// ============================================================
+// 【模块十一】阅读模块
+// ============================================================
+
+async function getReadingTexts(level) {
+    try {
+        var supabase = getSupabaseClient();
+        var query = supabase.from('reading_texts').select('*').order('title', { ascending: true });
+        if (level) query = query.eq('level', level);
+        var result = await query;
+        if (result.error) throw result.error;
+        return result.data || [];
+    } catch (error) {
+        console.error('获取阅读文章失败:', error);
+        return [];
+    }
+}
+
+async function getReadingQuestions(textId) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('reading_questions')
+            .select('*')
+            .eq('text_id', textId)
+            .order('sort_order', { ascending: true });
+        if (result.error) throw result.error;
+        return result.data || [];
+    } catch (error) {
+        console.error('获取阅读题目失败:', error);
+        return [];
+    }
+}
+
+async function getReadingQuestionsByLevel(level) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('reading_questions')
+            .select('*, text:reading_texts!inner(level)')
+            .eq('text.level', level);
+        if (result.error) throw result.error;
+        return result.data || [];
+    } catch (error) {
+        console.error('获取阅读题目失败:', error);
+        return [];
+    }
+}
+
+async function saveReadingProgress(progressData) {
+    try {
+        var supabase = getSupabaseClient();
+        var checkResult = await supabase
+            .from('reading_progress')
+            .select('id')
+            .eq('user_id', progressData.user_id)
+            .eq('text_id', progressData.text_id)
+            .maybeSingle();
+
+        if (checkResult.data) {
+            var updateResult = await supabase
+                .from('reading_progress')
+                .update({ status: progressData.status, updated_at: new Date().toISOString() })
+                .eq('id', checkResult.data.id);
+            if (updateResult.error) throw updateResult.error;
+        } else {
+            var insertResult = await supabase
+                .from('reading_progress')
+                .insert([{
+                    user_id: progressData.user_id,
+                    text_id: progressData.text_id,
+                    status: progressData.status || 'in_progress',
+                    created_at: new Date().toISOString(),
+                    updated_at: new Date().toISOString()
+                }]);
+            if (insertResult.error) throw insertResult.error;
+        }
+        return true;
+    } catch (error) {
+        console.error('保存阅读进度失败:', error);
+        return false;
+    }
+}
+
+async function getReadingProgress(userId) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('reading_progress')
+            .select('*')
+            .eq('user_id', userId);
+        if (result.error) throw result.error;
+        return result.data || [];
+    } catch (error) {
+        console.error('获取阅读进度失败:', error);
+        return [];
+    }
+}
+
+// ============================================================
+// 【模块十二】听力模块
+// ============================================================
+
+async function getListeningTexts(level) {
+    try {
+        var supabase = getSupabaseClient();
+        var query = supabase.from('listening_texts').select('*').order('sort_order', { ascending: true });
+        if (level) query = query.eq('level', level);
+        var result = await query;
+        if (result.error) throw result.error;
+        return result.data || [];
+    } catch (error) {
+        console.error('获取听力失败:', error);
+        return [];
+    }
+}
+
+async function getListeningQuestions(textId) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('listening_questions')
+            .select('*')
+            .eq('text_id', textId)
+            .order('sort_order', { ascending: true });
+        if (result.error) throw result.error;
+        return result.data || [];
+    } catch (error) {
+        console.error('获取听力题目失败:', error);
+        return [];
+    }
+}
+
+async function saveListeningProgress(progressData) {
+    try {
+        var supabase = getSupabaseClient();
+        var checkResult = await supabase
+            .from('listening_progress')
+            .select('id')
+            .eq('user_id', progressData.user_id)
+            .eq('text_id', progressData.text_id)
+            .maybeSingle();
+
+        if (checkResult.data) {
+            var updateResult = await supabase
+                .from('listening_progress')
+                .update({
+                    status: progressData.status,
+                    score: progressData.score || 0,
+                    attempts: 1,
+                    last_attempt_at: new Date().toISOString(),
+                    updated_at: new Date().toISOString()
+                })
+                .eq('id', checkResult.data.id);
+            if (updateResult.error) throw updateResult.error;
+        } else {
+            var insertResult = await supabase
+                .from('listening_progress')
+                .insert([{
+                    user_id: progressData.user_id,
+                    text_id: progressData.text_id,
+                    status: progressData.status || 'in_progress',
+                    score: progressData.score || 0,
+                    attempts: 1,
+                    last_attempt_at: new Date().toISOString(),
+                    created_at: new Date().toISOString(),
+                    updated_at: new Date().toISOString()
+                }]);
+            if (insertResult.error) throw insertResult.error;
+        }
+        return true;
+    } catch (error) {
+        console.error('保存听力进度失败:', error);
+        return false;
+    }
+}
+
+async function getListeningProgress(userId) {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('listening_progress')
+            .select('*')
+            .eq('user_id', userId);
+        if (result.error) throw result.error;
+        return result.data || [];
+    } catch (error) {
+        console.error('获取听力进度失败:', error);
+        return [];
+    }
+}
+
+// ============================================================
+// 【模块十三】预注册
+// ============================================================
+
+async function getPreRegistrations() {
+    try {
+        var supabase = getSupabaseClient();
+        var result = await supabase
+            .from('pre_registrations')
+            .select('*')
+            .order('created_at', { ascending: false });
+        if (result.error) throw result.error;
+        return result.data || [];
+    } catch (error) {
+        console.error('获取预注册失败:', error);
+        return [];
+    }
+}
+
+// ============================================================
+// 导出到 window.supabaseAuth
+// ============================================================
 window.supabaseAuth = {
-    // 学生验证
-    validateStudent,
-    checkAccess,
-    
-    // 错题集功能
+    // 工具
+    getSupabaseClient: getSupabaseClient,
+    getTypeLabel: getTypeLabel,
+    getTypeClass: getTypeClass,
+
+    // 用户
+    validateUser: validateUser,
+    validateStudent: validateStudent,
+    validateFrenchUser: validateFrenchUser,
+    checkAccess: checkAccess,
+    checkFrenchAccess: checkFrenchAccess,
+    getUserById: getUserById,
+    getUsersByRole: getUsersByRole,
+    getUsersByModule: getUsersByModule,
+    getAllUsers: getAllUsers,
+    getFrenchUsers: getFrenchUsers,
+    getFrenchStudents: getFrenchStudents,
+    getFrenchTeachers: getFrenchTeachers,
+    createUser: createUser,
+    createFrenchUser: createFrenchUser,
+    updateUser: updateUser,
+    updateFrenchUser: updateFrenchUser,
+    updateStudentEmail: updateStudentEmail,
+    deleteUser: deleteUser,
+    deleteFrenchUser: deleteFrenchUser,
+
+    // 课时
+    deductCredit: deductCredit,
+    refundCredit: refundCredit,
+
+    // 课程
+    getCourses: getCourses,
+    getFrenchCourses: getFrenchCourses,
+    getCourseById: getCourseById,
+    createCourse: createCourse,
+    updateCourse: updateCourse,
+    updateFrenchCourse: updateCourse,
+    deleteCourse: deleteCourse,
+    deleteFrenchCourse: deleteFrenchCourse,
+    forceDeleteFrenchCourse: forceDeleteFrenchCourse,
+    cancelCourse: cancelCourse,
+    getCoursesStats: getCoursesStats,
+    getFrenchCoursesStats: getFrenchCoursesStats,
+
+    // 空闲时间
+    getTeacherAvailabilities: getTeacherAvailabilities,
+    getAllAvailableSlots: getAllAvailableSlots,
+    getAllTeachersAvailableSlots: getAllTeachersAvailableSlots,
+    createTeacherAvailability: createTeacherAvailability,
+    deleteTeacherAvailability: deleteTeacherAvailability,
+    bookTeacherAvailability: bookTeacherAvailability,
+    cancelBooking: cancelBooking,
+    bookSlotAndCreateCourse: bookSlotAndCreateCourse,
+    cancelStudentBooking: cancelStudentBooking,
+
+    // 错题
     recordMistake: recordMistakeToDB,
-    getStudentMistakes,
-    getMistakesStats,
-    markMistakeAsMastered,
-    deleteMistake,
-    clearAllMistakes,
-    
-    // 工具函数
-    getSupabaseClient
+    getStudentMistakes: getStudentMistakes,
+    getMistakesStats: getMistakesStats,
+    markMistakeAsMastered: markMistakeAsMastered,
+    deleteMistake: deleteMistake,
+    clearAllMistakes: clearAllMistakes,
+
+    // 成绩
+    recordTestScore: recordTestScore,
+    getStudentScores: getStudentScores,
+    getScoreStats: getScoreStats,
+
+    // 法语考试
+    getFrenchExams: getFrenchExams,
+    getFrenchExamById: getFrenchExamById,
+    createFrenchExam: createFrenchExam,
+    updateFrenchExam: updateFrenchExam,
+    deleteFrenchExam: deleteFrenchExam,
+
+    // 法语进度
+    getFrenchProgress: getFrenchProgress,
+    createFrenchProgress: createFrenchProgress,
+    updateFrenchProgress: updateFrenchProgress,
+
+    // 法语报名
+    getFrenchRegistrations: getFrenchRegistrations,
+    createFrenchRegistration: createFrenchRegistration,
+
+    // 法语资源
+    getFrenchResources: getFrenchResources,
+
+    // 写作
+    getWritingTopics: getWritingTopics,
+    getWritingTopicById: getWritingTopicById,
+    createWritingTopic: createWritingTopic,
+    updateWritingTopic: updateWritingTopic,
+    deleteWritingTopic: deleteWritingTopic,
+    saveWritingHistory: saveWritingHistory,
+    getWritingHistory: getWritingHistory,
+    deleteWritingHistory: deleteWritingHistory,
+    callMistralAI: callMistralAI,
+    callGeminiAI: callGeminiAI,
+    getWritingPrompt: getWritingPrompt,
+
+    // 语法
+    getGrammarTopics: getGrammarTopics,
+    getGrammarExercises: getGrammarExercises,
+    getGrammarQuizzes: getGrammarQuizzes,
+    getQuizQuestions: getQuizQuestions,
+    saveGrammarProgress: saveGrammarProgress,
+    getGrammarProgress: getGrammarProgress,
+
+    // 阅读
+    getReadingTexts: getReadingTexts,
+    getReadingQuestions: getReadingQuestions,
+    getReadingQuestionsByLevel: getReadingQuestionsByLevel,
+    saveReadingProgress: saveReadingProgress,
+    getReadingProgress: getReadingProgress,
+
+    // 听力
+    getListeningTexts: getListeningTexts,
+    getListeningQuestions: getListeningQuestions,
+    saveListeningProgress: saveListeningProgress,
+    getListeningProgress: getListeningProgress,
+
+    // 预注册
+    getPreRegistrations: getPreRegistrations
 };
 
-console.log('window.supabaseAuth已设置完成');
-console.log('可用方法:', Object.keys(window.supabaseAuth));
+console.log('✅ Supabase 配置 v3 已加载');
+console.log('📚 方法数: ' + Object.keys(window.supabaseAuth).length);
+console.log('📋 users 表 | courses_v2 表');
